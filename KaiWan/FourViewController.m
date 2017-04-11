@@ -150,7 +150,6 @@
         make.centerY.equalTo(self.headIcon);
         
     }];
-    
     [setLabel makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.headIcon);
         make.right.equalTo(setBtn.left);

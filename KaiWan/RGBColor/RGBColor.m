@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 LHF. All rights reserved.
 //
 
-#import "RGBColor.h"
+#import "RGBColor.h"    
 
 #define SF_COLOR(RED, GREEN, BLUE, ALPHA)	[UIColor colorWithRed:RED green:GREEN blue:BLUE alpha:ALPHA]
 
