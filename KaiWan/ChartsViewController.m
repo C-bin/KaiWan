@@ -28,6 +28,11 @@
     [self setNavigationBar];
     
     [self creatUI];
+    [self reuqest];
+    
+}
+- (void)reuqest {
+    
 }
 - (void)creatUI {
     //21
