@@ -11,7 +11,10 @@
 @implementation RequestData
 + (void)GetDataWithURL:(NSString *)url parameters:(NSDictionary*)parameters sucsess:(NetworkingSucsess)sucsess fail:(NetworkingFail)fail andViewController:(UIViewController *)veiwCV{
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]init];
-    MBProgressHUD *mb = [MBProgressHUD showHUDAddedTo:veiwCV.view animated:YES];
+    MBProgressHUD *mb ;
+    if (veiwCV) {
+      mb = [MBProgressHUD showHUDAddedTo:veiwCV.view animated:YES];
+    }
     AFJSONResponseSerializer *response = [AFJSONResponseSerializer serializer];
     response.removesKeysWithNullValues = YES;
     manager.responseSerializer = response;

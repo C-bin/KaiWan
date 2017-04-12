@@ -12,6 +12,7 @@
 #import "ThirdViewController.h"
 #import "FourViewController.h"
 #import "MainViewController.h"
+#import "MakeDiscipleViewController.h"
 @interface AppDelegate ()
 {
     FirstViewController *_firstViewController;
@@ -20,7 +21,7 @@
     SecondViewController *_secondViewController;
     UINavigationController *_secondNagv;
     
-    ThirdViewController *_thirdViewController;
+    MakeDiscipleViewController *_thirdViewController;
     UINavigationController *_thirdNagv;
     
     FourViewController *_fourViewController;
@@ -60,7 +61,7 @@
     
     
     
-    _thirdViewController = [[ThirdViewController alloc]init];
+    _thirdViewController = [[MakeDiscipleViewController alloc]init];
     _thirdNagv = [[UINavigationController alloc]initWithRootViewController:_thirdViewController];
     UITabBarItem *conItem2 = [[UITabBarItem alloc]initWithTitle:@"收徒" image:[UIImage imageNamed:@"收徒"] selectedImage:[UIImage imageNamed:@"收徒点"]];
     _thirdNagv.tabBarItem = conItem2;

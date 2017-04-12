@@ -24,6 +24,23 @@
     self.titlestring = @"收徒";
     [self setNavigationBar];
     [self creatUI];
+    [self request];
+}
+- (void)request {
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Share.html?uid=%@",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
+        NSDictionary *dic = (NSDictionary *)response;
+        NSDictionary *dica = dic[@"data"];
+        self.todayDisciplelabel.text = [NSString stringWithFormat:@"今日收徒：%@",[NSString creatWithId:dica[@"tsons"]]];
+        self.todayEffectiveDis.text = [NSString stringWithFormat:@"今日有效收徒：%@",[NSString creatWithId:dica[@"invite_day_count_e"]]];
+        self.totalDIsciplelabel.text = [NSString stringWithFormat:@"累计收徒：%@",[NSString creatWithId:dica[@"invite_all_count"]]];
+        self.totalMoney.text = [NSString stringWithFormat:@"累计奖励：%@",[NSString creatWithId:dica[@"invite_money_sum"]]];
+        self.moneyLabel.text = [NSString creatWithId:dica[@"invite_money_day_sum"]];
+        
+    } fail:^(NSError *error) {
+        
+    } andViewController:self];
 }
 - (void)creatUI {
     UIView *headview = [[UIView alloc]init];
@@ -53,19 +70,15 @@
     
     self.todayDisciplelabel = [UILabel creatLabelWithFont:14 andbgcolor:nil andtextColor:SF_COLOR(215, 231, 255) andAligment:0];
     [headview addSubview:self.todayDisciplelabel];
-    self.todayDisciplelabel.text = @"今日收徒：1";
     
     self.todayEffectiveDis = [UILabel creatLabelWithFont:14 andbgcolor:nil andtextColor:SF_COLOR(215, 231, 255) andAligment:0];
     [headview addSubview:self.todayEffectiveDis];
-    self.todayEffectiveDis.text = @"今日有效收徒：1";
     
     self.totalDIsciplelabel = [UILabel creatLabelWithFont:14 andbgcolor:nil andtextColor:SF_COLOR(215, 231, 255) andAligment:0];
     [headview addSubview:self.totalDIsciplelabel];
-    self.totalDIsciplelabel.text = @"累计收徒：1";
     
     self.totalMoney = [UILabel creatLabelWithFont:14 andbgcolor:nil andtextColor:SF_COLOR(215, 231, 255) andAligment:0];
     [headview addSubview:self.totalMoney];
-    self.totalMoney.text = @"累计奖励：1";
     
     [self.moneyLabel makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo([UIView setHeight:15]);

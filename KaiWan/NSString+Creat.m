@@ -10,6 +10,7 @@
 
 @implementation NSString (Creat)
 + (NSString *)creatWithId:(id)objc {
+    
     NSString *str  = [NSString stringWithFormat:@"%@",objc];
     return str;
 }
