@@ -22,6 +22,10 @@
     
     [self setNavigationBar];
     [self setUI];
+    [self request];
+}
+- (void)request {
+    
 }
 - (void)setUI {
     UIButton *btn1 = [[UIButton alloc]init];

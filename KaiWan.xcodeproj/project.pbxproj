@@ -160,6 +160,9 @@
 		52D006051E9DBE0500794CAE /* 用户@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D006011E9DBE0500794CAE /* 用户@3x.png */; };
 		52D006091E9DC18E00794CAE /* PostPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D006081E9DC18E00794CAE /* PostPhoneViewController.m */; };
 		52D0060B1E9DC38F00794CAE /* 123123.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D0060A1E9DC38F00794CAE /* 123123.png */; };
+		52D0060E1E9E3CD400794CAE /* NoneListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D0060D1E9E3CD400794CAE /* NoneListView.m */; };
+		52D006121E9E3F4000794CAE /* 暂无记录-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D006101E9E3F4000794CAE /* 暂无记录-@2x.png */; };
+		52D006131E9E3F4000794CAE /* 暂无记录-@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D006111E9E3F4000794CAE /* 暂无记录-@3x.png */; };
 		52D21BB31E97255D00A4418C /* ChartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D21BB21E97255D00A4418C /* ChartsViewController.m */; };
 		52D21BB71E972DF900A4418C /* UILabel+Creat.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D21BB61E972DF900A4418C /* UILabel+Creat.m */; };
 		52E0D5F01E8DEAC0000DC7A8 /* PersonMesgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E0D5EF1E8DEAC0000DC7A8 /* PersonMesgViewController.m */; };
@@ -445,6 +448,10 @@
 		52D006071E9DC18E00794CAE /* PostPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostPhoneViewController.h; sourceTree = "<group>"; };
 		52D006081E9DC18E00794CAE /* PostPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostPhoneViewController.m; sourceTree = "<group>"; };
 		52D0060A1E9DC38F00794CAE /* 123123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 123123.png; sourceTree = "<group>"; };
+		52D0060C1E9E3CD400794CAE /* NoneListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoneListView.h; sourceTree = "<group>"; };
+		52D0060D1E9E3CD400794CAE /* NoneListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoneListView.m; sourceTree = "<group>"; };
+		52D006101E9E3F4000794CAE /* 暂无记录-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "暂无记录-@2x.png"; sourceTree = "<group>"; };
+		52D006111E9E3F4000794CAE /* 暂无记录-@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "暂无记录-@3x.png"; sourceTree = "<group>"; };
 		52D21BB11E97255D00A4418C /* ChartsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartsViewController.h; sourceTree = "<group>"; };
 		52D21BB21E97255D00A4418C /* ChartsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartsViewController.m; sourceTree = "<group>"; };
 		52D21BB51E972DF900A4418C /* UILabel+Creat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Creat.h"; sourceTree = "<group>"; };
@@ -589,23 +596,14 @@
 		522143B71E67C38500C030CD /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				52D0060F1E9E3CD900794CAE /* CustomClass */,
 				526AA0D61E94825400B3DCE3 /* JSONModel */,
 				52AF3F851E69083100A1EF29 /* SDWebImage */,
 				52363D491E68223500442335 /* Masonry */,
-				522C143C1E6804DD00F28F10 /* UIView+CGSet.h */,
-				522C143D1E6804DD00F28F10 /* UIView+CGSet.m */,
 				52FD4E551E94BB8E002472E1 /* MBProgressHUD.h */,
 				52FD4E561E94BB8E002472E1 /* MBProgressHUD.m */,
 				522144161E67F3E900C030CD /* RGBColor */,
 				522143B91E67C44100C030CD /* AFNetworking */,
-				52D21BB51E972DF900A4418C /* UILabel+Creat.h */,
-				52D21BB61E972DF900A4418C /* UILabel+Creat.m */,
-				529815CF1E979AB700451D01 /* UIButton+Creat.h */,
-				529815D01E979AB700451D01 /* UIButton+Creat.m */,
-				52F5E3061E9C71EA00E7E7D1 /* RequestData.h */,
-				52F5E3071E9C71EA00E7E7D1 /* RequestData.m */,
-				52F5E3111E9C844000E7E7D1 /* NSString+Creat.h */,
-				52F5E3121E9C844000E7E7D1 /* NSString+Creat.m */,
 			);
 			name = Third;
 			sourceTree = "<group>";
@@ -710,6 +708,8 @@
 		522144311E67FB2500C030CD /* 首页-图标 */ = {
 			isa = PBXGroup;
 			children = (
+				52D006101E9E3F4000794CAE /* 暂无记录-@2x.png */,
+				52D006111E9E3F4000794CAE /* 暂无记录-@3x.png */,
 				52D0060A1E9DC38F00794CAE /* 123123.png */,
 				52D005FE1E9DBE0500794CAE /* 验证码@2x.png */,
 				52D005FF1E9DBE0500794CAE /* 验证码@3x.png */,
@@ -1033,6 +1033,25 @@
 			name = PostPhone;
 			sourceTree = "<group>";
 		};
+		52D0060F1E9E3CD900794CAE /* CustomClass */ = {
+			isa = PBXGroup;
+			children = (
+				52D21BB51E972DF900A4418C /* UILabel+Creat.h */,
+				52D21BB61E972DF900A4418C /* UILabel+Creat.m */,
+				529815CF1E979AB700451D01 /* UIButton+Creat.h */,
+				529815D01E979AB700451D01 /* UIButton+Creat.m */,
+				52F5E3061E9C71EA00E7E7D1 /* RequestData.h */,
+				52F5E3071E9C71EA00E7E7D1 /* RequestData.m */,
+				52F5E3111E9C844000E7E7D1 /* NSString+Creat.h */,
+				52F5E3121E9C844000E7E7D1 /* NSString+Creat.m */,
+				52D0060C1E9E3CD400794CAE /* NoneListView.h */,
+				52D0060D1E9E3CD400794CAE /* NoneListView.m */,
+				522C143C1E6804DD00F28F10 /* UIView+CGSet.h */,
+				522C143D1E6804DD00F28F10 /* UIView+CGSet.m */,
+			);
+			name = CustomClass;
+			sourceTree = "<group>";
+		};
 		52D21BB01E97254500A4418C /* Charts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1222,6 +1241,7 @@
 				52E13E551E6FE7A60047702B /* 列表-邀请箭头@3x.png in Resources */,
 				522144731E67FB2500C030CD /* 首页-提现@3x.png in Resources */,
 				52F5E30D1E9C802800E7E7D1 /* 默认头像@2x.png in Resources */,
+				52D006131E9E3F4000794CAE /* 暂无记录-@3x.png in Resources */,
 				52D006031E9DBE0500794CAE /* 验证码@3x.png in Resources */,
 				522144631E67FB2500C030CD /* 收徒@3x.png in Resources */,
 				521C93291E7FE0CA0093F1AB /* 关于我们@3x.png in Resources */,
@@ -1307,6 +1327,7 @@
 				5221447D1E67FB2500C030CD /* 首页-签到任务@3x.png in Resources */,
 				5221447F1E67FB2500C030CD /* 首页-箭头@3x.png in Resources */,
 				5221446E1E67FB2500C030CD /* 首页-快速任务@2x.png in Resources */,
+				52D006121E9E3F4000794CAE /* 暂无记录-@2x.png in Resources */,
 				52F5E3101E9C802800E7E7D1 /* Ikaiwan.com@3x.png in Resources */,
 				52E13E461E6FE7A60047702B /* 列表-背景@2x.png in Resources */,
 				522144711E67FB2500C030CD /* 首页-排行榜@3x.png in Resources */,
@@ -1390,6 +1411,7 @@
 				52363D6A1E68223500442335 /* MASViewConstraint.m in Sources */,
 				52AF3FA71E69083100A1EF29 /* MKAnnotationView+WebCache.m in Sources */,
 				52363D6D1E68223500442335 /* View+MASAdditions.m in Sources */,
+				52D0060E1E9E3CD400794CAE /* NoneListView.m in Sources */,
 				52363D671E68223500442335 /* MASConstraintMaker.m in Sources */,
 				52AF3FB41E69083100A1EF29 /* UIImageView+HighlightedWebCache.m in Sources */,
 				526AA0EF1E94825400B3DCE3 /* JSONModelClassProperty.m in Sources */,
