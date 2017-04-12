@@ -26,6 +26,7 @@
             MBProgressHUD *mbpr = [MBProgressHUD showHUDAddedTo:veiwCV.view animated:YES];
             mbpr.label.text = dic[@"message"];
             [mbpr hideAnimated:YES afterDelay:2];
+            return ;
         }
         sucsess(responseObject);
         

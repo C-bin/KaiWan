@@ -11,6 +11,7 @@
 #import "ChartsViewController.h"
 #import "LimitViewController.h"
 #import "MakeDiscipleViewController.h"
+#import "PostPhoneViewController.h"
 @interface FirstViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong)UIImageView *iconImage;
 @property (nonatomic, strong)UILabel *syLabel;
@@ -247,7 +248,7 @@
     NSLog(@"%ld",(long)btn.tag);
     
     
-    [self.navigationController pushViewController:[[MakeDiscipleViewController alloc]init] animated:YES];
+    [self.navigationController pushViewController:[[PostPhoneViewController alloc]init] animated:YES];
     
 }
 -(void) addTimer{

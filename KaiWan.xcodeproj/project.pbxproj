@@ -154,6 +154,12 @@
 		52AF3FB51E69083100A1EF29 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF3FA41E69083100A1EF29 /* UIImageView+WebCache.m */; };
 		52AF3FB61E69083100A1EF29 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF3FA61E69083100A1EF29 /* UIView+WebCacheOperation.m */; };
 		52CCF2351E94957C00AB6EB7 /* SonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CCF2341E94957C00AB6EB7 /* SonViewController.m */; };
+		52D006021E9DBE0500794CAE /* 验证码@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D005FE1E9DBE0500794CAE /* 验证码@2x.png */; };
+		52D006031E9DBE0500794CAE /* 验证码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D005FF1E9DBE0500794CAE /* 验证码@3x.png */; };
+		52D006041E9DBE0500794CAE /* 用户@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D006001E9DBE0500794CAE /* 用户@2x.png */; };
+		52D006051E9DBE0500794CAE /* 用户@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D006011E9DBE0500794CAE /* 用户@3x.png */; };
+		52D006091E9DC18E00794CAE /* PostPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D006081E9DC18E00794CAE /* PostPhoneViewController.m */; };
+		52D0060B1E9DC38F00794CAE /* 123123.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D0060A1E9DC38F00794CAE /* 123123.png */; };
 		52D21BB31E97255D00A4418C /* ChartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D21BB21E97255D00A4418C /* ChartsViewController.m */; };
 		52D21BB71E972DF900A4418C /* UILabel+Creat.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D21BB61E972DF900A4418C /* UILabel+Creat.m */; };
 		52E0D5F01E8DEAC0000DC7A8 /* PersonMesgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E0D5EF1E8DEAC0000DC7A8 /* PersonMesgViewController.m */; };
@@ -432,6 +438,13 @@
 		52AF3FA61E69083100A1EF29 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		52CCF2331E94957C00AB6EB7 /* SonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonViewController.h; sourceTree = "<group>"; };
 		52CCF2341E94957C00AB6EB7 /* SonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonViewController.m; sourceTree = "<group>"; };
+		52D005FE1E9DBE0500794CAE /* 验证码@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "验证码@2x.png"; sourceTree = "<group>"; };
+		52D005FF1E9DBE0500794CAE /* 验证码@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "验证码@3x.png"; sourceTree = "<group>"; };
+		52D006001E9DBE0500794CAE /* 用户@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "用户@2x.png"; sourceTree = "<group>"; };
+		52D006011E9DBE0500794CAE /* 用户@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "用户@3x.png"; sourceTree = "<group>"; };
+		52D006071E9DC18E00794CAE /* PostPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostPhoneViewController.h; sourceTree = "<group>"; };
+		52D006081E9DC18E00794CAE /* PostPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostPhoneViewController.m; sourceTree = "<group>"; };
+		52D0060A1E9DC38F00794CAE /* 123123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 123123.png; sourceTree = "<group>"; };
 		52D21BB11E97255D00A4418C /* ChartsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartsViewController.h; sourceTree = "<group>"; };
 		52D21BB21E97255D00A4418C /* ChartsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartsViewController.m; sourceTree = "<group>"; };
 		52D21BB51E972DF900A4418C /* UILabel+Creat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Creat.h"; sourceTree = "<group>"; };
@@ -629,6 +642,7 @@
 		5221441A1E67F56D00C030CD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				52D006061E9DC16700794CAE /* PostPhone */,
 				529815BF1E976F5D00451D01 /* MakeDisciple */,
 				52D21BB01E97254500A4418C /* Charts */,
 				52E0D6041E8F92B2000DC7A8 /* Deatail */,
@@ -696,6 +710,11 @@
 		522144311E67FB2500C030CD /* 首页-图标 */ = {
 			isa = PBXGroup;
 			children = (
+				52D0060A1E9DC38F00794CAE /* 123123.png */,
+				52D005FE1E9DBE0500794CAE /* 验证码@2x.png */,
+				52D005FF1E9DBE0500794CAE /* 验证码@3x.png */,
+				52D006001E9DBE0500794CAE /* 用户@2x.png */,
+				52D006011E9DBE0500794CAE /* 用户@3x.png */,
 				52F5E3091E9C802800E7E7D1 /* 默认头像@2x.png */,
 				52F5E30A1E9C802800E7E7D1 /* 默认头像@3x.png */,
 				52F5E30B1E9C802800E7E7D1 /* Ikaiwan.com@2x.png */,
@@ -1005,6 +1024,15 @@
 			name = PersonSon;
 			sourceTree = "<group>";
 		};
+		52D006061E9DC16700794CAE /* PostPhone */ = {
+			isa = PBXGroup;
+			children = (
+				52D006071E9DC18E00794CAE /* PostPhoneViewController.h */,
+				52D006081E9DC18E00794CAE /* PostPhoneViewController.m */,
+			);
+			name = PostPhone;
+			sourceTree = "<group>";
+		};
 		52D21BB01E97254500A4418C /* Charts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1194,6 +1222,7 @@
 				52E13E551E6FE7A60047702B /* 列表-邀请箭头@3x.png in Resources */,
 				522144731E67FB2500C030CD /* 首页-提现@3x.png in Resources */,
 				52F5E30D1E9C802800E7E7D1 /* 默认头像@2x.png in Resources */,
+				52D006031E9DBE0500794CAE /* 验证码@3x.png in Resources */,
 				522144631E67FB2500C030CD /* 收徒@3x.png in Resources */,
 				521C93291E7FE0CA0093F1AB /* 关于我们@3x.png in Resources */,
 				52E13E521E6FE7A60047702B /* 列表-邀请好友@2x.png in Resources */,
@@ -1228,6 +1257,7 @@
 				522144871E67FB2500C030CD /* 首页@3x.png in Resources */,
 				522144781E67FB2500C030CD /* 首页-敬请期待@2x.png in Resources */,
 				522144691E67FB2500C030CD /* 赚钱点@3x.png in Resources */,
+				52D0060B1E9DC38F00794CAE /* 123123.png in Resources */,
 				522143911E67BD4300C030CD /* Assets.xcassets in Resources */,
 				522144811E67FB2500C030CD /* 首页-联盟任务@3x.png in Resources */,
 				529815CE1E978A0D00451D01 /* 收徒规则@3x.png in Resources */,
@@ -1248,6 +1278,7 @@
 				522144601E67FB2500C030CD /* 我的点@2x.png in Resources */,
 				5221446C1E67FB2500C030CD /* 首页-好评任务@2x.png in Resources */,
 				5221446F1E67FB2500C030CD /* 首页-快速任务@3x.png in Resources */,
+				52D006051E9DBE0500794CAE /* 用户@3x.png in Resources */,
 				529815B31E9766CE00451D01 /* 皇冠1@2x.png in Resources */,
 				521C93271E7FE0CA0093F1AB /* 个人资料-箭头@3x.png in Resources */,
 				522144681E67FB2500C030CD /* 赚钱点@2x.png in Resources */,
@@ -1256,6 +1287,7 @@
 				529815B41E9766CE00451D01 /* 皇冠1@3x.png in Resources */,
 				521C93251E7FE0CA0093F1AB /* 个人中心-箭头@3x.png in Resources */,
 				522144611E67FB2500C030CD /* 我的点@3x.png in Resources */,
+				52D006041E9DBE0500794CAE /* 用户@2x.png in Resources */,
 				521C932F1E7FE0CA0093F1AB /* 疑难解答@3x.png in Resources */,
 				522144841E67FB2500C030CD /* 首页-ＨＯＴ@2x.png in Resources */,
 				522144831E67FB2500C030CD /* 首页-高额任务@3x.png in Resources */,
@@ -1295,6 +1327,7 @@
 				5221446D1E67FB2500C030CD /* 首页-好评任务@3x.png in Resources */,
 				529815B81E9766CE00451D01 /* 皇冠3@3x.png in Resources */,
 				522144901E68039F00C030CD /* 背景@2x.png in Resources */,
+				52D006021E9DBE0500794CAE /* 验证码@2x.png in Resources */,
 				522144821E67FB2500C030CD /* 首页-高额任务@2x.png in Resources */,
 				5221446A1E67FB2500C030CD /* 首页-一元夺宝@2x.png in Resources */,
 			);
@@ -1336,6 +1369,7 @@
 				522143891E67BD4300C030CD /* AppDelegate.m in Sources */,
 				52F5E3131E9C844000E7E7D1 /* NSString+Creat.m in Sources */,
 				52AF3FB01E69083100A1EF29 /* UIButton+WebCache.m in Sources */,
+				52D006091E9DC18E00794CAE /* PostPhoneViewController.m in Sources */,
 				522143C81E67C44100C030CD /* AFNetworkReachabilityManager.m in Sources */,
 				52E0D5F01E8DEAC0000DC7A8 /* PersonMesgViewController.m in Sources */,
 				522144251E67F80500C030CD /* FirstViewController.m in Sources */,
