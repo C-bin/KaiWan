@@ -11,21 +11,76 @@
 @interface SonViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *dataArray;
+@property (nonatomic, assign)int isInvite;
 
 @end
 
 @implementation SonViewController
-
+{
+    int page;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.titlestring = @"收徒记录";
-    
+    page=1;
+    self.isInvite = 0;
+    self.dataArray = [NSMutableArray array];
     [self setNavigationBar];
     [self setUI];
     [self request];
 }
 - (void)request {
+    page = 1;
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    del.uid = @"2";
+    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.dataArray removeAllObjects];
+        [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Share/lst.html?uid=%@&page=%d",HostUrl,del.uid,page] parameters:nil sucsess:^(id response) {
+            NSDictionary *dic = (NSDictionary *)response;
+            NSDictionary *data = dic[@"data"];
+            NSMutableArray *arr = [[NSMutableArray alloc]initWithArray:data[@"invite"]];
+            NSMutableArray *arr1 = [[NSMutableArray alloc]initWithArray:data[@"task"]];
+            [self.dataArray addObject:arr];
+            [self.dataArray addObject:arr1];
+            [self.table.mj_header endRefreshing];
+            [self.table reloadData];
+        } fail:^(NSError *error) {
+            [self.table.mj_header endRefreshing];
+
+        } andViewController:nil];
+
+    }];
     
+    [self.table.mj_header beginRefreshing];
+    
+    self.table.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        page++;
+        [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Share/lst.html?uid=%@&page=%d",HostUrl,del.uid,page] parameters:nil sucsess:^(id response) {
+            NSDictionary *dic = (NSDictionary *)response;
+            NSDictionary *data = dic[@"data"];
+            NSMutableArray *arr = [[NSMutableArray alloc]initWithArray:data[@"invite"]];
+            NSMutableArray *arr1 = [[NSMutableArray alloc]initWithArray:data[@"task"]];
+            if (arr.count>0) {
+                for (NSDictionary *dica in arr) {
+                    [self.dataArray[0] addObject:dica];
+                }
+            }
+            if (arr1.count>0) {
+                for (NSDictionary *dica in arr1) {
+                    [self.dataArray[1] addObject:dica];
+                }
+            }
+            if (arr1.count==0&&arr.count==0) {
+                [self.table.mj_footer endRefreshingWithNoMoreData];
+            }
+            [self.table reloadData];
+            [self.table.mj_footer endRefreshing];
+        } fail:^(NSError *error) {
+            [self.table.mj_footer endRefreshing];
+        } andViewController:nil];
+
+    }];
+    self.table.mj_footer.hidden = YES;
 }
 - (void)setUI {
     UIButton *btn1 = [[UIButton alloc]init];
@@ -71,13 +126,15 @@
     [btn2 addSubview:linelabel2];
     btn2.backgroundColor = [UIColor whiteColor];
     
-    self.table = [[UITableView alloc]initWithFrame:CGRectMake(0, 64+[UIView setHeight:45], SWIDTH, SHEIGHT-64+[UIView setHeight:45]-49) style:UITableViewStylePlain];
+    self.table = [[UITableView alloc]initWithFrame:CGRectMake(0, 64+[UIView setHeight:45+13], SWIDTH, SHEIGHT-64-[UIView setHeight:45+13]) style:UITableViewStylePlain];
     self.table.delegate = self;
     self.table.dataSource = self;
     self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.table];
     [self.table registerClass:[SonTableViewCell class] forCellReuseIdentifier:@"cell"];
-    
+    UIView *view = [[UIView alloc]initWithFrame:[UIView setRectWithX:0 andY:64+[UIView setHeight:45] andWidth:375 andHeight:13]];
+    view.backgroundColor = SF_COLOR(242, 242, 242);
+//    [self.view addSubview:view];
     
 }
 #pragma mark 输入切换
@@ -85,6 +142,8 @@
     if (btn.selected) {
         return;
     }
+    self.isInvite = (int)(btn.tag-310);
+    
     btn.selected = 1;
     UILabel *label = (UILabel *)[self.view viewWithTag:btn.tag+10];
     label.backgroundColor = SF_COLOR(28, 108, 229);
@@ -93,6 +152,7 @@
     label2.backgroundColor = [UIColor whiteColor];
     UIButton *btn1 = (UIButton *)[self.view viewWithTag:310+!(btn.tag-310)];
     btn1.selected = 0;
+    [self.table reloadData];
     
 }
 - (void)didReceiveMemoryWarning {
@@ -100,13 +160,26 @@
     // Dispose of any resources that can be recreated.
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count;
+    self.table.mj_footer.hidden = self.dataArray.count == 0;
+
+    if (self.dataArray.count>0) {
+//        if ([self.dataArray[self.isInvite] count]==0) {
+//            self.table.tableFooterView = [NoneListView creatNoneListViewWith:self.table];
+//        }else {
+//            self.table.tableFooterView = nil;
+//        }
+        NSMutableArray *arr = self.dataArray[self.isInvite];
+        
+        return arr.count;
+    }
+    return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [UIView setHeight:45];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
        SonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    [cell reloadwithDic:self.dataArray[self.isInvite][indexPath.row]  andIsInvite: self.isInvite];
     return cell;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

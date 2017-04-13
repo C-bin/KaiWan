@@ -10,4 +10,5 @@
 
 @interface SonTableViewCell : UITableViewCell
 
+- (void)reloadwithDic:(NSDictionary *)dic andIsInvite:(int)isInvite;
 @end
