@@ -9,6 +9,9 @@
 #import "SecondViewController.h"
 #import "SecondTableViewCell.h"
 #import "DeepTaskDetailViewController.h"
+#import "CommentTaskDetailViewController.h"
+#import "TimeLimitedTaskDetailViewController.h"
+#import "HighTaskDetailViewController.h"
 
 @interface SecondViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tableView;
@@ -164,7 +167,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    DeepTaskDetailViewController *deepTaskVC = [[DeepTaskDetailViewController alloc] init];
+    HighTaskDetailViewController *deepTaskVC = [[HighTaskDetailViewController alloc] init];
     [self.navigationController pushViewController:deepTaskVC animated:YES];
 }
 
