@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4A16A1B71E9F1AC400A3F433 /* DeepTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1B61E9F1AC400A3F433 /* DeepTaskDetailViewController.m */; };
+		4A16A1BB1E9F3D4B00A3F433 /* TaskInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1BA1E9F3D4B00A3F433 /* TaskInfoView.m */; };
+		4A16A1BE1E9F45B100A3F433 /* TaskStepCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1BD1E9F45B100A3F433 /* TaskStepCopy.m */; };
+		4A16A1C11E9F4ADA00A3F433 /* TaskStepDeep.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1C01E9F4ADA00A3F433 /* TaskStepDeep.m */; };
 		521C93221E7FE0CA0093F1AB /* 夺宝明细@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521C93141E7FE0CA0093F1AB /* 夺宝明细@2x.png */; };
 		521C93231E7FE0CA0093F1AB /* 夺宝明细@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521C93151E7FE0CA0093F1AB /* 夺宝明细@3x.png */; };
 		521C93241E7FE0CA0093F1AB /* 个人中心-箭头@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521C93161E7FE0CA0093F1AB /* 个人中心-箭头@2x.png */; };
@@ -222,6 +225,12 @@
 /* Begin PBXFileReference section */
 		4A16A1B51E9F1AC400A3F433 /* DeepTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeepTaskDetailViewController.h; sourceTree = "<group>"; };
 		4A16A1B61E9F1AC400A3F433 /* DeepTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeepTaskDetailViewController.m; sourceTree = "<group>"; };
+		4A16A1B91E9F3D4B00A3F433 /* TaskInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskInfoView.h; sourceTree = "<group>"; };
+		4A16A1BA1E9F3D4B00A3F433 /* TaskInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskInfoView.m; sourceTree = "<group>"; };
+		4A16A1BC1E9F45B100A3F433 /* TaskStepCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskStepCopy.h; sourceTree = "<group>"; };
+		4A16A1BD1E9F45B100A3F433 /* TaskStepCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskStepCopy.m; sourceTree = "<group>"; };
+		4A16A1BF1E9F4ADA00A3F433 /* TaskStepDeep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskStepDeep.h; sourceTree = "<group>"; };
+		4A16A1C01E9F4ADA00A3F433 /* TaskStepDeep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskStepDeep.m; sourceTree = "<group>"; };
 		521C93141E7FE0CA0093F1AB /* 夺宝明细@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "夺宝明细@2x.png"; sourceTree = "<group>"; };
 		521C93151E7FE0CA0093F1AB /* 夺宝明细@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "夺宝明细@3x.png"; sourceTree = "<group>"; };
 		521C93161E7FE0CA0093F1AB /* 个人中心-箭头@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "个人中心-箭头@2x.png"; sourceTree = "<group>"; };
@@ -530,6 +539,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A16A1B81E9F3D1F00A3F433 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A16A1B91E9F3D4B00A3F433 /* TaskInfoView.h */,
+				4A16A1BA1E9F3D4B00A3F433 /* TaskInfoView.m */,
+				4A16A1BC1E9F45B100A3F433 /* TaskStepCopy.h */,
+				4A16A1BD1E9F45B100A3F433 /* TaskStepCopy.m */,
+				4A16A1BF1E9F4ADA00A3F433 /* TaskStepDeep.h */,
+				4A16A1C01E9F4ADA00A3F433 /* TaskStepDeep.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		522143781E67BD4300C030CD = {
 			isa = PBXGroup;
 			children = (
@@ -1069,6 +1091,7 @@
 		52E0D6041E8F92B2000DC7A8 /* Deatail */ = {
 			isa = PBXGroup;
 			children = (
+				4A16A1B81E9F3D1F00A3F433 /* Views */,
 				4A16A1B51E9F1AC400A3F433 /* DeepTaskDetailViewController.h */,
 				4A16A1B61E9F1AC400A3F433 /* DeepTaskDetailViewController.m */,
 				52A6DF311E94EABD00AA7243 /* Good */,
@@ -1386,6 +1409,7 @@
 				52363D691E68223500442335 /* MASViewAttribute.m in Sources */,
 				52363D6B1E68223500442335 /* NSArray+MASAdditions.m in Sources */,
 				526AA0F11E94825400B3DCE3 /* JSONAPI.m in Sources */,
+				4A16A1BE1E9F45B100A3F433 /* TaskStepCopy.m in Sources */,
 				52D21BB71E972DF900A4418C /* UILabel+Creat.m in Sources */,
 				52E0D6081E8F92DB000DC7A8 /* LimitViewController.m in Sources */,
 				52AF3FAA1E69083100A1EF29 /* SDWebImageCompat.m in Sources */,
@@ -1439,11 +1463,13 @@
 				529815D11E979AB700451D01 /* UIButton+Creat.m in Sources */,
 				5239F0D91E792E500011C511 /* BangDViewController.m in Sources */,
 				52363D681E68223500442335 /* MASLayoutConstraint.m in Sources */,
+				4A16A1BB1E9F3D4B00A3F433 /* TaskInfoView.m in Sources */,
 				52AF3FB11E69083100A1EF29 /* UIImage+GIF.m in Sources */,
 				529815C21E976FAB00451D01 /* MakeDiscipleViewController.m in Sources */,
 				522143CA1E67C44100C030CD /* AFURLRequestSerialization.m in Sources */,
 				52FD4E5E1E94C570002472E1 /* WithdrawTableViewCell.m in Sources */,
 				52AF3FA91E69083100A1EF29 /* SDImageCache.m in Sources */,
+				4A16A1C11E9F4ADA00A3F433 /* TaskStepDeep.m in Sources */,
 				52E13E7D1E6FEF380047702B /* SecondTableViewCell.m in Sources */,
 				52AF3FA81E69083100A1EF29 /* NSData+ImageContentType.m in Sources */,
 				522143CB1E67C44100C030CD /* AFURLResponseSerialization.m in Sources */,
