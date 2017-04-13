@@ -7,7 +7,8 @@
 //
 
 #import "MakeDiscipleViewController.h"
-
+#import "ShowListViewController.h"
+#import "LianJieViewController.h"
 @interface MakeDiscipleViewController ()
 @property (nonatomic,strong) UILabel *moneyLabel;
 @property (nonatomic,strong) UILabel *todayDisciplelabel;
@@ -81,7 +82,7 @@
     [headview addSubview:self.totalMoney];
     
     [self.moneyLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo([UIView setHeight:15]);
+        make.top.equalTo([UIView setHeight:0]);
         make.centerX.equalTo(headview);
     }];
     [label makeConstraints:^(MASConstraintMaker *make) {
@@ -111,7 +112,7 @@
     [wihteView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(headview.bottom).offset([UIView setHeight:7]);
         make.left.right.equalTo(self.view);
-        make.height.equalTo([UIView setHeight:98]);
+        make.height.equalTo([UIView setHeight:35+63*3]);
     }];
     
     UILabel *titlelabel = [UILabel creatLabelWithFont:14 andbgcolor:nil andtextColor:SF_COLOR(233, 96, 96) andAligment:NSTextAlignmentCenter];
@@ -123,52 +124,68 @@
     }];
     titlelabel.text = @"教你如何快速收徒，日进斗金？";
     
-    UILabel *linelabel = [UILabel creatLabelWithFont:0 andbgcolor:SF_COLOR(229, 229, 229) andtextColor:nil andAligment:0];
-    [wihteView addSubview:linelabel];
-    [linelabel makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(titlelabel);
-        make.centerX.equalTo(titlelabel);
-        make.width.equalTo([UIView setWidth:351]);
-        make.height.equalTo(1);
-    }];
-    
-    UIImageView *image1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"晒单收徒"]];
-    [wihteView addSubview:image1];
-    
-    UILabel *shaiLabel = [UILabel creatLabelWithFont:16 andbgcolor:nil andtextColor:SF_COLOR(51, 51, 51) andAligment:0];
-    shaiLabel.text = @"晒单收徒";
-    [wihteView addSubview:shaiLabel];
-    
-    UILabel *mianLabel = [UILabel creatLabelWithFont:12 andbgcolor:nil andtextColor:SF_COLOR(193, 193, 193) andAligment:0];
-    mianLabel.text = @"适合于社交收徒";
-    [wihteView addSubview:mianLabel];
-    
-    UIImageView *image2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"收徒-箭头"]];
-    [wihteView addSubview:image2];
-    
-    [image1 makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(titlelabel.bottom).offset([UIView setHeight:10]);
-        make.left.equalTo([UIView setWidth:12]);
-        make.height.width.equalTo([UIView setHeight:43]);
-    }];
-    
-    [shaiLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(image1.right).offset([UIView setWidth:8]);
-        make.bottom.equalTo(image1.centerY).offset(-[UIView setHeight:4]);
+   
+    NSArray *title = @[@"晒单收徒",@"扫码收徒",@"链接收徒"];
+    NSArray *detail = @[@"适合于社交收徒",@"适用于面对面收徒",@"复制黏贴传播更快捷"];
+    for (int i = 0; i < 3; i ++) {
+        UILabel *linelabel = [UILabel creatLabelWithFont:0 andbgcolor:SF_COLOR(229, 229, 229) andtextColor:nil andAligment:0];
+        [wihteView addSubview:linelabel];
+        [linelabel makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(titlelabel).offset([UIView setHeight:i*63]);
+            make.centerX.equalTo(titlelabel);
+            make.width.equalTo([UIView setWidth:351]);
+            make.height.equalTo(1);
+        }];
+        UIImageView *image1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:title[i]]];
+        [wihteView addSubview:image1];
         
-    }];
-    [mianLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(shaiLabel);
-        make.top.equalTo(image1.centerY).offset([UIView setHeight:4]);
-    }];
+        UILabel *shaiLabel = [UILabel creatLabelWithFont:16 andbgcolor:nil andtextColor:SF_COLOR(51, 51, 51) andAligment:0];
+        shaiLabel.text = title[i];
+        [wihteView addSubview:shaiLabel];
+        
+        UILabel *mianLabel = [UILabel creatLabelWithFont:12 andbgcolor:nil andtextColor:SF_COLOR(193, 193, 193) andAligment:0];
+        mianLabel.text = detail[i];
+        [wihteView addSubview:mianLabel];
+        
+        UIImageView *image2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"收徒-箭头"]];
+        [wihteView addSubview:image2];
+        
+        [image1 makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(titlelabel.bottom).offset([UIView setHeight:10+i*63]);
+            make.left.equalTo([UIView setWidth:12]);
+            make.height.width.equalTo([UIView setHeight:43]);
+        }];
+        
+        [shaiLabel makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(image1.right).offset([UIView setWidth:8]);
+            make.bottom.equalTo(image1.centerY).offset(-[UIView setHeight:4]);
+            
+        }];
+        [mianLabel makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(shaiLabel);
+            make.top.equalTo(image1.centerY).offset([UIView setHeight:4]);
+        }];
+        
+        [image2 makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(-[UIView setWidth:6.5]);
+            make.centerY.equalTo(image1.centerY);
+            make.width.and.height.equalTo([UIView setHeight:20]);
+        }];
+        
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.backgroundColor = [UIColor clearColor];
+        [btn addTarget:self action:@selector(showBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = 280+i;
+        [wihteView addSubview:btn];
+        
+        [btn makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(linelabel.bottom);
+            make.left.right.equalTo(0);
+            make.height.equalTo([UIView setHeight:63]);
+        }];
+    }
     
-    [image2 makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(-[UIView setWidth:6.5]);
-        make.centerY.equalTo(image1.centerY);
-        make.width.and.height.equalTo([UIView setHeight:20]);
-    }];
-    
-    UIImageView *image3 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"收徒规则"]];
+        UIImageView *image3 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"收徒规则"]];
     [self.view addSubview:image3];
     
     UILabel *glabel = [UILabel creatLabelWithFont:14 andbgcolor:nil andtextColor:SF_COLOR(92, 148, 233) andAligment:0];
@@ -215,17 +232,34 @@
         make.width.equalTo([UIView setWidth:375-18*2]);
     }];
     
-    UIButton *btn = [UIButton creatButtonWithTitle:@"立即收徒" andBgColor:SF_COLOR(28, 108, 229) andTextColor:[UIColor whiteColor] andtitleFont:23];
-    [btn addTarget:self action:@selector(btnclick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
-    btn.layer.cornerRadius = 8;
-    btn.clipsToBounds = YES;
-    [btn makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(glabel2.bottom).offset([UIView setHeight:46]);
-        make.centerX.equalTo(self.view);
-        make.width.equalTo([UIView setWidth:301]);
-        make.height.equalTo([UIView setHeight:44]);
-    }];
+//    UIButton *btn = [UIButton creatButtonWithTitle:@"立即收徒" andBgColor:SF_COLOR(28, 108, 229) andTextColor:[UIColor whiteColor] andtitleFont:23];
+//    [btn addTarget:self action:@selector(btnclick) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn];
+//    btn.layer.cornerRadius = 8;
+//    btn.clipsToBounds = YES;
+//    [btn makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(glabel2.bottom).offset([UIView setHeight:46]);
+//        make.centerX.equalTo(self.view);
+//        make.width.equalTo([UIView setWidth:301]);
+//        make.height.equalTo([UIView setHeight:44]);
+//    }];
+}
+- (void)showBtnClick:(UIButton *)btn {
+    switch (btn.tag-280) {
+        case 0:
+            [self.navigationController pushViewController:[[ShowListViewController alloc]init] animated:YES];
+            break;
+        case 1:
+            
+            break;
+        case 2:
+            [self.navigationController pushViewController:[[LianJieViewController alloc]init] animated:YES];
+
+            break;
+            
+        default:
+            break;
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
