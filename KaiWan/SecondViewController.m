@@ -8,6 +8,8 @@
 
 #import "SecondViewController.h"
 #import "SecondTableViewCell.h"
+#import "DeepTaskDetailViewController.h"
+
 @interface SecondViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *dataArr;
@@ -160,6 +162,12 @@
     }
     return view;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DeepTaskDetailViewController *deepTaskVC = [[DeepTaskDetailViewController alloc] init];
+    [self.navigationController pushViewController:deepTaskVC animated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

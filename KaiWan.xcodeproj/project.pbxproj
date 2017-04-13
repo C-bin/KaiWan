@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A16A1B71E9F1AC400A3F433 /* DeepTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1B61E9F1AC400A3F433 /* DeepTaskDetailViewController.m */; };
 		521C93221E7FE0CA0093F1AB /* 夺宝明细@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521C93141E7FE0CA0093F1AB /* 夺宝明细@2x.png */; };
 		521C93231E7FE0CA0093F1AB /* 夺宝明细@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521C93151E7FE0CA0093F1AB /* 夺宝明细@3x.png */; };
 		521C93241E7FE0CA0093F1AB /* 个人中心-箭头@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521C93161E7FE0CA0093F1AB /* 个人中心-箭头@2x.png */; };
@@ -239,6 +240,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A16A1B51E9F1AC400A3F433 /* DeepTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeepTaskDetailViewController.h; sourceTree = "<group>"; };
+		4A16A1B61E9F1AC400A3F433 /* DeepTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeepTaskDetailViewController.m; sourceTree = "<group>"; };
 		521C93141E7FE0CA0093F1AB /* 夺宝明细@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "夺宝明细@2x.png"; sourceTree = "<group>"; };
 		521C93151E7FE0CA0093F1AB /* 夺宝明细@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "夺宝明细@3x.png"; sourceTree = "<group>"; };
 		521C93161E7FE0CA0093F1AB /* 个人中心-箭头@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "个人中心-箭头@2x.png"; sourceTree = "<group>"; };
@@ -1222,6 +1225,8 @@
 		52E0D6041E8F92B2000DC7A8 /* Deatail */ = {
 			isa = PBXGroup;
 			children = (
+				4A16A1B51E9F1AC400A3F433 /* DeepTaskDetailViewController.h */,
+				4A16A1B61E9F1AC400A3F433 /* DeepTaskDetailViewController.m */,
 				52A6DF311E94EABD00AA7243 /* Good */,
 				52E0D6051E8F92C2000DC7A8 /* Limit */,
 			);
@@ -1563,6 +1568,7 @@
 				52AF3FAB1E69083100A1EF29 /* SDWebImageDecoder.m in Sources */,
 				526AA0F31E94825400B3DCE3 /* JSONModel+networking.m in Sources */,
 				526AA0F41E94825400B3DCE3 /* JSONKeyMapper.m in Sources */,
+				4A16A1B71E9F1AC400A3F433 /* DeepTaskDetailViewController.m in Sources */,
 				5221442B1E67F83600C030CD /* ThirdViewController.m in Sources */,
 				526AA0F21E94825400B3DCE3 /* JSONHTTPClient.m in Sources */,
 				52363D661E68223500442335 /* MASConstraint.m in Sources */,
