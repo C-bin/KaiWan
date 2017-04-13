@@ -641,6 +641,21 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		4A16A1DB1E9F777800A3F433 /* 任务详情页 */ = {
+			isa = PBXGroup;
+			children = (
+				4A16A1B51E9F1AC400A3F433 /* DeepTaskDetailViewController.h */,
+				4A16A1B61E9F1AC400A3F433 /* DeepTaskDetailViewController.m */,
+				4A16A1C51E9F589D00A3F433 /* CommentTaskDetailViewController.h */,
+				4A16A1C61E9F589D00A3F433 /* CommentTaskDetailViewController.m */,
+				4A16A1CB1E9F669700A3F433 /* TimeLimitedTaskDetailViewController.h */,
+				4A16A1CC1E9F669700A3F433 /* TimeLimitedTaskDetailViewController.m */,
+				4A16A1D41E9F6E1700A3F433 /* HighTaskDetailViewController.h */,
+				4A16A1D51E9F6E1700A3F433 /* HighTaskDetailViewController.m */,
+			);
+			name = "任务详情页";
+			sourceTree = "<group>";
+		};
 		522143781E67BD4300C030CD = {
 			isa = PBXGroup;
 			children = (
@@ -1276,15 +1291,8 @@
 		52E0D6041E8F92B2000DC7A8 /* Deatail */ = {
 			isa = PBXGroup;
 			children = (
+				4A16A1DB1E9F777800A3F433 /* 任务详情页 */,
 				4A16A1B81E9F3D1F00A3F433 /* Views */,
-				4A16A1B51E9F1AC400A3F433 /* DeepTaskDetailViewController.h */,
-				4A16A1B61E9F1AC400A3F433 /* DeepTaskDetailViewController.m */,
-				4A16A1C51E9F589D00A3F433 /* CommentTaskDetailViewController.h */,
-				4A16A1C61E9F589D00A3F433 /* CommentTaskDetailViewController.m */,
-				4A16A1CB1E9F669700A3F433 /* TimeLimitedTaskDetailViewController.h */,
-				4A16A1CC1E9F669700A3F433 /* TimeLimitedTaskDetailViewController.m */,
-				4A16A1D41E9F6E1700A3F433 /* HighTaskDetailViewController.h */,
-				4A16A1D51E9F6E1700A3F433 /* HighTaskDetailViewController.m */,
 				52A6DF311E94EABD00AA7243 /* Good */,
 				52E0D6051E8F92C2000DC7A8 /* Limit */,
 			);

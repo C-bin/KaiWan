@@ -28,11 +28,12 @@
             dayImageView.image = [UIImage imageNamed:@"已领"];
             [advanceScrollView addSubview:dayImageView];
             
-            UILabel *cashLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WidthScale(35), HeightScale(35))];
+            UILabel *cashLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 0, WidthScale(30), HeightScale(35))];
             cashLabel.text = @"+1.00";
             cashLabel.textAlignment = NSTextAlignmentCenter;
             cashLabel.textColor = [UIColor whiteColor];
             cashLabel.font = [UIFont systemFontOfSize:12];
+            cashLabel.adjustsFontSizeToFitWidth = YES;
             [dayImageView addSubview:cashLabel];
             
             if (i < 6) {
@@ -45,6 +46,7 @@
             UILabel *dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(dayImageView.frame.origin.x, CGRectGetMaxY(dayImageView.frame), WidthScale(35), HeightScale(20))];
             dayLabel.text = [NSString stringWithFormat:@"第%d天", i + 1];
             dayLabel.font = [UIFont systemFontOfSize:12.5];
+            dayLabel.adjustsFontSizeToFitWidth = YES;
             dayLabel.textColor = [UIColor grayColor];
             dayLabel.textAlignment = NSTextAlignmentCenter;
             
