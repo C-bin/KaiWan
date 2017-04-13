@@ -33,3 +33,8 @@
 #define HostUrl @"http://a.cn/"
 #define ImageUrl @"https://s2.vbokai.com/"
 #endif /* PrefixHeader_pch */
+
+
+//基于4.7寸iPhone适配
+#define WidthScale(width) ((width / 375.0) * SWIDTH)
+#define HeightScale(height) ((height / 667.0) * SHEIGHT)
