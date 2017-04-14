@@ -28,7 +28,7 @@
         UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(titleLabel.frame.origin.x, CGRectGetMaxY(titleLabel.frame), WidthScale(200), HeightScale(30))];
         
         NSDictionary *firstDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName, [UIColor colorWithWhite:0.6 alpha:1], NSForegroundColorAttributeName, nil];
-        NSMutableAttributedString *firstStr = [[NSMutableAttributedString alloc] initWithString:@"任务剩余时间:" attributes:firstDic];
+        NSMutableAttributedString *firstStr = [[NSMutableAttributedString alloc] initWithString:@"任务剩余时间: " attributes:firstDic];
         NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:
                                    [UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName,
                                    [UIColor blueColor],NSForegroundColorAttributeName,nil];
