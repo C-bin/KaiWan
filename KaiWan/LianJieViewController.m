@@ -95,6 +95,21 @@
         make.width.equalTo([UIView setWidth:375-60]);
     }];
     [textlabel sizeToFit];
+    
+    UIButton *btn = [UIButton creatButtonWithTitle:@"晒出成绩单" andBgColor:SF_COLOR(28, 108, 229) andTextColor:SF_COLOR(255, 255, 255) andtitleFont:23];
+    [btn addTarget:self action:@selector(shareClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    btn.layer.cornerRadius = 10;
+    btn.clipsToBounds = YES;
+    [btn makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(textlabel.bottom).offset([UIView setHeight:105]);
+        make.width.equalTo([UIView setWidth:294]);
+        make.centerX.equalTo(0);
+        make.height.equalTo([UIView setHeight:44]);
+    }];
+}
+- (void)shareClick:(UIButton *)btn {
+    
 }
 - (void)pasteGes:(UILongPressGestureRecognizer *)longGes {
     if (longGes.state == UIGestureRecognizerStateBegan) {
@@ -104,7 +119,7 @@
         MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hub.mode = MBProgressHUDModeText;
         hub.label.text = @"复制成功";
-        // Move to bottm center.
+
         hub.offset = CGPointMake(0.f, 0);
         [hub hideAnimated:YES afterDelay:2.f];
     }

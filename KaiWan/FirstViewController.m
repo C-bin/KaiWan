@@ -12,6 +12,7 @@
 #import "LimitViewController.h"
 #import "MakeDiscipleViewController.h"
 #import "PostPhoneViewController.h"
+#import "WithDrawMethodViewController.h"
 @interface FirstViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong)UIImageView *iconImage;
 @property (nonatomic, strong)UILabel *syLabel;
@@ -145,6 +146,7 @@
     [txBtn setBackgroundImage:[UIImage imageNamed:@"首页-提现"] forState:UIControlStateNormal];
     [txBtn addTarget:self action:@selector(makeMoney) forControlEvents:UIControlEventTouchUpInside];
     [headImage addSubview:txBtn];
+    headImage.userInteractionEnabled = YES;
     [txBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(linelabel.bottom).offset([UIView setHeight:32]);
         make.right.equalTo(headImage).offset(-[UIView setWidth:12]);
@@ -356,6 +358,7 @@
 #pragma mark--提现
 - (void)makeMoney {
     
+    [self.navigationController pushViewController:[[WithDrawMethodViewController alloc]init] animated:YES];
 
     
 }

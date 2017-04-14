@@ -11,6 +11,8 @@
 @interface SecondViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *dataArr;
+@property (nonatomic,strong) UILabel *priceLabel;
+
 @end
 
 @implementation SecondViewController
@@ -21,6 +23,41 @@
     self.titlestring = @"任务列表";
     [self setNavigationBar];
     [self creatTB];
+    [self request];
+    
+
+}
+- (void)request {
+    self.dataArr = [NSMutableArray array];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+        [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Task.html?uid=%@",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
+            
+            NSDictionary *dic = (NSDictionary *)response;
+            NSDictionary *data = dic[@"data"];
+            NSArray *arr1 = data[@"show"];
+            NSArray *arr2 = data[@"hide"];
+            
+            [self.dataArr addObject:arr1];
+            [self.dataArr addObject:arr2];
+            [self.tableView reloadData];
+            
+            [self.tableView.mj_header endRefreshing];
+            int totalPrice = 0 ;
+            if (arr2.count>0) {
+                for (NSDictionary *appdic in arr2) {
+                    NSString *price = [NSString creatWithId:appdic[@"reward"]];
+                    totalPrice += price.intValue;
+                }
+                self.priceLabel.text = [NSString stringWithFormat:@"精彩预告,一大波任务即将开始，共%d元！",totalPrice];
+            }
+        } fail:^(NSError *error) {
+            [self.tableView.mj_header endRefreshing];
+        } andViewController:self];
+    }];
+    
+    [self.tableView.mj_header beginRefreshing];
 }
 - (void)creatTB {
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT-64-49) style:UITableViewStyleGrouped];
@@ -33,13 +70,18 @@
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    
+    return [self.dataArr[section] count];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    
+    return self.dataArr.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SecondTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [ cell reloadWithDic:self.dataArr[indexPath.section][indexPath.row] ];
+    
     
     return cell;
 }
@@ -151,14 +193,58 @@
         icon.image = [UIImage imageNamed:@"列表-通知"];
         [image addSubview:icon];
         
-        UILabel *label = [[UILabel alloc]initWithFrame:[UIView setRectWithX:46 andY:0 andWidth:300 andHeight:28]];
-        label.text = @"精彩预告,一大波任务即将开始，共8877元！";
-        label.textColor = SF_COLOR(219, 3, 3);
-        label.font = [UIFont systemFontOfSize:13];
-        [image addSubview:label];
+        self.priceLabel = [[UILabel alloc]initWithFrame:[UIView setRectWithX:46 andY:0 andWidth:300 andHeight:28]];
+        self.priceLabel.text = @"精彩预告,一大波任务即将开始，共8877元！";
+        self.priceLabel.textColor = SF_COLOR(219, 3, 3);
+        self.priceLabel.font = [UIFont systemFontOfSize:13];
+        [image addSubview:self.priceLabel];
  
     }
     return view;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //-98=无状态,0=点击（已领取），1 = 已完成 ，4 = 等待审核
+    //好评任务50,高额任务51,深度任务55,限时任务 7
+    
+    /*  dic里包含的数据;
+     tid: 50,
+     reward: "1",
+     img: "app/artwork/517/64/47/58ef2dc43d70beb97e.jpg",
+     status: -98,
+     appid: 517644732,
+     amount: 1,
+     click: 0,
+     keywords: "万达电影",
+     start_time: 1492012809,
+     end_time: 1492272009
+     */
+    NSDictionary *dic = self.dataArr[0][indexPath.row];
+    NSString *tid = [NSString creatWithId:dic[@"tid"]];
+    NSString *status = [NSString creatWithId:dic[@"status"]];
+    //1 = 已完成 ，4 = 等待审核 不会跳转详情页
+    if (status.intValue==4||status.intValue==1) {
+        return;
+    }
+    //正在进行的任务可以跳转详情，任务预告不会
+    if (indexPath.section==0) {
+        switch (tid.intValue) {
+            case 50:
+                
+                break;
+            case 51:
+                
+                break;
+            case 55:
+                
+                break;
+            case 7:
+                
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

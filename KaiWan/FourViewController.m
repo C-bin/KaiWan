@@ -35,13 +35,14 @@
 "%@User.html?uid=%@",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
         NSDictionary *dic = (NSDictionary *)response;
         NSLog(@"%@",dic);
+        
         NSDictionary *dica = dic[@"data"];
         NSDictionary *dicb = dica[@"user_info"];
         [self.headIcon sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImageUrl,dicb[@"avatar"]]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
         self.dic = [[NSDictionary alloc]initWithDictionary:dicb];
-        self.idLabel.text = dicb[@"id"];
-        self.namelabel.text = dicb[@"nickname"];
-        
+        self.idLabel.text = [NSString creatWithId:dicb[@"id"]];
+        self.namelabel.text = [NSString creatWithId:dicb[@"nickname"]];
+
         
         UILabel *label = (UILabel *)[self.view viewWithTag:210];
         NSString *str = [NSString creatWithId:dica[@"task_sum"]];
@@ -69,7 +70,7 @@
         
         
     } fail:^(NSError *error) {
-        NSLog(@"%@",error);
+//        NSLog(@"%@",error);
     } andViewController:self];
     
     
