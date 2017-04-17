@@ -34,6 +34,8 @@
 		5204E3E91E9F837C006751CF /* 链接背景@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3E51E9F837C006751CF /* 链接背景@3x.png */; };
 		5204E3EA1E9F837C006751CF /* 手指@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3E61E9F837C006751CF /* 手指@2x.png */; };
 		5204E3EB1E9F837C006751CF /* 手指@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3E71E9F837C006751CF /* 手指@3x.png */; };
+		5204E3EE1EA06742006751CF /* 扫码背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3EC1EA06742006751CF /* 扫码背景@2x.png */; };
+		5204E3EF1EA06742006751CF /* 扫码背景@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3ED1EA06742006751CF /* 扫码背景@3x.png */; };
 		521C93221E7FE0CA0093F1AB /* 夺宝明细@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521C93141E7FE0CA0093F1AB /* 夺宝明细@2x.png */; };
 		521C93231E7FE0CA0093F1AB /* 夺宝明细@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521C93151E7FE0CA0093F1AB /* 夺宝明细@3x.png */; };
 		521C93241E7FE0CA0093F1AB /* 个人中心-箭头@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521C93161E7FE0CA0093F1AB /* 个人中心-箭头@2x.png */; };
@@ -126,6 +128,13 @@
 		52363D6C1E68223500442335 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 52363D5E1E68223500442335 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		52363D6D1E68223500442335 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 52363D601E68223500442335 /* View+MASAdditions.m */; };
 		52363D6E1E68223500442335 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 52363D631E68223500442335 /* ViewController+MASAdditions.m */; };
+		5237E3E81EA0C45D002F1D4B /* WithDrawMethodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5237E3E71EA0C45D002F1D4B /* WithDrawMethodViewController.m */; };
+		5237E3EF1EA0C4EA002F1D4B /* 提现方式-箭头@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5237E3E91EA0C4EA002F1D4B /* 提现方式-箭头@2x.png */; };
+		5237E3F01EA0C4EA002F1D4B /* 提现方式-箭头@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5237E3EA1EA0C4EA002F1D4B /* 提现方式-箭头@3x.png */; };
+		5237E3F11EA0C4EA002F1D4B /* 微信支付@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5237E3EB1EA0C4EA002F1D4B /* 微信支付@2x.png */; };
+		5237E3F21EA0C4EA002F1D4B /* 微信支付@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5237E3EC1EA0C4EA002F1D4B /* 微信支付@3x.png */; };
+		5237E3F31EA0C4EA002F1D4B /* 支付宝支付@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5237E3ED1EA0C4EA002F1D4B /* 支付宝支付@2x.png */; };
+		5237E3F41EA0C4EA002F1D4B /* 支付宝支付@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5237E3EE1EA0C4EA002F1D4B /* 支付宝支付@3x.png */; };
 		5239F0D91E792E500011C511 /* BangDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239F0D81E792E500011C511 /* BangDViewController.m */; };
 		526AA0D21E947C4700B3DCE3 /* MakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526AA0D11E947C4700B3DCE3 /* MakeViewController.m */; };
 		526AA0D51E947FEF00B3DCE3 /* MakeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 526AA0D41E947FEF00B3DCE3 /* MakeTableViewCell.m */; };
@@ -311,6 +320,8 @@
 		5204E3E51E9F837C006751CF /* 链接背景@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "链接背景@3x.png"; sourceTree = "<group>"; };
 		5204E3E61E9F837C006751CF /* 手指@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "手指@2x.png"; sourceTree = "<group>"; };
 		5204E3E71E9F837C006751CF /* 手指@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "手指@3x.png"; sourceTree = "<group>"; };
+		5204E3EC1EA06742006751CF /* 扫码背景@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "扫码背景@2x.png"; sourceTree = "<group>"; };
+		5204E3ED1EA06742006751CF /* 扫码背景@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "扫码背景@3x.png"; sourceTree = "<group>"; };
 		521C93141E7FE0CA0093F1AB /* 夺宝明细@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "夺宝明细@2x.png"; sourceTree = "<group>"; };
 		521C93151E7FE0CA0093F1AB /* 夺宝明细@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "夺宝明细@3x.png"; sourceTree = "<group>"; };
 		521C93161E7FE0CA0093F1AB /* 个人中心-箭头@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "个人中心-箭头@2x.png"; sourceTree = "<group>"; };
@@ -441,6 +452,14 @@
 		52363D611E68223500442335 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		52363D621E68223500442335 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		52363D631E68223500442335 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		5237E3E61EA0C45D002F1D4B /* WithDrawMethodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithDrawMethodViewController.h; sourceTree = "<group>"; };
+		5237E3E71EA0C45D002F1D4B /* WithDrawMethodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithDrawMethodViewController.m; sourceTree = "<group>"; };
+		5237E3E91EA0C4EA002F1D4B /* 提现方式-箭头@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "提现方式-箭头@2x.png"; sourceTree = "<group>"; };
+		5237E3EA1EA0C4EA002F1D4B /* 提现方式-箭头@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "提现方式-箭头@3x.png"; sourceTree = "<group>"; };
+		5237E3EB1EA0C4EA002F1D4B /* 微信支付@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信支付@2x.png"; sourceTree = "<group>"; };
+		5237E3EC1EA0C4EA002F1D4B /* 微信支付@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信支付@3x.png"; sourceTree = "<group>"; };
+		5237E3ED1EA0C4EA002F1D4B /* 支付宝支付@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "支付宝支付@2x.png"; sourceTree = "<group>"; };
+		5237E3EE1EA0C4EA002F1D4B /* 支付宝支付@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "支付宝支付@3x.png"; sourceTree = "<group>"; };
 		5239F0D71E792E500011C511 /* BangDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangDViewController.h; sourceTree = "<group>"; };
 		5239F0D81E792E500011C511 /* BangDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangDViewController.m; sourceTree = "<group>"; };
 		526AA0D01E947C4700B3DCE3 /* MakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeViewController.h; sourceTree = "<group>"; };
@@ -926,6 +945,14 @@
 		522144311E67FB2500C030CD /* 首页-图标 */ = {
 			isa = PBXGroup;
 			children = (
+				5237E3E91EA0C4EA002F1D4B /* 提现方式-箭头@2x.png */,
+				5237E3EA1EA0C4EA002F1D4B /* 提现方式-箭头@3x.png */,
+				5237E3EB1EA0C4EA002F1D4B /* 微信支付@2x.png */,
+				5237E3EC1EA0C4EA002F1D4B /* 微信支付@3x.png */,
+				5237E3ED1EA0C4EA002F1D4B /* 支付宝支付@2x.png */,
+				5237E3EE1EA0C4EA002F1D4B /* 支付宝支付@3x.png */,
+				5204E3EC1EA06742006751CF /* 扫码背景@2x.png */,
+				5204E3ED1EA06742006751CF /* 扫码背景@3x.png */,
 				5204E3E41E9F837C006751CF /* 链接背景@2x.png */,
 				5204E3E51E9F837C006751CF /* 链接背景@3x.png */,
 				5204E3E61E9F837C006751CF /* 手指@2x.png */,
@@ -1191,6 +1218,8 @@
 			children = (
 				522144231E67F80500C030CD /* FirstViewController.h */,
 				522144241E67F80500C030CD /* FirstViewController.m */,
+				5237E3E61EA0C45D002F1D4B /* WithDrawMethodViewController.h */,
+				5237E3E71EA0C45D002F1D4B /* WithDrawMethodViewController.m */,
 			);
 			name = CV;
 			sourceTree = "<group>";
@@ -1578,6 +1607,7 @@
 				522144651E67FB2500C030CD /* 收徒点@3x.png in Resources */,
 				5221446B1E67FB2500C030CD /* 首页-一元夺宝@3x.png in Resources */,
 				52E13E4C1E6FE7A60047702B /* 列表-问号@2x.png in Resources */,
+				5204E3EE1EA06742006751CF /* 扫码背景@2x.png in Resources */,
 				52E13E4E1E6FE7A60047702B /* 列表-虚线框@2x.png in Resources */,
 				522143941E67BD4300C030CD /* LaunchScreen.storyboard in Resources */,
 				529815CB1E978A0D00451D01 /* 收徒-箭头@2x.png in Resources */,
@@ -1591,10 +1621,12 @@
 				521C93261E7FE0CA0093F1AB /* 个人资料-箭头@2x.png in Resources */,
 				5221445F1E67FB2500C030CD /* 我的@3x.png in Resources */,
 				5221447E1E67FB2500C030CD /* 首页-箭头@2x.png in Resources */,
+				5237E3F01EA0C4EA002F1D4B /* 提现方式-箭头@3x.png in Resources */,
 				522144741E67FB2500C030CD /* 首页-收徒任务@2x.png in Resources */,
 				522144881E67FB2500C030CD /* 首页点@2x.png in Resources */,
 				5204E3D01E9F6B10006751CF /* 链接收徒@2x.png in Resources */,
 				529815B51E9766CE00451D01 /* 皇冠2@2x.png in Resources */,
+				5237E3F21EA0C4EA002F1D4B /* 微信支付@3x.png in Resources */,
 				521C93241E7FE0CA0093F1AB /* 个人中心-箭头@2x.png in Resources */,
 				522144801E67FB2500C030CD /* 首页-联盟任务@2x.png in Resources */,
 				522144851E67FB2500C030CD /* 首页-ＨＯＴ@3x.png in Resources */,
@@ -1607,6 +1639,7 @@
 				522144871E67FB2500C030CD /* 首页@3x.png in Resources */,
 				522144781E67FB2500C030CD /* 首页-敬请期待@2x.png in Resources */,
 				522144691E67FB2500C030CD /* 赚钱点@3x.png in Resources */,
+				5204E3EF1EA06742006751CF /* 扫码背景@3x.png in Resources */,
 				52D0060B1E9DC38F00794CAE /* 123123.png in Resources */,
 				522143911E67BD4300C030CD /* Assets.xcassets in Resources */,
 				522144811E67FB2500C030CD /* 首页-联盟任务@3x.png in Resources */,
@@ -1616,6 +1649,7 @@
 				529815BB1E9766CE00451D01 /* NO.2@2x.png in Resources */,
 				522144791E67FB2500C030CD /* 首页-敬请期待@3x.png in Resources */,
 				52E13E491E6FE7A60047702B /* 列表-夺宝背景@3x.png in Resources */,
+				5237E3F41EA0C4EA002F1D4B /* 支付宝支付@3x.png in Resources */,
 				529815BC1E9766CE00451D01 /* NO.2@3x.png in Resources */,
 				5221445E1E67FB2500C030CD /* 我的@2x.png in Resources */,
 				521C932C1E7FE0CA0093F1AB /* 邀请好友@2x.png in Resources */,
@@ -1645,6 +1679,7 @@
 				52D006041E9DBE0500794CAE /* 用户@2x.png in Resources */,
 				521C932F1E7FE0CA0093F1AB /* 疑难解答@3x.png in Resources */,
 				522144841E67FB2500C030CD /* 首页-ＨＯＴ@2x.png in Resources */,
+				5237E3F31EA0C4EA002F1D4B /* 支付宝支付@2x.png in Resources */,
 				522144831E67FB2500C030CD /* 首页-高额任务@3x.png in Resources */,
 				5204E3D11E9F6B10006751CF /* 链接收徒@3x.png in Resources */,
 				5221447B1E67FB2500C030CD /* 首页-深度任务@3x.png in Resources */,
@@ -1654,6 +1689,7 @@
 				522144621E67FB2500C030CD /* 收徒@2x.png in Resources */,
 				52F5E30F1E9C802800E7E7D1 /* Ikaiwan.com@2x.png in Resources */,
 				52E13E4D1E6FE7A60047702B /* 列表-问号@3x.png in Resources */,
+				5237E3EF1EA0C4EA002F1D4B /* 提现方式-箭头@2x.png in Resources */,
 				521C93281E7FE0CA0093F1AB /* 关于我们@2x.png in Resources */,
 				529815B91E9766CE00451D01 /* NO.1@2x.png in Resources */,
 				52E13E451E6FE7A60047702B /* 导航-返回@3x.png in Resources */,
@@ -1689,6 +1725,7 @@
 				522144901E68039F00C030CD /* 背景@2x.png in Resources */,
 				52D006021E9DBE0500794CAE /* 验证码@2x.png in Resources */,
 				522144821E67FB2500C030CD /* 首页-高额任务@2x.png in Resources */,
+				5237E3F11EA0C4EA002F1D4B /* 微信支付@2x.png in Resources */,
 				5221446A1E67FB2500C030CD /* 首页-一元夺宝@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1816,6 +1853,7 @@
 				4A16A1F11EA060C300A3F433 /* TaskStepTimeLimited.m in Sources */,
 				5204E3E31E9F8195006751CF /* LianJieViewController.m in Sources */,
 				4A16A1EE1EA060C300A3F433 /* TaskStepCommit.m in Sources */,
+				5237E3E81EA0C45D002F1D4B /* WithDrawMethodViewController.m in Sources */,
 				526AA0F81E94828500B3DCE3 /* MakeModel.m in Sources */,
 				526AA0D51E947FEF00B3DCE3 /* MakeTableViewCell.m in Sources */,
 				52AF3FB21E69083100A1EF29 /* UIImage+MultiFormat.m in Sources */,

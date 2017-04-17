@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SecondTableViewCell : UITableViewCell
-
+- (void)reloadWithDic:(NSDictionary *)dic;
 @end

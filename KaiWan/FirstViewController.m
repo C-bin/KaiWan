@@ -12,11 +12,11 @@
 #import "LimitViewController.h"
 #import "MakeDiscipleViewController.h"
 #import "PostPhoneViewController.h"
+#import "WithDrawMethodViewController.h"
 #import "DeepTaskDetailViewController.h"
 #import "HighTaskDetailViewController.h"
 #import "CommentTaskDetailViewController.h"
 #import "TimeLimitedTaskDetailViewController.h"
-
 
 @interface FirstViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong)UIImageView *iconImage;
@@ -151,6 +151,7 @@
     [txBtn setBackgroundImage:[UIImage imageNamed:@"首页-提现"] forState:UIControlStateNormal];
     [txBtn addTarget:self action:@selector(makeMoney) forControlEvents:UIControlEventTouchUpInside];
     [headImage addSubview:txBtn];
+    headImage.userInteractionEnabled = YES;
     [txBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(linelabel.bottom).offset([UIView setHeight:32]);
         make.right.equalTo(headImage).offset(-[UIView setWidth:12]);
@@ -256,19 +257,19 @@
     
     switch (btn.tag-200) {
         case 0:
-            [self.navigationController pushViewController:[[TimeLimitedTaskDetailViewController alloc] init] animated:YES];
+ 
             break;
         case 1:
-            [self.navigationController pushViewController:[[CommentTaskDetailViewController alloc] init] animated:YES];
+            
             break;
         case 2:
             
             break;
         case 3:
-            [self.navigationController pushViewController:[[DeepTaskDetailViewController alloc] init] animated:YES];
+            
             break;
         case 4:
-            [self.navigationController pushViewController:[[HighTaskDetailViewController alloc] init] animated:YES];
+            
             break;
         case 5:
             
@@ -362,6 +363,7 @@
 #pragma mark--提现
 - (void)makeMoney {
     
+    [self.navigationController pushViewController:[[WithDrawMethodViewController alloc]init] animated:YES];
 
     
 }

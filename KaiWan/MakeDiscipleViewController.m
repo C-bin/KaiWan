@@ -9,6 +9,7 @@
 #import "MakeDiscipleViewController.h"
 #import "ShowListViewController.h"
 #import "LianJieViewController.h"
+#import "SaoMaViewController.h"
 @interface MakeDiscipleViewController ()
 @property (nonatomic,strong) UILabel *moneyLabel;
 @property (nonatomic,strong) UILabel *todayDisciplelabel;
@@ -250,7 +251,8 @@
             [self.navigationController pushViewController:[[ShowListViewController alloc]init] animated:YES];
             break;
         case 1:
-            
+            [self.navigationController pushViewController:[[SaoMaViewController alloc]init] animated:YES];
+
             break;
         case 2:
             [self.navigationController pushViewController:[[LianJieViewController alloc]init] animated:YES];
