@@ -58,6 +58,12 @@
         
         [nameLabel.layer addSublayer:border];
         
+        self.longPress = [[UILongPressGestureRecognizer alloc] init];
+        self.longPress.minimumPressDuration = 1;
+        [nameLabel addGestureRecognizer:self.longPress];
+        nameLabel.userInteractionEnabled = YES;
+        
+        
         UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(nameLabel.frame), self.frame.size.width, HeightScale(35))];
         tipLabel.text = @"长按复制关键词";
         tipLabel.font = [UIFont systemFontOfSize:13];

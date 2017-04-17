@@ -13,6 +13,11 @@
 #import "MakeDiscipleViewController.h"
 #import "PostPhoneViewController.h"
 #import "WithDrawMethodViewController.h"
+#import "DeepTaskDetailViewController.h"
+#import "HighTaskDetailViewController.h"
+#import "CommentTaskDetailViewController.h"
+#import "TimeLimitedTaskDetailViewController.h"
+
 @interface FirstViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong)UIImageView *iconImage;
 @property (nonatomic, strong)UILabel *syLabel;
@@ -252,7 +257,7 @@
     
     switch (btn.tag-200) {
         case 0:
-            
+ 
             break;
         case 1:
             

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A14D1AF1EA07666000427A9 /* DeepTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A14D1AE1EA07666000427A9 /* DeepTaskModel.m */; };
+		4A14D1D61EA0940B000427A9 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A14D1D21EA0940B000427A9 /* NSObject+YYModel.m */; };
+		4A14D1D71EA0940B000427A9 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A14D1D41EA0940B000427A9 /* YYClassInfo.m */; };
 		4A16A1EC1EA060C300A3F433 /* TaskInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1DF1EA060C300A3F433 /* TaskInfoView.m */; };
 		4A16A1ED1EA060C300A3F433 /* TaskStepComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1E11EA060C300A3F433 /* TaskStepComment.m */; };
 		4A16A1EE1EA060C300A3F433 /* TaskStepCommit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1E31EA060C300A3F433 /* TaskStepCommit.m */; };
@@ -275,6 +278,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A14D1AD1EA07666000427A9 /* DeepTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeepTaskModel.h; sourceTree = "<group>"; };
+		4A14D1AE1EA07666000427A9 /* DeepTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeepTaskModel.m; sourceTree = "<group>"; };
+		4A14D1D11EA0940B000427A9 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
+		4A14D1D21EA0940B000427A9 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		4A14D1D31EA0940B000427A9 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		4A14D1D41EA0940B000427A9 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		4A14D1D51EA0940B000427A9 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
 		4A16A1DE1EA060C300A3F433 /* TaskInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskInfoView.h; sourceTree = "<group>"; };
 		4A16A1DF1EA060C300A3F433 /* TaskInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskInfoView.m; sourceTree = "<group>"; };
 		4A16A1E01EA060C300A3F433 /* TaskStepComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskStepComment.h; sourceTree = "<group>"; };
@@ -677,6 +687,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A14D1AC1EA0763D000427A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A14D1AD1EA07666000427A9 /* DeepTaskModel.h */,
+				4A14D1AE1EA07666000427A9 /* DeepTaskModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4A14D1D01EA0940B000427A9 /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				4A14D1D11EA0940B000427A9 /* NSObject+YYModel.h */,
+				4A14D1D21EA0940B000427A9 /* NSObject+YYModel.m */,
+				4A14D1D31EA0940B000427A9 /* YYClassInfo.h */,
+				4A14D1D41EA0940B000427A9 /* YYClassInfo.m */,
+				4A14D1D51EA0940B000427A9 /* YYModel.h */,
+			);
+			path = YYModel;
+			sourceTree = "<group>";
+		};
 		4A16A1DC1EA0609400A3F433 /* 任务详情页 */ = {
 			isa = PBXGroup;
 			children = (
@@ -692,7 +723,7 @@
 			name = "任务详情页";
 			sourceTree = "<group>";
 		};
-		4A16A1DD1EA060A500A3F433 /* views */ = {
+		4A16A1DD1EA060A500A3F433 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				4A16A1DE1EA060C300A3F433 /* TaskInfoView.h */,
@@ -710,7 +741,7 @@
 				4A16A1EA1EA060C300A3F433 /* TaskStepTutor.h */,
 				4A16A1EB1EA060C300A3F433 /* TaskStepTutor.m */,
 			);
-			name = views;
+			name = View;
 			sourceTree = "<group>";
 		};
 		5204E3D41E9F7033006751CF /* ShowList */ = {
@@ -809,6 +840,7 @@
 		522143B71E67C38500C030CD /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				4A14D1D01EA0940B000427A9 /* YYModel */,
 				52D006141E9F0FDF00794CAE /* MJRefresh */,
 				52D0060F1E9E3CD900794CAE /* CustomClass */,
 				526AA0D61E94825400B3DCE3 /* JSONModel */,
@@ -1420,7 +1452,8 @@
 		52E0D6041E8F92B2000DC7A8 /* Deatail */ = {
 			isa = PBXGroup;
 			children = (
-				4A16A1DD1EA060A500A3F433 /* views */,
+				4A14D1AC1EA0763D000427A9 /* Model */,
+				4A16A1DD1EA060A500A3F433 /* View */,
 				4A16A1DC1EA0609400A3F433 /* 任务详情页 */,
 				52A6DF311E94EABD00AA7243 /* Good */,
 				52E0D6051E8F92C2000DC7A8 /* Limit */,
@@ -1549,8 +1582,7 @@
 				TargetAttributes = {
 					522143801E67BD4300C030CD = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = MJ39BALCC6;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					522143991E67BD4300C030CD = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1823,11 +1855,13 @@
 				52D0064C1E9F0FDF00794CAE /* MJRefreshBackNormalFooter.m in Sources */,
 				522143C91E67C44100C030CD /* AFSecurityPolicy.m in Sources */,
 				52AF3FAC1E69083100A1EF29 /* SDWebImageDownloader.m in Sources */,
+				4A14D1AF1EA07666000427A9 /* DeepTaskModel.m in Sources */,
 				52FD4E5B1E94C488002472E1 /* WIthdrawViewController.m in Sources */,
 				52D006551E9F0FDF00794CAE /* UIScrollView+MJRefresh.m in Sources */,
 				52F5E3081E9C71EA00E7E7D1 /* RequestData.m in Sources */,
 				52D0064B1E9F0FDF00794CAE /* MJRefreshBackGifFooter.m in Sources */,
 				52D006431E9F0FDF00794CAE /* MJRefreshAutoFooter.m in Sources */,
+				4A14D1D71EA0940B000427A9 /* YYClassInfo.m in Sources */,
 				529815D11E979AB700451D01 /* UIButton+Creat.m in Sources */,
 				52D0064F1E9F0FDF00794CAE /* MJRefreshNormalHeader.m in Sources */,
 				52D006561E9F0FDF00794CAE /* UIView+MJExtension.m in Sources */,
@@ -1847,6 +1881,7 @@
 				522143CB1E67C44100C030CD /* AFURLResponseSerialization.m in Sources */,
 				52AF3FAF1E69083100A1EF29 /* SDWebImagePrefetcher.m in Sources */,
 				4A16A1F01EA060C300A3F433 /* TaskStepDeep.m in Sources */,
+				4A14D1D61EA0940B000427A9 /* NSObject+YYModel.m in Sources */,
 				52CCF2351E94957C00AB6EB7 /* SonViewController.m in Sources */,
 				4A16A1F11EA060C300A3F433 /* TaskStepTimeLimited.m in Sources */,
 				5204E3E31E9F8195006751CF /* LianJieViewController.m in Sources */,
@@ -2009,13 +2044,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MJ39BALCC6;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KaiWan/PrefixHeader.pch";
 				INFOPLIST_FILE = KaiWan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shi..KaiWan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -2023,13 +2059,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MJ39BALCC6;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KaiWan/PrefixHeader.pch";
 				INFOPLIST_FILE = KaiWan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shi..KaiWan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
