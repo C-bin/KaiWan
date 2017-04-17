@@ -12,6 +12,12 @@
 #import "LimitViewController.h"
 #import "MakeDiscipleViewController.h"
 #import "PostPhoneViewController.h"
+#import "DeepTaskDetailViewController.h"
+#import "HighTaskDetailViewController.h"
+#import "CommentTaskDetailViewController.h"
+#import "TimeLimitedTaskDetailViewController.h"
+
+
 @interface FirstViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong)UIImageView *iconImage;
 @property (nonatomic, strong)UILabel *syLabel;
@@ -250,19 +256,19 @@
     
     switch (btn.tag-200) {
         case 0:
-            
+            [self.navigationController pushViewController:[[TimeLimitedTaskDetailViewController alloc] init] animated:YES];
             break;
         case 1:
-            
+            [self.navigationController pushViewController:[[CommentTaskDetailViewController alloc] init] animated:YES];
             break;
         case 2:
             
             break;
         case 3:
-            
+            [self.navigationController pushViewController:[[DeepTaskDetailViewController alloc] init] animated:YES];
             break;
         case 4:
-            
+            [self.navigationController pushViewController:[[HighTaskDetailViewController alloc] init] animated:YES];
             break;
         case 5:
             

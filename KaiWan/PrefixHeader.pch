@@ -29,6 +29,7 @@
 #import "NSString+Creat.h"
 #import "MJRefresh.h"
 #import "NoneListView.h"
+#import "YYModel.h"
 #define SWIDTH [UIScreen mainScreen].bounds.size.width
 #define SHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SF_COLOR(RED, GREEN, BLUE)	[UIColor colorWithRed:RED/255.0f green:GREEN/255.0f blue:BLUE/255.0f alpha:1]
@@ -46,4 +47,7 @@
 
 //颜色
 #define COLOR_RGB(r, g, b, a) [UIColor colorWithRed:r / 255. green:g /255. blue:b / 255. alpha:a]
+
+//深度任务详情
+#define KdeepTaskDetailUrl [NSString stringWithFormat:@"%@DepthTask/click.html", HostUrl]
 

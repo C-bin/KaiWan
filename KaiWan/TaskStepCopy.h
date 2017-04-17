@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface TaskStepCopy : UIView
+
+@property (nonatomic, strong) UILongPressGestureRecognizer * longPress;
 
 @end
