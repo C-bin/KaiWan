@@ -22,16 +22,16 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__32-[FourViewController reloadData]_block_invoke"
+                  symbolName = "__copy_helper_block_"
                   moduleName = "KaiWan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenguang/Desktop/KaiWan/KaiWan/FourViewController.m"
-                  timestampString = "513857452.391534"
+                  timestampString = "514111179.714091"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "3962">
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "51">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,11 +41,11 @@
                   moduleName = "KaiWan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenguang/Desktop/KaiWan/KaiWan/FourViewController.m"
-                  timestampString = "513857452.406917"
+                  timestampString = "514111179.71664"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
                   offsetFromSymbolStart = "29">
                </Location>
                <Location
@@ -56,11 +56,11 @@
                   moduleName = "KaiWan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenguang/Desktop/KaiWan/KaiWan/FourViewController.m"
-                  timestampString = "513857452.410499"
+                  timestampString = "514111179.718971"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
                   offsetFromSymbolStart = "52">
                </Location>
             </Locations>

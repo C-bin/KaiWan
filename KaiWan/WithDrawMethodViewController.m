@@ -7,7 +7,8 @@
 //
 
 #import "WithDrawMethodViewController.h"
-
+#import "AliPayViewController.h"
+#import "WeChatViewController.h"
 @interface WithDrawMethodViewController ()
 
 @end
@@ -178,9 +179,10 @@
 }
 - (void)jumpToWithDrawSender:(UIButton *)btn {
     if (btn.tag==510) {
-        
+        [self.navigationController pushViewController:[[WeChatViewController alloc]init] animated:YES];
     }else {
-        
+        [self.navigationController pushViewController:[[AliPayViewController alloc]init] animated:YES];
+
     }
     
 }

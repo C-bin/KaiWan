@@ -148,6 +148,9 @@
 		526AA0F41E94825400B3DCE3 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 526AA0E91E94825400B3DCE3 /* JSONKeyMapper.m */; };
 		526AA0F51E94825400B3DCE3 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 526AA0EB1E94825400B3DCE3 /* JSONValueTransformer.m */; };
 		526AA0F81E94828500B3DCE3 /* MakeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 526AA0F71E94828500B3DCE3 /* MakeModel.m */; };
+		527EC43D1EA4937A00E62494 /* WeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 527EC43C1EA4937A00E62494 /* WeChatViewController.m */; };
+		527EC4401EA4939100E62494 /* AliPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 527EC43F1EA4939100E62494 /* AliPayViewController.m */; };
+		527EC4441EA4BDCA00E62494 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 527EC4431EA4BDCA00E62494 /* SignInViewController.m */; };
 		529815A21E97392A00451D01 /* 三角形@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 529815A01E97392A00451D01 /* 三角形@2x.png */; };
 		529815A31E97392A00451D01 /* 三角形@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 529815A11E97392A00451D01 /* 三角形@3x.png */; };
 		529815A61E973F1F00451D01 /* ChartsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 529815A51E973F1F00451D01 /* ChartsTableViewCell.m */; };
@@ -487,6 +490,12 @@
 		526AA0EC1E94825400B3DCE3 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		526AA0F61E94828500B3DCE3 /* MakeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeModel.h; sourceTree = "<group>"; };
 		526AA0F71E94828500B3DCE3 /* MakeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeModel.m; sourceTree = "<group>"; };
+		527EC43B1EA4937A00E62494 /* WeChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatViewController.h; sourceTree = "<group>"; };
+		527EC43C1EA4937A00E62494 /* WeChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeChatViewController.m; sourceTree = "<group>"; };
+		527EC43E1EA4939100E62494 /* AliPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliPayViewController.h; sourceTree = "<group>"; };
+		527EC43F1EA4939100E62494 /* AliPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliPayViewController.m; sourceTree = "<group>"; };
+		527EC4421EA4BDCA00E62494 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		527EC4431EA4BDCA00E62494 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		529815A01E97392A00451D01 /* 三角形@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "三角形@2x.png"; path = "../三角形@2x.png"; sourceTree = "<group>"; };
 		529815A11E97392A00451D01 /* 三角形@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "三角形@3x.png"; path = "../三角形@3x.png"; sourceTree = "<group>"; };
 		529815A41E973F1F00451D01 /* ChartsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartsTableViewCell.h; sourceTree = "<group>"; };
@@ -877,6 +886,7 @@
 		5221441A1E67F56D00C030CD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				527EC4411EA4BDA800E62494 /* SignIn */,
 				52D006061E9DC16700794CAE /* PostPhone */,
 				529815BF1E976F5D00451D01 /* MakeDisciple */,
 				52D21BB01E97254500A4418C /* Charts */,
@@ -1192,6 +1202,28 @@
 			path = JSONModelTransformations;
 			sourceTree = "<group>";
 		};
+		527EC43A1EA4934F00E62494 /* WithDraw */ = {
+			isa = PBXGroup;
+			children = (
+				5237E3E61EA0C45D002F1D4B /* WithDrawMethodViewController.h */,
+				5237E3E71EA0C45D002F1D4B /* WithDrawMethodViewController.m */,
+				527EC43B1EA4937A00E62494 /* WeChatViewController.h */,
+				527EC43C1EA4937A00E62494 /* WeChatViewController.m */,
+				527EC43E1EA4939100E62494 /* AliPayViewController.h */,
+				527EC43F1EA4939100E62494 /* AliPayViewController.m */,
+			);
+			name = WithDraw;
+			sourceTree = "<group>";
+		};
+		527EC4411EA4BDA800E62494 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				527EC4421EA4BDCA00E62494 /* SignInViewController.h */,
+				527EC4431EA4BDCA00E62494 /* SignInViewController.m */,
+			);
+			name = SignIn;
+			sourceTree = "<group>";
+		};
 		529815BF1E976F5D00451D01 /* MakeDisciple */ = {
 			isa = PBXGroup;
 			children = (
@@ -1216,10 +1248,9 @@
 		52AF3F801E69068400A1EF29 /* CV */ = {
 			isa = PBXGroup;
 			children = (
+				527EC43A1EA4934F00E62494 /* WithDraw */,
 				522144231E67F80500C030CD /* FirstViewController.h */,
 				522144241E67F80500C030CD /* FirstViewController.m */,
-				5237E3E61EA0C45D002F1D4B /* WithDrawMethodViewController.h */,
-				5237E3E71EA0C45D002F1D4B /* WithDrawMethodViewController.m */,
 			);
 			name = CV;
 			sourceTree = "<group>";
@@ -1799,6 +1830,7 @@
 				52363D6A1E68223500442335 /* MASViewConstraint.m in Sources */,
 				52AF3FA71E69083100A1EF29 /* MKAnnotationView+WebCache.m in Sources */,
 				4A16A1FB1EA060D900A3F433 /* CommentTaskDetailViewController.m in Sources */,
+				527EC43D1EA4937A00E62494 /* WeChatViewController.m in Sources */,
 				52363D6D1E68223500442335 /* View+MASAdditions.m in Sources */,
 				52D0060E1E9E3CD400794CAE /* NoneListView.m in Sources */,
 				52363D671E68223500442335 /* MASConstraintMaker.m in Sources */,
@@ -1834,6 +1866,7 @@
 				52D0064F1E9F0FDF00794CAE /* MJRefreshNormalHeader.m in Sources */,
 				52D006561E9F0FDF00794CAE /* UIView+MJExtension.m in Sources */,
 				5239F0D91E792E500011C511 /* BangDViewController.m in Sources */,
+				527EC4441EA4BDCA00E62494 /* SignInViewController.m in Sources */,
 				52363D681E68223500442335 /* MASLayoutConstraint.m in Sources */,
 				52AF3FB11E69083100A1EF29 /* UIImage+GIF.m in Sources */,
 				529815C21E976FAB00451D01 /* MakeDiscipleViewController.m in Sources */,
@@ -1853,6 +1886,7 @@
 				4A16A1F11EA060C300A3F433 /* TaskStepTimeLimited.m in Sources */,
 				5204E3E31E9F8195006751CF /* LianJieViewController.m in Sources */,
 				4A16A1EE1EA060C300A3F433 /* TaskStepCommit.m in Sources */,
+				527EC4401EA4939100E62494 /* AliPayViewController.m in Sources */,
 				5237E3E81EA0C45D002F1D4B /* WithDrawMethodViewController.m in Sources */,
 				526AA0F81E94828500B3DCE3 /* MakeModel.m in Sources */,
 				526AA0D51E947FEF00B3DCE3 /* MakeTableViewCell.m in Sources */,
