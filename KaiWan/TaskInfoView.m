@@ -9,6 +9,12 @@
 #import "TaskInfoView.h"
 #import "DeepTaskModel.h"
 
+@interface TaskInfoView ()
+
+@property (nonatomic, strong) UIView * stepView;
+@property (nonatomic, strong) UIView * infoView;
+
+@end
 @implementation TaskInfoView
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -16,7 +22,7 @@
     if (self) {
 
         self.backgroundColor = [UIColor whiteColor];
-        UIView *infoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SWIDTH, HeightScale(80))];
+        self.infoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SWIDTH, HeightScale(80))];
         
         self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(10), HeightScale(10), WidthScale(60), HeightScale(60))];
         [self addSubview:self.iconImageView];
@@ -35,21 +41,17 @@
         self.moneyLabel.font = [UIFont systemFontOfSize:WidthScale(20)];
         [self addSubview:self.moneyLabel];
         
-        UIView *underLine = [[UIView alloc] initWithFrame:CGRectMake(WidthScale(10), infoView.frame.size.height - HeightScale(1), SWIDTH - WidthScale(20), HeightScale(1))];
+        UIView *underLine = [[UIView alloc] initWithFrame:CGRectMake(WidthScale(10), self.infoView.frame.size.height - HeightScale(1), SWIDTH - WidthScale(20), HeightScale(1))];
         underLine.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
         
         [self addSubview:underLine];
         
-        UIView *stepView = [[UIView alloc] init];
+        self.stepView = [[UIView alloc] init];
         self.stepLabel = [[UILabel alloc] initWithFrame:CGRectMake(WidthScale(15), HeightScale(15), SWIDTH - WidthScale(20), HeightScale(200))];
         
-        [self addSubview:stepView];
+        [self addSubview:self.stepView];
         
-        [stepView addSubview:self.stepLabel];
-        
-        stepView.frame = CGRectMake(0, CGRectGetMaxY(infoView.frame), SWIDTH, self.stepLabel.frame.size.height + HeightScale(30));
-        
-        self.frame = CGRectMake(0, frame.size.height, SWIDTH, stepView.frame.size.height + infoView.frame.size.height);
+        [self.stepView addSubview:self.stepLabel];
     }
     return self;
 }
@@ -59,7 +61,7 @@
     
     self.iconImageView.image = [UIImage imageNamed:@"列表-问号"];
     
-    self.titleLabel.text = @"闲鱼二手交易";
+    self.titleLabel.text = deepTaskModel.keywords;
     
     
     NSDictionary *firstDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName, [UIColor colorWithWhite:0.6 alpha:1], NSForegroundColorAttributeName, nil];
@@ -72,9 +74,17 @@
     self.timeLabel.attributedText = firstStr;
 
     
-    self.moneyLabel.text = self.deepTaskModel.reward;
+    NSArray *rewardArr = [self.deepTaskModel.reward componentsSeparatedByString:@","];
+    NSUInteger sumReward = 0;
+    for (int i = 0; i < rewardArr.count; i ++) {
+        sumReward += [rewardArr[i] integerValue];
+    }
     
-    NSString *str = @"参与步骤:\n1.复制下方关键字，在App Store搜索下载，找到下面对应图标，约在第3名下载;\n2.下载成功后，打开试玩3分钟;\n3.返回本页提交任务，领取奖励。";
+    
+    self.moneyLabel.text = [NSString stringWithFormat:@"+%ld元", sumReward];
+    
+    NSString *str = [NSString stringWithFormat:@"参与步骤:\n1.复制下方关键字，在App Store搜索下载，找到下面对应图标，约在第%d名下载;\n2.%@;\n3.返回本页提交任务，领取奖励。", [deepTaskModel.location intValue], deepTaskModel.Description];
+
     
     // 创建 NSMutableAttributedString
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
@@ -87,13 +97,13 @@
     // 添加文字颜色
     [attrStr addAttribute:NSForegroundColorAttributeName
                     value:[UIColor redColor]
-                    range:NSMakeRange(43, 1)];
-    [attrStr addAttribute:NSForegroundColorAttributeName
-                    value:[UIColor redColor]
-                    range:NSMakeRange(59, 5)];
-    [attrStr addAttribute:NSForegroundColorAttributeName
-                    value:[UIColor redColor]
-                    range:NSMakeRange(68, 4)];
+                    range:NSMakeRange(43, [deepTaskModel.location length])];
+//    [attrStr addAttribute:NSForegroundColorAttributeName
+//                    value:[UIColor redColor]
+//                    range:NSMakeRange(59, 5)];
+//    [attrStr addAttribute:NSForegroundColorAttributeName
+//                    value:[UIColor redColor]
+//                    range:NSMakeRange(68, 4)];
     
     
     NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
@@ -107,6 +117,9 @@
     // label高度自适应
     [self.stepLabel sizeToFit];
 
+    self.stepView.frame = CGRectMake(0, CGRectGetMaxY(self.infoView.frame), SWIDTH, self.stepLabel.frame.size.height + HeightScale(30));
+    
+    self.frame = CGRectMake(0, 0, SWIDTH, self.stepView.frame.size.height + self.infoView.frame.size.height);
     
     
 }

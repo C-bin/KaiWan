@@ -8,6 +8,8 @@
 
 #import "SecondViewController.h"
 #import "SecondTableViewCell.h"
+#import "DeepTaskDetailViewController.h"
+
 @interface SecondViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *dataArr;
@@ -235,7 +237,11 @@
                 
                 break;
             case 55:
-                
+            {
+                DeepTaskDetailViewController *deepTaskDetailVC = [[DeepTaskDetailViewController alloc] init];
+                deepTaskDetailVC.taskDic = self.dataArr[0][indexPath.row];
+                [self.navigationController pushViewController:deepTaskDetailVC animated:YES];
+            }
                 break;
             case 7:
                 

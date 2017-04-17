@@ -10,4 +10,6 @@
 
 @interface DeepTaskDetailViewController : MainCVViewController
 
+@property (nonatomic, strong) NSDictionary * taskDic;
+
 @end

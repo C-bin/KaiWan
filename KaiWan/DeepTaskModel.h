@@ -26,6 +26,7 @@
 @property (nonatomic, copy) NSString * action_time;
 @property (nonatomic, copy) NSString * time;
 @property (nonatomic, copy) NSString * timec;
-@property (nonatomic, copy) NSString * days;
+@property (nonatomic, copy) NSNumber * days;
+@property (nonatomic, copy) NSString * pro;
 
 @end
