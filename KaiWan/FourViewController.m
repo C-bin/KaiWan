@@ -40,7 +40,7 @@
         NSDictionary *dicb = dica[@"user_info"];
         [self.headIcon sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImageUrl,dicb[@"avatar"]]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
         self.dic = [[NSDictionary alloc]initWithDictionary:dicb];
-        self.idLabel.text = [NSString creatWithId:dicb[@"id"]];
+        self.idLabel.text = [NSString stringWithFormat:@"ID:%@",[NSString creatWithId:dicb[@"id"]]];
         self.namelabel.text = [NSString creatWithId:dicb[@"nickname"]];
 
         

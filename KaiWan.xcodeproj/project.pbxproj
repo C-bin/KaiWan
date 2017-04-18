@@ -192,6 +192,28 @@
 		52AF3FB41E69083100A1EF29 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF3FA21E69083100A1EF29 /* UIImageView+HighlightedWebCache.m */; };
 		52AF3FB51E69083100A1EF29 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF3FA41E69083100A1EF29 /* UIImageView+WebCache.m */; };
 		52AF3FB61E69083100A1EF29 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF3FA61E69083100A1EF29 /* UIView+WebCacheOperation.m */; };
+		52B1A9451EA5BFF9009525F3 /* 礼物@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A9331EA5BFF9009525F3 /* 礼物@2x.png */; };
+		52B1A9461EA5BFF9009525F3 /* 礼物@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A9341EA5BFF9009525F3 /* 礼物@3x.png */; };
+		52B1A9471EA5BFF9009525F3 /* 没签到状态@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A9351EA5BFF9009525F3 /* 没签到状态@2x.png */; };
+		52B1A9481EA5BFF9009525F3 /* 没签到状态@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A9361EA5BFF9009525F3 /* 没签到状态@3x.png */; };
+		52B1A9491EA5BFF9009525F3 /* 内转盘@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A9371EA5BFF9009525F3 /* 内转盘@2x.png */; };
+		52B1A94A1EA5BFF9009525F3 /* 内转盘@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A9381EA5BFF9009525F3 /* 内转盘@3x.png */; };
+		52B1A94B1EA5BFF9009525F3 /* 签到按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A9391EA5BFF9009525F3 /* 签到按钮@2x.png */; };
+		52B1A94C1EA5BFF9009525F3 /* 签到按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A93A1EA5BFF9009525F3 /* 签到按钮@3x.png */; };
+		52B1A94D1EA5BFF9009525F3 /* 签到背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A93B1EA5BFF9009525F3 /* 签到背景@2x.png */; };
+		52B1A94E1EA5BFF9009525F3 /* 签到背景@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A93C1EA5BFF9009525F3 /* 签到背景@3x.png */; };
+		52B1A94F1EA5BFF9009525F3 /* 徒弟签到@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A93D1EA5BFF9009525F3 /* 徒弟签到@2x.png */; };
+		52B1A9501EA5BFF9009525F3 /* 徒弟签到@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A93E1EA5BFF9009525F3 /* 徒弟签到@3x.png */; };
+		52B1A9511EA5BFF9009525F3 /* 已签到状态@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A93F1EA5BFF9009525F3 /* 已签到状态@2x.png */; };
+		52B1A9521EA5BFF9009525F3 /* 已签到状态@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A9401EA5BFF9009525F3 /* 已签到状态@3x.png */; };
+		52B1A9531EA5BFF9009525F3 /* 装饰@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A9411EA5BFF9009525F3 /* 装饰@2x.png */; };
+		52B1A9541EA5BFF9009525F3 /* 装饰@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A9421EA5BFF9009525F3 /* 装饰@3x.png */; };
+		52B1A9551EA5BFF9009525F3 /* go@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A9431EA5BFF9009525F3 /* go@2x.png */; };
+		52B1A9561EA5BFF9009525F3 /* go@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A9441EA5BFF9009525F3 /* go@3x.png */; };
+		52B1A9591EA5E6E8009525F3 /* TurntableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B1A9581EA5E6E8009525F3 /* TurntableView.m */; };
+		52B1A95C1EA5E71D009525F3 /* myUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B1A95B1EA5E71D009525F3 /* myUILabel.m */; };
+		52B1A95F1EA5FE9D009525F3 /* 123@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A95D1EA5FE9D009525F3 /* 123@2x.png */; };
+		52B1A9601EA5FE9D009525F3 /* 123@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B1A95E1EA5FE9D009525F3 /* 123@3x.png */; };
 		52CCF2351E94957C00AB6EB7 /* SonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CCF2341E94957C00AB6EB7 /* SonViewController.m */; };
 		52D006021E9DBE0500794CAE /* 验证码@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D005FE1E9DBE0500794CAE /* 验证码@2x.png */; };
 		52D006031E9DBE0500794CAE /* 验证码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D005FF1E9DBE0500794CAE /* 验证码@3x.png */; };
@@ -559,6 +581,30 @@
 		52AF3FA41E69083100A1EF29 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		52AF3FA51E69083100A1EF29 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		52AF3FA61E69083100A1EF29 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		52B1A9331EA5BFF9009525F3 /* 礼物@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "礼物@2x.png"; sourceTree = "<group>"; };
+		52B1A9341EA5BFF9009525F3 /* 礼物@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "礼物@3x.png"; sourceTree = "<group>"; };
+		52B1A9351EA5BFF9009525F3 /* 没签到状态@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "没签到状态@2x.png"; sourceTree = "<group>"; };
+		52B1A9361EA5BFF9009525F3 /* 没签到状态@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "没签到状态@3x.png"; sourceTree = "<group>"; };
+		52B1A9371EA5BFF9009525F3 /* 内转盘@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "内转盘@2x.png"; sourceTree = "<group>"; };
+		52B1A9381EA5BFF9009525F3 /* 内转盘@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "内转盘@3x.png"; sourceTree = "<group>"; };
+		52B1A9391EA5BFF9009525F3 /* 签到按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "签到按钮@2x.png"; sourceTree = "<group>"; };
+		52B1A93A1EA5BFF9009525F3 /* 签到按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "签到按钮@3x.png"; sourceTree = "<group>"; };
+		52B1A93B1EA5BFF9009525F3 /* 签到背景@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "签到背景@2x.png"; sourceTree = "<group>"; };
+		52B1A93C1EA5BFF9009525F3 /* 签到背景@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "签到背景@3x.png"; sourceTree = "<group>"; };
+		52B1A93D1EA5BFF9009525F3 /* 徒弟签到@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "徒弟签到@2x.png"; sourceTree = "<group>"; };
+		52B1A93E1EA5BFF9009525F3 /* 徒弟签到@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "徒弟签到@3x.png"; sourceTree = "<group>"; };
+		52B1A93F1EA5BFF9009525F3 /* 已签到状态@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已签到状态@2x.png"; sourceTree = "<group>"; };
+		52B1A9401EA5BFF9009525F3 /* 已签到状态@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已签到状态@3x.png"; sourceTree = "<group>"; };
+		52B1A9411EA5BFF9009525F3 /* 装饰@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "装饰@2x.png"; sourceTree = "<group>"; };
+		52B1A9421EA5BFF9009525F3 /* 装饰@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "装饰@3x.png"; sourceTree = "<group>"; };
+		52B1A9431EA5BFF9009525F3 /* go@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "go@2x.png"; sourceTree = "<group>"; };
+		52B1A9441EA5BFF9009525F3 /* go@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "go@3x.png"; sourceTree = "<group>"; };
+		52B1A9571EA5E6E8009525F3 /* TurntableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurntableView.h; sourceTree = "<group>"; };
+		52B1A9581EA5E6E8009525F3 /* TurntableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TurntableView.m; sourceTree = "<group>"; };
+		52B1A95A1EA5E71D009525F3 /* myUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myUILabel.h; sourceTree = "<group>"; };
+		52B1A95B1EA5E71D009525F3 /* myUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myUILabel.m; sourceTree = "<group>"; };
+		52B1A95D1EA5FE9D009525F3 /* 123@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "123@2x.png"; sourceTree = "<group>"; };
+		52B1A95E1EA5FE9D009525F3 /* 123@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "123@3x.png"; sourceTree = "<group>"; };
 		52CCF2331E94957C00AB6EB7 /* SonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonViewController.h; sourceTree = "<group>"; };
 		52CCF2341E94957C00AB6EB7 /* SonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonViewController.m; sourceTree = "<group>"; };
 		52D005FE1E9DBE0500794CAE /* 验证码@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "验证码@2x.png"; sourceTree = "<group>"; };
@@ -955,6 +1001,26 @@
 		522144311E67FB2500C030CD /* 首页-图标 */ = {
 			isa = PBXGroup;
 			children = (
+				52B1A95D1EA5FE9D009525F3 /* 123@2x.png */,
+				52B1A95E1EA5FE9D009525F3 /* 123@3x.png */,
+				52B1A9331EA5BFF9009525F3 /* 礼物@2x.png */,
+				52B1A9341EA5BFF9009525F3 /* 礼物@3x.png */,
+				52B1A9351EA5BFF9009525F3 /* 没签到状态@2x.png */,
+				52B1A9361EA5BFF9009525F3 /* 没签到状态@3x.png */,
+				52B1A9371EA5BFF9009525F3 /* 内转盘@2x.png */,
+				52B1A9381EA5BFF9009525F3 /* 内转盘@3x.png */,
+				52B1A9391EA5BFF9009525F3 /* 签到按钮@2x.png */,
+				52B1A93A1EA5BFF9009525F3 /* 签到按钮@3x.png */,
+				52B1A93B1EA5BFF9009525F3 /* 签到背景@2x.png */,
+				52B1A93C1EA5BFF9009525F3 /* 签到背景@3x.png */,
+				52B1A93D1EA5BFF9009525F3 /* 徒弟签到@2x.png */,
+				52B1A93E1EA5BFF9009525F3 /* 徒弟签到@3x.png */,
+				52B1A93F1EA5BFF9009525F3 /* 已签到状态@2x.png */,
+				52B1A9401EA5BFF9009525F3 /* 已签到状态@3x.png */,
+				52B1A9411EA5BFF9009525F3 /* 装饰@2x.png */,
+				52B1A9421EA5BFF9009525F3 /* 装饰@3x.png */,
+				52B1A9431EA5BFF9009525F3 /* go@2x.png */,
+				52B1A9441EA5BFF9009525F3 /* go@3x.png */,
 				5237E3E91EA0C4EA002F1D4B /* 提现方式-箭头@2x.png */,
 				5237E3EA1EA0C4EA002F1D4B /* 提现方式-箭头@3x.png */,
 				5237E3EB1EA0C4EA002F1D4B /* 微信支付@2x.png */,
@@ -1218,6 +1284,10 @@
 		527EC4411EA4BDA800E62494 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				52B1A9571EA5E6E8009525F3 /* TurntableView.h */,
+				52B1A9581EA5E6E8009525F3 /* TurntableView.m */,
+				52B1A95A1EA5E71D009525F3 /* myUILabel.h */,
+				52B1A95B1EA5E71D009525F3 /* myUILabel.m */,
 				527EC4421EA4BDCA00E62494 /* SignInViewController.h */,
 				527EC4431EA4BDCA00E62494 /* SignInViewController.m */,
 			);
@@ -1627,6 +1697,7 @@
 				5221447A1E67FB2500C030CD /* 首页-深度任务@2x.png in Resources */,
 				529815CA1E978A0D00451D01 /* 晒单收徒@3x.png in Resources */,
 				52E13E551E6FE7A60047702B /* 列表-邀请箭头@3x.png in Resources */,
+				52B1A94E1EA5BFF9009525F3 /* 签到背景@3x.png in Resources */,
 				5204E3E91E9F837C006751CF /* 链接背景@3x.png in Resources */,
 				522144731E67FB2500C030CD /* 首页-提现@3x.png in Resources */,
 				52F5E30D1E9C802800E7E7D1 /* 默认头像@2x.png in Resources */,
@@ -1637,6 +1708,7 @@
 				52E13E521E6FE7A60047702B /* 列表-邀请好友@2x.png in Resources */,
 				522144651E67FB2500C030CD /* 收徒点@3x.png in Resources */,
 				5221446B1E67FB2500C030CD /* 首页-一元夺宝@3x.png in Resources */,
+				52B1A9481EA5BFF9009525F3 /* 没签到状态@3x.png in Resources */,
 				52E13E4C1E6FE7A60047702B /* 列表-问号@2x.png in Resources */,
 				5204E3EE1EA06742006751CF /* 扫码背景@2x.png in Resources */,
 				52E13E4E1E6FE7A60047702B /* 列表-虚线框@2x.png in Resources */,
@@ -1644,6 +1716,7 @@
 				529815CB1E978A0D00451D01 /* 收徒-箭头@2x.png in Resources */,
 				521C932D1E7FE0CA0093F1AB /* 邀请好友@3x.png in Resources */,
 				52E13E501E6FE7A60047702B /* 列表-邀请背景@2x.png in Resources */,
+				52B1A9531EA5BFF9009525F3 /* 装饰@2x.png in Resources */,
 				529815BD1E9766CE00451D01 /* NO.3@2x.png in Resources */,
 				529815CC1E978A0D00451D01 /* 收徒-箭头@3x.png in Resources */,
 				522144861E67FB2500C030CD /* 首页@2x.png in Resources */,
@@ -1653,6 +1726,7 @@
 				5221445F1E67FB2500C030CD /* 我的@3x.png in Resources */,
 				5221447E1E67FB2500C030CD /* 首页-箭头@2x.png in Resources */,
 				5237E3F01EA0C4EA002F1D4B /* 提现方式-箭头@3x.png in Resources */,
+				52B1A9511EA5BFF9009525F3 /* 已签到状态@2x.png in Resources */,
 				522144741E67FB2500C030CD /* 首页-收徒任务@2x.png in Resources */,
 				522144881E67FB2500C030CD /* 首页点@2x.png in Resources */,
 				5204E3D01E9F6B10006751CF /* 链接收徒@2x.png in Resources */,
@@ -1677,9 +1751,12 @@
 				529815CE1E978A0D00451D01 /* 收徒规则@3x.png in Resources */,
 				52E13E4B1E6FE7A60047702B /* 列表-通知@3x.png in Resources */,
 				522144911E68039F00C030CD /* 背景@3x.png in Resources */,
+				52B1A9461EA5BFF9009525F3 /* 礼物@3x.png in Resources */,
 				529815BB1E9766CE00451D01 /* NO.2@2x.png in Resources */,
 				522144791E67FB2500C030CD /* 首页-敬请期待@3x.png in Resources */,
 				52E13E491E6FE7A60047702B /* 列表-夺宝背景@3x.png in Resources */,
+				52B1A94C1EA5BFF9009525F3 /* 签到按钮@3x.png in Resources */,
+				52B1A94A1EA5BFF9009525F3 /* 内转盘@3x.png in Resources */,
 				5237E3F41EA0C4EA002F1D4B /* 支付宝支付@3x.png in Resources */,
 				529815BC1E9766CE00451D01 /* NO.2@3x.png in Resources */,
 				5221445E1E67FB2500C030CD /* 我的@2x.png in Resources */,
@@ -1692,13 +1769,18 @@
 				522144721E67FB2500C030CD /* 首页-提现@2x.png in Resources */,
 				522144601E67FB2500C030CD /* 我的点@2x.png in Resources */,
 				5221446C1E67FB2500C030CD /* 首页-好评任务@2x.png in Resources */,
+				52B1A9551EA5BFF9009525F3 /* go@2x.png in Resources */,
 				5221446F1E67FB2500C030CD /* 首页-快速任务@3x.png in Resources */,
 				52D006051E9DBE0500794CAE /* 用户@3x.png in Resources */,
 				529815B31E9766CE00451D01 /* 皇冠1@2x.png in Resources */,
 				521C93271E7FE0CA0093F1AB /* 个人资料-箭头@3x.png in Resources */,
 				5204E3EA1E9F837C006751CF /* 手指@2x.png in Resources */,
+				52B1A9521EA5BFF9009525F3 /* 已签到状态@3x.png in Resources */,
+				52B1A9471EA5BFF9009525F3 /* 没签到状态@2x.png in Resources */,
 				522144681E67FB2500C030CD /* 赚钱点@2x.png in Resources */,
+				52B1A9601EA5FE9D009525F3 /* 123@3x.png in Resources */,
 				5204E3D21E9F6B10006751CF /* 扫码收徒@2x.png in Resources */,
+				52B1A94D1EA5BFF9009525F3 /* 签到背景@2x.png in Resources */,
 				5204E3EB1E9F837C006751CF /* 手指@3x.png in Resources */,
 				5204E3DB1E9F70E0006751CF /* 成绩背景@3x.png in Resources */,
 				5204E3E81E9F837C006751CF /* 链接背景@2x.png in Resources */,
@@ -1706,6 +1788,7 @@
 				529815CD1E978A0D00451D01 /* 收徒规则@2x.png in Resources */,
 				529815B41E9766CE00451D01 /* 皇冠1@3x.png in Resources */,
 				521C93251E7FE0CA0093F1AB /* 个人中心-箭头@3x.png in Resources */,
+				52B1A9451EA5BFF9009525F3 /* 礼物@2x.png in Resources */,
 				522144611E67FB2500C030CD /* 我的点@3x.png in Resources */,
 				52D006041E9DBE0500794CAE /* 用户@2x.png in Resources */,
 				521C932F1E7FE0CA0093F1AB /* 疑难解答@3x.png in Resources */,
@@ -1719,18 +1802,24 @@
 				52E13E4F1E6FE7A60047702B /* 列表-虚线框@3x.png in Resources */,
 				522144621E67FB2500C030CD /* 收徒@2x.png in Resources */,
 				52F5E30F1E9C802800E7E7D1 /* Ikaiwan.com@2x.png in Resources */,
+				52B1A94B1EA5BFF9009525F3 /* 签到按钮@2x.png in Resources */,
 				52E13E4D1E6FE7A60047702B /* 列表-问号@3x.png in Resources */,
 				5237E3EF1EA0C4EA002F1D4B /* 提现方式-箭头@2x.png in Resources */,
 				521C93281E7FE0CA0093F1AB /* 关于我们@2x.png in Resources */,
 				529815B91E9766CE00451D01 /* NO.1@2x.png in Resources */,
+				52B1A9491EA5BFF9009525F3 /* 内转盘@2x.png in Resources */,
 				52E13E451E6FE7A60047702B /* 导航-返回@3x.png in Resources */,
+				52B1A94F1EA5BFF9009525F3 /* 徒弟签到@2x.png in Resources */,
 				5221438F1E67BD4300C030CD /* Main.storyboard in Resources */,
+				52B1A9501EA5BFF9009525F3 /* 徒弟签到@3x.png in Resources */,
 				522144701E67FB2500C030CD /* 首页-排行榜@2x.png in Resources */,
 				52E13E481E6FE7A60047702B /* 列表-夺宝背景@2x.png in Resources */,
+				52B1A9561EA5BFF9009525F3 /* go@3x.png in Resources */,
 				5204E3DA1E9F70E0006751CF /* 成绩背景@2x.png in Resources */,
 				5221447D1E67FB2500C030CD /* 首页-签到任务@3x.png in Resources */,
 				5221447F1E67FB2500C030CD /* 首页-箭头@3x.png in Resources */,
 				5221446E1E67FB2500C030CD /* 首页-快速任务@2x.png in Resources */,
+				52B1A9541EA5BFF9009525F3 /* 装饰@3x.png in Resources */,
 				52D006121E9E3F4000794CAE /* 暂无记录-@2x.png in Resources */,
 				52F5E3101E9C802800E7E7D1 /* Ikaiwan.com@3x.png in Resources */,
 				52E13E461E6FE7A60047702B /* 列表-背景@2x.png in Resources */,
@@ -1744,6 +1833,7 @@
 				521C932B1E7FE0CA0093F1AB /* 商务合作@3x.png in Resources */,
 				522144751E67FB2500C030CD /* 首页-收徒任务@3x.png in Resources */,
 				52E13E441E6FE7A60047702B /* 导航-返回@2x.png in Resources */,
+				52B1A95F1EA5FE9D009525F3 /* 123@2x.png in Resources */,
 				52E13E561E6FE7A60047702B /* 列表-已抢完@2x.png in Resources */,
 				521C932A1E7FE0CA0093F1AB /* 商务合作@2x.png in Resources */,
 				52E13E511E6FE7A60047702B /* 列表-邀请背景@3x.png in Resources */,
@@ -1864,6 +1954,7 @@
 				4A14D1D71EA0940B000427A9 /* YYClassInfo.m in Sources */,
 				529815D11E979AB700451D01 /* UIButton+Creat.m in Sources */,
 				52D0064F1E9F0FDF00794CAE /* MJRefreshNormalHeader.m in Sources */,
+				52B1A95C1EA5E71D009525F3 /* myUILabel.m in Sources */,
 				52D006561E9F0FDF00794CAE /* UIView+MJExtension.m in Sources */,
 				5239F0D91E792E500011C511 /* BangDViewController.m in Sources */,
 				527EC4441EA4BDCA00E62494 /* SignInViewController.m in Sources */,
@@ -1871,6 +1962,7 @@
 				52AF3FB11E69083100A1EF29 /* UIImage+GIF.m in Sources */,
 				529815C21E976FAB00451D01 /* MakeDiscipleViewController.m in Sources */,
 				52D006531E9F0FDF00794CAE /* NSBundle+MJRefresh.m in Sources */,
+				52B1A9591EA5E6E8009525F3 /* TurntableView.m in Sources */,
 				522143CA1E67C44100C030CD /* AFURLRequestSerialization.m in Sources */,
 				52FD4E5E1E94C570002472E1 /* WithdrawTableViewCell.m in Sources */,
 				52D0064D1E9F0FDF00794CAE /* MJRefreshBackStateFooter.m in Sources */,

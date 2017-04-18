@@ -17,6 +17,7 @@
 #import "HighTaskDetailViewController.h"
 #import "CommentTaskDetailViewController.h"
 #import "TimeLimitedTaskDetailViewController.h"
+#import "SignInViewController.h"
 
 @interface FirstViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong)UIImageView *iconImage;
@@ -41,8 +42,39 @@
 - (void)relaod {
     self.scrlDataArray = [NSMutableArray array];
     
-    self.scrlDataArray = [NSMutableArray arrayWithArray:@[[UIImage imageNamed:@"背景"],[UIImage imageNamed:@"首页-箭头"]]];
-    [self.collectionView reloadData];
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    if (del.uid.length<=0) {
+        self.syLabel.text = @"今日收益：0";
+        self.stLabel.text = @"今日收徒：0";
+        self.moneyLabel.text = @"0";
+        return;
+    }
+    [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@index.html?uid=%@",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
+        NSDictionary *dic=(NSDictionary *)response;
+        NSDictionary *data = dic[@"data"];
+        NSDictionary *dica = data[@"user"];
+        [self.iconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImageUrl,dica[@"avatar"]]]];
+        
+        NSString *systr = [NSString creatWithId:dica[@"money_day_sum"]];
+        self.syLabel.text = [NSString stringWithFormat:@"今日收益：%@",systr];
+
+        NSString *ststr = [NSString creatWithId:dica[@"day_count_e"]];
+        self.stLabel.text = [NSString stringWithFormat:@"今日收徒：%@",ststr];
+        
+        //money_sum
+        NSString *moneystr = [NSString creatWithId:dica[@"money_sum"]];
+        self.moneyLabel.text = [NSString stringWithFormat:@"%@",moneystr];
+        NSArray *arr = data[@"banner"];
+        for (NSDictionary *dic in arr) {
+            NSString *str = [NSString stringWithFormat:@"%@%@",ImageUrl,dic[@"img"]];
+            [self.scrlDataArray addObject:str];
+        }
+        
+        [self.collectionView reloadData];
+
+    } fail:^(NSError *error) {
+        
+    } andViewController:self];
 }
 - (void)creatUI {
     //背景图
@@ -74,7 +106,6 @@
     self.syLabel = [[UILabel alloc]init];
     self.syLabel.textColor = [RGBColor colorWithHexString:@"#ecf1fc"];
     [headImage addSubview:self.syLabel];
-    self.syLabel.text = @"今日收益：63.31";
     self.syLabel.font = [UIFont systemFontOfSize:14];
     [self.syLabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_iconImage.right).offset([UIView setWidth:15]);
@@ -91,7 +122,6 @@
     self.stLabel = [[UILabel alloc]init];
     self.stLabel.textColor =[RGBColor colorWithHexString:@"#ecf1fc"];
     self.stLabel.font = [UIFont systemFontOfSize:14];
-    self.stLabel.text = @"今日收徒：8";
     [headImage addSubview:self.stLabel];
     [self.stLabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.syLabel.left);
@@ -140,7 +170,6 @@
     self.moneyLabel = [[UILabel alloc]init];
     self.moneyLabel.font = [UIFont systemFontOfSize:40];
     self.moneyLabel.textColor = [UIColor whiteColor];
-    self.moneyLabel.text = @"1231.12";
     [headImage addSubview:self.moneyLabel];
     [self.moneyLabel makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(linelabel.bottom).offset([UIView setHeight:20]);
@@ -278,7 +307,8 @@
             
             break;
         case 7:
-            
+            [self.navigationController pushViewController:[[SignInViewController alloc]init] animated:YES];
+
             break;
         case 8:
             [self.navigationController pushViewController:[[ChartsViewController alloc]init] animated:YES];
@@ -337,7 +367,7 @@
     if(!cell){
         cell = [[YYCollectionViewCell alloc] init];
     }
-    cell.imge = self.scrlDataArray[indexPath.item];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.scrlDataArray[indexPath.item]]];
     return cell;
     
 }

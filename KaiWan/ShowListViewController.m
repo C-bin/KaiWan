@@ -20,6 +20,17 @@
     self.titlestring = @"成绩单";
     [self setNavigationBar];
     [self creatUI];
+    [self request];
+}
+- (void)request {
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Share/task.html?uid=%@",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
+        
+        
+    } fail:^(NSError *error) {
+        
+    } andViewController:self];
 }
 - (void)creatUI {
     UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"成绩背景"]];
