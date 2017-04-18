@@ -10,4 +10,6 @@
 
 @interface TimeLimitedTaskDetailViewController : MainCVViewController
 
+@property (nonatomic, strong) NSDictionary * taskDic;
+
 @end

@@ -32,42 +32,31 @@
             } else {
                 commImageView.image = [UIImage imageNamed:@"点此上传"];
                 commImageView.userInteractionEnabled = YES;
-                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-                [commImageView addGestureRecognizer:tap];
+                self.tap = [[UITapGestureRecognizer alloc] init];
+                [commImageView addGestureRecognizer:self.tap];
             }
 
             [self addSubview:commImageView];
         }
         
-        UIButton *commitButton = [[UIButton alloc] initWithFrame:CGRectMake(WidthScale(10), HeightScale(50) + imgW * 1.6 + HeightScale(20), self.frame.size.width - WidthScale(20), HeightScale(36))];
-        [commitButton setTitle:@"提交审核" forState:UIControlStateNormal];
-        [commitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [commitButton setBackgroundColor:COLOR_RGB(24, 82, 222, 1)];
-        commitButton.layer.cornerRadius = WidthScale(5);
-        [commitButton addTarget:self action:@selector(commitButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        self.commitButton = [[UIButton alloc] initWithFrame:CGRectMake(WidthScale(10), HeightScale(50) + imgW * 1.6 + HeightScale(20), self.frame.size.width - WidthScale(20), HeightScale(36))];
+        [self.commitButton setTitle:@"提交审核" forState:UIControlStateNormal];
+        [self.commitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.commitButton setBackgroundColor:COLOR_RGB(24, 82, 222, 1)];
+        self.commitButton.layer.cornerRadius = WidthScale(5);
         
-        UILabel *noticeLabel = [[UILabel alloc] initWithFrame:CGRectMake(WidthScale(10), CGRectGetMaxY(commitButton.frame), self.frame.size.width - WidthScale(30), HeightScale(30))];
+        UILabel *noticeLabel = [[UILabel alloc] initWithFrame:CGRectMake(WidthScale(10), CGRectGetMaxY(self.commitButton.frame), self.frame.size.width - WidthScale(30), HeightScale(30))];
         noticeLabel.text = @"* 请严格按照规则提交截图，如有问题，请联系官方客服解决。";
         noticeLabel.textColor = [UIColor redColor];
         noticeLabel.font = [UIFont systemFontOfSize:WidthScale(13)];
         noticeLabel.adjustsFontSizeToFitWidth = YES;
         
         [self addSubview:noticeLabel];
-        [self addSubview:commitButton];
+        [self addSubview:self.commitButton];
         [self addSubview:step2ImageView];
     }
     return self;
 }
-
-- (void)tap:(UITapGestureRecognizer *)tap{
-    DLog(@"点此上传");
-    
-}
-
-- (void)commitButtonClicked:(UIButton *)button{
-    DLog(@"提交审核");
-}
-
 
 
 @end

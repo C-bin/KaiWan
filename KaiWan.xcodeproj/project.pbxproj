@@ -21,6 +21,7 @@
 		4A16A1FC1EA060D900A3F433 /* DeepTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1F61EA060D900A3F433 /* DeepTaskDetailViewController.m */; };
 		4A16A1FD1EA060D900A3F433 /* HighTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1F81EA060D900A3F433 /* HighTaskDetailViewController.m */; };
 		4A16A1FE1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1FA1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m */; };
+		4ADF02211EA5EA4A008172FE /* CommentTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */; };
 		5204E3D01E9F6B10006751CF /* 链接收徒@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3CC1E9F6B10006751CF /* 链接收徒@2x.png */; };
 		5204E3D11E9F6B10006751CF /* 链接收徒@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3CD1E9F6B10006751CF /* 链接收徒@3x.png */; };
 		5204E3D21E9F6B10006751CF /* 扫码收徒@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3CE1E9F6B10006751CF /* 扫码收徒@2x.png */; };
@@ -329,6 +330,8 @@
 		4A16A1F81EA060D900A3F433 /* HighTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighTaskDetailViewController.m; sourceTree = "<group>"; };
 		4A16A1F91EA060D900A3F433 /* TimeLimitedTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLimitedTaskDetailViewController.h; sourceTree = "<group>"; };
 		4A16A1FA1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLimitedTaskDetailViewController.m; sourceTree = "<group>"; };
+		4ADF021F1EA5EA4A008172FE /* CommentTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTaskModel.h; sourceTree = "<group>"; };
+		4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTaskModel.m; sourceTree = "<group>"; };
 		5204E3CC1E9F6B10006751CF /* 链接收徒@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "链接收徒@2x.png"; sourceTree = "<group>"; };
 		5204E3CD1E9F6B10006751CF /* 链接收徒@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "链接收徒@3x.png"; sourceTree = "<group>"; };
 		5204E3CE1E9F6B10006751CF /* 扫码收徒@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "扫码收徒@2x.png"; sourceTree = "<group>"; };
@@ -738,6 +741,8 @@
 			children = (
 				4A14D1AD1EA07666000427A9 /* DeepTaskModel.h */,
 				4A14D1AE1EA07666000427A9 /* DeepTaskModel.m */,
+				4ADF021F1EA5EA4A008172FE /* CommentTaskModel.h */,
+				4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1966,6 +1971,7 @@
 				522143CA1E67C44100C030CD /* AFURLRequestSerialization.m in Sources */,
 				52FD4E5E1E94C570002472E1 /* WithdrawTableViewCell.m in Sources */,
 				52D0064D1E9F0FDF00794CAE /* MJRefreshBackStateFooter.m in Sources */,
+				4ADF02211EA5EA4A008172FE /* CommentTaskModel.m in Sources */,
 				52AF3FA91E69083100A1EF29 /* SDImageCache.m in Sources */,
 				52E13E7D1E6FEF380047702B /* SecondTableViewCell.m in Sources */,
 				52D006541E9F0FDF00794CAE /* UIScrollView+MJExtension.m in Sources */,
@@ -2136,6 +2142,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KaiWan/PrefixHeader.pch";
 				INFOPLIST_FILE = KaiWan/Info.plist;
@@ -2151,6 +2158,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KaiWan/PrefixHeader.pch";
 				INFOPLIST_FILE = KaiWan/Info.plist;

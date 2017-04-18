@@ -20,7 +20,7 @@
 #import "SignInViewController.h"
 
 @interface FirstViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
-@property (nonatomic,strong)UIImageView *iconImage;
+@property (nonatomic, strong)UIImageView *iconImage;
 @property (nonatomic, strong)UILabel *syLabel;
 @property (nonatomic, strong)UILabel *stLabel;
 @property (nonatomic, strong)UILabel *IDLabel;
@@ -286,7 +286,7 @@
     
     switch (btn.tag-200) {
         case 0:
- 
+            
             break;
         case 1:
             
@@ -298,7 +298,7 @@
             
             break;
         case 4:
-            
+
             break;
         case 5:
             
