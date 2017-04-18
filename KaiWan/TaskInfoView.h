@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-@class DeepTaskModel;
 
 @interface TaskInfoView : UIView
 
@@ -17,6 +16,6 @@
 @property (nonatomic, strong) UILabel * moneyLabel;
 @property (nonatomic, strong) UILabel * stepLabel;
 
-@property (nonatomic, strong) DeepTaskModel * deepTaskModel;
+@property (nonatomic, strong) NSDictionary * dataDic;
 
 @end

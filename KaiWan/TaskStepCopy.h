@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-@class DeepTaskModel;
 
 @interface TaskStepCopy : UIView
 
@@ -17,6 +16,6 @@
 
 @property (nonatomic, strong) UILongPressGestureRecognizer * longPress;
 
-@property (nonatomic, strong) DeepTaskModel * deepTaskModel;
+@property (nonatomic, strong) NSDictionary * dataDic;
 
 @end

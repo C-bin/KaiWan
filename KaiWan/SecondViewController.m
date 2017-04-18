@@ -9,6 +9,8 @@
 #import "SecondViewController.h"
 #import "SecondTableViewCell.h"
 #import "DeepTaskDetailViewController.h"
+#import "TimeLimitedTaskDetailViewController.h"
+#import "CommentTaskDetailViewController.h"
 
 @interface SecondViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tableView;
@@ -40,6 +42,8 @@
             NSDictionary *data = dic[@"data"];
             NSArray *arr1 = data[@"show"];
             NSArray *arr2 = data[@"hide"];
+            
+            [self.dataArr removeAllObjects];
             
             [self.dataArr addObject:arr1];
             [self.dataArr addObject:arr2];
@@ -231,6 +235,11 @@
     if (indexPath.section==0) {
         switch (tid.intValue) {
             case 50:
+            {
+                CommentTaskDetailViewController *commentTaskVC = [[CommentTaskDetailViewController alloc] init];
+                commentTaskVC.taskDic = self.dataArr[0][indexPath.row];
+                [self.navigationController pushViewController:commentTaskVC animated:YES];
+            }
                 
                 break;
             case 51:
@@ -244,7 +253,11 @@
             }
                 break;
             case 7:
-                
+            {
+                TimeLimitedTaskDetailViewController *limitedTaskVC = [[TimeLimitedTaskDetailViewController alloc] init];
+                limitedTaskVC.taskDic = self.dataArr[0][indexPath.row];
+                [self.navigationController pushViewController:limitedTaskVC animated:YES];
+            }
                 break;
                 
             default:

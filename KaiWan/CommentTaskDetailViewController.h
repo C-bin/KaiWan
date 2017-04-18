@@ -10,4 +10,6 @@
 
 @interface CommentTaskDetailViewController : MainCVViewController
 
+@property (nonatomic, strong) NSDictionary * taskDic;
+
 @end

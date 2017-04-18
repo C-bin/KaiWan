@@ -10,4 +10,8 @@
 
 @interface TaskStepComment : UIView
 
+@property (nonatomic, strong) UIButton * commitButton;
+
+@property (nonatomic, strong) UITapGestureRecognizer * tap;
+
 @end

@@ -41,7 +41,6 @@
     TaskStepCommit*stepCommit = [[TaskStepCommit alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(stepTutor.frame) + HeightScale(15), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) * 1.88)];
     [scrollView addSubview:stepCommit];
     
-    
     scrollView.contentSize = CGSizeMake(SWIDTH, CGRectGetMaxY(stepCommit.frame) + HeightScale(20));
 
 }

@@ -56,3 +56,9 @@
 //深度任务提交
 #define KdeepTaskCommit [NSString stringWithFormat:@"%@DepthTask/commit.html", HostUrl]
 
+//好评任务详情
+#define KcommentTaskDetail [NSString stringWithFormat:@"%@MessageTask/click.html", HostUrl]
+
+//好评任务提交
+#define KcommentTaskCommit [NSString stringWithFormat:@"%@MessageTask/commit.html", HostUrl]
+

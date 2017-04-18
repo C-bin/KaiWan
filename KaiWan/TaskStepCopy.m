@@ -7,7 +7,6 @@
 //
 
 #import "TaskStepCopy.h"
-#import "DeepTaskModel.h"
 
 @implementation TaskStepCopy
 
@@ -21,7 +20,6 @@
         step1ImageView.image = [UIImage imageNamed:@"步骤一"];
         
         self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.frame.size.width - WidthScale(70)) / 2, HeightScale(30), WidthScale(70), HeightScale(70))];
-        self.iconImageView.image = [UIImage imageNamed:@"列表-问号"];
         
         self.rankLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.iconImageView.frame), self.frame.size.width, HeightScale(35))];
         self.rankLabel.textAlignment = NSTextAlignmentCenter;
@@ -43,15 +41,18 @@
     return self;
 }
 
-- (void)setDeepTaskModel:(DeepTaskModel *)deepTaskModel{
-    _deepTaskModel = deepTaskModel;
+- (void)setDataDic:(NSDictionary *)dataDic{
+    _dataDic = dataDic;
     
-    NSMutableAttributedString *rankStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"第%d名", [self.deepTaskModel.location intValue]]];
+    
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, dataDic[@"img"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
+    
+    NSMutableAttributedString *rankStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"第%d名", [dataDic[@"location"] intValue]]];
     [rankStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(1, [rankStr length] - 2)];
     [rankStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:WidthScale(17)] range:NSMakeRange(0, rankStr.length)];
     self.rankLabel.attributedText = rankStr;
     
-    self.nameLabel.text = self.deepTaskModel.keywords;
+    self.nameLabel.text = dataDic[@"keywords"];
     NSDictionary *attrs = @{NSFontAttributeName : [UIFont systemFontOfSize:WidthScale(20)]};
     CGSize size=[self.nameLabel.text sizeWithAttributes:attrs];
     self.nameLabel.frame = CGRectMake((self.frame.size.width - size.width - WidthScale(30)) / 2, CGRectGetMaxY(self.rankLabel.frame) + HeightScale(5), size.width + WidthScale(30), HeightScale(30));
@@ -87,8 +88,7 @@
     tipLabel.textAlignment = NSTextAlignmentCenter;
     
     [self addSubview:tipLabel];
-    
-}
 
+}
 
 @end

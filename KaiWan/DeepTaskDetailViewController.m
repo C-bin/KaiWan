@@ -44,7 +44,7 @@
     self.titlestring = @"任务详情";
     [self setNavigationBar];
     
-    _leftTime = 10;
+    _leftTime = 180;
     
     //app从后台变为活跃状态，执行观察者方法
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecameActive) name:UIApplicationDidBecomeActiveNotification object:nil];
@@ -53,8 +53,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self requestData];
-    
-    [self didBecameActive];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -84,12 +82,12 @@
     [self.view addSubview:scrollView];
     
     self.infoView = [[TaskInfoView alloc] initWithFrame:CGRectMake(0, 0, SWIDTH, 0)];
-    self.infoView.deepTaskModel = self.deepTaskModel;
+    self.infoView.dataDic = self.dataDic;
     [self.infoView.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, self.taskDic[@"img"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
     [scrollView addSubview:self.infoView];
     
     self.stepCopy = [[TaskStepCopy alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(15), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) / 1.7)];
-    self.stepCopy.deepTaskModel = self.deepTaskModel;
+    self.stepCopy.dataDic = self.dataDic;
     [self.stepCopy.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, self.taskDic[@"img"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
     [self.stepCopy.longPress addTarget:self action:@selector(longPress:)];
     [scrollView addSubview:self.stepCopy];
@@ -111,15 +109,46 @@
     [RequestData PostDataWithURL:KdeepTaskDetailUrl parameters:params sucsess:^(id response) {
         DLog(@"%@", response);
         
-        self.dataDic = response[@"data"];
-        
-        self.deepTaskModel = [DeepTaskModel yy_modelWithDictionary:self.dataDic];
-        
-        [self createUI];
+        switch ([response[@"code"] intValue]) {
+            case 1:
+                self.dataDic = response[@"data"];
+                
+                self.deepTaskModel = [DeepTaskModel yy_modelWithDictionary:self.dataDic];
+                
+                [self createUI];
+                break;
+            default:
+            {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }];
+                [alert addAction:action];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+                break;
+        }
+
         
     } fail:^(NSError *error) {
         DLog(@"%@", error);
         
+    } andViewController:self];
+}
+
+- (void)taskCommit{
+    NSDictionary *params = @{@"uid": _delegate.uid, @"id": self.taskDic[@"id"]};
+    [RequestData PostDataWithURL:KdeepTaskCommit parameters:params sucsess:^(id response) {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        [alert addAction:action];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    } fail:^(NSError *error) {
+        DLog(@"%@", error);
     } andViewController:self];
 }
 
@@ -161,8 +190,6 @@
         [self presentViewController:alert animated:YES completion:nil];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"此设备未安装任务app，请参照步骤一安装后返回本页继续操作" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
-        [_timer setFireDate:[NSDate distantPast]];
         [alert show];
     }
 }
@@ -192,23 +219,6 @@
         
         self.stepDeep.leftTimeLabel.attributedText = str1;
     }
-
-}
-
-- (void)taskCommit{
-    NSDictionary *params = @{@"uid": _delegate.uid, @"id": self.taskDic[@"id"]};
-    [RequestData PostDataWithURL:KdeepTaskCommit parameters:params sucsess:^(id response) {
-
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
-        [alert addAction:action];
-        [self presentViewController:alert animated:YES completion:nil];
-   
-    } fail:^(NSError *error) {
-        DLog(@"%@", error);
-    } andViewController:self];
 }
 
 

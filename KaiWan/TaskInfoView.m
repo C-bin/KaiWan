@@ -7,7 +7,6 @@
 //
 
 #import "TaskInfoView.h"
-#import "DeepTaskModel.h"
 
 @interface TaskInfoView ()
 
@@ -20,7 +19,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-
+        
         self.backgroundColor = [UIColor whiteColor];
         self.infoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SWIDTH, HeightScale(80))];
         
@@ -56,12 +55,12 @@
     return self;
 }
 
-- (void)setDeepTaskModel:(DeepTaskModel *)deepTaskModel{
-    _deepTaskModel = deepTaskModel;
+- (void)setDataDic:(NSDictionary *)dataDic{
+    _dataDic = dataDic;
     
-    self.iconImageView.image = [UIImage imageNamed:@"列表-问号"];
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, dataDic[@"img"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
     
-    self.titleLabel.text = deepTaskModel.keywords;
+    self.titleLabel.text = dataDic[@"keywords"];
     
     
     NSDictionary *firstDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName, [UIColor colorWithWhite:0.6 alpha:1], NSForegroundColorAttributeName, nil];
@@ -69,22 +68,24 @@
     NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:
                                [UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName,
                                [UIColor blueColor],NSForegroundColorAttributeName,nil];
-    NSMutableAttributedString *secondStr = [[NSMutableAttributedString alloc]initWithString:self.deepTaskModel.time ? self.deepTaskModel.time : @"" attributes:secondDic];
+    NSMutableAttributedString *secondStr = [[NSMutableAttributedString alloc]initWithString:[dataDic[@"time"] stringValue] attributes:secondDic];
     [firstStr appendAttributedString:secondStr];
     self.timeLabel.attributedText = firstStr;
-
     
-    NSArray *rewardArr = [self.deepTaskModel.reward componentsSeparatedByString:@","];
-    NSUInteger sumReward = 0;
-    for (int i = 0; i < rewardArr.count; i ++) {
-        sumReward += [rewardArr[i] integerValue];
+    if ([dataDic[@"reward"] containsString:@","]) {
+        NSUInteger sumReward = 0;
+        NSArray *rewardArr = [dataDic[@"reward"] componentsSeparatedByString:@","];
+        for (int i = 0; i < rewardArr.count; i++) {
+            sumReward += [rewardArr[i] integerValue];
+        }
+        self.moneyLabel.text = [NSString stringWithFormat:@"+%ld元", sumReward];
+    } else {
+        self.moneyLabel.text = [NSString stringWithFormat:@"+%@元", dataDic[@"reward"]];
     }
     
     
-    self.moneyLabel.text = [NSString stringWithFormat:@"+%ld元", sumReward];
+    NSString *str = [NSString stringWithFormat:@"参与步骤:\n1.复制下方关键字，在App Store搜索下载，找到下面对应图标，约在第%@名下载;\n2.%@;\n3.返回本页提交任务，领取奖励。", dataDic[@"location"], dataDic[@"description"]];
     
-    NSString *str = [NSString stringWithFormat:@"参与步骤:\n1.复制下方关键字，在App Store搜索下载，找到下面对应图标，约在第%d名下载;\n2.%@;\n3.返回本页提交任务，领取奖励。", [deepTaskModel.location intValue], deepTaskModel.Description];
-
     
     // 创建 NSMutableAttributedString
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
@@ -97,13 +98,13 @@
     // 添加文字颜色
     [attrStr addAttribute:NSForegroundColorAttributeName
                     value:[UIColor redColor]
-                    range:NSMakeRange(43, [deepTaskModel.location length])];
-//    [attrStr addAttribute:NSForegroundColorAttributeName
-//                    value:[UIColor redColor]
-//                    range:NSMakeRange(59, 5)];
-//    [attrStr addAttribute:NSForegroundColorAttributeName
-//                    value:[UIColor redColor]
-//                    range:NSMakeRange(68, 4)];
+                    range:NSMakeRange(43, [[dataDic[@"location"] stringValue] length])];
+    //    [attrStr addAttribute:NSForegroundColorAttributeName
+    //                    value:[UIColor redColor]
+    //                    range:NSMakeRange(59, 5)];
+    //    [attrStr addAttribute:NSForegroundColorAttributeName
+    //                    value:[UIColor redColor]
+    //                    range:NSMakeRange(68, 4)];
     
     
     NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
@@ -116,7 +117,7 @@
     self.stepLabel.attributedText = attrStr;
     // label高度自适应
     [self.stepLabel sizeToFit];
-
+    
     self.stepView.frame = CGRectMake(0, CGRectGetMaxY(self.infoView.frame), SWIDTH, self.stepLabel.frame.size.height + HeightScale(30));
     
     self.frame = CGRectMake(0, 0, SWIDTH, self.stepView.frame.size.height + self.infoView.frame.size.height);
