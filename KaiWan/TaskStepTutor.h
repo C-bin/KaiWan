@@ -10,4 +10,8 @@
 
 @interface TaskStepTutor : UIView
 
+@property (nonatomic, strong) UIButton * startButton;
+
+@property (nonatomic, strong) NSArray * tutorImgArr;
+
 @end

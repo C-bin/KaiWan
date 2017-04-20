@@ -8,6 +8,16 @@
 
 #import "TaskStepTutor.h"
 
+
+static CGFloat tutorImageViewWidth;
+
+@interface TaskStepTutor ()
+
+@property (nonatomic, strong) UIView * background;
+
+@property (nonatomic, strong) UILabel * noticeLabel;
+
+@end
 @implementation TaskStepTutor
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -19,54 +29,53 @@
         UIImageView *step1ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(-2), HeightScale(15), WidthScale(67), HeightScale(30))];
         step1ImageView.image = [UIImage imageNamed:@"步骤一"];
         
-        CGFloat imgW = (self.frame.size.width - WidthScale(30)) / 3;
-        for (int i = 0; i < 6; i ++) {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(5) + i % 3 * (imgW + WidthScale(10)), HeightScale(50) + i / 3 * (imgW + WidthScale(10)), imgW, imgW)];
-            imageView.image = [UIImage imageNamed:@"教程"];
-            imageView.tag = 10 + i;
-            imageView.userInteractionEnabled = YES;
-            
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-            
-            [imageView addGestureRecognizer:tap];
-            
-            [self addSubview:imageView];
-        }
+
         
-        UIButton *startButton = [[UIButton alloc] initWithFrame:CGRectMake(WidthScale(10), HeightScale(75) + imgW * 2, self.frame.size.width - WidthScale(20), HeightScale(36))];
-        [startButton setTitle:@"开始任务" forState:UIControlStateNormal];
-        startButton.titleLabel.font = [UIFont systemFontOfSize:WidthScale(18)];
-        [startButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [startButton setBackgroundColor:COLOR_RGB(24, 82, 222, 1)];
-        startButton.layer.cornerRadius = WidthScale(5);
-        [startButton addTarget:self action:@selector(startButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        self.startButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.startButton setTitle:@"开始任务" forState:UIControlStateNormal];
+        self.startButton.titleLabel.font = [UIFont systemFontOfSize:WidthScale(18)];
+        [self.startButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.startButton setBackgroundColor:COLOR_RGB(24, 82, 222, 1)];
+        self.startButton.layer.cornerRadius = WidthScale(5);
+    
         
-        UILabel *noticeLabel = [[UILabel alloc] initWithFrame:CGRectMake(WidthScale(10), CGRectGetMaxY(startButton.frame), self.frame.size.width - WidthScale(20), HeightScale(30))];
-        noticeLabel.text = @"* 可点击图片查看任务教程。";
-        noticeLabel.textColor = [UIColor redColor];
-        noticeLabel.font = [UIFont systemFontOfSize:13];
+        self.noticeLabel = [[UILabel alloc] init];
+        self.noticeLabel.text = @"* 可点击图片查看任务教程。";
+        self.noticeLabel.textColor = [UIColor redColor];
+        self.noticeLabel.font = [UIFont systemFontOfSize:13];
         
-        [self addSubview:noticeLabel];
-        [self addSubview:startButton];
+        [self addSubview:self.noticeLabel];
+        [self addSubview:self.startButton];
         [self addSubview:step1ImageView];
     }
     return self;
 }
 
-- (void)tap:(UITapGestureRecognizer *)tap{
-    DLog(@"tag = %ld", tap.view.tag);
-    switch (tap.view.tag) {
-        case 10:
-            
-            break;
-            
-        default:
-            break;
+- (void)setTutorImgArr:(NSArray *)tutorImgArr{
+    _tutorImgArr = tutorImgArr;
+    
+    tutorImageViewWidth = (self.frame.size.width - WidthScale(30)) / 3;
+    for (int i = 0; i < _tutorImgArr.count; i ++) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(5) + i % 3 * (tutorImageViewWidth + WidthScale(10)), HeightScale(50) + i / 3 * (tutorImageViewWidth + WidthScale(10)), tutorImageViewWidth, tutorImageViewWidth)];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:_tutorImgArr[i]]];
+        imageView.tag = 10 + i;
+        imageView.userInteractionEnabled = YES;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+        
+        [imageView addGestureRecognizer:tap];
+        
+        [self addSubview:imageView];
     }
+    
+    self.startButton.frame = CGRectMake(WidthScale(10), HeightScale(50) + (tutorImageViewWidth + HeightScale(10))* _tutorImgArr.count / 2, self.frame.size.width - WidthScale(20), HeightScale(36));
+    
+    self.noticeLabel.frame = CGRectMake(WidthScale(10), CGRectGetMaxY(self.startButton.frame), self.frame.size.width - WidthScale(20), HeightScale(30));
+
 }
 
-- (void)startButtonClicked:(UIButton *)button{
-    DLog(@"开始任务");
+- (void)tap:(UITapGestureRecognizer *)tap{
+    DLog(@"tag = %ld", tap.view.tag);
 }
 
 @end

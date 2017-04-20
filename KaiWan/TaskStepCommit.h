@@ -10,4 +10,9 @@
 
 @interface TaskStepCommit : UIView
 
+@property (nonatomic, strong) UIButton * commitButton;
+
+@property (nonatomic, strong) NSArray * sampleImgArr;
+
+@property (nonatomic, strong) NSMutableArray * tapGestureArr;
 @end

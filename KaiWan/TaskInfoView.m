@@ -60,7 +60,7 @@
     
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, dataDic[@"img"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
     
-    self.titleLabel.text = dataDic[@"keywords"];
+    self.titleLabel.text = dataDic[@"keywords"] ? dataDic[@"keywords"] : dataDic[@"name"];
     
     
     NSDictionary *firstDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName, [UIColor colorWithWhite:0.6 alpha:1], NSForegroundColorAttributeName, nil];
@@ -84,7 +84,7 @@
     }
     
     
-    NSString *str = [NSString stringWithFormat:@"参与步骤:\n1.复制下方关键字，在App Store搜索下载，找到下面对应图标，约在第%@名下载;\n2.%@;\n3.返回本页提交任务，领取奖励。", dataDic[@"location"], dataDic[@"description"]];
+    NSString *str = [NSString stringWithFormat:@"参与步骤:\n1.复制下方关键字，在App Store搜索下载，找到下面对应图标，约在第%@名下载;\n2.%@;\n3.返回本页提交任务，领取奖励。", dataDic[@"location"], dataDic[@"description"] ? dataDic[@"description"] : dataDic[@"content"]];
     
     
     // 创建 NSMutableAttributedString
@@ -121,8 +121,7 @@
     self.stepView.frame = CGRectMake(0, CGRectGetMaxY(self.infoView.frame), SWIDTH, self.stepLabel.frame.size.height + HeightScale(30));
     
     self.frame = CGRectMake(0, 0, SWIDTH, self.stepView.frame.size.height + self.infoView.frame.size.height);
-    
-    
+  
 }
 
 

@@ -19,14 +19,62 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KaiWan/TaskInfoView.m"
-            timestampString = "514193569.886731"
+            filePath = "KaiWan/HighTaskDetailViewController.m"
+            timestampString = "514368974.433459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-setDataDic:"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "-commitButtonClicked:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KaiWan/HighTaskDetailViewController.m"
+            timestampString = "514369353.75387"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "-commitButtonClicked:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HighTaskDetailViewController commitButtonClicked:]"
+                  moduleName = "KaiWan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/van7ish/%E5%B7%A5%E4%BD%9C/KaiWan/KaiWan/HighTaskDetailViewController.m"
+                  timestampString = "514370922.327335"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "181"
+                  endingLineNumber = "181"
+                  offsetFromSymbolStart = "1413">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__52-[HighTaskDetailViewController commitButtonClicked:]_block_invoke"
+                  moduleName = "KaiWan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/van7ish/%E5%B7%A5%E4%BD%9C/KaiWan/KaiWan/HighTaskDetailViewController.m"
+                  timestampString = "514370922.330202"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182"
+                  offsetFromSymbolStart = "58">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

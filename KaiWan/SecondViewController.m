@@ -11,6 +11,7 @@
 #import "DeepTaskDetailViewController.h"
 #import "TimeLimitedTaskDetailViewController.h"
 #import "CommentTaskDetailViewController.h"
+#import "HighTaskDetailViewController.h"
 
 @interface SecondViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tableView;
@@ -243,7 +244,11 @@
                 
                 break;
             case 51:
-                
+            {
+                HighTaskDetailViewController *highTaskDetailVC = [[HighTaskDetailViewController alloc] init];
+                highTaskDetailVC.taskDic = self.dataArr[0][indexPath.row];
+                [self.navigationController pushViewController:highTaskDetailVC animated:YES];
+            }
                 break;
             case 55:
             {

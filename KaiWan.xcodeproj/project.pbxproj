@@ -21,6 +21,8 @@
 		4A16A1FC1EA060D900A3F433 /* DeepTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1F61EA060D900A3F433 /* DeepTaskDetailViewController.m */; };
 		4A16A1FD1EA060D900A3F433 /* HighTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1F81EA060D900A3F433 /* HighTaskDetailViewController.m */; };
 		4A16A1FE1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1FA1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m */; };
+		4A385D3C1EA701670019FB66 /* HighTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D3B1EA701670019FB66 /* HighTaskModel.m */; };
+		4A385D3F1EA72E470019FB66 /* HighTaskWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D3E1EA72E470019FB66 /* HighTaskWebViewController.m */; };
 		4ADF02211EA5EA4A008172FE /* CommentTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */; };
 		5204E3D01E9F6B10006751CF /* 链接收徒@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3CC1E9F6B10006751CF /* 链接收徒@2x.png */; };
 		5204E3D11E9F6B10006751CF /* 链接收徒@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3CD1E9F6B10006751CF /* 链接收徒@3x.png */; };
@@ -330,6 +332,10 @@
 		4A16A1F81EA060D900A3F433 /* HighTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighTaskDetailViewController.m; sourceTree = "<group>"; };
 		4A16A1F91EA060D900A3F433 /* TimeLimitedTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLimitedTaskDetailViewController.h; sourceTree = "<group>"; };
 		4A16A1FA1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLimitedTaskDetailViewController.m; sourceTree = "<group>"; };
+		4A385D3A1EA701670019FB66 /* HighTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighTaskModel.h; sourceTree = "<group>"; };
+		4A385D3B1EA701670019FB66 /* HighTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighTaskModel.m; sourceTree = "<group>"; };
+		4A385D3D1EA72E470019FB66 /* HighTaskWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighTaskWebViewController.h; sourceTree = "<group>"; };
+		4A385D3E1EA72E470019FB66 /* HighTaskWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighTaskWebViewController.m; sourceTree = "<group>"; };
 		4ADF021F1EA5EA4A008172FE /* CommentTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTaskModel.h; sourceTree = "<group>"; };
 		4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTaskModel.m; sourceTree = "<group>"; };
 		5204E3CC1E9F6B10006751CF /* 链接收徒@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "链接收徒@2x.png"; sourceTree = "<group>"; };
@@ -743,6 +749,8 @@
 				4A14D1AE1EA07666000427A9 /* DeepTaskModel.m */,
 				4ADF021F1EA5EA4A008172FE /* CommentTaskModel.h */,
 				4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */,
+				4A385D3A1EA701670019FB66 /* HighTaskModel.h */,
+				4A385D3B1EA701670019FB66 /* HighTaskModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -770,6 +778,8 @@
 				4A16A1F81EA060D900A3F433 /* HighTaskDetailViewController.m */,
 				4A16A1F91EA060D900A3F433 /* TimeLimitedTaskDetailViewController.h */,
 				4A16A1FA1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m */,
+				4A385D3D1EA72E470019FB66 /* HighTaskWebViewController.h */,
+				4A385D3E1EA72E470019FB66 /* HighTaskWebViewController.m */,
 			);
 			name = "任务详情页";
 			sourceTree = "<group>";
@@ -1907,6 +1917,7 @@
 				52D0064E1E9F0FDF00794CAE /* MJRefreshGifHeader.m in Sources */,
 				4A16A1FE1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m in Sources */,
 				52D21BB31E97255D00A4418C /* ChartsViewController.m in Sources */,
+				4A385D3C1EA701670019FB66 /* HighTaskModel.m in Sources */,
 				5221442E1E67F84C00C030CD /* FourViewController.m in Sources */,
 				529815A61E973F1F00451D01 /* ChartsTableViewCell.m in Sources */,
 				522C143E1E6804DD00F28F10 /* UIView+CGSet.m in Sources */,
@@ -1915,6 +1926,7 @@
 				526AA0F41E94825400B3DCE3 /* JSONKeyMapper.m in Sources */,
 				5204E3DF1E9F8064006751CF /* SaoMaViewController.m in Sources */,
 				5221442B1E67F83600C030CD /* ThirdViewController.m in Sources */,
+				4A385D3F1EA72E470019FB66 /* HighTaskWebViewController.m in Sources */,
 				526AA0F21E94825400B3DCE3 /* JSONHTTPClient.m in Sources */,
 				52363D661E68223500442335 /* MASConstraint.m in Sources */,
 				52D006501E9F0FDF00794CAE /* MJRefreshStateHeader.m in Sources */,
