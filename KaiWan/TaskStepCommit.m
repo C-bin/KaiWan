@@ -7,6 +7,7 @@
 //
 
 #import "TaskStepCommit.h"
+#import "XWScanImage.h"
 
 static CGFloat sampleImageViewWidth;
 
@@ -66,8 +67,11 @@ static CGFloat sampleImageViewWidth;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
             [imageView addGestureRecognizer:tap];
             [_tapGestureArr addObject:tap];
+            
         } else {
+            UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
             [imageView sd_setImageWithURL:[NSURL URLWithString:_sampleImgArr[i / 2]]];
+            [imageView addGestureRecognizer:tapGesture];
         }
         
         [self addSubview:imageView];
@@ -79,5 +83,9 @@ static CGFloat sampleImageViewWidth;
     self.noticeLabel.frame = CGRectMake(WidthScale(10), CGRectGetMaxY(self.commitButton.frame), self.frame.size.width - WidthScale(20), HeightScale(30));
 }
 
+- (void)tapGesture:(UITapGestureRecognizer *)tapGesture{
+    UIImageView *imageView = (UIImageView *)tapGesture.view;
+    [XWScanImage scanBigImageWithImageView:imageView];
+}
 
 @end

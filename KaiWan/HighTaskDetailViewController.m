@@ -175,7 +175,7 @@
     DLog(@"提交审核");
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"uid": @3, @"appid": self.dataDic[@"appid"], @"mobile": self.mobileNumber ? self.mobileNumber : @""}];
     for (int i = 0; i < _imageForCommitArr.count; i ++) {
-        [        params addEntriesFromDictionary:@{[NSString stringWithFormat:@"img[%d]", i]: [NSString stringWithFormat:@"data:image/png;base64,%@", [UIImageJPEGRepresentation(_imageForCommitArr[i], 0.2) base64EncodedStringWithOptions:0]]}];
+        [params addEntriesFromDictionary:@{[NSString stringWithFormat:@"img[%d]", i]: [NSString stringWithFormat:@"data:image/png;base64,%@", [UIImageJPEGRepresentation(_imageForCommitArr[i], 0.2) base64EncodedStringWithOptions:0]]}];
     }
     
     [RequestData PostDataWithURL:KhighTaskCommit parameters:params sucsess:^(id response) {
@@ -190,8 +190,7 @@
         }
         
     } fail:^(NSError *error) {
-//        DLog(@"%@", error);
-        DLog(@"出错");
+        DLog(@"%@", error);
     } andViewController:self];
 }
 

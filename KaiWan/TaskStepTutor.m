@@ -7,7 +7,7 @@
 //
 
 #import "TaskStepTutor.h"
-
+#import "XWScanImage.h"
 
 static CGFloat tutorImageViewWidth;
 
@@ -76,6 +76,10 @@ static CGFloat tutorImageViewWidth;
 
 - (void)tap:(UITapGestureRecognizer *)tap{
     DLog(@"tag = %ld", tap.view.tag);
+    
+    UIImageView *imageView = (UIImageView *)tap.view;
+    [XWScanImage scanBigImageWithImageView:imageView];
+    
 }
 
 @end

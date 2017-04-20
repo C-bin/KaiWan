@@ -33,7 +33,8 @@
 #define SWIDTH [UIScreen mainScreen].bounds.size.width
 #define SHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SF_COLOR(RED, GREEN, BLUE)	[UIColor colorWithRed:RED/255.0f green:GREEN/255.0f blue:BLUE/255.0f alpha:1]
-#define HostUrl @"http://a.cn/"
+//#define HostUrl @"http://a.cn/"
+#define HostUrl @"https://api.ikaiwan.com/"
 #define ImageUrl @"https://s2.vbokai.com/"
 #endif /* PrefixHeader_pch */
 

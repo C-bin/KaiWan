@@ -23,6 +23,7 @@
 		4A16A1FE1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1FA1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m */; };
 		4A385D3C1EA701670019FB66 /* HighTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D3B1EA701670019FB66 /* HighTaskModel.m */; };
 		4A385D3F1EA72E470019FB66 /* HighTaskWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D3E1EA72E470019FB66 /* HighTaskWebViewController.m */; };
+		4A385D431EA8B4720019FB66 /* XWScanImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D421EA8B4720019FB66 /* XWScanImage.m */; };
 		4ADF02211EA5EA4A008172FE /* CommentTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */; };
 		5204E3D01E9F6B10006751CF /* 链接收徒@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3CC1E9F6B10006751CF /* 链接收徒@2x.png */; };
 		5204E3D11E9F6B10006751CF /* 链接收徒@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3CD1E9F6B10006751CF /* 链接收徒@3x.png */; };
@@ -343,6 +344,8 @@
 		4A385D3B1EA701670019FB66 /* HighTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighTaskModel.m; sourceTree = "<group>"; };
 		4A385D3D1EA72E470019FB66 /* HighTaskWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighTaskWebViewController.h; sourceTree = "<group>"; };
 		4A385D3E1EA72E470019FB66 /* HighTaskWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighTaskWebViewController.m; sourceTree = "<group>"; };
+		4A385D411EA8B4720019FB66 /* XWScanImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWScanImage.h; sourceTree = "<group>"; };
+		4A385D421EA8B4720019FB66 /* XWScanImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWScanImage.m; sourceTree = "<group>"; };
 		4ADF021F1EA5EA4A008172FE /* CommentTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTaskModel.h; sourceTree = "<group>"; };
 		4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTaskModel.m; sourceTree = "<group>"; };
 		5204E3CC1E9F6B10006751CF /* 链接收徒@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "链接收徒@2x.png"; sourceTree = "<group>"; };
@@ -822,6 +825,15 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		4A385D401EA8B4720019FB66 /* XWScanImage */ = {
+			isa = PBXGroup;
+			children = (
+				4A385D411EA8B4720019FB66 /* XWScanImage.h */,
+				4A385D421EA8B4720019FB66 /* XWScanImage.m */,
+			);
+			path = XWScanImage;
+			sourceTree = "<group>";
+		};
 		5204E3D41E9F7033006751CF /* ShowList */ = {
 			isa = PBXGroup;
 			children = (
@@ -918,6 +930,7 @@
 		522143B71E67C38500C030CD /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				4A385D401EA8B4720019FB66 /* XWScanImage */,
 				4A14D1D01EA0940B000427A9 /* YYModel */,
 				52D006141E9F0FDF00794CAE /* MJRefresh */,
 				52D0060F1E9E3CD900794CAE /* CustomClass */,
@@ -1702,7 +1715,8 @@
 				TargetAttributes = {
 					522143801E67BD4300C030CD = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 5PL5QNCRH9;
+						ProvisioningStyle = Automatic;
 					};
 					522143991E67BD4300C030CD = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -2034,6 +2048,7 @@
 				52AF3FAF1E69083100A1EF29 /* SDWebImagePrefetcher.m in Sources */,
 				4A16A1F01EA060C300A3F433 /* TaskStepDeep.m in Sources */,
 				4A14D1D61EA0940B000427A9 /* NSObject+YYModel.m in Sources */,
+				4A385D431EA8B4720019FB66 /* XWScanImage.m in Sources */,
 				52CCF2351E94957C00AB6EB7 /* SonViewController.m in Sources */,
 				4A16A1F11EA060C300A3F433 /* TaskStepTimeLimited.m in Sources */,
 				5204E3E31E9F8195006751CF /* LianJieViewController.m in Sources */,
@@ -2197,12 +2212,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5PL5QNCRH9;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KaiWan/PrefixHeader.pch";
 				INFOPLIST_FILE = KaiWan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shi..KaiWan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.van7ish.KaiWan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -2213,12 +2228,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5PL5QNCRH9;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KaiWan/PrefixHeader.pch";
 				INFOPLIST_FILE = KaiWan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shi..KaiWan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.van7ish.KaiWan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};

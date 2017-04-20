@@ -98,7 +98,7 @@
     // 添加文字颜色
     [attrStr addAttribute:NSForegroundColorAttributeName
                     value:[UIColor redColor]
-                    range:NSMakeRange(43, [[dataDic[@"location"] stringValue] length])];
+                    range:NSMakeRange(43, [[NSString stringWithFormat:@"%@", dataDic[@"location"]] length])];
     //    [attrStr addAttribute:NSForegroundColorAttributeName
     //                    value:[UIColor redColor]
     //                    range:NSMakeRange(59, 5)];
