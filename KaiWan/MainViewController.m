@@ -32,6 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.delegate = self;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushto:) name:@"pushtomain" object:nil];
+
 }
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -46,6 +48,18 @@
         
     }
     self.view.backgroundColor = [UIColor whiteColor];
+}
+- (void)pushto :(NSNotification *)n {
+    
+    NSDictionary *dic = n.userInfo;
+    
+    NSString *str = dic[@"num"];
+    
+    
+    UIButton *btn = (UIButton *)[self.tabBar viewWithTag:500-1+str.intValue];
+    
+    [self buttonClick:btn];
+    
 }
 - (void)viewDidAppear:(BOOL)animated{
     
