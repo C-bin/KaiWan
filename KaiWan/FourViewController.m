@@ -10,7 +10,10 @@
 #import "MakeViewController.h"
 #import "SonViewController.h"
 #import "WIthdrawViewController.h"
+#import "OurViewController.h"
 #import "SetupViewController.h"
+#import "HezuoViewController.h"
+#import "QuestionViewController.h"
 @interface FourViewController ()
 @property (nonatomic, strong)UIImageView *headIcon;
 @property (nonatomic, strong)UILabel *namelabel;
@@ -206,9 +209,9 @@
     [bglabel addSubview:llabel1];
     
     
-    NSArray *imageArr = @[@"夺宝明细",@"邀请好友",@"疑难解答",@"商务合作",@"关于我们"];
+    NSArray *imageArr = @[@"邀请好友",@"疑难解答",@"商务合作",@"关于我们"];
     
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 4; i++) {
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(bglabel.frame)+[UIView setHeight:42]*i, SWIDTH, [UIView setHeight:42])];
         view.userInteractionEnabled = YES;
         view.tag = 220+i;
@@ -246,7 +249,7 @@
         linelabel.backgroundColor = SF_COLOR(229, 229, 229);
         
         [linelabel makeConstraints:^(MASConstraintMaker *make) {
-            if (i!=4) {
+            if (i!=3) {
                 make.left.equalTo(label);
 
             }else {
@@ -280,16 +283,21 @@
     NSLog(@"%ld",tap.view.tag);
     switch (tap.view.tag) {
         case 220:
-            
+        {
+            NSNotification *notice = [NSNotification notificationWithName:@"pushtomain" object:nil userInfo:@{@"num":@"3"}];
+            [[NSNotificationCenter defaultCenter] postNotification:notice];
+        }
             break;
         case 221:
-            
+            [self.navigationController pushViewController:[[QuestionViewController alloc]init] animated:YES];
+
             break;
         case 222:
-            
+            [self.navigationController pushViewController:[[HezuoViewController alloc]init] animated:YES];
             break;
         case 223:
             
+            [self.navigationController pushViewController:[[OurViewController alloc]init] animated:YES];
             break;
         case 224:
             
@@ -325,6 +333,7 @@
     SetupViewController *set = [[SetupViewController alloc]init];
     set.dataDic = self.dic;
     [self.navigationController pushViewController:set animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {

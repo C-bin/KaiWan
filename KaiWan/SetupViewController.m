@@ -27,7 +27,8 @@
 }
 - (void)reuqest {
     [self.headimage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImageUrl,_dataDic[@"avatar"]]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
-    self.idTx.text = self.dataDic[@"id"];
+    
+    self.idTx.text = [NSString creatWithId:self.dataDic[@"id"]];
     self.nicknameTx.text = self.dataDic[@"nickname"];
     if (self.dataDic[@"openid"]) {
         self.WcTx.text = @"已绑定微信";
