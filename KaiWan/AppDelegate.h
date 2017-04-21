@@ -12,7 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic,strong) NSString *uid;
-
+@property (nonatomic, strong)NSString *headIcon;
+@property (nonatomic,strong) NSString  *nickName;
 
 @end
 

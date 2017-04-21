@@ -52,7 +52,6 @@
     self.headimage.layer.cornerRadius = [UIView setWidth:30];
     self.headimage.clipsToBounds = YES;
     self.headimage.layer.borderColor = SF_COLOR(170, 204, 255).CGColor;
-    self.headimage.backgroundColor = [UIColor redColor];
     self.headimage.layer.borderWidth = 1;
     self.headimage.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headtapClick)];

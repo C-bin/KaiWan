@@ -17,17 +17,34 @@
 @end
 
 @implementation LianJieViewController
-
+{
+    UILabel *ulrLabel;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.titlestring = @"链接收徒";
     [self setNavigationBar];
     [self creatUI];
     self.view.backgroundColor = [UIColor whiteColor];
+    [self reuqest];
+}
+- (void)reuqest{
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    self.idLabel.text = [NSString stringWithFormat:@"ID:%@",del.uid];
+    [self.headImage sd_setImageWithURL:[NSURL URLWithString:del.headIcon]];
+    self.nickNameLabel.text = del.nickName;
+    [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Share/link.html?uid=%@",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
+        NSDictionary *dic = (NSDictionary *)response;
+        NSDictionary *data = dic[@"data"];
+        ulrLabel.text = data[@"url"];
+        
+        NSLog(@"123");
+    } fail:^(NSError *error) {
+        
+    } andViewController:self];
 }
 - (void)creatUI {
     self.headImage = [[UIImageView alloc]init];
-    _headImage.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.headImage];
     [self.headImage makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.bgview.bottom).offset(HeightScale(24));
@@ -67,7 +84,7 @@
     }];
     imageview.userInteractionEnabled = YES;
     
-    UILabel *ulrLabel = [UILabel creatLabelWithFont:17 andbgcolor:nil andtextColor:SF_COLOR(28, 108, 229) andAligment:NSTextAlignmentCenter];
+    ulrLabel = [UILabel creatLabelWithFont:17 andbgcolor:nil andtextColor:SF_COLOR(28, 108, 229) andAligment:NSTextAlignmentCenter];
     ulrLabel.text = @"www.baidu,com";
     [imageview addSubview:ulrLabel];
     

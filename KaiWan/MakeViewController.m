@@ -8,9 +8,11 @@
 
 #import "MakeViewController.h"
 #import "MakeTableViewCell.h"
+#import "MakeModel.h"
 @interface MakeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tabel;
 @property (nonatomic,strong) NSMutableArray *dataArray;
+@property (nonatomic, assign)int page;
 
 @end
 
@@ -18,14 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.page = 1;
     self.titlestring = @"任务收入";
     [self setNavigationBar];
     [self creatUI];
     [self reload];
 }
 - (void)creatUI {
-    self.tabel = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT-64-49) style:UITableViewStylePlain];
+    self.tabel = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT-64) style:UITableViewStylePlain];
     self.tabel.delegate = self;
     self.tabel.dataSource = self;
     self.tabel.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -36,16 +38,62 @@
 }
 - (void)reload {
     self.dataArray = [NSMutableArray array];
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    self.tabel.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@User/task.html?uid=%@&page=%d",HostUrl,del.uid,self.page] parameters:nil sucsess:^(id response) {
+            [self.tabel.mj_header endRefreshing];
+            NSDictionary *dic = (NSDictionary *)response;
+            NSDictionary *data = dic[@"data"];
+            NSArray *arr = data[@"list"];
+            if (arr.count>0) {
+                [self.dataArray removeAllObjects];
+            }
+            for (NSDictionary *dic in arr) {
+                MakeModel *model = [[MakeModel alloc]initWithDictionary:dic error:nil];
+                [self.dataArray addObject:model];
+            }[self.tabel reloadData];
+            
+        } fail:^(NSError *error) {
+            [self.tabel.mj_header endRefreshing];
+            
+        } andViewController:nil];
+    }];
     
+    [self.tabel.mj_header beginRefreshing];
+    
+    self.tabel.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        self.page++;
+        [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@User/task.html?uid=%@&page=%d",HostUrl,del.uid,self.page] parameters:nil sucsess:^(id response) {
+            [self.tabel.mj_footer endRefreshing];
+            NSDictionary *dic = (NSDictionary *)response;
+            NSDictionary *data = dic[@"data"];
+            NSArray *arr = data[@"list"];
+            if (arr.count==0) {
+                [self.tabel.mj_footer endRefreshingWithNoMoreData];
+            }
+            for (NSDictionary *dic in arr) {
+                MakeModel *model = [[MakeModel alloc]initWithDictionary:dic error:nil];
+                [self.dataArray addObject:model];
+            }[self.tabel reloadData];
+            
+        } fail:^(NSError *error) {
+            [self.tabel.mj_footer endRefreshing];
+            
+        } andViewController:nil];
+    }];
+    self.tabel.mj_footer.hidden = YES;
+
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return self.dataArray.count;
-    return 1;
+    self.tabel.mj_footer.hidden=self.dataArray.count==0;
+    return self.dataArray.count;
+
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
  
        MakeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
+    [cell reloadWith:self.dataArray[indexPath.row]];
     return cell;
     
 }

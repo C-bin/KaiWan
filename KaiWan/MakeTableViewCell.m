@@ -25,7 +25,6 @@
 - (void)setUI {
     
     self.icon = [[UIImageView alloc]init];
-    self.icon.backgroundColor = [UIColor blueColor];
     [self.contentView addSubview:self.icon];
     [self.icon makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
@@ -64,7 +63,6 @@
     self.timelabel.font = [UIFont systemFontOfSize:12];
     self.timelabel.textColor = SF_COLOR(197, 197, 197);
     [self.contentView addSubview:self.timelabel];
-      self.timelabel.text = @"2017.2.12 12:22";
     [self.timelabel makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.typeLabel.bottom).offset([UIView setHeight:8]);
         make.left.equalTo(self.typeLabel);
@@ -75,7 +73,6 @@
     self.moneyLabel.font = [UIFont systemFontOfSize:12];
     self.moneyLabel.textColor = SF_COLOR(219, 3, 3);
     [self.contentView addSubview:self.moneyLabel];
-    self.moneyLabel.text = @"+123.0元";
     [self.moneyLabel makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
         make.right.equalTo(-[UIView setHeight:12]);
@@ -86,6 +83,17 @@
     [self.contentView addSubview:label];
 }
 - (void)reloadWith:(MakeModel *)model {
+    
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:model.img]];
+    self.typeLabel.text = model.type_name;
+    self.moneyLabel.text = [NSString stringWithFormat:@"+%@元",model.money];
+    self.titlelabel.text = model.info;
+    long long time=[[NSString creatWithId:model.timec ]longLongValue];
+    NSDate *d = [[NSDate alloc]initWithTimeIntervalSince1970:time];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy/MM/dd HH:MM"];
+    NSString*timeString=[formatter stringFromDate:d];
+    self.timelabel.text = timeString;
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

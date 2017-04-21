@@ -31,7 +31,6 @@
     
     self.headicon = [[UIImageView alloc]init];
     [self.view addSubview:self.headicon];
-    self.headicon.backgroundColor = [UIColor redColor];
     [self.headicon makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.bgview.bottom).offset([UIView setHeight:15]);
         make.left.equalTo([UIView setWidth:12]);

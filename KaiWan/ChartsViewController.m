@@ -58,7 +58,6 @@
     self.headicon.layer.cornerRadius = [UIView setWidth:30];
     self.headicon.clipsToBounds = YES;
     self.headicon.layer.borderWidth = 0.5;
-    self.headicon.backgroundColor = [UIColor redColor];
     [headview addSubview:self.headicon];
     
     

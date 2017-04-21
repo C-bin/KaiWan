@@ -25,8 +25,21 @@
 - (void)request {
     AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
 
-    [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Share/task.html?uid=%@",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
-        
+    [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Share/bask.html?uid=%@",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
+        NSDictionary *dic =  (NSDictionary *)response;
+        NSDictionary *data = dic[@"data"];
+        NSString *days = [NSString stringWithFormat:@"注册天数：%@天",data[@"days"]];
+        NSString *task_count = [NSString stringWithFormat:@"试玩应用：%@个",data[@"task_count"]];
+        NSString *task_money = [NSString stringWithFormat:@"试玩收入:%@元",data[@"task_money"]];
+        NSString *invite_count = [NSString stringWithFormat:@"徒弟个数:%@个",data[@"invite_count"]];
+        NSString *invite_money = [NSString stringWithFormat:@"徒弟收入:%@元",data[@"invite_money"]];
+        NSArray *arr = @[days,task_count,task_money,invite_count,invite_money];
+        for (int i = 0; i < 5; i++) {
+            UILabel *label = (UILabel *)[self.view viewWithTag:290+i];
+            label.text = arr[i];
+        }
+        _moneyLabel.text = [NSString stringWithFormat:@"%@元",data[@"money_all"]];
+
         
     } fail:^(NSError *error) {
         
@@ -82,7 +95,6 @@
     }];
     
     self.moneyLabel = [UILabel creatLabelWithFont:24 andbgcolor:nil andtextColor:SF_COLOR(255, 255, 255) andAligment:NSTextAlignmentCenter];
-    _moneyLabel.text = @"123元";
     [image addSubview:self.moneyLabel];
     [self.moneyLabel makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(zlabel.top).offset(HeightScale(27));

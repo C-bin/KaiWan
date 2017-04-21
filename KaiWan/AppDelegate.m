@@ -41,6 +41,7 @@
     
     [self.window makeKeyAndVisible];
     
+    
     return YES;
 }
 - (UIViewController *)creatRootController {

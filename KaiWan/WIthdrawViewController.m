@@ -8,10 +8,11 @@
 
 #import "WIthdrawViewController.h"
 #import "WithdrawTableViewCell.h"
+#import "WIthDrawModel.h"
 @interface WIthdrawViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *dataArray;
-
+@property (nonatomic,assign) int page;
 @end
 
 @implementation WIthdrawViewController
@@ -21,6 +22,57 @@
     self.titlestring = @"提现记录";
     [self setNavigationBar];
     [self creatUI];
+    [self request];
+    
+}
+- (void)request {
+    self.dataArray = [NSMutableArray array];
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Deposit/lst.html?uid=%@&page=%d",HostUrl,del.uid,self.page] parameters:nil sucsess:^(id response) {
+            [self.table.mj_header endRefreshing];
+            NSDictionary *dic = (NSDictionary *)response;
+            NSDictionary *data = dic[@"data"];
+            NSArray *arr = data[@"lst"];
+            if (arr.count>0) {
+                [self.dataArray removeAllObjects];
+            }
+            for (NSDictionary *dic in arr) {
+                WIthDrawModel *model = [[WIthDrawModel alloc]initWithDictionary:dic error:nil];
+                [self.dataArray addObject:model];
+            }[self.table reloadData];
+            
+        } fail:^(NSError *error) {
+            [self.table.mj_header endRefreshing];
+            
+        } andViewController:nil];
+    }];
+    
+    [self.table.mj_header beginRefreshing];
+    
+    self.table.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        self.page++;
+        [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@User/task.html?uid=%@&page=%d",HostUrl,del.uid,self.page] parameters:nil sucsess:^(id response) {
+            [self.table.mj_footer endRefreshing];
+            NSDictionary *dic = (NSDictionary *)response;
+            NSDictionary *data = dic[@"data"];
+            NSArray *arr = data[@"list"];
+            if (arr.count==0) {
+                [self.table.mj_footer endRefreshingWithNoMoreData];
+            }
+            for (NSDictionary *dic in arr) {
+                WIthDrawModel *model = [[WIthDrawModel alloc]initWithDictionary:dic error:nil];
+                [self.dataArray addObject:model];
+            }[self.table reloadData];
+            
+        } fail:^(NSError *error) {
+            [self.table.mj_footer endRefreshing];
+            
+        } andViewController:nil];
+    }];
+    self.table.mj_footer.hidden = YES;
+
 }
 - (void)creatUI {
     self.table = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT-64) style:UITableViewStylePlain];
@@ -31,14 +83,14 @@
     [self.view addSubview:self.table];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return self.dataArray.count;
-    return 2;
+    return self.dataArray.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [UIView setHeight:60];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WithdrawTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    [cell reloadWithModel:self.dataArray[indexPath.row]];
     return cell;
 }
 - (void)didReceiveMemoryWarning {

@@ -257,6 +257,7 @@
 		52D006561E9F0FDF00794CAE /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D006421E9F0FDF00794CAE /* UIView+MJExtension.m */; };
 		52D21BB31E97255D00A4418C /* ChartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D21BB21E97255D00A4418C /* ChartsViewController.m */; };
 		52D21BB71E972DF900A4418C /* UILabel+Creat.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D21BB61E972DF900A4418C /* UILabel+Creat.m */; };
+		52D685F91EA9F42000A7FB5F /* WIthDrawModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D685F81EA9F42000A7FB5F /* WIthDrawModel.m */; };
 		52E0D5F01E8DEAC0000DC7A8 /* PersonMesgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E0D5EF1E8DEAC0000DC7A8 /* PersonMesgViewController.m */; };
 		52E0D6081E8F92DB000DC7A8 /* LimitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E0D6071E8F92DB000DC7A8 /* LimitViewController.m */; };
 		52E13E441E6FE7A60047702B /* 导航-返回@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E13E301E6FE7A60047702B /* 导航-返回@2x.png */; };
@@ -691,6 +692,10 @@
 		52D21BB21E97255D00A4418C /* ChartsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartsViewController.m; sourceTree = "<group>"; };
 		52D21BB51E972DF900A4418C /* UILabel+Creat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Creat.h"; sourceTree = "<group>"; };
 		52D21BB61E972DF900A4418C /* UILabel+Creat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Creat.m"; sourceTree = "<group>"; };
+		52D685F31EA9D9DF00A7FB5F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		52D685F51EA9D9EF00A7FB5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		52D685F71EA9F42000A7FB5F /* WIthDrawModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WIthDrawModel.h; sourceTree = "<group>"; };
+		52D685F81EA9F42000A7FB5F /* WIthDrawModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WIthDrawModel.m; sourceTree = "<group>"; };
 		52E0D5EE1E8DEAC0000DC7A8 /* PersonMesgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonMesgViewController.h; sourceTree = "<group>"; };
 		52E0D5EF1E8DEAC0000DC7A8 /* PersonMesgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonMesgViewController.m; sourceTree = "<group>"; };
 		52E0D6061E8F92DB000DC7A8 /* LimitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitViewController.h; sourceTree = "<group>"; };
@@ -868,6 +873,7 @@
 				5221439D1E67BD4300C030CD /* KaiWanTests */,
 				522143A81E67BD4400C030CD /* KaiWanUITests */,
 				522143821E67BD4300C030CD /* Products */,
+				52D685F21EA9D9DF00A7FB5F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1582,6 +1588,15 @@
 			name = Charts;
 			sourceTree = "<group>";
 		};
+		52D685F21EA9D9DF00A7FB5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52D685F51EA9D9EF00A7FB5F /* CoreGraphics.framework */,
+				52D685F31EA9D9DF00A7FB5F /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		52E0D6041E8F92B2000DC7A8 /* Deatail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1635,6 +1650,8 @@
 				52FD4E5A1E94C488002472E1 /* WIthdrawViewController.m */,
 				52FD4E5C1E94C570002472E1 /* WithdrawTableViewCell.h */,
 				52FD4E5D1E94C570002472E1 /* WithdrawTableViewCell.m */,
+				52D685F71EA9F42000A7FB5F /* WIthDrawModel.h */,
+				52D685F81EA9F42000A7FB5F /* WIthDrawModel.m */,
 			);
 			name = Withdraw;
 			sourceTree = "<group>";
@@ -1976,6 +1993,7 @@
 				522C143E1E6804DD00F28F10 /* UIView+CGSet.m in Sources */,
 				52AF3FAB1E69083100A1EF29 /* SDWebImageDecoder.m in Sources */,
 				526AA0F31E94825400B3DCE3 /* JSONModel+networking.m in Sources */,
+				52D685F91EA9F42000A7FB5F /* WIthDrawModel.m in Sources */,
 				526AA0F41E94825400B3DCE3 /* JSONKeyMapper.m in Sources */,
 				5204E3DF1E9F8064006751CF /* SaoMaViewController.m in Sources */,
 				5221442B1E67F83600C030CD /* ThirdViewController.m in Sources */,
@@ -2216,6 +2234,7 @@
 				INFOPLIST_FILE = KaiWan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shi..KaiWan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2232,6 +2251,7 @@
 				INFOPLIST_FILE = KaiWan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shi..KaiWan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

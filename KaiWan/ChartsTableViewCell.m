@@ -32,7 +32,6 @@
 }
 - (void)setUI {
     headicon = [[UIImageView alloc]init];
-    headicon.backgroundColor = [UIColor redColor];
     headicon.layer.cornerRadius = [UIView setHeight:28];
     headicon.clipsToBounds = YES;
     [self.contentView addSubview:headicon];

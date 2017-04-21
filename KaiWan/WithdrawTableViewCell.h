@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WIthDrawModel.h"
 @interface WithdrawTableViewCell : UITableViewCell
-
+- (void)reloadWithModel:(WIthDrawModel *)model;
 @end

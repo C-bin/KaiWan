@@ -28,7 +28,6 @@
 }
 - (void)setUI {
     icon = [[UIImageView alloc]init];
-    icon.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:icon];
     [icon makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView.centerY);
@@ -40,7 +39,6 @@
     titlelabel = [[UILabel alloc]init];
     titlelabel.textColor = [UIColor blackColor];
     titlelabel.font = [UIFont systemFontOfSize:16];
-    titlelabel.text = @"微信体现";
     [self.contentView addSubview:titlelabel];
     [titlelabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(icon.right).offset([UIView setWidth:15]);
@@ -50,7 +48,6 @@
     timelabel = [[UILabel alloc]init];
     timelabel.textColor = SF_COLOR(197, 197, 197);
     timelabel.font = [UIFont systemFontOfSize:12];
-    timelabel.text = @"2017.1.12";
     [self.contentView addSubview:timelabel];
     [timelabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(titlelabel.left);
@@ -59,13 +56,26 @@
     moneyLabel = [[UILabel alloc]init];
     moneyLabel.textColor = SF_COLOR(219, 3, 3);
     moneyLabel.font = [UIFont systemFontOfSize:12];
-    moneyLabel.text = @"-20元";
     [self.contentView addSubview:moneyLabel];
     [moneyLabel makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
         make.right.equalTo(-[UIView setHeight:12]);
     }];
 
+}
+- (void)reloadWithModel:(WIthDrawModel *)model {
+    moneyLabel.text = [NSString stringWithFormat:@"-%@元",model.money];
+    timelabel.text = @"2017.1.12";
+    if (model.tid.integerValue==1) {
+        titlelabel.text = @"支付宝提现";
+        icon.image = [UIImage imageNamed:@"支付宝支付"];
+    }else {
+        titlelabel.text = @"微信提现";
+        icon.image = [UIImage imageNamed:@"微信支付"];
+
+    }
+    
+    timelabel.text = model.time;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

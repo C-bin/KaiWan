@@ -12,6 +12,7 @@
 @property (nonatomic,strong) UILabel *qdLabel;
 @property (nonatomic,strong) UILabel *moneyLabel;
 @property (nonatomic,strong) TurntableView * turntable;
+@property (nonatomic,assign) NSInteger days;
 
 @end
 
@@ -22,6 +23,41 @@
     self.titlestring = @"签到赚钱";
     [self setNavigationBar];
     [self creatUI];
+    [self request];
+}
+- (void)request {
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Sign.html?uid=%@",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
+        NSDictionary *dic = (NSDictionary *)response;
+        NSDictionary *data = dic[@"data"];
+        NSArray *arr = data[@"list"];
+        NSString *days = [NSString creatWithId:data[@"days"]];
+        //CGRectMake([UIView setWidth:12+i*53], HeightScale(164), WidthScale(0), HeightScale(12))
+        self.days = [days integerValue];
+        for (int i = 0; i < days.intValue; i++) {
+            UIImageView *image1 = (UIImageView *)[self.view viewWithTag:300+i];
+            image1.image = [UIImage imageNamed:@"已签到状态"];
+            UIImageView *image2 = (UIImageView *)[self.view viewWithTag:310+i];
+            image2.frame = CGRectMake([UIView setWidth:12+i*53], HeightScale(164), WidthScale(12), HeightScale(12));
+            if (i>3) {
+                UIImageView *image3 = (UIImageView *)[self.view viewWithTag:320+i];
+                [image3 removeFromSuperview];
+            }
+        }
+        NSMutableArray *mstr = [NSMutableArray array];
+        for (id objc in arr) {
+            [mstr addObject:[NSString creatWithId:objc]];
+        }
+        for (id objc in arr) {
+            [mstr addObject:[NSString creatWithId:objc]];
+        }
+        
+        self.turntable.numberArray = mstr;
+        
+    } fail:^(NSError *error) {
+        
+    } andViewController:self];
 }
 - (void)creatUI {
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT - 64)];
@@ -48,6 +84,7 @@
     self.qdLabel = [UILabel creatLabelWithFont:25.2 andbgcolor:nil andtextColor:SF_COLOR(28, 108, 229) andAligment:NSTextAlignmentCenter];
     [btn addSubview:self.qdLabel];
     self.qdLabel.text = @"签到";
+    [btn addTarget:self action:@selector(signBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.qdLabel makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(0);
@@ -77,7 +114,10 @@
     for (int i = 0; i < 7; i++) {
         UIImageView *image1 = [[UIImageView alloc]initWithFrame:CGRectMake([UIView setWidth:18+i*53], HeightScale(170), WidthScale(18), WidthScale(18))];
         image1.image = [UIImage imageNamed:@"没签到状态"];
-        
+        if (i>3) {
+            image1.image = [UIImage imageNamed:@"徒弟签到"];
+
+        }
         [bgimage addSubview:image1];
         image1.tag = 300+i;
         
@@ -131,74 +171,91 @@
     }];
     
 }
+- (void)signBtn:(UIButton *)btn {
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Sign.html?uid=%@&type=sign",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
+        NSDictionary *dic = (NSDictionary *)response;
+        if (response) {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            
+            // Set the text mode to show only text.
+            hud.mode = MBProgressHUDModeText;
+            hud.label.text = [NSString creatWithId:dic[@"message"]];
+            hud.offset = CGPointMake(0.f, 0);
+            [hud hideAnimated:YES afterDelay:2.f];
+
+        }else {
+            return ;
+        }
+        NSString *code = [NSString creatWithId:dic[@"code"]];
+        if (code.integerValue==1) {
+            self.days+=1;
+        }
+        for (int i = 0; i < self.days; i++) {
+            UIImageView *image1 = (UIImageView *)[self.view viewWithTag:300+i];
+            image1.image = [UIImage imageNamed:@"已签到状态"];
+            UIImageView *image2 = (UIImageView *)[self.view viewWithTag:310+i];
+            image2.frame = CGRectMake([UIView setWidth:12+i*53], HeightScale(164), WidthScale(12), HeightScale(12));
+            if (i>3) {
+                UIImageView *image3 = (UIImageView *)[self.view viewWithTag:320+i];
+                [image3 removeFromSuperview];
+            }
+        }
+        
+    } fail:^(NSError *error) {
+        
+    } andViewController:nil];
+    
+
+}
 - (void)shareClick :(UIButton *)btn {
+    
     
 }
 -(void)startAnimaition
 {
-    NSInteger turnAngle;
-    NSInteger randomNum = arc4random()%100;//控制概率
-    NSInteger turnsNum = arc4random()%5+1;//控制圈数
-    
-    if (randomNum>=0 && randomNum<20) {//80%的概率 就是0-80
-        
-        if (randomNum < 40) {
-            turnAngle = 0;
-        }else{
-            turnAngle = 135;
+
+ 
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Sign.html?type=prize&uid=%@",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
+        NSInteger turnAngle=0;
+        NSInteger turnsNum = arc4random()%5+1;//控制圈数
+        NSDictionary *dic = (NSDictionary *)response;
+        NSNumber *num = dic[@"code"];
+        if (num.integerValue!=1) {
+            
+            return ;
         }
-//        self.labelText = self.turntable.numberArray[0];
-        NSLog(@"抽中了500");
-        
-    } else if (randomNum>=20 && randomNum<40) {
-        
-        if (randomNum < 75) {
-            turnAngle = 45;
-        }else{
-            turnAngle = 225;
+        NSDictionary *data = dic[@"data"];
+        NSString *item = [NSString creatWithId:data[@"item"]];
+
+        for (int i = 0; i < self.turntable.numberArray.count; i++) {
+            if (i==item.integerValue) {
+                turnAngle = 360/self.turntable.numberArray.count*(i+1);
+            }
         }
-//        self.labelText = self.turntable.numberArray[3];
-        NSLog(@"抽中了鲜花");
+        CGFloat perAngle = M_PI/180.0;
         
-    } else if (randomNum >=40 && randomNum<60) {
+        CABasicAnimation* rotationAnimation;
+        rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        rotationAnimation.toValue = [NSNumber numberWithFloat:turnAngle * perAngle + 360 * perAngle * turnsNum+M_PI /8];
+        rotationAnimation.duration = 3.0f;
+        rotationAnimation.cumulative = YES;
+        rotationAnimation.delegate = self;
+        //由快变慢
+        rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        rotationAnimation.fillMode=kCAFillModeForwards;
+        rotationAnimation.removedOnCompletion = NO;
+        [self.turntable.rotateWheel.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
         
-        turnAngle = 315;
-//        self.labelText = self.turntable.numberArray[1];
-        NSLog(@"抽中了2000");
+
         
-    } else if(randomNum >=60 && randomNum<80){
+    } fail:^(NSError *error) {
         
-        if (randomNum < 95) {
-            turnAngle = 90;
-        }else{
-            turnAngle = 270;
-        }
-//        self.labelText = self.turntable.numberArray[2];
-        NSLog(@"抽中了5000");
-        
-    }else{
-        
-        turnAngle = 180;
-//        self.labelText = self.turntable.numberArray[4];
-        NSLog(@"抽中了20000");
-    }
-    
-    //    NSLog(@"randomNum = %ld , angle = %ld , turnsNum = %ld",randomNum,turnAngle,turnsNum);
-    CGFloat perAngle = M_PI/180.0;
-    
-    CABasicAnimation* rotationAnimation;
-    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.toValue = [NSNumber numberWithFloat:turnAngle * perAngle + 360 * perAngle * turnsNum+M_PI /8];
-    rotationAnimation.duration = 3.0f;
-    rotationAnimation.cumulative = YES;
-    rotationAnimation.delegate = self;
-    //由快变慢
-    rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    rotationAnimation.fillMode=kCAFillModeForwards;
-    rotationAnimation.removedOnCompletion = NO;
-    [self.turntable.rotateWheel.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
-    
-    // 转盘结束后调用，显示获得的对应奖励
+    } andViewController:self];
+        // 转盘结束后调用，显示获得的对应奖励
 //    self.label.text = [NSString stringWithFormat:@"恭喜您抽中%@",self.labelText];
     
 }

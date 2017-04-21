@@ -125,7 +125,7 @@
     }];
     UIView *firstview = nil;
     
-    NSArray *titleArr = @[@"20元",@"30元",@"50元",@"100元"];
+    NSArray *titleArr = @[@"10元",@"20元",@"50元",@"100元"];
     for (int i = 0; i < 4; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setTitle:titleArr[i] forState:UIControlStateNormal];
@@ -204,7 +204,7 @@
     }];
     
     UILabel *label1 = [UILabel creatLabelWithFont:14 andbgcolor:nil andtextColor:SF_COLOR(153, 153, 153) andAligment:0];
-    label1.text = @"＊体现说明";
+    label1.text = @"＊提现说明";
     [self.view addSubview:label1];
     [label1 makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(bview.bottom).offset(HeightScale(14));
@@ -241,7 +241,7 @@
     
 }
 - (void)btnclick:(UIButton *)btn {
-    NSArray *titarr = @[@"19",@"29",@"49",@"99"];
+    NSArray *titarr = @[@"9",@"19",@"49",@"99"];
     for (int i = 0; i < 4; i++) {
         UIButton *button = [self.view viewWithTag:700+i];
         button.selected = NO;
@@ -249,7 +249,7 @@
     }
     btn.selected = YES;
     btn.layer.borderColor = SF_COLOR(28,108,229).CGColor;
-    int a[4] = {20,30,50,100};
+    int a[4] = {10,20,50,100};
     money = a[(int)btn.tag-700];
     NSLog(@"%d",money);
     NSString *subtit = [NSString stringWithFormat:@"需收取手续费1元，到账%@元",titarr[btn.tag-700]];
@@ -261,6 +261,28 @@
     
 }
 - (void)shareClick:(UIButton *)btn {
+
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSDictionary *dic = @{
+                          @"tid":@"2",
+                          @"uid":del.uid,
+                          @"name":self.zhangHaoTf.text,
+                          @"money":[NSString stringWithFormat:@"%d",money]
+                          };
+    [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Deposit/submit.html",HostUrl] parameters:dic sucsess:^(id response) {
+        NSDictionary *dic = (NSDictionary *)response;
+        NSNumber *num = dic[@"code"];
+        if (num.integerValue==1) {
+            MBProgressHUD *mbpr = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            mbpr.mode = MBProgressHUDModeText;
+            mbpr.label.text = dic[@"message"];
+            [mbpr hideAnimated:YES afterDelay:2];
+
+        }
+    } fail:^(NSError *error) {
+        
+    } andViewController:self];
+    
     
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

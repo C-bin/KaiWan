@@ -24,7 +24,13 @@
     }
     return self;
 }
-
+- (void)setNumberArray:(NSArray *)numberArray {
+    _numberArray = numberArray;
+    for (int i = 0; i < _numberArray.count; i++) {
+        UILabel *label = (UILabel *)[self viewWithTag:550+i];
+        label.text = _numberArray[i];
+    }
+}
 -(void)initUI
 {
     
@@ -52,7 +58,7 @@
         make.size.mas_equalTo(CGSizeMake(WidthScale(268), WidthScale(268)));
     }];
     
-    // 在转盘上添加图片和文字
+    
     _numberArray = @[@"0.02元",@"0.16元",@"0.04元",@"0.08元",@"0.02元",@"0.16元",@"0.04元",@"0.08元"];
     
     for (int i = 0; i < 8; i ++) {
@@ -62,15 +68,14 @@
         label.center = CGPointMake(CGRectGetHeight(self.bounds)/2, CGRectGetHeight(self.bounds)/2);
         label.verticalAlignment = 0;
 
-        label.text = [NSString stringWithFormat:@"%@", _numberArray[i]];
         CGFloat angle = M_PI * 2 / 8 * i+M_PI /8;
-//        label.textAlignment = NSTextAlignmentCenter;
+
         label.font = [UIFont systemFontOfSize:14];
         label.transform = CGAffineTransformMakeRotation(angle);
         [self.rotateWheel addSubview:label];
         label.textColor = [UIColor whiteColor];
-//        label.backgroundColor = randomColor;
-        
+
+        label.tag = 550+i;
         
     }    [self addSubview:self.playButton];
 

@@ -22,7 +22,7 @@
     self.view.backgroundColor = [UIColor whiteColor];}
 - (void)creatUI {
     UILabel *label = [UILabel creatLabelWithFont:15 andbgcolor:nil andtextColor:SF_COLOR(102, 102, 102) andAligment:0];
-    label.text = @"    开玩是一款能赚钱的APP，用户主要通过完成任务来赚钱，每个任务会获得1-50元不等的现金奖励，获得的现金可以通过支付宝或微信直接体现，并且有签到赚钱，用户可以每天赚不停。平台当前有大量用户，可以进行app推广和广告展示等业务。";
+    label.text = @"    开玩是一款能赚钱的APP，用户主要通过完成任务来赚钱，每个任务会获得1-50元不等的现金奖励，获得的现金可以通过支付宝或微信直接提现，并且有签到赚钱，用户可以每天赚不停。平台当前有大量用户，可以进行app推广和广告展示等业务。";
     [self.view addSubview:label];
     //
     

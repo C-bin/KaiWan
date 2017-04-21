@@ -232,7 +232,7 @@
     }];
     
     UILabel *label1 = [UILabel creatLabelWithFont:14 andbgcolor:nil andtextColor:SF_COLOR(153, 153, 153) andAligment:0];
-    label1.text = @"＊体现说明";
+    label1.text = @"＊提现说明";
     [self.view addSubview:label1];
     [label1 makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(bview.bottom).offset(HeightScale(14));
@@ -289,8 +289,32 @@
     
 }
 - (void)shareClick:(UIButton *)btn {
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSDictionary *dic = @{
+                          @"tid":@"1",
+                          @"uid":del.uid,
+                          @"name":self.miMaTf.text,
+                          @"account":self.zhangHaoTf,
+                          @"money":[NSString stringWithFormat:@"%d",money]
+                          };
+    [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Deposit/submit.html",HostUrl] parameters:dic sucsess:^(id response) {
+        NSDictionary *dic = (NSDictionary *)response;
+        NSNumber *num = dic[@"code"];
+        if (num.integerValue==1) {
+            MBProgressHUD *mbpr = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            mbpr.mode = MBProgressHUDModeText;
+            mbpr.label.text = dic[@"message"];
+            [mbpr hideAnimated:YES afterDelay:2];
+            
+        }
+    } fail:^(NSError *error) {
+        
+    } andViewController:self];
+    
     
 }
+
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.zhangHaoTf resignFirstResponder];
     [self.miMaTf resignFirstResponder];

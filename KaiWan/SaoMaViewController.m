@@ -24,11 +24,24 @@
     self.titlestring = @"扫码收徒";
     [self setNavigationBar];
     [self creatUI];
+    [self request];
     self.view.backgroundColor = [UIColor whiteColor];}
+- (void)request{
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    self.idLabel.text = [NSString stringWithFormat:@"ID:%@",del.uid];
+    [self.headImage sd_setImageWithURL:[NSURL URLWithString:del.headIcon]];
+    [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Share/qrcode.html?uid=%@",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
+        NSDictionary *dic = (NSDictionary *)response;
+        NSDictionary *data = dic[@"data"];
+        [self.qcodeImage sd_setImageWithURL:[NSURL URLWithString:data[@"url"]]];
+    } fail:^(NSError *error) {
+        
+    } andViewController:self];
+}
 - (void)creatUI {
     self.headImage = [[UIImageView alloc]init];
-    _headImage.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.headImage];
+    
     [self.headImage makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.bgview.bottom).offset(HeightScale(24));
         make.centerX.equalTo(0);
@@ -66,7 +79,6 @@
     }];
 
     self.qcodeImage = [[UIImageView alloc]init];
-    self.qcodeImage.backgroundColor = [UIColor redColor];
     [image addSubview:self.qcodeImage];
     
     [self.qcodeImage makeConstraints:^(MASConstraintMaker *make) {

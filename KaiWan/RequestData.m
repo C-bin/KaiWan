@@ -25,8 +25,9 @@
         [mb hideAnimated:YES];
         NSDictionary *dic = (NSDictionary *)responseObject;
         NSNumber *num = dic[@"code"];
-        if (num.integerValue!=1) {
+        if (num.integerValue!=1&&veiwCV.view) {
             MBProgressHUD *mbpr = [MBProgressHUD showHUDAddedTo:veiwCV.view animated:YES];
+            mbpr.mode = MBProgressHUDModeText;
             mbpr.label.text = dic[@"message"];
             [mbpr hideAnimated:YES afterDelay:2];
             return ;
@@ -36,6 +37,7 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         fail(error);
+        
         [mb hideAnimated:YES];
 
     }];

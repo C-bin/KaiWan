@@ -54,14 +54,14 @@
         NSDictionary *data = dic[@"data"];
         NSDictionary *dica = data[@"user"];
         [self.iconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImageUrl,dica[@"avatar"]]]];
-        
+        del.headIcon = [NSString stringWithFormat:@"%@%@",ImageUrl,dica[@"avatar"]];
         NSString *systr = [NSString creatWithId:dica[@"money_day_sum"]];
         self.syLabel.text = [NSString stringWithFormat:@"今日收益：%@",systr];
 
         NSString *ststr = [NSString creatWithId:dica[@"day_count_e"]];
         self.stLabel.text = [NSString stringWithFormat:@"今日收徒：%@",ststr];
-        
-        //money_sum
+
+        self.IDLabel.text = [NSString stringWithFormat:@"ID：%@",del.uid];
         NSString *moneystr = [NSString creatWithId:dica[@"money_sum"]];
         self.moneyLabel.text = [NSString stringWithFormat:@"%@",moneystr];
         NSArray *arr = data[@"banner"];
