@@ -44,10 +44,7 @@
     
 }
 
-- (void)dealloc{
-    DLog(@"%s", __func__);
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+printViewControllerDealloc
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -81,7 +78,7 @@
 
 #pragma mark - 数据请求
 - (void)requestData{
-    NSDictionary *params = @{@"uid": _delegate.uid, @"appid": self.taskDic[@"appid"]};
+    NSDictionary *params = @{@"uid": @3, @"appid": self.taskDic[@"appid"]};
     [RequestData PostDataWithURL:KcommentTaskDetail parameters:params sucsess:^(id response) {
         DLog(@"%@", response);
         switch ([response[@"code"] intValue]) {
@@ -131,7 +128,7 @@
 
 - (void)commitButtonClicked:(UIButton *)button{
     DLog(@"提交审核");
-    NSDictionary *params = @{@"uid": _delegate.uid, @"appid": self.dataDic[@"appid"], @"img": [NSString stringWithFormat:@"data:image/png;base64,%@", [UIImageJPEGRepresentation(self.uploadImageView.image, 0.5) base64EncodedStringWithOptions:0]]};
+    NSDictionary *params = @{@"uid": @3, @"appid": self.dataDic[@"appid"], @"img": [NSString stringWithFormat:@"data:image/png;base64,%@", [UIImageJPEGRepresentation(self.uploadImageView.image, 0.5) base64EncodedStringWithOptions:0]]};
     [RequestData PostDataWithURL:KcommentTaskCommit parameters:params sucsess:^(id response) {
         if ([response[@"code"] intValue] == 1) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];

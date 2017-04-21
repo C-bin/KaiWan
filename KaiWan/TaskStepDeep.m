@@ -86,7 +86,7 @@
         cashLabel.adjustsFontSizeToFitWidth = YES;
         [dayImageView addSubview:cashLabel];
         
-        if (i < 6) {
+        if (i < rewardArr.count - 1) {
             UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(dayImageView.frame), HeightScale(17.5), WidthScale(15), HeightScale(0.5))];
             lineView.backgroundColor = [UIColor redColor];
             [self.advanceScrollView addSubview:lineView];

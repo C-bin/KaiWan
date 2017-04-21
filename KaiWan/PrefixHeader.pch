@@ -42,7 +42,7 @@
 /** 替换日志打印 */
 #ifdef DEBUG
 
-#   define DLog(format, ...) do {fprintf(stderr, "<%s : %d> %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__, __func__);(NSLog)((format), ##__VA_ARGS__);fprintf(stderr, "-------\n");} while (0)
+#   define DLog(format, ...) do {fprintf(stderr, "<%s : line %d> %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__, __func__);(NSLog)((format), ##__VA_ARGS__);fprintf(stderr, "-------\n");} while (0)
 
 #else
 
@@ -52,6 +52,7 @@
 
 
 #define printViewControllerDealloc -(void)dealloc{DLog(@"%s", __func__);}
+
 //基于4.7寸iPhone适配
 #define WidthScale(width) ((width / 375.0) * SWIDTH)
 #define HeightScale(height) ((height / 667.0) * SHEIGHT)
@@ -76,5 +77,11 @@
 
 //高额任务提交
 #define KhighTaskCommit [NSString stringWithFormat:@"%@HignTask/commit.html", HostUrl]
+
+//限时任务详情
+#define KtimeLimitedTaskDetail [NSString stringWithFormat:@"%@Task/click.html", HostUrl]
+
+//限时任务提交
+#define KtimeLimitedTaskCommit [NSString stringWithFormat:@"%@Task/commit.html", HostUrl]
 
 
