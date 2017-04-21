@@ -24,6 +24,7 @@
 		4A385D3C1EA701670019FB66 /* HighTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D3B1EA701670019FB66 /* HighTaskModel.m */; };
 		4A385D3F1EA72E470019FB66 /* HighTaskWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D3E1EA72E470019FB66 /* HighTaskWebViewController.m */; };
 		4A385D431EA8B4720019FB66 /* XWScanImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D421EA8B4720019FB66 /* XWScanImage.m */; };
+		4A385D461EA9B41D0019FB66 /* TimeLimitedTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D451EA9B41D0019FB66 /* TimeLimitedTaskModel.m */; };
 		4ADF02211EA5EA4A008172FE /* CommentTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */; };
 		5204E3D01E9F6B10006751CF /* 链接收徒@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3CC1E9F6B10006751CF /* 链接收徒@2x.png */; };
 		5204E3D11E9F6B10006751CF /* 链接收徒@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3CD1E9F6B10006751CF /* 链接收徒@3x.png */; };
@@ -347,6 +348,8 @@
 		4A385D3E1EA72E470019FB66 /* HighTaskWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighTaskWebViewController.m; sourceTree = "<group>"; };
 		4A385D411EA8B4720019FB66 /* XWScanImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWScanImage.h; sourceTree = "<group>"; };
 		4A385D421EA8B4720019FB66 /* XWScanImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWScanImage.m; sourceTree = "<group>"; };
+		4A385D441EA9B41D0019FB66 /* TimeLimitedTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLimitedTaskModel.h; sourceTree = "<group>"; };
+		4A385D451EA9B41D0019FB66 /* TimeLimitedTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLimitedTaskModel.m; sourceTree = "<group>"; };
 		4ADF021F1EA5EA4A008172FE /* CommentTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTaskModel.h; sourceTree = "<group>"; };
 		4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTaskModel.m; sourceTree = "<group>"; };
 		5204E3CC1E9F6B10006751CF /* 链接收徒@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "链接收徒@2x.png"; sourceTree = "<group>"; };
@@ -776,6 +779,8 @@
 				4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */,
 				4A385D3A1EA701670019FB66 /* HighTaskModel.h */,
 				4A385D3B1EA701670019FB66 /* HighTaskModel.m */,
+				4A385D441EA9B41D0019FB66 /* TimeLimitedTaskModel.h */,
+				4A385D451EA9B41D0019FB66 /* TimeLimitedTaskModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2029,6 +2034,7 @@
 				52AF3F841E6906C100A1EF29 /* YYCollectionViewCell.m in Sources */,
 				52AF3FB51E69083100A1EF29 /* UIImageView+WebCache.m in Sources */,
 				522144221E67F69200C030CD /* MainCVViewController.m in Sources */,
+				4A385D461EA9B41D0019FB66 /* TimeLimitedTaskModel.m in Sources */,
 				52AF3FB61E69083100A1EF29 /* UIView+WebCacheOperation.m in Sources */,
 				52363D6C1E68223500442335 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				526AA0F01E94825400B3DCE3 /* JSONModelError.m in Sources */,

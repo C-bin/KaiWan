@@ -58,9 +58,7 @@
     
 }
 
-- (void)dealloc{
-    DLog(@"%s", __func__);
-}
+printViewControllerDealloc
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -52,7 +52,7 @@
     [rankStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:WidthScale(17)] range:NSMakeRange(0, rankStr.length)];
     self.rankLabel.attributedText = rankStr;
     
-    self.nameLabel.text = dataDic[@"keywords"];
+    self.nameLabel.text = dataDic[@"keywords"] ? : dataDic[@"name"];
     NSDictionary *attrs = @{NSFontAttributeName : [UIFont systemFontOfSize:WidthScale(20)]};
     CGSize size=[self.nameLabel.text sizeWithAttributes:attrs];
     self.nameLabel.frame = CGRectMake((self.frame.size.width - size.width - WidthScale(30)) / 2, CGRectGetMaxY(self.rankLabel.frame) + HeightScale(5), size.width + WidthScale(30), HeightScale(30));

@@ -53,7 +53,7 @@
     namelabel.text = @"另一个自己";
     disNumlabel = [UILabel creatLabelWithFont:13 andbgcolor:nil andtextColor:SF_COLOR(232, 132, 132) andAligment:0];
     [self.contentView addSubview:disNumlabel];
-    disNumlabel.text = @"累计收图:7";
+    disNumlabel.text = @"累计收徒:7";
     moneyLabel = [UILabel creatLabelWithFont:24 andbgcolor:nil andtextColor:SF_COLOR(28, 108, 229) andAligment:NSTextAlignmentRight];
     [self.contentView addSubview:moneyLabel];
     
@@ -118,6 +118,16 @@
     moneyLabel.attributedText = mst;
     
 }
+
+- (void)setRankDic:(NSDictionary *)rankDic{
+    _rankDic = rankDic;
+    [headicon sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, rankDic[@"avatar"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
+    disNumlabel.text = [NSString stringWithFormat:@"累计收徒:%@", rankDic[@"invite_count"]];
+    moneyLabel.text = [NSString stringWithFormat:@"%@元", rankDic[@"money"]];
+    namelabel.text = rankDic[@"name"];
+}
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

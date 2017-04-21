@@ -14,6 +14,7 @@
 #import <sys/sysctl.h>
 
 @interface DeepTaskDetailViewController ()
+
 {
     AppDelegate *_delegate;
     
@@ -105,7 +106,7 @@
 
 #pragma mark - 数据请求
 - (void)requestData{
-    NSDictionary *params = @{@"uid": _delegate.uid, @"id": self.taskDic[@"id"]};
+    NSDictionary *params = @{@"uid": @3, @"id": self.taskDic[@"id"]};
     [RequestData PostDataWithURL:KdeepTaskDetailUrl parameters:params sucsess:^(id response) {
         DLog(@"%@", response);
         
@@ -137,7 +138,7 @@
 }
 
 - (void)taskCommit{
-    NSDictionary *params = @{@"uid": _delegate.uid, @"id": self.taskDic[@"id"]};
+    NSDictionary *params = @{@"uid": @3, @"id": self.taskDic[@"id"]};
     [RequestData PostDataWithURL:KdeepTaskCommit parameters:params sucsess:^(id response) {
         if ([response[@"code"] intValue] == 1) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -222,6 +223,8 @@
         self.stepDeep.leftTimeLabel.attributedText = str1;
     }
 }
+
+
 
 
 @end

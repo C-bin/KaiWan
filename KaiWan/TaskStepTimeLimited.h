@@ -10,4 +10,8 @@
 
 @interface TaskStepTimeLimited : UIView
 
+@property (nonatomic, strong) UIButton * receiveButton;
+
+@property (nonatomic, strong) UILabel * leftTimeLabel;
+
 @end
