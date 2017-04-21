@@ -139,13 +139,15 @@
 - (void)taskCommit{
     NSDictionary *params = @{@"uid": _delegate.uid, @"id": self.taskDic[@"id"]};
     [RequestData PostDataWithURL:KdeepTaskCommit parameters:params sucsess:^(id response) {
+        if ([response[@"code"] intValue] == 1) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            [alert addAction:action];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
-        [alert addAction:action];
-        [self presentViewController:alert animated:YES completion:nil];
         
     } fail:^(NSError *error) {
         DLog(@"%@", error);

@@ -28,7 +28,7 @@
 
         
         self.longPress = [[UILongPressGestureRecognizer alloc] init];
-        self.longPress.minimumPressDuration = 1;
+        self.longPress.minimumPressDuration = 0.5;
         [self.nameLabel addGestureRecognizer:self.longPress];
         self.nameLabel.userInteractionEnabled = YES;
         

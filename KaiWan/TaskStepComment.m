@@ -7,6 +7,7 @@
 //
 
 #import "TaskStepComment.h"
+#import "XWScanImage.h"
 
 @implementation TaskStepComment
 
@@ -26,9 +27,12 @@
         for (int i = 0; i < 2; i ++) {
             UIImageView *commImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(10) + i * (imgW +WidthScale(10)) , HeightScale(50), imgW, imgW * 1.6)];
             commImageView.tag = 10 + i;
-            
+            commImageView.userInteractionEnabled = YES;
             if (commImageView.tag == 10) {
                 commImageView.image = [UIImage imageNamed:@"截图示例"];
+
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+                [commImageView addGestureRecognizer:tap];
             } else {
                 commImageView.image = [UIImage imageNamed:@"点此上传"];
                 commImageView.userInteractionEnabled = YES;
@@ -58,5 +62,8 @@
     return self;
 }
 
+- (void)tap:(UITapGestureRecognizer *)tap{
+    [XWScanImage scanBigImageWithImageView:(UIImageView *)tap.view];
+}
 
 @end

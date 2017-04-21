@@ -7,6 +7,15 @@
 //
 
 #import "TaskStepCommit.h"
+#import "XWScanImage.h"
+
+static CGFloat sampleImageViewWidth;
+
+@interface TaskStepCommit ()
+
+@property (nonatomic, strong) UILabel * noticeLabel;
+
+@end
 
 @implementation TaskStepCommit
 
@@ -22,48 +31,61 @@
         [self addSubview:step1ImageView];
         
         
-        CGFloat imgW = (self.frame.size.width - WidthScale(20)) / 2;
-        for (int i = 0; i < 4; i ++) {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(5) + i % 2 * (imgW + WidthScale(10)), HeightScale(50) + i / 2 * (imgW * 1.5 + HeightScale(10)), imgW, imgW * 1.5)];
-            imageView.image = [UIImage imageNamed:@"点此上传"];
-            imageView.userInteractionEnabled = YES;
-            imageView.tag = 10 + i;
-            
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-            [imageView addGestureRecognizer:tap];
-            
-            [self addSubview:imageView];
-            
-        }
-        
-        UIButton *commitButton = [[UIButton alloc] initWithFrame:CGRectMake(WidthScale(10), HeightScale(50) + imgW * 1.5 * 2 + HeightScale(30), self.frame.size.width - WidthScale(20), HeightScale(36))];
-        [commitButton setTitle:@"提交审核" forState:UIControlStateNormal];
-        [commitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [commitButton setBackgroundColor:COLOR_RGB(24, 82, 222, 1)];
-        commitButton.layer.cornerRadius = WidthScale(5);
-        [commitButton addTarget:self action:@selector(commitButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        self.commitButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.commitButton setTitle:@"提交审核" forState:UIControlStateNormal];
+        [self.commitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.commitButton.layer.cornerRadius = WidthScale(5);
         
         
-        UILabel *noticeLabel = [[UILabel alloc] initWithFrame:CGRectMake(WidthScale(10), CGRectGetMaxY(commitButton.frame), self.frame.size.width - WidthScale(20), HeightScale(30))];
-        noticeLabel.text = @"* 请严格按照规则提交截图，如有问题，请联系官方客服解决。";
-        noticeLabel.font = [UIFont systemFontOfSize:WidthScale(13)];
-        noticeLabel.adjustsFontSizeToFitWidth = YES;
-        noticeLabel.textColor = [UIColor redColor];
+        self.noticeLabel = [[UILabel alloc] init];
+        self.noticeLabel.text = @"* 请严格按照规则提交截图，如有问题，请联系官方客服解决。";
+        self.noticeLabel.font = [UIFont systemFontOfSize:WidthScale(13)];
+        self.noticeLabel.adjustsFontSizeToFitWidth = YES;
+        self.noticeLabel.textColor = [UIColor redColor];
         
-        [self addSubview:noticeLabel]; 
-        [self addSubview:commitButton];
-        
-        
+        [self addSubview:self.noticeLabel];
+        [self addSubview:self.commitButton];
+    
     }
     return self;
 }
 
-- (void)tap:(UITapGestureRecognizer *)tap{
-    DLog(@"tag = %ld", tap.view.tag);
+- (void)setSampleImgArr:(NSArray *)sampleImgArr{
+    _sampleImgArr = sampleImgArr;
+    
+    
+    _tapGestureArr = [NSMutableArray array];
+    
+    sampleImageViewWidth = (self.frame.size.width - WidthScale(20)) / 2;
+    for (int i = 0; i < _sampleImgArr.count * 2; i ++) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(5) + i % 2 * (sampleImageViewWidth + WidthScale(10)), HeightScale(50) + i / 2 * (sampleImageViewWidth * 1.5 + HeightScale(10)), sampleImageViewWidth, sampleImageViewWidth * 1.5)];
+        imageView.userInteractionEnabled = YES;
+        imageView.tag = 10 + i;
+        
+        if (imageView.tag % 2) {
+            imageView.image = [UIImage imageNamed:@"点此上传"];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
+            [imageView addGestureRecognizer:tap];
+            [_tapGestureArr addObject:tap];
+            
+        } else {
+            UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:_sampleImgArr[i / 2]]];
+            [imageView addGestureRecognizer:tapGesture];
+        }
+        
+        [self addSubview:imageView];
+        
+    }
+    
+    self.commitButton.frame = CGRectMake(WidthScale(10), HeightScale(50) + (sampleImageViewWidth * 1.5 + HeightScale(10)) * sampleImgArr.count, self.frame.size.width - WidthScale(20), HeightScale(36));
+    
+    self.noticeLabel.frame = CGRectMake(WidthScale(10), CGRectGetMaxY(self.commitButton.frame), self.frame.size.width - WidthScale(20), HeightScale(30));
 }
 
-- (void)commitButtonClicked:(UIButton *)button{
-    DLog(@"提交审核");
+- (void)tapGesture:(UITapGestureRecognizer *)tapGesture{
+    UIImageView *imageView = (UIImageView *)tapGesture.view;
+    [XWScanImage scanBigImageWithImageView:imageView];
 }
 
 @end

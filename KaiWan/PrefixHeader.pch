@@ -34,14 +34,23 @@
 #define SHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SF_COLOR(RED, GREEN, BLUE)	[UIColor colorWithRed:RED/255.0f green:GREEN/255.0f blue:BLUE/255.0f alpha:1]
 #define HostUrl @"http://a.cn/"
+//#define HostUrl @"https://api.ikaiwan.com/"
 #define ImageUrl @"https://s2.vbokai.com/"
 #endif /* PrefixHeader_pch */
 
 
-//替换日志打印
-#define DLog(format, ...) do {fprintf(stderr, "<%s : %d> %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__, __func__);(NSLog)((format), ##__VA_ARGS__);fprintf(stderr, "-------\n");} while (0)
+/** 替换日志打印 */
+#ifdef DEBUG
 
-//
+#   define DLog(format, ...) do {fprintf(stderr, "<%s : %d> %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__, __func__);(NSLog)((format), ##__VA_ARGS__);fprintf(stderr, "-------\n");} while (0)
+
+#else
+
+#   define DLog(...)
+
+#endif
+
+
 #define printViewControllerDealloc -(void)dealloc{DLog(@"%s", __func__);}
 //基于4.7寸iPhone适配
 #define WidthScale(width) ((width / 375.0) * SWIDTH)
@@ -61,4 +70,11 @@
 
 //好评任务提交
 #define KcommentTaskCommit [NSString stringWithFormat:@"%@MessageTask/commit.html", HostUrl]
+
+//高额任务详情
+#define KhighTaskDetail [NSString stringWithFormat:@"%@HignTask/click.html", HostUrl]
+
+//高额任务提交
+#define KhighTaskCommit [NSString stringWithFormat:@"%@HignTask/commit.html", HostUrl]
+
 
