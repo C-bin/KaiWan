@@ -26,6 +26,9 @@
     self.titlestring = @"收徒";
     [self setNavigationBar];
     [self creatUI];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self request];
 }
 - (void)request {
@@ -41,7 +44,7 @@
         self.moneyLabel.text = [NSString creatWithId:dica[@"invite_money_day_sum"]];
         
     } fail:^(NSError *error) {
-        
+        NSLog(@"%@",error);
     } andViewController:self];
 }
 - (void)creatUI {
@@ -233,17 +236,7 @@
         make.width.equalTo([UIView setWidth:375-18*2]);
     }];
     
-//    UIButton *btn = [UIButton creatButtonWithTitle:@"立即收徒" andBgColor:SF_COLOR(28, 108, 229) andTextColor:[UIColor whiteColor] andtitleFont:23];
-//    [btn addTarget:self action:@selector(btnclick) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:btn];
-//    btn.layer.cornerRadius = 8;
-//    btn.clipsToBounds = YES;
-//    [btn makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(glabel2.bottom).offset([UIView setHeight:46]);
-//        make.centerX.equalTo(self.view);
-//        make.width.equalTo([UIView setWidth:301]);
-//        make.height.equalTo([UIView setHeight:44]);
-//    }];
+
 }
 - (void)showBtnClick:(UIButton *)btn {
     switch (btn.tag-280) {

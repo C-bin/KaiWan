@@ -21,7 +21,6 @@
     NSInteger _buttag;
     
     UINavigationController *_tmpNav;
-    
     UILabel * _tmpLabel;
     UIImageView * _tmpImageView;
     UIImageView * _imageView;
@@ -67,8 +66,6 @@
     
     NSArray * arr = self.viewControllers;
     for (int i = 0; i < arr.count ; i++) {
-        
-        
         UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(i*SCREEN_W/arr.count, 0, SCREEN_W/arr.count, 49)];
         
         button.tag = 500 +i;
