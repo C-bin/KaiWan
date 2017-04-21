@@ -84,4 +84,6 @@
 //限时任务提交
 #define KtimeLimitedTaskCommit [NSString stringWithFormat:@"%@Task/commit.html", HostUrl]
 
+//排行榜
+#define KrankList [NSString stringWithFormat:@"%@Api/r.html", HostUrl]
 

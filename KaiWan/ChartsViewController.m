@@ -6,8 +6,10 @@
 //  Copyright © 2017年 chenguang. All rights reserved.
 //
 
+
 #import "ChartsViewController.h"
 #import "ChartsTableViewCell.h"
+
 @interface ChartsViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UIImageView *headicon;
 @property (nonatomic,strong) UILabel *numLabel;
@@ -15,7 +17,9 @@
 @property (nonatomic,strong) UILabel *discipleNumLabel;
 @property (nonatomic,strong) UILabel *moneyLabel;
 @property (nonatomic,strong) UITableView *table;
-@property (nonatomic,strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) NSArray * dayRankArr;
+@property (nonatomic, strong) NSArray * allRankArr;
+@property (nonatomic, assign) BOOL isDayRank;
 
 @end
 
@@ -28,12 +32,13 @@
     [self setNavigationBar];
     
     [self creatUI];
-    [self reuqest];
+    
+    [self requestData];
+    
+    _isDayRank = YES;
     
 }
-- (void)reuqest {
-    
-}
+
 - (void)creatUI {
     //21
     UIView *headview = [[UIView alloc]init];
@@ -198,19 +203,28 @@
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return self.dataArray.count;
-    return 20;
+    if (_isDayRank) {
+        return _dayRankArr.count;
+    } else {
+        return _allRankArr.count;
+    }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [UIView setHeight:88];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_isDayRank) {
+        
+    }
     ChartsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     [cell reloadWithIndex:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.rankDic = _isDayRank ? self.dayRankArr[indexPath.row] : self.allRankArr[indexPath.row];
     return cell;
 }
 
 - (void)btnclick {
+    
     
 }
 - (void)btnclick:(UIButton *)btn {
@@ -229,6 +243,18 @@
 
     }];
     
+    switch (btn.tag) {
+        case 330:
+            _isDayRank = YES;
+            break;
+        case 331:
+            _isDayRank = NO;
+            break;
+            
+        default:
+            break;
+    }
+    [self.table reloadData];
     
     UIButton *btn1 = (UIButton *)[self.view viewWithTag:330+!(btn.tag-330)];
     btn1.selected = 0;
@@ -239,14 +265,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 数据请求
+- (void)requestData{
+    [RequestData PostDataWithURL:KrankList parameters:nil sucsess:^(id response) {
+        DLog(@"%@", response);
+        
+        self.allRankArr = [NSArray arrayWithArray:response[@"data"][@"all"]];
+        self.dayRankArr = [NSArray arrayWithArray:response[@"data"][@"day"]];
+        [self.table reloadData];
+    } fail:^(NSError *error) {
+        DLog(@"%@", error);
+    } andViewController:self];
 }
-*/
 
 @end

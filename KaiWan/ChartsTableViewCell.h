@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ChartsTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) NSDictionary * rankDic;
 - (void)reloadWithIndex:(NSIndexPath *)index;
+
 @end
