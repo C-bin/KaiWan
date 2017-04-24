@@ -18,6 +18,8 @@
 #import "CommentTaskDetailViewController.h"
 #import "TimeLimitedTaskDetailViewController.h"
 #import "SignInViewController.h"
+#import "TaskListViewController.h"
+
 
 @interface FirstViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong)UIImageView *iconImage;
@@ -285,33 +287,37 @@
     
     
     switch (btn.tag-200) {
-        case 0:
+        case 0://快速任务，跳到“赚钱”
+        {
+            NSNotification *notice = [NSNotification notificationWithName:@"pushtomain" object:nil userInfo:@{@"num":@"2"}];
+            [[NSNotificationCenter defaultCenter] postNotification:notice];
+        }
             
             break;
-        case 1:
             
-            break;
-        case 2:
-            
-            break;
-        case 3:
-            
-            break;
-        case 4:
-
+        case 1: case 2: case 3: case 4://各种任务
+        {
+            TaskListViewController *taskListVC = [[TaskListViewController alloc] init];
+            taskListVC.taskTag = btn.tag - 200;
+            [self.navigationController pushViewController:taskListVC animated:YES];
+        }
             break;
         case 5:
-            
+            //一元夺宝
             break;
         case 6:
+            //收徒任务
             
             break;
         case 7:
-            [self.navigationController pushViewController:[[SignInViewController alloc]init] animated:YES];
-
+            //签到任务
+            [self.navigationController pushViewController:[[SignInViewController alloc] init] animated:YES];
+            
             break;
         case 8:
-            [self.navigationController pushViewController:[[ChartsViewController alloc]init] animated:YES];
+            //排行榜
+            [self.navigationController pushViewController:[[ChartsViewController alloc] init] animated:YES];
+
             break;
             
         default:
