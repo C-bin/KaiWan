@@ -68,7 +68,13 @@
     NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:
                                [UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName,
                                [UIColor blueColor],NSForegroundColorAttributeName,nil];
-    NSMutableAttributedString *secondStr = [[NSMutableAttributedString alloc]initWithString:[dataDic[@"time"] stringValue] attributes:secondDic];
+    NSMutableAttributedString *secondStr;
+    if (dataDic[@"extraTime"]) {
+        secondStr = [[NSMutableAttributedString alloc] initWithString:[dataDic[@"extraTime"] stringValue] attributes:secondDic];
+    } else {
+        secondStr = [[NSMutableAttributedString alloc] initWithString:[dataDic[@"time"] stringValue] attributes:secondDic];
+    }
+    
     [firstStr appendAttributedString:secondStr];
     self.timeLabel.attributedText = firstStr;
     

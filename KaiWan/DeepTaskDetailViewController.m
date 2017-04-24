@@ -84,6 +84,7 @@
     
     self.infoView = [[TaskInfoView alloc] initWithFrame:CGRectMake(0, 0, SWIDTH, 0)];
     self.infoView.dataDic = self.dataDic;
+    self.infoView.timeLabel.hidden = YES;
     [self.infoView.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, self.taskDic[@"img"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
     [scrollView addSubview:self.infoView];
     
@@ -106,7 +107,7 @@
 
 #pragma mark - 数据请求
 - (void)requestData{
-    NSDictionary *params = @{@"uid": @3, @"id": self.taskDic[@"id"]};
+    NSDictionary *params = @{@"uid": _delegate.uid, @"id": self.taskDic[@"id"]};
     [RequestData PostDataWithURL:KdeepTaskDetailUrl parameters:params sucsess:^(id response) {
         DLog(@"%@", response);
         
@@ -138,7 +139,7 @@
 }
 
 - (void)taskCommit{
-    NSDictionary *params = @{@"uid": @3, @"id": self.taskDic[@"id"]};
+    NSDictionary *params = @{@"uid": _delegate.uid, @"id": self.taskDic[@"id"]};
     [RequestData PostDataWithURL:KdeepTaskCommit parameters:params sucsess:^(id response) {
         if ([response[@"code"] intValue] == 1) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];

@@ -17,6 +17,7 @@
 
 {
     AppDelegate *_delegate;
+    NSTimer  *_timer;
 }
 
 @property (nonatomic, strong) TaskInfoView * infoView;
@@ -32,6 +33,7 @@
 @property (nonatomic, strong) UIImageView * currentImageView;
 
 @property (nonatomic, strong) HighTaskWebViewController * highTaskWebVC;
+@property (nonatomic, assign) NSInteger extraTime;
 @end
 
 @implementation HighTaskDetailViewController
@@ -56,6 +58,13 @@
     [self setNavigationBar];
     [self requestData];
     
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    if ([_timer isValid]) {
+        [_timer invalidate];
+        _timer = nil;
+    }
 }
 
 printViewControllerDealloc
@@ -104,16 +113,33 @@ printViewControllerDealloc
 
 #pragma mark - 数据请求
 - (void)requestData{
-    NSDictionary *params = @{@"uid": @3, @"appid": self.taskDic[@"appid"]};
+    NSDictionary *params = @{@"uid": _delegate.uid, @"appid": self.taskDic[@"appid"]};
     [RequestData PostDataWithURL:KhighTaskDetail parameters:params sucsess:^(id response) {
         DLog(@"%@", response);
         switch ([response[@"code"] intValue]) {
             case 1:
-                self.dataDic = response[@"data"];
                 
-                self.highTaskModel = [HighTaskModel yy_modelWithDictionary:self.dataDic];
+                //    time 服务器时间 - timec 用户点击时间 >  task_time 倒计时时间   ?  过期 : 倒计时
+            {
+                NSMutableDictionary *tempDic = [NSMutableDictionary dictionaryWithDictionary:response[@"data"]];
                 
-                [self createUI];
+                NSInteger temp = ([tempDic[@"time"] integerValue] - [tempDic[@"timec"] integerValue]);
+                NSInteger extraTime = temp > [tempDic[@"task_time"] integerValue] ? 0 : [tempDic[@"task_time"] integerValue];
+                [tempDic addEntriesFromDictionary:@{@"extraTime": @(extraTime)}];
+                
+                if (extraTime == 0) {
+                    //任务已过期
+                    [self cancelTask];
+                } else {
+                    self.dataDic = tempDic;
+                    self.extraTime = [self.dataDic[@"extraTime"] integerValue];
+                    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
+                    
+                    self.highTaskModel = [HighTaskModel yy_modelWithDictionary:self.dataDic];
+                    
+                    [self createUI];
+                }
+            }
                 break;
             default:
             {
@@ -131,7 +157,48 @@ printViewControllerDealloc
     } andViewController:self];
 }
 
+- (void)cancelTask{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"任务已过期" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [RequestData PostDataWithURL:KhighTaskCancel parameters:@{@"uid": _delegate.uid, @"appid": self.taskDic[@"appid"]} sucsess:^(id response) {
+            DLog(@"%@", response);
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        } fail:^(NSError *error) {
+            DLog(@"%@", error);
+        } andViewController:self];
+    }];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
+}
+
+
 #pragma mark - 事件处理
+- (void)countDown{
+    _extraTime -= 1;
+    if (_extraTime != 0) {
+        
+        NSDictionary *firstDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName, [UIColor colorWithWhite:0.6 alpha:1], NSForegroundColorAttributeName, nil];
+        NSMutableAttributedString *firstStr = [[NSMutableAttributedString alloc] initWithString:@"任务剩余时间: " attributes:firstDic];
+        NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   [UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName,
+                                   [UIColor blueColor],NSForegroundColorAttributeName,nil];
+        NSMutableAttributedString *secondStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%ld", _extraTime] attributes:secondDic];
+        [firstStr appendAttributedString:secondStr];
+        self.infoView.timeLabel.attributedText = firstStr;
+        
+    } else {//倒计时结束
+        [_timer invalidate];
+        _timer = nil;
+        
+        [self cancelTask];
+    }
+}
+
 - (void)startButtonClicked:(UIButton *)button{
     DLog(@"开始任务");
     
@@ -171,7 +238,7 @@ printViewControllerDealloc
 
 - (void)commitButtonClicked:(UIButton *)button{
     DLog(@"提交审核");
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"uid": @3, @"appid": self.dataDic[@"appid"], @"mobile": self.mobileNumber ? self.mobileNumber : @""}];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"uid": _delegate.uid, @"appid": self.dataDic[@"appid"], @"mobile": self.mobileNumber ? self.mobileNumber : @""}];
     for (int i = 0; i < _imageForCommitArr.count; i ++) {
         [params addEntriesFromDictionary:@{[NSString stringWithFormat:@"img[%d]", i]: [NSString stringWithFormat:@"data:image/png;base64,%@", [UIImageJPEGRepresentation(_imageForCommitArr[i], 0.2) base64EncodedStringWithOptions:0]]}];
     }
