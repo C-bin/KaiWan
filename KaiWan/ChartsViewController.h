@@ -10,4 +10,6 @@
 
 @interface ChartsViewController : MainCVViewController
 
+@property (nonatomic, strong) NSDictionary * dataDic;
+
 @end

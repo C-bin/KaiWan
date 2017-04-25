@@ -104,3 +104,8 @@
 
 //排行榜
 #define KrankList [NSString stringWithFormat:@"%@Api/r.html", HostUrl]
+
+//用户信息
+#define KUserInfo [NSString stringWithFormat:@"%@User.html", HostUrl]
+
+
