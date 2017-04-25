@@ -12,7 +12,7 @@
 #import "TimeLimitedTaskDetailViewController.h"
 #import "CommentTaskDetailViewController.h"
 #import "HighTaskDetailViewController.h"
-
+#import "PostPhoneViewController.h"
 @interface SecondViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *dataArr;
@@ -225,6 +225,12 @@
      start_time: 1492012809,
      end_time: 1492272009
      */
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    if (!del.is_mobile) {
+        [self.navigationController pushViewController:[[PostPhoneViewController alloc]init] animated:YES];
+        return;
+    }
     NSDictionary *dic = self.dataArr[0][indexPath.row];
     NSString *tid = [NSString creatWithId:dic[@"tid"]];
     NSString *status = [NSString creatWithId:dic[@"status"]];

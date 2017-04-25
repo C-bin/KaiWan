@@ -37,6 +37,10 @@
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
     [self creatUI];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self relaod];
 }
 - (void)relaod {
@@ -58,9 +62,16 @@
         NSString *systr = [NSString creatWithId:dica[@"money_day_sum"]];
         self.syLabel.text = [NSString stringWithFormat:@"今日收益：%@",systr];
 
+        NSString *mobile = [NSString creatWithId:dica[@"is_mobile"]];
+        if (mobile.integerValue==1) {
+            del.is_mobile = YES;
+        }else {
+            del.is_mobile = NO;
+        }
+        
         NSString *ststr = [NSString creatWithId:dica[@"day_count_e"]];
         self.stLabel.text = [NSString stringWithFormat:@"今日收徒：%@",ststr];
-
+        
         self.IDLabel.text = [NSString stringWithFormat:@"ID：%@",del.uid];
         NSString *moneystr = [NSString creatWithId:dica[@"money_sum"]];
         self.moneyLabel.text = [NSString stringWithFormat:@"%@",moneystr];

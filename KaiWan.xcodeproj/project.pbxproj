@@ -282,6 +282,25 @@
 		52E13E561E6FE7A60047702B /* 列表-已抢完@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E13E421E6FE7A60047702B /* 列表-已抢完@2x.png */; };
 		52E13E571E6FE7A60047702B /* 列表-已抢完@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E13E431E6FE7A60047702B /* 列表-已抢完@3x.png */; };
 		52E13E7D1E6FEF380047702B /* SecondTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E13E7C1E6FEF380047702B /* SecondTableViewCell.m */; };
+		52E2ABA51EADD0BA0094D00F /* 填写邀请码@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABA31EADD0BA0094D00F /* 填写邀请码@2x.png */; };
+		52E2ABA61EADD0BA0094D00F /* 填写邀请码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABA41EADD0BA0094D00F /* 填写邀请码@3x.png */; };
+		52E2ABA91EADD5C50094D00F /* 邀请码关闭@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABA71EADD5C50094D00F /* 邀请码关闭@2x.png */; };
+		52E2ABAA1EADD5C50094D00F /* 邀请码关闭@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABA81EADD5C50094D00F /* 邀请码关闭@3x.png */; };
+		52E2ABB21EADEA100094D00F /* 微信登录@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABAE1EADEA100094D00F /* 微信登录@2x.png */; };
+		52E2ABB31EADEA100094D00F /* 微信登录@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABAF1EADEA100094D00F /* 微信登录@3x.png */; };
+		52E2ABB61EADEA7D0094D00F /* 1背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABB41EADEA7D0094D00F /* 1背景@2x.png */; };
+		52E2ABB71EADEA7D0094D00F /* 1背景@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABB51EADEA7D0094D00F /* 1背景@3x.png */; };
+		52E2ABB81EADEEB30094D00F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D685F31EA9D9DF00A7FB5F /* libsqlite3.tbd */; };
+		52E2ABB91EADEEC20094D00F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D685F51EA9D9EF00A7FB5F /* CoreGraphics.framework */; };
+		52E2ABCE1EADEEDA0094D00F /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2ABBD1EADEEDA0094D00F /* libSocialQQ.a */; };
+		52E2ABCF1EADEEDA0094D00F /* libSocialUniqueId.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2ABC01EADEEDA0094D00F /* libSocialUniqueId.a */; };
+		52E2ABD01EADEEDA0094D00F /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2ABC31EADEEDA0094D00F /* libSocialWeChat.a */; };
+		52E2ABD11EADEEDA0094D00F /* UMSocialCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2ABC61EADEEDA0094D00F /* UMSocialCore.framework */; };
+		52E2ABD21EADEEDA0094D00F /* UMSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2ABC71EADEEDA0094D00F /* UMSocialNetwork.framework */; };
+		52E2ABD31EADEEDA0094D00F /* UMSocialSDKPromptResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABC81EADEEDA0094D00F /* UMSocialSDKPromptResources.bundle */; };
+		52E2ABD41EADEEDA0094D00F /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2ABCA1EADEEDA0094D00F /* libUMSocialLog.a */; };
+		52E2ABD51EADEEDA0094D00F /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABCC1EADEEDA0094D00F /* UMSocialSDKResources.bundle */; };
+		52E2ABD61EADEEDA0094D00F /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2ABCD1EADEEDA0094D00F /* UShareUI.framework */; };
 		52F5E3081E9C71EA00E7E7D1 /* RequestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F5E3071E9C71EA00E7E7D1 /* RequestData.m */; };
 		52F5E30D1E9C802800E7E7D1 /* 默认头像@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F5E3091E9C802800E7E7D1 /* 默认头像@2x.png */; };
 		52F5E30E1E9C802800E7E7D1 /* 默认头像@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F5E30A1E9C802800E7E7D1 /* 默认头像@3x.png */; };
@@ -725,6 +744,26 @@
 		52E13E431E6FE7A60047702B /* 列表-已抢完@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "列表-已抢完@3x.png"; sourceTree = "<group>"; };
 		52E13E7B1E6FEF380047702B /* SecondTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTableViewCell.h; sourceTree = "<group>"; };
 		52E13E7C1E6FEF380047702B /* SecondTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTableViewCell.m; sourceTree = "<group>"; };
+		52E2ABA31EADD0BA0094D00F /* 填写邀请码@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "填写邀请码@2x.png"; path = "../../../../Downloads/填写邀请码/填写邀请码@2x.png"; sourceTree = "<group>"; };
+		52E2ABA41EADD0BA0094D00F /* 填写邀请码@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "填写邀请码@3x.png"; path = "../../../../Downloads/填写邀请码/填写邀请码@3x.png"; sourceTree = "<group>"; };
+		52E2ABA71EADD5C50094D00F /* 邀请码关闭@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "邀请码关闭@2x.png"; path = "../../../../Downloads/邀请码关闭@2x.png"; sourceTree = "<group>"; };
+		52E2ABA81EADD5C50094D00F /* 邀请码关闭@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "邀请码关闭@3x.png"; path = "../../../../Downloads/邀请码关闭@3x.png"; sourceTree = "<group>"; };
+		52E2ABAE1EADEA100094D00F /* 微信登录@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "微信登录@2x.png"; path = "../../../../Downloads/微信登录/切图/微信登录@2x.png"; sourceTree = "<group>"; };
+		52E2ABAF1EADEA100094D00F /* 微信登录@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "微信登录@3x.png"; path = "../../../../Downloads/微信登录/切图/微信登录@3x.png"; sourceTree = "<group>"; };
+		52E2ABB41EADEA7D0094D00F /* 1背景@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1背景@2x.png"; path = "../../../../Downloads/微信登录/切图/1背景@2x.png"; sourceTree = "<group>"; };
+		52E2ABB51EADEA7D0094D00F /* 1背景@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1背景@3x.png"; path = "../../../../Downloads/微信登录/切图/1背景@3x.png"; sourceTree = "<group>"; };
+		52E2ABBD1EADEEDA0094D00F /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
+		52E2ABBE1EADEEDA0094D00F /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
+		52E2ABC01EADEEDA0094D00F /* libSocialUniqueId.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialUniqueId.a; sourceTree = "<group>"; };
+		52E2ABC11EADEEDA0094D00F /* UMSocialUniqueIdHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialUniqueIdHandler.h; sourceTree = "<group>"; };
+		52E2ABC31EADEEDA0094D00F /* libSocialWeChat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWeChat.a; sourceTree = "<group>"; };
+		52E2ABC41EADEEDA0094D00F /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
+		52E2ABC61EADEEDA0094D00F /* UMSocialCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialCore.framework; sourceTree = "<group>"; };
+		52E2ABC71EADEEDA0094D00F /* UMSocialNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialNetwork.framework; sourceTree = "<group>"; };
+		52E2ABC81EADEEDA0094D00F /* UMSocialSDKPromptResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKPromptResources.bundle; sourceTree = "<group>"; };
+		52E2ABCA1EADEEDA0094D00F /* libUMSocialLog.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocialLog.a; sourceTree = "<group>"; };
+		52E2ABCC1EADEEDA0094D00F /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
+		52E2ABCD1EADEEDA0094D00F /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
 		52F5E3061E9C71EA00E7E7D1 /* RequestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestData.h; sourceTree = "<group>"; };
 		52F5E3071E9C71EA00E7E7D1 /* RequestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestData.m; sourceTree = "<group>"; };
 		52F5E3091E9C802800E7E7D1 /* 默认头像@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认头像@2x.png"; sourceTree = "<group>"; };
@@ -750,6 +789,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E2ABCF1EADEEDA0094D00F /* libSocialUniqueId.a in Frameworks */,
+				52E2ABD01EADEEDA0094D00F /* libSocialWeChat.a in Frameworks */,
+				52E2ABCE1EADEEDA0094D00F /* libSocialQQ.a in Frameworks */,
+				52E2ABB91EADEEC20094D00F /* CoreGraphics.framework in Frameworks */,
+				52E2ABD11EADEEDA0094D00F /* UMSocialCore.framework in Frameworks */,
+				52E2ABD41EADEEDA0094D00F /* libUMSocialLog.a in Frameworks */,
+				52E2ABD21EADEEDA0094D00F /* UMSocialNetwork.framework in Frameworks */,
+				52E2ABB81EADEEB30094D00F /* libsqlite3.tbd in Frameworks */,
+				52E2ABD61EADEEDA0094D00F /* UShareUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -941,6 +989,7 @@
 		522143B71E67C38500C030CD /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				52E2ABBA1EADEEDA0094D00F /* UMSocial */,
 				4A385D401EA8B4720019FB66 /* XWScanImage */,
 				4A14D1D01EA0940B000427A9 /* YYModel */,
 				52D006141E9F0FDF00794CAE /* MJRefresh */,
@@ -1058,6 +1107,14 @@
 		522144311E67FB2500C030CD /* 首页-图标 */ = {
 			isa = PBXGroup;
 			children = (
+				52E2ABB41EADEA7D0094D00F /* 1背景@2x.png */,
+				52E2ABB51EADEA7D0094D00F /* 1背景@3x.png */,
+				52E2ABAE1EADEA100094D00F /* 微信登录@2x.png */,
+				52E2ABAF1EADEA100094D00F /* 微信登录@3x.png */,
+				52E2ABA71EADD5C50094D00F /* 邀请码关闭@2x.png */,
+				52E2ABA81EADD5C50094D00F /* 邀请码关闭@3x.png */,
+				52E2ABA31EADD0BA0094D00F /* 填写邀请码@2x.png */,
+				52E2ABA41EADD0BA0094D00F /* 填写邀请码@3x.png */,
 				52B1A96B1EA75951009525F3 /* 解答-收起@2x.png */,
 				52B1A96C1EA75951009525F3 /* 解答-收起@3x.png */,
 				52B1A96D1EA75951009525F3 /* 解答-展开@2x.png */,
@@ -1648,6 +1705,82 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		52E2ABBA1EADEEDA0094D00F /* UMSocial */ = {
+			isa = PBXGroup;
+			children = (
+				52E2ABBB1EADEEDA0094D00F /* SocialLibraries */,
+				52E2ABC51EADEEDA0094D00F /* UMSocialSDK */,
+				52E2ABC91EADEEDA0094D00F /* UMSocialSDKPlugin */,
+				52E2ABCB1EADEEDA0094D00F /* UMSocialUI */,
+			);
+			name = UMSocial;
+			path = ../../../Downloads/umeng_ios_social_sdk_6.4.3_arm64_custom/UMSocial;
+			sourceTree = "<group>";
+		};
+		52E2ABBB1EADEEDA0094D00F /* SocialLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				52E2ABBC1EADEEDA0094D00F /* QQ */,
+				52E2ABBF1EADEEDA0094D00F /* UniqueId */,
+				52E2ABC21EADEEDA0094D00F /* WeChat */,
+			);
+			path = SocialLibraries;
+			sourceTree = "<group>";
+		};
+		52E2ABBC1EADEEDA0094D00F /* QQ */ = {
+			isa = PBXGroup;
+			children = (
+				52E2ABBD1EADEEDA0094D00F /* libSocialQQ.a */,
+				52E2ABBE1EADEEDA0094D00F /* UMSocialQQHandler.h */,
+			);
+			path = QQ;
+			sourceTree = "<group>";
+		};
+		52E2ABBF1EADEEDA0094D00F /* UniqueId */ = {
+			isa = PBXGroup;
+			children = (
+				52E2ABC01EADEEDA0094D00F /* libSocialUniqueId.a */,
+				52E2ABC11EADEEDA0094D00F /* UMSocialUniqueIdHandler.h */,
+			);
+			path = UniqueId;
+			sourceTree = "<group>";
+		};
+		52E2ABC21EADEEDA0094D00F /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				52E2ABC31EADEEDA0094D00F /* libSocialWeChat.a */,
+				52E2ABC41EADEEDA0094D00F /* UMSocialWechatHandler.h */,
+			);
+			path = WeChat;
+			sourceTree = "<group>";
+		};
+		52E2ABC51EADEEDA0094D00F /* UMSocialSDK */ = {
+			isa = PBXGroup;
+			children = (
+				52E2ABC61EADEEDA0094D00F /* UMSocialCore.framework */,
+				52E2ABC71EADEEDA0094D00F /* UMSocialNetwork.framework */,
+				52E2ABC81EADEEDA0094D00F /* UMSocialSDKPromptResources.bundle */,
+			);
+			path = UMSocialSDK;
+			sourceTree = "<group>";
+		};
+		52E2ABC91EADEEDA0094D00F /* UMSocialSDKPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				52E2ABCA1EADEEDA0094D00F /* libUMSocialLog.a */,
+			);
+			path = UMSocialSDKPlugin;
+			sourceTree = "<group>";
+		};
+		52E2ABCB1EADEEDA0094D00F /* UMSocialUI */ = {
+			isa = PBXGroup;
+			children = (
+				52E2ABCC1EADEEDA0094D00F /* UMSocialSDKResources.bundle */,
+				52E2ABCD1EADEEDA0094D00F /* UShareUI.framework */,
+			);
+			path = UMSocialUI;
+			sourceTree = "<group>";
+		};
 		52FD4E581E94C456002472E1 /* Withdraw */ = {
 			isa = PBXGroup;
 			children = (
@@ -1737,6 +1870,7 @@
 				TargetAttributes = {
 					522143801E67BD4300C030CD = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = SN2FMX9PSB;
 						ProvisioningStyle = Manual;
 					};
 					522143991E67BD4300C030CD = {
@@ -1809,6 +1943,7 @@
 				52E13E531E6FE7A60047702B /* 列表-邀请好友@3x.png in Resources */,
 				529815A31E97392A00451D01 /* 三角形@3x.png in Resources */,
 				521C93261E7FE0CA0093F1AB /* 个人资料-箭头@2x.png in Resources */,
+				52E2ABD31EADEEDA0094D00F /* UMSocialSDKPromptResources.bundle in Resources */,
 				5221445F1E67FB2500C030CD /* 我的@3x.png in Resources */,
 				5221447E1E67FB2500C030CD /* 首页-箭头@2x.png in Resources */,
 				5237E3F01EA0C4EA002F1D4B /* 提现方式-箭头@3x.png in Resources */,
@@ -1852,14 +1987,18 @@
 				529815B61E9766CE00451D01 /* 皇冠2@3x.png in Resources */,
 				5221447C1E67FB2500C030CD /* 首页-签到任务@2x.png in Resources */,
 				521C93221E7FE0CA0093F1AB /* 夺宝明细@2x.png in Resources */,
+				52E2ABB21EADEA100094D00F /* 微信登录@2x.png in Resources */,
 				522144721E67FB2500C030CD /* 首页-提现@2x.png in Resources */,
 				522144601E67FB2500C030CD /* 我的点@2x.png in Resources */,
 				5221446C1E67FB2500C030CD /* 首页-好评任务@2x.png in Resources */,
+				52E2ABAA1EADD5C50094D00F /* 邀请码关闭@3x.png in Resources */,
+				52E2ABB71EADEA7D0094D00F /* 1背景@3x.png in Resources */,
 				52B1A9551EA5BFF9009525F3 /* go@2x.png in Resources */,
 				5221446F1E67FB2500C030CD /* 首页-快速任务@3x.png in Resources */,
 				52D006051E9DBE0500794CAE /* 用户@3x.png in Resources */,
 				529815B31E9766CE00451D01 /* 皇冠1@2x.png in Resources */,
 				521C93271E7FE0CA0093F1AB /* 个人资料-箭头@3x.png in Resources */,
+				52E2ABA61EADD0BA0094D00F /* 填写邀请码@3x.png in Resources */,
 				5204E3EA1E9F837C006751CF /* 手指@2x.png in Resources */,
 				52B1A9521EA5BFF9009525F3 /* 已签到状态@3x.png in Resources */,
 				52B1A9471EA5BFF9009525F3 /* 没签到状态@2x.png in Resources */,
@@ -1890,6 +2029,7 @@
 				52E13E4F1E6FE7A60047702B /* 列表-虚线框@3x.png in Resources */,
 				522144621E67FB2500C030CD /* 收徒@2x.png in Resources */,
 				52F5E30F1E9C802800E7E7D1 /* Ikaiwan.com@2x.png in Resources */,
+				52E2ABB31EADEA100094D00F /* 微信登录@3x.png in Resources */,
 				52B1A94B1EA5BFF9009525F3 /* 签到按钮@2x.png in Resources */,
 				52E13E4D1E6FE7A60047702B /* 列表-问号@3x.png in Resources */,
 				5237E3EF1EA0C4EA002F1D4B /* 提现方式-箭头@2x.png in Resources */,
@@ -1899,7 +2039,9 @@
 				52E13E451E6FE7A60047702B /* 导航-返回@3x.png in Resources */,
 				52B1A94F1EA5BFF9009525F3 /* 徒弟签到@2x.png in Resources */,
 				5221438F1E67BD4300C030CD /* Main.storyboard in Resources */,
+				52E2ABD51EADEEDA0094D00F /* UMSocialSDKResources.bundle in Resources */,
 				52B1A9501EA5BFF9009525F3 /* 徒弟签到@3x.png in Resources */,
+				52E2ABA91EADD5C50094D00F /* 邀请码关闭@2x.png in Resources */,
 				522144701E67FB2500C030CD /* 首页-排行榜@2x.png in Resources */,
 				52E13E481E6FE7A60047702B /* 列表-夺宝背景@2x.png in Resources */,
 				52B1A9561EA5BFF9009525F3 /* go@3x.png in Resources */,
@@ -1911,10 +2053,12 @@
 				52D006121E9E3F4000794CAE /* 暂无记录-@2x.png in Resources */,
 				52F5E3101E9C802800E7E7D1 /* Ikaiwan.com@3x.png in Resources */,
 				52E13E461E6FE7A60047702B /* 列表-背景@2x.png in Resources */,
+				52E2ABA51EADD0BA0094D00F /* 填写邀请码@2x.png in Resources */,
 				5204E3D31E9F6B10006751CF /* 扫码收徒@3x.png in Resources */,
 				522144711E67FB2500C030CD /* 首页-排行榜@3x.png in Resources */,
 				52E13E471E6FE7A60047702B /* 列表-背景@3x.png in Resources */,
 				52363D641E68223500442335 /* Info.plist in Resources */,
+				52E2ABB61EADEA7D0094D00F /* 1背景@2x.png in Resources */,
 				52D006511E9F0FDF00794CAE /* MJRefresh.bundle in Resources */,
 				529815BE1E9766CE00451D01 /* NO.3@3x.png in Resources */,
 				529815B71E9766CE00451D01 /* 皇冠3@2x.png in Resources */,
@@ -2234,16 +2378,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: shi weibo (MWQFSMUFD8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SN2FMX9PSB;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KaiWan/PrefixHeader.pch";
 				INFOPLIST_FILE = KaiWan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shi..KaiWan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bovqi.kaiwan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "8656cb55-9ab8-4b12-b4e6-1ed38e80b7cb";
+				PROVISIONING_PROFILE_SPECIFIER = kaiwanyuansheng;
 			};
 			name = Debug;
 		};
@@ -2251,16 +2398,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: shi weibo (MWQFSMUFD8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SN2FMX9PSB;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KaiWan/PrefixHeader.pch";
 				INFOPLIST_FILE = KaiWan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shi..KaiWan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bovqi.kaiwan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "8656cb55-9ab8-4b12-b4e6-1ed38e80b7cb";
+				PROVISIONING_PROFILE_SPECIFIER = kaiwanyuansheng;
 			};
 			name = Release;
 		};

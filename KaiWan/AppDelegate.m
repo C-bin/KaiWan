@@ -13,6 +13,8 @@
 #import "FourViewController.h"
 #import "MainViewController.h"
 #import "MakeDiscipleViewController.h"
+
+
 @interface AppDelegate ()
 {
     FirstViewController *_firstViewController;
@@ -37,12 +39,16 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.uid = @"2";
+    [self  initShare];
     self.window.rootViewController = [self creatRootController];
     
     [self.window makeKeyAndVisible];
     
     
     return YES;
+}
+- (void)initShare {
+    
 }
 - (UIViewController *)creatRootController {
     

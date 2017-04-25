@@ -21,43 +21,27 @@
     [self creatUI];
 }
 - (void)creatUI {
-    self.phoneNumText = [[UITextField alloc]init];
-    self.phoneNumText.frame = [UIView setRectWithX:50 andY:200 andWidth:275 andHeight:50];
-    self.phoneNumText.placeholder = @"输入手机号码";
-    self.phoneNumText.keyboardType = UIKeyboardTypeNumberPad;
-    [self.view addSubview:self.phoneNumText];
-    self.yanNumText = [[UITextField alloc]init];
-    self.yanNumText.frame = [UIView setRectWithX:50 andY:300 andWidth:275 andHeight:50];
-    self.yanNumText.placeholder = @"请输入验证码";
-    self.yanNumText.keyboardType = UIKeyboardTypePhonePad;
-    [self.view addSubview:self.yanNumText];
+    UIImageView *image = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    image.image = [UIImage imageNamed:@"1背景"];
+    [self.view addSubview:image];
     
-    
-    self.pushButton = [[UIButton alloc]init];
-    [self.pushButton setTitle:@"获取验证码" forState:UIControlStateNormal];
-    [self.pushButton addTarget:self action:@selector(pushYanNum) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.pushButton];
-    
-    self.pushButton.frame = [UIView setRectWithX:100 andY:400 andWidth:175 andHeight:50];
-    
-    
+    UIButton *btn = [[UIButton alloc]init];
+    [btn setBackgroundImage:[UIImage imageNamed:@"微信登录"] forState:UIControlStateNormal];
+    [image addSubview:btn];
+    [btn addTarget:self action:@selector(pushYanNum) forControlEvents:UIControlEventTouchUpInside];
+    [btn makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(-HeightScale(48));
+        make.centerX.equalTo(image.centerX);
+        make.width.equalTo(WidthScale(140));
+        make.height.equalTo(HeightScale(40));
+    }];
 }
 - (void)pushYanNum {
-    if (self.phoneNumText.text.length==11) {
-        
-        // 请求接口
-        self.pushButton.userInteractionEnabled = NO;
-        
-        
-    }else {
-        
-    }
     
     
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.phoneNumText resignFirstResponder];
-    [self.yanNumText resignFirstResponder];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

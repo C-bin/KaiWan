@@ -67,12 +67,12 @@
         make.centerX.equalTo(0);
         make.height.equalTo([UIView setHeight:44]);
     }];
-    NSArray *titlearr = @[@"注册天数：31天",@"试玩应用：3个",@"试玩收入：32元",@"徒弟个数：12个",@"徒弟收入：23元"];
+//    NSArray *titlearr = @[@"注册天数：31天",@"试玩应用：3个",@"试玩收入：32元",@"徒弟个数：12个",@"徒弟收入：23元"];
     UIView *lastview = nil;
     for (int i = 0; i < 5; i++) {
         UILabel *label = [UILabel creatLabelWithFont:18 andbgcolor:nil andtextColor:SF_COLOR(255, 255, 255) andAligment:NSTextAlignmentCenter];
         label.tag = 290+i;
-        label.text = titlearr[i];
+//        label.text = titlearr[i];
         [image addSubview:label];
         
         [label makeConstraints:^(MASConstraintMaker *make) {

@@ -14,6 +14,6 @@
 @property (nonatomic,strong) NSString *uid;
 @property (nonatomic, strong)NSString *headIcon;
 @property (nonatomic,strong) NSString  *nickName;
-
+@property (nonatomic, assign)BOOL is_mobile;
 @end
 

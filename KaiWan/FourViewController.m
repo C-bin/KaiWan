@@ -61,7 +61,7 @@
         [mstr1 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:NSMakeRange(0, str1.length)];
         [mstr1 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:9] range:NSMakeRange(str1.length, 1)];
         label1.attributedText = mstr1;
-        
+
         
         UILabel *label2 = (UILabel *)[self.view viewWithTag:212];
         NSString *str2 = [NSString creatWithId:dica[@"invite_sum"]];
