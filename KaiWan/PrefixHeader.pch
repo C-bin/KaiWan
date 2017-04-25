@@ -60,11 +60,17 @@
 //颜色
 #define COLOR_RGB(r, g, b, a) [UIColor colorWithRed:r / 255. green:g /255. blue:b / 255. alpha:a]
 
+//深度任务列表
+#define KdeepTaskList [NSString stringWithFormat:@"%@DepthTask.html", HostUrl]
+
 //深度任务详情
 #define KdeepTaskDetailUrl [NSString stringWithFormat:@"%@DepthTask/click.html", HostUrl]
 
 //深度任务提交
 #define KdeepTaskCommit [NSString stringWithFormat:@"%@DepthTask/commit.html", HostUrl]
+
+//好评任务列表
+#define KcommentTaskList [NSString stringWithFormat:@"%@MessageTask.html", HostUrl]
 
 //好评任务详情
 #define KcommentTaskDetail [NSString stringWithFormat:@"%@MessageTask/click.html", HostUrl]
@@ -72,11 +78,20 @@
 //好评任务提交
 #define KcommentTaskCommit [NSString stringWithFormat:@"%@MessageTask/commit.html", HostUrl]
 
+//好评任务-放弃任务
+#define KcommentTaskCancel [NSString stringWithFormat:@"%@MessageTask/cancel.html", HostUrl]
+
+//高额任务列表
+#define KhighTaskList [NSString stringWithFormat:@"%@HignTask.html", HostUrl]
+
 //高额任务详情
 #define KhighTaskDetail [NSString stringWithFormat:@"%@HignTask/click.html", HostUrl]
 
 //高额任务提交
 #define KhighTaskCommit [NSString stringWithFormat:@"%@HignTask/commit.html", HostUrl]
+
+//高额任务-放弃任务
+#define KhighTaskCancel [NSString stringWithFormat:@"%@HignTask/cancel.html", HostUrl]
 
 //限时任务详情
 #define KtimeLimitedTaskDetail [NSString stringWithFormat:@"%@Task/click.html", HostUrl]
@@ -84,6 +99,8 @@
 //限时任务提交
 #define KtimeLimitedTaskCommit [NSString stringWithFormat:@"%@Task/commit.html", HostUrl]
 
+//限时任务-放弃任务
+#define KtimeLimitedTaskCancel [NSString stringWithFormat:@"%@Task/cancel.html", HostUrl]
+
 //排行榜
 #define KrankList [NSString stringWithFormat:@"%@Api/r.html", HostUrl]
-

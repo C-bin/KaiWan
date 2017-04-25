@@ -68,7 +68,13 @@
     NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:
                                [UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName,
                                [UIColor blueColor],NSForegroundColorAttributeName,nil];
-    NSMutableAttributedString *secondStr = [[NSMutableAttributedString alloc]initWithString:[dataDic[@"time"] stringValue] attributes:secondDic];
+    NSMutableAttributedString *secondStr;
+    if (dataDic[@"extraTime"]) {
+        secondStr = [[NSMutableAttributedString alloc] initWithString:[dataDic[@"extraTime"] stringValue] attributes:secondDic];
+    } else {
+        secondStr = [[NSMutableAttributedString alloc] initWithString:[dataDic[@"time"] stringValue] attributes:secondDic];
+    }
+    
     [firstStr appendAttributedString:secondStr];
     self.timeLabel.attributedText = firstStr;
     
@@ -78,7 +84,7 @@
         for (int i = 0; i < rewardArr.count; i++) {
             sumReward += [rewardArr[i] integerValue];
         }
-        self.moneyLabel.text = [NSString stringWithFormat:@"+%ld元", sumReward];
+        self.moneyLabel.text = [NSString stringWithFormat:@"+%ld元", (unsigned long)sumReward];
     } else {
         self.moneyLabel.text = [NSString stringWithFormat:@"+%@元", dataDic[@"reward"]];
     }
@@ -121,7 +127,7 @@
     self.stepView.frame = CGRectMake(0, CGRectGetMaxY(self.infoView.frame), SWIDTH, self.stepLabel.frame.size.height + HeightScale(30));
     
     self.frame = CGRectMake(0, 0, SWIDTH, self.stepView.frame.size.height + self.infoView.frame.size.height);
-  
+    
 }
 
 
