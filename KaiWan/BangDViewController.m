@@ -42,7 +42,7 @@
     }];
 }
 - (void)pushYanNum {
-    btn.userInteractionEnabled = NO;
+//    btn.userInteractionEnabled = NO;
     AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
 
     NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
@@ -57,7 +57,7 @@
 
 
     [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:nil completion:^(id result, NSError *error) {
-        btn.userInteractionEnabled = YES;
+//        btn.userInteractionEnabled = YES;
 
         if (error) {
             
