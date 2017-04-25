@@ -102,7 +102,7 @@
     }];
     
     self.moneyLabel = [UILabel creatLabelWithFont:14 andbgcolor:nil andtextColor:SF_COLOR(28, 108, 229) andAligment:NSTextAlignmentCenter];
-    self.moneyLabel.text = @"+0.02元";
+//    self.moneyLabel.text = @"+0.02元";
     [btn addSubview:self.moneyLabel];
     
     [self.moneyLabel makeConstraints:^(MASConstraintMaker *make) {

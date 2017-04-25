@@ -277,7 +277,7 @@
     bview.userInteractionEnabled = YES;
     UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"填写邀请码"]];
     [bview addSubview:image];
-    image.backgroundColor = [UIColor whiteColor];
+//    image.backgroundColor = [UIColor whiteColor];
     [image makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
         make.width.equalTo(WidthScale(233));

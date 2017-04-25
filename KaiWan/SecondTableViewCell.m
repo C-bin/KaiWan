@@ -175,7 +175,18 @@
 
     switch (status.integerValue) {
         case -98:
-        {    NSString *str = [NSString creatWithId:dic[@"reward"]];
+            
+        {
+            NSString *str = [NSString creatWithId:dic[@"reward"]];
+            float i = 0;
+            if (tid.integerValue==55) {
+                NSArray *arr = [str componentsSeparatedByString:@","];
+                for (NSString *money in arr) {
+                    i+=money.floatValue;
+                }
+                str = [NSString stringWithFormat:@"%.2f",i];
+            }
+            
             NSString *astr = [NSString stringWithFormat:@"+%@元",str];
             priceLabel.textColor = SF_COLOR(219, 3, 3);
             priceLabel.font = [UIFont systemFontOfSize:15];
@@ -210,8 +221,10 @@
             break;
     }
     NSString *time = [NSString creatWithId:dic[@"time"]];
-    if (time.length>0) {
+    if (!time) {
         timeLabel.text = [NSString stringWithFormat:@" %@ ",time];
+    }else {
+        timeLabel.text = @"";
     }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
