@@ -15,9 +15,9 @@
 		<dict>
 			<key>CFBundleURLName</key>
 			<string></string>
-			<key>CFBundleTypeRole</key>
+			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>tencent1105916032</string>
+				<string>tencent1105840863</string>
 			</array>
 		</dict>
 		<dict>
@@ -25,7 +25,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>QQ41eaf080</string>
+				<string>QQ41e9cadf</string>
 			</array>
 		</dict>
 	</array>

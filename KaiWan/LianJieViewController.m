@@ -7,7 +7,7 @@
 //
 
 #import "LianJieViewController.h"
-
+#import <UShareUI/UShareUI.h>
 @interface LianJieViewController ()
 @property (nonatomic,strong) UIImageView *headImage;
 @property (nonatomic,strong) UILabel *nickNameLabel;
@@ -126,8 +126,47 @@
     }];
 }
 - (void)shareClick:(UIButton *)btn {
+    [UMSocialUIManager setPreDefinePlatforms:@[@(4),@(5)]];
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        
+        [self shareWebPageToPlatformType:platformType];
+    }];
     
 }
+- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    
+    //创建网页内容对象
+    NSString* thumbURL =  @"https://mobile.umeng.com/images/pic/home/social/img-1.png";
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"和我一起来赚钱吧！" descr:@"欢迎使用开玩，这是一款利用用户闲暇时间赚钱的软件" thumImage:thumbURL];
+    //设置网页地址
+    shareObject.webpageUrl = @"http://mobile.umeng.com/social";
+    
+    //分享消息对象设置分享内容对象
+    messageObject.shareObject = shareObject;
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            UMSocialLogInfo(@"************Share fail with error %@*********",error);
+        }else{
+            if ([data isKindOfClass:[UMSocialShareResponse class]]) {
+                UMSocialShareResponse *resp = data;
+                //分享结果消息
+                UMSocialLogInfo(@"response message is %@",resp.message);
+                //第三方原始返回的数据
+                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
+                
+            }else{
+                UMSocialLogInfo(@"response data is %@",data);
+            }
+        }
+        
+    }];
+}
+
 - (void)pasteGes:(UILongPressGestureRecognizer *)longGes {
     if (longGes.state == UIGestureRecognizerStateBegan) {
         
