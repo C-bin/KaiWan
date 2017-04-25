@@ -11,6 +11,10 @@
 #import "ChartsTableViewCell.h"
 
 @interface ChartsViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+{
+    AppDelegate *_delegate;
+}
 @property (nonatomic,strong) UIImageView *headicon;
 @property (nonatomic,strong) UILabel *numLabel;
 @property (nonatomic,strong) UILabel *idLabel;
@@ -20,6 +24,7 @@
 @property (nonatomic, strong) NSArray * dayRankArr;
 @property (nonatomic, strong) NSArray * allRankArr;
 @property (nonatomic, assign) BOOL isDayRank;
+@property (nonatomic, strong) NSDictionary * userDic;
 
 @end
 
@@ -29,11 +34,15 @@
     [super viewDidLoad];
     self.titlestring = @"排行榜";
     
+    _delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
     [self setNavigationBar];
     
     [self creatUI];
     
-    [self requestData];
+    [self requestRankData];
+    
+    [self requestUserData];
     
     _isDayRank = YES;
     
@@ -73,21 +82,21 @@
     self.numLabel.textColor = [UIColor whiteColor];
     self.numLabel.font = [UIFont systemFontOfSize:10];
     self.numLabel.textAlignment = NSTextAlignmentCenter;
-    self.numLabel.text = @"味如蚌";
+//    self.numLabel.text = @"味如蚌";
     [headview addSubview:self.numLabel];
     
     
     self.idLabel = [UILabel creatLabelWithFont:18 andbgcolor:nil andtextColor:[UIColor whiteColor] andAligment:0];
-    self.idLabel.text = @"其有此女";
+//    self.idLabel.text = @"其有此女";
     [headview addSubview:self.idLabel];
     
     self.discipleNumLabel = [UILabel creatLabelWithFont:12 andbgcolor:nil andtextColor:SF_COLOR(215, 231, 255) andAligment:0];
-    self.discipleNumLabel.text = @"徒弟：12";
+//    self.discipleNumLabel.text = @"徒弟：12";
     [headview addSubview:self.discipleNumLabel];
     
     
     self.moneyLabel = [UILabel creatLabelWithFont:12 andbgcolor:nil andtextColor:SF_COLOR(215, 231, 255) andAligment:0];
-    self.moneyLabel.text = @"收入：0";
+//    self.moneyLabel.text = @"收入：0";
     [headview addSubview:self.moneyLabel];
     
     UIButton *btn = [[UIButton alloc]init];
@@ -129,7 +138,7 @@
     }];
     [btn makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(-[UIView setWidth:12]);
-        make.top.equalTo([UIView setHeight:35]);
+        make.top.equalTo([UIView setHeight:50]);
         make.width.equalTo([UIView setWidth:95]);
         make.height.equalTo([UIView setHeight:35]);
     }];
@@ -265,13 +274,32 @@
 }
 
 #pragma mark - 数据请求
-- (void)requestData{
+- (void)requestRankData{
     [RequestData PostDataWithURL:KrankList parameters:nil sucsess:^(id response) {
         DLog(@"%@", response);
         
         self.allRankArr = [NSArray arrayWithArray:response[@"data"][@"all"]];
         self.dayRankArr = [NSArray arrayWithArray:response[@"data"][@"day"]];
         [self.table reloadData];
+    } fail:^(NSError *error) {
+        DLog(@"%@", error);
+    } andViewController:self];
+}
+
+- (void)requestUserData{
+    [RequestData PostDataWithURL:KUserInfo parameters:@{@"uid": _delegate.uid} sucsess:^(id response) {
+        DLog(@"%@", response);
+        
+        self.userDic = response[@"data"];
+        
+        self.idLabel.text = self.userDic[@"user_info"][@"nickname"];
+        self.discipleNumLabel.text = [NSString stringWithFormat:@"徒弟:%@", self.userDic[@"invite_sum"]];
+        self.moneyLabel.text = [NSString stringWithFormat:@"收入:%@", self.userDic[@"task_sum"]];
+        
+        self.numLabel.text = self.userDic[@"user_info"][@"place"];
+        
+        [self.headicon sd_setImageWithURL:[NSURL URLWithString:self.userDic[@"user_info"][@"headimgurl"]]];
+        
     } fail:^(NSError *error) {
         DLog(@"%@", error);
     } andViewController:self];
