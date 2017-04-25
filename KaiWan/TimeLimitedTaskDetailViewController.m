@@ -40,14 +40,13 @@
 #pragma mark - 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.titlestring = @"任务详情";
     [self setNavigationBar];
     [self requestData];
     
-    
-    
-    _leftTime = 180;
     
     //app从后台变为活跃状态，执行观察者方法
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecameActive) name:UIApplicationDidBecomeActiveNotification object:nil];
@@ -79,6 +78,9 @@
 
 #pragma mark - 创建UI
 - (void)createUI{
+    
+    _leftTime = [self.dataDic[@"action_time"] integerValue];
+    
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT - 64)];
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.bounces = NO;
@@ -134,7 +136,6 @@
                     
                     [self createUI];
                 }
-                
             }
                 break;
             default:
