@@ -56,7 +56,7 @@
     label.numberOfLines = 0;
     [label sizeToFit];
     CGFloat hei = label.bounds.size.height;
-    return hei;
+    return hei+[UIView setHeight:24];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 5;

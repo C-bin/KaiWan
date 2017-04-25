@@ -30,7 +30,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.delegate = self;
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushto:) name:@"pushtomain" object:nil];
 
 }
