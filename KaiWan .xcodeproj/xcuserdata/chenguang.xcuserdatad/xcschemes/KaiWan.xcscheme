@@ -17,7 +17,7 @@
                BlueprintIdentifier = "522143801E67BD4300C030CD"
                BuildableName = "KaiWan.app"
                BlueprintName = "KaiWan"
-               ReferencedContainer = "container:KaiWan.xcodeproj">
+               ReferencedContainer = "container:KaiWan .xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "522143991E67BD4300C030CD"
                BuildableName = "KaiWanTests.xctest"
                BlueprintName = "KaiWanTests"
-               ReferencedContainer = "container:KaiWan.xcodeproj">
+               ReferencedContainer = "container:KaiWan .xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "522143A41E67BD4400C030CD"
                BuildableName = "KaiWanUITests.xctest"
                BlueprintName = "KaiWanUITests"
-               ReferencedContainer = "container:KaiWan.xcodeproj">
+               ReferencedContainer = "container:KaiWan .xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +55,7 @@
             BlueprintIdentifier = "522143801E67BD4300C030CD"
             BuildableName = "KaiWan.app"
             BlueprintName = "KaiWan"
-            ReferencedContainer = "container:KaiWan.xcodeproj">
+            ReferencedContainer = "container:KaiWan .xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "522143801E67BD4300C030CD"
             BuildableName = "KaiWan.app"
             BlueprintName = "KaiWan"
-            ReferencedContainer = "container:KaiWan.xcodeproj">
+            ReferencedContainer = "container:KaiWan .xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +97,7 @@
             BlueprintIdentifier = "522143801E67BD4300C030CD"
             BuildableName = "KaiWan.app"
             BlueprintName = "KaiWan"
-            ReferencedContainer = "container:KaiWan.xcodeproj">
+            ReferencedContainer = "container:KaiWan .xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

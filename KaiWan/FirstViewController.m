@@ -18,6 +18,8 @@
 #import "CommentTaskDetailViewController.h"
 #import "TimeLimitedTaskDetailViewController.h"
 #import "SignInViewController.h"
+#import <AdSupport/ASIdentifierManager.h>
+#import "BangDViewController.h"
 #import "TaskListViewController.h"
 
 
@@ -38,13 +40,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
+    self.scrlDataArray = [NSMutableArray array];
+
     [self creatUI];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self relaod];
 }
 - (void)relaod {
-    self.scrlDataArray = [NSMutableArray array];
+   
     
     AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
     if (del.uid.length<=0) {
         self.syLabel.text = @"今日收益：0";
         self.stLabel.text = @"今日收徒：0";
@@ -59,14 +68,22 @@
         del.headIcon = [NSString stringWithFormat:@"%@%@",ImageUrl,dica[@"avatar"]];
         NSString *systr = [NSString creatWithId:dica[@"money_day_sum"]];
         self.syLabel.text = [NSString stringWithFormat:@"今日收益：%@",systr];
-
+        
+        NSString *mobile = [NSString creatWithId:dica[@"is_mobile"]];
+        if (mobile.integerValue==1) {
+            del.is_mobile = YES;
+        }else {
+            del.is_mobile = NO;
+        }
+        
         NSString *ststr = [NSString creatWithId:dica[@"day_count_e"]];
         self.stLabel.text = [NSString stringWithFormat:@"今日收徒：%@",ststr];
-
+        
         self.IDLabel.text = [NSString stringWithFormat:@"ID：%@",del.uid];
         NSString *moneystr = [NSString creatWithId:dica[@"money_sum"]];
         self.moneyLabel.text = [NSString stringWithFormat:@"%@",moneystr];
         NSArray *arr = data[@"banner"];
+        [self.scrlDataArray removeAllObjects];
         for (NSDictionary *dic in arr) {
             NSString *str = [NSString stringWithFormat:@"%@%@",ImageUrl,dic[@"img"]];
             [self.scrlDataArray addObject:str];

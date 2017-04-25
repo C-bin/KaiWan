@@ -32,7 +32,7 @@
 - (void)request {
     page = 1;
     AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    del.uid = @"2";
+    
     self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.dataArray removeAllObjects];
         [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Share/lst.html?uid=%@&page=%d",HostUrl,del.uid,page] parameters:nil sucsess:^(id response) {

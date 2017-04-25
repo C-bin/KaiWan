@@ -165,16 +165,23 @@
                         @"mobile":self.phoneTf.text
                         };
     [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@User/moblie.html",HostUrl] parameters:dic sucsess:^(id response) {
+        NSDictionary *dic = (NSDictionary *)response;
+        NSNumber *number = dic[@"code"];
+        if (number.integerValue==1) {
+            del.is_mobile = YES;
+            UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:nil message:@"绑定成功" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *act = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }];
+            [alert1 addAction:act];
+            [self presentViewController:alert1 animated:YES completion:^{
+                
+            }];
+
+        }
         
-        UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:nil message:@"绑定成功" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *act = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self.navigationController popViewControllerAnimated:YES];
-            
-        }];
-        [alert1 addAction:act];
-        [self presentViewController:alert1 animated:YES completion:^{
-            
-        }];
         
     } fail:^(NSError *error) {
         

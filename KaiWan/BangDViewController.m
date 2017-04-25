@@ -7,6 +7,9 @@
 //
 
 #import "BangDViewController.h"
+#import <UMSocialCore/UMSocialCore.h>
+#import <AdSupport/ASIdentifierManager.h>
+#import "sys/utsname.h"
 
 @interface BangDViewController ()
 @property (nonatomic, strong)UITextField *phoneNumText;
@@ -15,49 +18,108 @@
 @end
 
 @implementation BangDViewController
-
+{
+    UIButton *btn;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self creatUI];
 }
 - (void)creatUI {
-    self.phoneNumText = [[UITextField alloc]init];
-    self.phoneNumText.frame = [UIView setRectWithX:50 andY:200 andWidth:275 andHeight:50];
-    self.phoneNumText.placeholder = @"输入手机号码";
-    self.phoneNumText.keyboardType = UIKeyboardTypeNumberPad;
-    [self.view addSubview:self.phoneNumText];
-    self.yanNumText = [[UITextField alloc]init];
-    self.yanNumText.frame = [UIView setRectWithX:50 andY:300 andWidth:275 andHeight:50];
-    self.yanNumText.placeholder = @"请输入验证码";
-    self.yanNumText.keyboardType = UIKeyboardTypePhonePad;
-    [self.view addSubview:self.yanNumText];
-    
-    
-    self.pushButton = [[UIButton alloc]init];
-    [self.pushButton setTitle:@"获取验证码" forState:UIControlStateNormal];
-    [self.pushButton addTarget:self action:@selector(pushYanNum) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.pushButton];
-    
-    self.pushButton.frame = [UIView setRectWithX:100 andY:400 andWidth:175 andHeight:50];
-    
-    
+    UIImageView *image = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    image.image = [UIImage imageNamed:@"1背景"];
+    [self.view addSubview:image];
+    image.userInteractionEnabled = YES;
+    btn = [[UIButton alloc]init];
+    [btn setBackgroundImage:[UIImage imageNamed:@"微信登录"] forState:UIControlStateNormal];
+    [image addSubview:btn];
+    [btn addTarget:self action:@selector(pushYanNum) forControlEvents:UIControlEventTouchUpInside];
+    [btn makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(-HeightScale(48));
+        make.centerX.equalTo(image.centerX);
+        make.width.equalTo(WidthScale(140));
+        make.height.equalTo(HeightScale(40));
+    }];
 }
 - (void)pushYanNum {
-    if (self.phoneNumText.text.length==11) {
+//    btn.userInteractionEnabled = NO;
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    int h =self.view.bounds.size.height;
+    int w = self.view.bounds.size.width;
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    UIDevice *device_=[[UIDevice alloc] init];
+    NSString * os=device_.systemVersion;
+    NSString * pn=[NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    NSString * name=device_.name;
+
+
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:nil completion:^(id result, NSError *error) {
+//        btn.userInteractionEnabled = YES;
+
+        if (error) {
+            
+        } else {
+            UMSocialUserInfoResponse *resp = result;
+            
+            // 授权信息
+            NSLog(@"Wechat uid: %@", resp.uid);
+            NSLog(@"Wechat openid: %@", resp.openid);
+            NSLog(@"Wechat accessToken: %@", resp.accessToken);
+            NSLog(@"Wechat refreshToken: %@", resp.refreshToken);
+            NSLog(@"Wechat expiration: %@", resp.expiration);
+            
+            // 用户信息
+            NSLog(@"Wechat name: %@", resp.name);
+            NSLog(@"Wechat iconurl: %@", resp.iconurl);
+            NSLog(@"Wechat gender: %@", resp.gender);
+            
+            // 第三方平台SDK源数据
+            NSLog(@"Wechat originalResponse: %@", resp.originalResponse);
+            
+            
+            NSDictionary *parameters = @{
+                                         @"idfa":idfa,
+                                         @"app":@"",
+                                         @"name":name,
+                                         @"pn":pn,
+                                         @"os":os,
+                                         @"type":@"ios",
+                                         @"ver":@"4.0",
+                                         @"w": [NSString stringWithFormat :@"%d",w],
+                                         @"h": [NSString stringWithFormat:@"%d",h],
+                                         @"openid":resp.uid,
+                                         @"nickname":resp.name,
+                                         @"headimgurl":resp.iconurl,
+                                         };
+            
+            [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Regist.html",HostUrl] parameters:parameters sucsess:^(id response) {
+                
+                NSDictionary *dic = (NSDictionary *)response;
+                NSLog(@"%@",dic);
+                NSDictionary *data = dic[@"data"];
+                del.uid = [NSString creatWithId:data[@"id"]];
+
+                if (self.navigationController) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }else {
+                    [del pushMainTabview];
+                }
+                
+            } fail:^(NSError *error) {
+                NSLog(@"%@",error);
+            } andViewController:self];
+
+        }
         
-        // 请求接口
-        self.pushButton.userInteractionEnabled = NO;
         
-        
-    }else {
-        
-    }
-    
+    }];
     
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.phoneNumText resignFirstResponder];
-    [self.yanNumText resignFirstResponder];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

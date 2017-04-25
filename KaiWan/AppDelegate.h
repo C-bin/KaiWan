@@ -14,6 +14,9 @@
 @property (nonatomic,strong) NSString *uid;
 @property (nonatomic, strong)NSString *headIcon;
 @property (nonatomic,strong) NSString  *nickName;
-
+@property (nonatomic, assign)BOOL is_mobile;
+@property (nonatomic, strong)NSString *wxUid;
+@property (nonatomic, strong)NSString *idfa;
+- (void)pushMainTabview;
 @end
 

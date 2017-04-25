@@ -20,6 +20,10 @@
 @end
 
 @implementation MakeDiscipleViewController
+{
+    UIView *bview;
+    UITextField *tf;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,6 +68,16 @@
         make.right.equalTo(0);
         make.height.equalTo([UIView setHeight:165]);
     }];
+    UIButton *returnBtn1 = [[UIButton alloc]init];
+    [returnBtn1 setTitle:@"填写邀请码" forState:UIControlStateNormal];
+    [returnBtn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:returnBtn1];
+    returnBtn1.titleLabel.font = [UIFont systemFontOfSize:16];
+    [returnBtn1 makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(-WidthScale(12));
+        make.centerY.equalTo(self.view.top).offset(42);
+    }];
+    [returnBtn1 addTarget:self action:@selector(showview) forControlEvents:UIControlEventTouchUpInside];
     
     self.moneyLabel = [UILabel creatLabelWithFont:48 andbgcolor:nil andtextColor:[UIColor whiteColor] andAligment:NSTextAlignmentCenter];
     self.moneyLabel.text = @"21.00";
@@ -255,6 +269,84 @@
         default:
             break;
     }
+}
+- (void)showview {
+    bview = [[UIView alloc]initWithFrame:self.view.bounds];
+    bview.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
+    [self.view addSubview:bview];
+    bview.userInteractionEnabled = YES;
+    UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"填写邀请码"]];
+    [bview addSubview:image];
+    image.backgroundColor = [UIColor whiteColor];
+    [image makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.width.equalTo(WidthScale(233));
+        make.height.equalTo(HeightScale(255));
+    }];
+    image.userInteractionEnabled = YES;
+    UIButton *button = [[UIButton alloc]init];
+//    [button setBackgroundImage:[UIImage imageNamed:@"邀请码关闭"] forState:UIControlStateNormal];
+    [image addSubview:button];
+    
+    [button makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(HeightScale(54));
+        make.height.width.equalTo(WidthScale(24));
+        make.right.equalTo(-WidthScale(10));
+    }];
+    
+    [button addTarget:self action:@selector(returnView) forControlEvents:UIControlEventTouchUpInside];
+    
+    tf = [[UITextField alloc]init];
+    tf.textColor = SF_COLOR(102, 102, 102);
+    tf.font = [UIFont systemFontOfSize:15];
+    tf.textAlignment = NSTextAlignmentCenter;
+    [image addSubview:tf];
+    [tf makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(HeightScale(135));
+        make.centerX.equalTo(0);
+        make.width.equalTo(WidthScale(180));
+        make.height.equalTo(HeightScale(37));
+    }];
+    
+    UIButton *queBtn = [[UIButton alloc]init];
+    [queBtn addTarget:self action:@selector(queDing) forControlEvents:UIControlEventTouchUpInside];
+    [image addSubview:queBtn];
+    
+    [queBtn makeConstraints:^(MASConstraintMaker *make) {
+        make.right.left.bottom.equalTo(0);
+        make.height.equalTo(HeightScale(34));
+    }];
+}
+- (void)queDing {
+    
+    if (tf.text.length>0) {
+        AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@User/set_invite.html?uid=%@&pid=%@",HostUrl,del.uid,tf.text] parameters:nil sucsess:^(id response) {
+            NSDictionary *dic = (NSDictionary *)response;
+            NSNumber *number = dic[@"code"];
+            if (number.integerValue==1) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.label.text = dic[@"message"];
+                [hud hideAnimated:YES afterDelay:1.5];
+                [bview removeFromSuperview];
+            }
+        } fail:^(NSError *error) {
+            
+        } andViewController:self];
+    }else {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"请填写正确的邀请码";
+        [hud hideAnimated:YES afterDelay:1.5];
+        
+    }
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [tf resignFirstResponder];
+}
+- (void)returnView {
+    [bview removeFromSuperview];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

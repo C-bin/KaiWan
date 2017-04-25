@@ -215,13 +215,11 @@
 }
 -(void)startAnimaition
 {
-
- 
     AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
 
     [RequestData GetDataWithURL:[NSString stringWithFormat:@"%@Sign.html?type=prize&uid=%@",HostUrl,del.uid] parameters:nil sucsess:^(id response) {
         NSInteger turnAngle=0;
-        NSInteger turnsNum = arc4random()%5+1;//控制圈数
+        NSInteger turnsNum = 5;//控制圈数
         NSDictionary *dic = (NSDictionary *)response;
         NSNumber *num = dic[@"code"];
         if (num.integerValue!=1) {
@@ -231,11 +229,26 @@
         NSDictionary *data = dic[@"data"];
         NSString *item = [NSString creatWithId:data[@"item"]];
 
-        for (int i = 0; i < self.turntable.numberArray.count; i++) {
-            if (i==item.integerValue) {
-                turnAngle = 360/self.turntable.numberArray.count*(i+1);
-            }
+        int i = 0;
+        switch (item.integerValue) {
+            case 0:
+                i = 2;
+                break;
+            case 1:
+                i=1;
+                break;
+            case 2:
+                i = 0;
+                break;
+            case 3:
+                i= 3;
+                break;
+                
+            default:
+                break;
         }
+        turnAngle = 360/self.turntable.numberArray.count*(i+1);
+
         CGFloat perAngle = M_PI/180.0;
         
         CABasicAnimation* rotationAnimation;

@@ -13,6 +13,9 @@
 #import "FourViewController.h"
 #import "MainViewController.h"
 #import "MakeDiscipleViewController.h"
+#import "BangDViewController.h"
+#import <UMSocialCore/UMSocialCore.h>
+#import <AdSupport/ASIdentifierManager.h>
 @interface AppDelegate ()
 {
     FirstViewController *_firstViewController;
@@ -36,14 +39,52 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.uid = @"2";
-    self.window.rootViewController = [self creatRootController];
-    
+    [self  initShare];
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *str1 = [user valueForKey:@"userid"];
+    self.uid = @"";
+    if (str1.length>0) {
+        self.uid = str1;
+        self.headIcon = [user valueForKey:@"usericon"];
+        self.nickName = [user valueForKey:@"username"];
+        self.idfa = [user valueForKey:@"idfa"];
+        self.window.rootViewController = [self creatRootController];
+
+        
+    }else {
+        
+        self.window.rootViewController = [[BangDViewController alloc]init];
+        
+    }
+
     [self.window makeKeyAndVisible];
     
     
     return YES;
 }
+- (void)pushMainTabview {
+        self.window.rootViewController = [self creatRootController];
+    [self.window makeKeyAndVisible];
+}
+- (void)initShare {
+    [[UMSocialManager defaultManager] openLog:YES];
+
+    [[UMSocialManager defaultManager] setUmSocialAppkey:@"58feeacb75ca35124b001340"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx92790f9f31a16759" appSecret:@"41128b884506defc9e5d20c8ea52f317" redirectURL:@"http://mobile.umeng.com/social"];
+    /* 设置分享到QQ互联的appID
+     */
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1105840863"/*设置QQ平台的appID*/  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+
+}
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
+}
+
 - (UIViewController *)creatRootController {
     
     _firstViewController = [[FirstViewController alloc]init];
@@ -88,24 +129,33 @@
 }
 
 
+
+
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    [user setObject:self.uid forKey:@"userid"];
+    [user setObject:self.headIcon forKey:@"usericon"];
+    [user setObject:self.nickName forKey:@"username"];
+    [user setObject:self.idfa forKey:@"idfa"];
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
+    NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    if (![self.idfa isEqualToString:idfa]) {
+        self.idfa = idfa;
+        self.window.rootViewController = [[BangDViewController alloc]init];
+    }
+    
+    }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    [user setObject:self.uid forKey:@"userid"];
+    [user setObject:self.headIcon forKey:@"usericon"];
+    [user setObject:self.nickName forKey:@"username"];
+    [user setObject:self.idfa forKey:@"idfa"];
+    
 }
 
 
