@@ -61,8 +61,8 @@
             url = KhighTaskList;
             break;
         case TaskTagUnion:
-            
-            return;
+            url = KunionTaskList;
+            break;
         case TaskTagComment:
             url = KcommentTaskList;
             break;
@@ -248,7 +248,6 @@
                 commentTaskVC.taskDic = self.dataArr[indexPath.row];
                 [self.navigationController pushViewController:commentTaskVC animated:YES];
             }
-                
                 break;
             case 51:
             {
@@ -268,9 +267,18 @@
             {
                 TimeLimitedTaskDetailViewController *limitedTaskVC = [[TimeLimitedTaskDetailViewController alloc] init];
                 limitedTaskVC.taskDic = self.dataArr[indexPath.row];
+                limitedTaskVC.type = 1;
                 [self.navigationController pushViewController:limitedTaskVC animated:YES];
             }
                 break;
+                
+            case 58:
+            {
+                TimeLimitedTaskDetailViewController *timeLimitedVC = [[TimeLimitedTaskDetailViewController alloc] init];
+                timeLimitedVC.taskDic = self.dataArr[indexPath.row];
+                timeLimitedVC.type = 2;
+                [self.navigationController pushViewController:timeLimitedVC animated:YES];
+            }
                 
             default:
                 break;

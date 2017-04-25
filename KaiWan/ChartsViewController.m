@@ -40,9 +40,9 @@
     
     [self creatUI];
     
-    [self requestRankData];
-    
     [self requestUserData];
+    
+    [self requestRankData];
     
     _isDayRank = YES;
     
@@ -268,6 +268,7 @@
     btn1.selected = 0;
     
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -293,13 +294,12 @@
         self.userDic = response[@"data"];
         
         self.idLabel.text = self.userDic[@"user_info"][@"nickname"];
-        self.discipleNumLabel.text = [NSString stringWithFormat:@"徒弟:%@", self.userDic[@"invite_sum"]];
+        self.discipleNumLabel.text = [NSString stringWithFormat:@"徒弟:%@", self.userDic[@"invite_all_count"]];
         self.moneyLabel.text = [NSString stringWithFormat:@"收入:%@", self.userDic[@"task_sum"]];
         
         self.numLabel.text = self.userDic[@"user_info"][@"place"];
         
         [self.headicon sd_setImageWithURL:[NSURL URLWithString:self.userDic[@"user_info"][@"headimgurl"]]];
-        
     } fail:^(NSError *error) {
         DLog(@"%@", error);
     } andViewController:self];
