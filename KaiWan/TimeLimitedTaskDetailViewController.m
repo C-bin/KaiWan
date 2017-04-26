@@ -93,18 +93,18 @@
     self.infoView.dataDic = self.dataDic;
     [scrollView addSubview:self.infoView];
     
-    self.stepCopy = [[TaskStepCopy alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(15), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) / 1.7)];
+    self.stepCopy = [[TaskStepCopy alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(18), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) / 1.7)];
     self.stepCopy.dataDic = self.dataDic;
     [self.stepCopy.longPress addTarget:self action:@selector(longPress:)];
     [scrollView addSubview:self.stepCopy];
     
-    self.timeLimited = [[TaskStepTimeLimited alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepCopy.frame) + HeightScale(15), SWIDTH - WidthScale(30), HeightScale(120))];
+    self.timeLimited = [[TaskStepTimeLimited alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepCopy.frame) + HeightScale(18), SWIDTH - WidthScale(30), HeightScale(120))];
     self.timeLimited.receiveButton.enabled = NO;
     [self.timeLimited.receiveButton addTarget:self action:@selector(receiveButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:self.timeLimited];
     
     
-    scrollView.contentSize = CGSizeMake(SWIDTH, CGRectGetMaxY(self.timeLimited.frame) + HeightScale(20));
+    scrollView.contentSize = CGSizeMake(SWIDTH, CGRectGetMaxY(self.timeLimited.frame) + HeightScale(32));
 
 }
 
@@ -202,11 +202,11 @@
     _extraTime -= 1;
     if (_extraTime != 0) {
         
-        NSDictionary *firstDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName, [UIColor colorWithWhite:0.6 alpha:1], NSForegroundColorAttributeName, nil];
+        NSDictionary *firstDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:WidthScale(13)], NSFontAttributeName, COLOR_RGB(194, 194, 194, 1), NSForegroundColorAttributeName, nil];
         NSMutableAttributedString *firstStr = [[NSMutableAttributedString alloc] initWithString:@"任务剩余时间: " attributes:firstDic];
         NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:
                                    [UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName,
-                                   [UIColor blueColor],NSForegroundColorAttributeName,nil];
+                                   COLOR_RGB(138, 170, 239, 1),NSForegroundColorAttributeName,nil];
         NSMutableAttributedString *secondStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%ld", _extraTime] attributes:secondDic];
         [firstStr appendAttributedString:secondStr];
         self.infoView.timeLabel.attributedText = firstStr;

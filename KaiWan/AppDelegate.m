@@ -16,6 +16,7 @@
 #import "BangDViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
 #import <AdSupport/ASIdentifierManager.h>
+
 @interface AppDelegate ()
 {
     FirstViewController *_firstViewController;
@@ -38,6 +39,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
@@ -52,15 +54,19 @@
         self.nickName = [user valueForKey:@"username"];
         self.idfa = [user valueForKey:@"idfa"];
         self.window.rootViewController = [self creatRootController];
-
+        
         
     }else {
         
         self.window.rootViewController = [[BangDViewController alloc]init];
         
     }
-
+    
     [self.window makeKeyAndVisible];
+
+    
+    
+
     
     
     return YES;

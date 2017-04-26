@@ -1,4 +1,3 @@
-
 //
 //  TaskListViewController.m
 //  KaiWan 
@@ -19,9 +18,9 @@
     AppDelegate *_delegate;
 }
 
-@property (nonatomic, strong)UITableView *tableView;
-@property (nonatomic, strong)NSArray *dataArr;
-@property (nonatomic,strong) UILabel *priceLabel;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *dataArr;
+@property (nonatomic, strong) UILabel *priceLabel;
 
 @end
 
@@ -43,9 +42,6 @@
 
 - (void)setTitleWithTaskTag:(TaskTag)taskTag{
     switch (taskTag) {
-        case 0:
-            self.titlestring = @"限时任务";
-            break;
         case 1:
             self.titlestring = @"好评任务";
             break;
@@ -54,6 +50,7 @@
             break;
         case 3:
             self.titlestring = @"深度任务";
+            break;
         case 4:
             self.titlestring = @"高额任务";
             break;

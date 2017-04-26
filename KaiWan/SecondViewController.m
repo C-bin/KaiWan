@@ -277,6 +277,7 @@
             {
                 TimeLimitedTaskDetailViewController *limitedTaskVC = [[TimeLimitedTaskDetailViewController alloc] init];
                 limitedTaskVC.taskDic = self.dataArr[0][indexPath.row];
+                limitedTaskVC.type = 1;
                 [self.navigationController pushViewController:limitedTaskVC animated:YES];
             }
                 break;

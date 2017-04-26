@@ -19,7 +19,7 @@
         self.backgroundColor = [UIColor whiteColor];
         self.layer.cornerRadius = WidthScale(8);
         
-        UIImageView *step2ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(-2), HeightScale(15), WidthScale(67), HeightScale(30))];
+        UIImageView *step2ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(-2), HeightScale(20), WidthScale(67), HeightScale(30))];
         step2ImageView.image = [UIImage imageNamed:@"步骤二"];
         
         
