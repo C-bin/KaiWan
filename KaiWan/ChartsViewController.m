@@ -231,7 +231,8 @@
 }
 
 - (void)btnclick {
-    
+    NSNotification *notice = [NSNotification notificationWithName:@"pushtomain" object:nil userInfo:@{@"num":@"2"}];
+    [[NSNotificationCenter defaultCenter] postNotification:notice];
 }
 - (void)btnclick:(UIButton *)btn {
     if (btn.selected) {
@@ -287,6 +288,10 @@
     } fail:^(NSError *error) {
         DLog(@"%@", error);
     } andViewController:self];
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

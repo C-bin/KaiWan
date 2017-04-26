@@ -79,7 +79,8 @@
 #pragma mark - 创建UI
 - (void)createUI{
     
-    _leftTime = [self.dataDic[@"action_time"] integerValue];
+//    _leftTime = [self.dataDic[@"action_time"] integerValue];
+    _leftTime = 180;
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT - 64)];
     scrollView.showsVerticalScrollIndicator = NO;

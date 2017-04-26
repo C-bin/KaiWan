@@ -35,28 +35,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KaiWan/ChartsViewController.m"
-            timestampString = "514865629.256859"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-creatUI"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "KaiWan/WIthdrawViewController.m"
-            timestampString = "514866766.515358"
+            timestampString = "514885706.66206"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "-request"
             landmarkType = "7">
          </BreakpointContent>
@@ -68,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KaiWan/TimeLimitedTaskDetailViewController.m"
-            timestampString = "514878155.577706"
+            timestampString = "514883465.388784"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "-didBecameActive"
             landmarkType = "7">
          </BreakpointContent>
@@ -84,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KaiWan/DeepTaskDetailViewController.m"
-            timestampString = "514879635.97241"
+            timestampString = "514883465.388784"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "-didBecameActive"
             landmarkType = "7">
          </BreakpointContent>
@@ -132,7 +116,7 @@
                   moduleName = "KaiWan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/van7ish/%E5%B7%A5%E4%BD%9C/%E5%8D%9A%E5%A8%81%E5%A5%87/KaiWan/KaiWan/CommentTaskDetailViewController.m"
-                  timestampString = "514880833.048506"
+                  timestampString = "514886719.390968"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "166"
@@ -147,7 +131,7 @@
                   moduleName = "KaiWan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/van7ish/%E5%B7%A5%E4%BD%9C/%E5%8D%9A%E5%A8%81%E5%A5%87/KaiWan/KaiWan/CommentTaskDetailViewController.m"
-                  timestampString = "514880833.049955"
+                  timestampString = "514886719.393613"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "167"
