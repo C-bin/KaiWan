@@ -32,12 +32,35 @@
     
     _delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
-    self.titlestring = @"任务列表";
+    [self setTitleWithTaskTag:_taskTag];
+    
     [self setNavigationBar];
     
     [self creatTB];
     [self requestDataWithTaskTag:_taskTag];
     
+}
+
+- (void)setTitleWithTaskTag:(TaskTag)taskTag{
+    switch (taskTag) {
+        case 0:
+            self.titlestring = @"限时任务";
+            break;
+        case 1:
+            self.titlestring = @"好评任务";
+            break;
+        case 2:
+            self.titlestring = @"联盟任务";
+            break;
+        case 3:
+            self.titlestring = @"深度任务";
+        case 4:
+            self.titlestring = @"高额任务";
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

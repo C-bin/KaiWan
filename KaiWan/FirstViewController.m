@@ -333,7 +333,23 @@
             break;
         case 8:
             //排行榜
-            [self.navigationController pushViewController:[[ChartsViewController alloc] init] animated:YES];
+            
+        {
+            
+            AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            
+            [RequestData PostDataWithURL:KUserInfo parameters:@{@"uid": del.uid} sucsess:^(id response) {
+                DLog(@"%@", response);
+                
+                ChartsViewController *chartsVC = [[ChartsViewController alloc] init];
+                chartsVC.dataDic = response[@"data"];
+                [self.navigationController pushViewController:chartsVC animated:YES];
+                
+            } fail:^(NSError *error) {
+                DLog(@"%@", error);
+            } andViewController:self];
+        }
+            
 
             break;
             
