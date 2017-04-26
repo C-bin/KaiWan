@@ -32,7 +32,7 @@
     
     _delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
-//    [self setTitleWithTaskTag:_taskTag];
+    [self setTitleWithTaskTag:_taskTag];
     
     [self setNavigationBar];
     

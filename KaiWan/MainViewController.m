@@ -50,6 +50,7 @@
         
     }
     self.view.backgroundColor = [UIColor whiteColor];
+//    self.view.alpha = 0;
 }
 - (void)pushto :(NSNotification *)n {
     
@@ -80,7 +81,8 @@
             [button addSubview:_imageView];
         
         _imageView.tag = 100 + i;
-        
+//        self.tabBar.backgroundColor = [UIColor whiteColor];
+
         UINavigationController * nav = [arr objectAtIndex:i];
         
         UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0+3.0/375*SCREEN_W, 34, SCREEN_W/arr.count*1.0, 13)];

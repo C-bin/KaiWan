@@ -38,7 +38,7 @@
     self.phoneTx.text = self.dataDic[@"phone"];
 }
 - (void)setupUI {
-    UIView *bview = [[UIView alloc]initWithFrame:CGRectMake(0, 64, SWIDTH, [UIView setHeight:335])];
+    UIView *bview = [[UIView alloc]initWithFrame:CGRectMake(0, 64, SWIDTH, [UIView setHeight:285])];
     bview.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:bview];
     

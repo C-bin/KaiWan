@@ -101,7 +101,7 @@
                 NSLog(@"%@",dic);
                 NSDictionary *data = dic[@"data"];
                 del.uid = [NSString creatWithId:data[@"id"]];
-
+                del.nickName = resp.name;
                 if (self.navigationController) {
                     [self.navigationController popViewControllerAnimated:YES];
                 }else {

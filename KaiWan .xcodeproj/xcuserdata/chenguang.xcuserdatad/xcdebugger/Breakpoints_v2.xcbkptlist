@@ -83,13 +83,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KaiWan/FirstViewController.m"
-            timestampString = "514866501.047729"
+            filePath = "KaiWan/SaoMaViewController.m"
+            timestampString = "514884761.694755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-relaod"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "-creatUI"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

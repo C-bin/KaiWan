@@ -50,9 +50,10 @@
     _headImage.layer.cornerRadius = HeightScale(105/2.0);
     _headImage.clipsToBounds = YES;
     
-    
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
     self.nickNameLabel = [UILabel creatLabelWithFont:18 andbgcolor:nil andtextColor:SF_COLOR(0, 0, 0) andAligment:NSTextAlignmentCenter];
-    _nickNameLabel.text = @"其透气啊";
+    _nickNameLabel.text = del.nickName;
     [self.view addSubview:self.nickNameLabel];
     
     [self.nickNameLabel makeConstraints:^(MASConstraintMaker *make) {
