@@ -24,7 +24,7 @@
         self.infoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SWIDTH, HeightScale(80))];
         
         self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(10), HeightScale(10), WidthScale(60), WidthScale(60))];
-        self.iconImageView.layer.cornerRadius = WidthScale(30);
+        self.iconImageView.layer.cornerRadius = WidthScale(8);
         self.iconImageView.layer.masksToBounds = YES;
         
         [self addSubview:self.iconImageView];
