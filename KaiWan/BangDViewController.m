@@ -23,8 +23,18 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    
     [self creatUI];
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+}
+
 - (void)creatUI {
     UIImageView *image = [[UIImageView alloc]initWithFrame:self.view.bounds];
     image.image = [UIImage imageNamed:@"1背景"];
