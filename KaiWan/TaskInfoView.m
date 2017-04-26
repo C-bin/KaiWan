@@ -62,22 +62,6 @@
     
     self.titleLabel.text = dataDic[@"keywords"] ? : dataDic[@"name"];
     
-    
-    NSDictionary *firstDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName, [UIColor colorWithWhite:0.6 alpha:1], NSForegroundColorAttributeName, nil];
-    NSMutableAttributedString *firstStr = [[NSMutableAttributedString alloc] initWithString:@"任务剩余时间: " attributes:firstDic];
-    NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:
-                               [UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName,
-                               [UIColor blueColor],NSForegroundColorAttributeName,nil];
-    NSMutableAttributedString *secondStr;
-    if (dataDic[@"extraTime"]) {
-        secondStr = [[NSMutableAttributedString alloc] initWithString:[dataDic[@"extraTime"] stringValue] attributes:secondDic];
-    } else {
-        secondStr = [[NSMutableAttributedString alloc] initWithString:[dataDic[@"time"] stringValue] attributes:secondDic];
-    }
-    
-    [firstStr appendAttributedString:secondStr];
-    self.timeLabel.attributedText = firstStr;
-    
     if ([dataDic[@"reward"] containsString:@","]) {
         NSUInteger sumReward = 0;
         NSArray *rewardArr = [dataDic[@"reward"] componentsSeparatedByString:@","];
@@ -89,8 +73,26 @@
         self.moneyLabel.text = [NSString stringWithFormat:@"+%@元", dataDic[@"reward"]];
     }
     
+    NSMutableString *str = [NSMutableString stringWithFormat:@"参与步骤:\n1.复制下方关键字，在App Store搜索下载，找到下面对应图标，约在第%@名下载;", self.dataDic[@"location"]];
+    NSMutableArray *tempArr = [NSMutableArray array];
+    if ([dataDic[@"title"] length]) {
+        [tempArr addObject:dataDic[@"title"]];
+    }
+    if ([dataDic[@"description"] length]) {
+        [tempArr addObject:dataDic[@"description"]];
+    }
+    if ([dataDic[@"content"] length]) {
+        [tempArr addObject:dataDic[@"content"]];
+    }
     
-    NSString *str = [NSString stringWithFormat:@"参与步骤:\n1.复制下方关键字，在App Store搜索下载，找到下面对应图标，约在第%@名下载;\n2.%@;\n3.返回本页提交任务，领取奖励。", dataDic[@"location"], dataDic[@"description"] ? : dataDic[@"content"]];
+    [tempArr addObject:@"返回本页提交任务，领取奖励。"];
+    
+    for (int i = 0; i < tempArr.count; i ++) {
+        [str appendFormat:@"\n%d.%@", i + 2 ,tempArr[i]];
+    }
+    
+    
+//    NSString *str = [NSString stringWithFormat:@"参与步骤:\n1.复制下方关键字，在App Store搜索下载，找到下面对应图标，约在第%@名下载;\n2.%@;\n3.返回本页提交任务，领取奖励。", dataDic[@"location"], dataDic[@"description"] ? : dataDic[@"content"]];
     
     
     // 创建 NSMutableAttributedString

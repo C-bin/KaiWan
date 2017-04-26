@@ -131,8 +131,8 @@
             {
                 NSMutableDictionary *tempDic = [NSMutableDictionary dictionaryWithDictionary:response[@"data"]];
                 
-                NSInteger temp = ([tempDic[@"time"] integerValue] - [tempDic[@"timec"] integerValue]);
-                NSInteger extraTime = temp > [tempDic[@"task_time"] integerValue] ? 0 : [tempDic[@"task_time"] integerValue];
+                NSInteger extraTime = [tempDic[@"task_time"] integerValue] - ([tempDic[@"time"] integerValue] - [tempDic[@"timec"] integerValue]);
+                extraTime = extraTime > 0 ? extraTime : 0;
                 [tempDic addEntriesFromDictionary:@{@"extraTime": @(extraTime)}];
                 
                 if (extraTime == 0) {
@@ -224,31 +224,24 @@
     UILabel *nameLabel = (UILabel *)longPress.view;
     pasteboard.string = nameLabel.text;
     
-    NSString *str = [NSString stringWithFormat:
-                     @"https://itunes.apple.com/WebObjects/MZStore.woa/wa/search?mt=8&submit=edit&term=#software"];
+    NSString *str = @"https://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?media=software";
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
     
 }
 
 - (void)didBecameActive{
-    BOOL Y = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.timeLimitedTaskModel.pro]]];
-    if (Y && ![_timer isValid]) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"此设备已安装任务app，现在打开" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.timeLimitedTaskModel.pro]] options:@{} completionHandler:^(BOOL success){
-                if (success) {
-                    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
-                    [_timer setFireDate:[NSDate distantPast]];
-                }
-            }];
+    if (![_timer isValid] && ![self.timeLimited.receiveButton isEnabled]) {
+        //计时器没有开始 并且 领取奖励按钮不能点击，则⬇️
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.timeLimitedTaskModel.pro]] options:@{} completionHandler:^(BOOL success){
+            if (success) {
+                _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
+                [_timer setFireDate:[NSDate distantPast]];
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"此设备未安装任务app，请参照步骤一安装后返回本页继续操作" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+            }
         }];
-        [alert addAction:action];
-        [self presentViewController:alert animated:YES completion:nil];
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"此设备未安装任务app，请参照步骤一安装后返回本页继续操作" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
     }
 }
 
@@ -306,8 +299,6 @@
         {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.timeLimitedTaskModel.pro]] options:@{} completionHandler:^(BOOL success){
                 if (success) {
-//                    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
-//                    [_timer setFireDate:[NSDate distantPast]];
                     
                     [self.navigationController popViewControllerAnimated:YES];
                 }

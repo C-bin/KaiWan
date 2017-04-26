@@ -29,6 +29,7 @@
 
 @property (nonatomic, strong) UIImageView * uploadImageView;
 @property (nonatomic, assign) NSInteger extraTime;
+@property (nonatomic, assign, getter=isTaskAppOpen) BOOL taskAppOpen;
 
 @end
 
@@ -43,6 +44,9 @@
     self.titlestring = @"任务详情";
     [self setNavigationBar];
     [self requestData];
+    
+    //app从后台变为活跃状态，执行观察者方法
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecameActive) name:UIApplicationDidBecomeActiveNotification object:nil];
     
 }
 
@@ -99,8 +103,9 @@ printViewControllerDealloc
             {
                 NSMutableDictionary *tempDic = [NSMutableDictionary dictionaryWithDictionary:response[@"data"]];
                 
-                NSInteger temp = ([tempDic[@"time"] integerValue] - [tempDic[@"timec"] integerValue]);
-                NSInteger extraTime = temp > [tempDic[@"task_time"] integerValue] ? 0 : [tempDic[@"task_time"] integerValue];
+                
+                NSInteger extraTime = [tempDic[@"task_time"] integerValue] - ([tempDic[@"time"] integerValue] - [tempDic[@"timec"] integerValue]);
+                extraTime = extraTime > 0 ? extraTime : 0;
                 [tempDic addEntriesFromDictionary:@{@"extraTime": @(extraTime)}];
                 
                 if (extraTime == 0) {
@@ -155,6 +160,20 @@ printViewControllerDealloc
 }
 
 #pragma mark - 事件处理
+- (void)didBecameActive{
+    if (![self isTaskAppOpen] && ![self.stepComment.commitButton isEnabled]) {
+        //任务App没有打开 并且 领取奖励按钮不能点击，则⬇️
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.commentTaskModel.pro]] options:@{} completionHandler:^(BOOL success){
+            if (success) {
+                DLog(@"任务app打开了");
+                [self setTaskAppOpen:YES];
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"此设备未安装任务app，请参照步骤一安装后返回本页继续操作" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+        }];
+    }
+}
 - (void)countDown{
     _extraTime -= 1;
     if (_extraTime != 0) {
@@ -164,7 +183,10 @@ printViewControllerDealloc
         NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:
                                    [UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName,
                                    [UIColor blueColor],NSForegroundColorAttributeName,nil];
-        NSMutableAttributedString *secondStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%ld", _extraTime] attributes:secondDic];
+        
+        NSInteger minite = _extraTime / 60;
+        NSInteger second = _extraTime % 60;
+        NSMutableAttributedString *secondStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%ld:%@", minite, second > 9 ? [NSString stringWithFormat:@"%ld", second] : [NSString stringWithFormat:@"0%ld", second]] attributes:secondDic];
         [firstStr appendAttributedString:secondStr];
         self.infoView.timeLabel.attributedText = firstStr;
         
@@ -181,10 +203,8 @@ printViewControllerDealloc
     UILabel *nameLabel = (UILabel *)longPress.view;
     pasteboard.string = nameLabel.text;
     
-    NSString *str = [NSString stringWithFormat:
-                     @"https://itunes.apple.com/WebObjects/MZStore.woa/wa/search?mt=8&submit=edit&term=%@#software",
-                     [self.commentTaskModel.keywords stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ];
-    
+    NSString *str = @"https://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?media=software";
+                     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 }
 
@@ -219,9 +239,12 @@ printViewControllerDealloc
     self.uploadImageView = (UIImageView *)[self.stepComment viewWithTag:11];
     self.uploadImageView.image = info[@"UIImagePickerControllerOriginalImage"];
     
+    if ([self isTaskAppOpen]) {
+        //任务app已经打开
+        [self.stepComment.commitButton setBackgroundColor:COLOR_RGB(24, 82, 222, 1)];
+        self.stepComment.commitButton.enabled = YES;
+    }
     
-    [self.stepComment.commitButton setBackgroundColor:COLOR_RGB(24, 82, 222, 1)];
-    self.stepComment.commitButton.enabled = YES;
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 

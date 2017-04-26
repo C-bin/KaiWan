@@ -123,8 +123,8 @@ printViewControllerDealloc
             {
                 NSMutableDictionary *tempDic = [NSMutableDictionary dictionaryWithDictionary:response[@"data"]];
                 
-                NSInteger temp = ([tempDic[@"time"] integerValue] - [tempDic[@"timec"] integerValue]);
-                NSInteger extraTime = temp > [tempDic[@"task_time"] integerValue] ? 0 : [tempDic[@"task_time"] integerValue];
+                NSInteger extraTime = [tempDic[@"task_time"] integerValue] - ([tempDic[@"time"] integerValue] - [tempDic[@"timec"] integerValue]);
+                extraTime = extraTime > 0 ? extraTime : 0;
                 [tempDic addEntriesFromDictionary:@{@"extraTime": @(extraTime)}];
                 
                 if (extraTime == 0) {
