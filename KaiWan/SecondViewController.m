@@ -175,7 +175,7 @@
         
         [reimage makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(yimage.centerY);
-            make.right.equalTo(yimage.right).offset([UIView setWidth:3]);
+            make.right.equalTo(yimage.right).offset(-[UIView setWidth:3]);
             make.width.and.height.equalTo([UIView setHeight:20]);
         }];
         
@@ -186,7 +186,7 @@
         [yimage addSubview:plabel];
         plabel.textAlignment = NSTextAlignmentRight;
         [plabel makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(reimage.left).offset([UIView setWidth:2]);
+            make.right.equalTo(reimage.left).offset(-[UIView setWidth:2]);
             make.centerY.equalTo(yimage.centerY);
         }];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(pushThirdVc:)];

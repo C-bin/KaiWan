@@ -190,6 +190,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
        SonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     [cell reloadwithDic:self.dataArray[self.isInvite][indexPath.row]  andIsInvite: self.isInvite];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

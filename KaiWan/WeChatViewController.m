@@ -21,7 +21,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    money = 20;
+    money = 10;
     self.titlestring = @"微信提现";
     [self setNavigationBar];
     [self creatUI];
@@ -192,7 +192,7 @@
     }
     
     self.subTitleLabel = [UILabel creatLabelWithFont:13 andbgcolor:nil andtextColor:SF_COLOR(206, 206, 206) andAligment:0];
-    NSString *subtit = @"需收取手续费1元，到账19元";
+    NSString *subtit = @"需收取手续费1元，到账9元";
     NSMutableAttributedString *subMtit = [[NSMutableAttributedString alloc]initWithString:subtit];
     [subMtit addAttribute:NSForegroundColorAttributeName value:SF_COLOR(219, 3, 3) range:NSMakeRange(6, 1)];
     [subMtit addAttribute:NSForegroundColorAttributeName value:SF_COLOR(219, 3, 3) range:NSMakeRange(11, 2)];

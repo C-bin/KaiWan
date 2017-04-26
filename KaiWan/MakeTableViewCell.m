@@ -70,7 +70,7 @@
 
     
     self.moneyLabel = [[UILabel alloc]init];
-    self.moneyLabel.font = [UIFont systemFontOfSize:12];
+    self.moneyLabel.font = [UIFont systemFontOfSize:14];
     self.moneyLabel.textColor = SF_COLOR(219, 3, 3);
     [self.contentView addSubview:self.moneyLabel];
     [self.moneyLabel makeConstraints:^(MASConstraintMaker *make) {

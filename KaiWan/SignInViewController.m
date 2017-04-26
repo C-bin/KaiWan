@@ -8,16 +8,19 @@
 
 #import "SignInViewController.h"
 #import "TurntableView.h"
+#import <UShareUI/UShareUI.h>
 @interface SignInViewController ()<CAAnimationDelegate>
 @property (nonatomic,strong) UILabel *qdLabel;
 @property (nonatomic,strong) UILabel *moneyLabel;
 @property (nonatomic,strong) TurntableView * turntable;
 @property (nonatomic,assign) NSInteger days;
-
+@property (nonatomic,assign) BOOL isSign;
 @end
 
 @implementation SignInViewController
-
+{
+    UIButton *btn;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.titlestring = @"签到赚钱";
@@ -34,6 +37,11 @@
         NSArray *arr = data[@"list"];
         NSString *days = [NSString creatWithId:data[@"days"]];
         //CGRectMake([UIView setWidth:12+i*53], HeightScale(164), WidthScale(0), HeightScale(12))
+        NSString *sign = [NSString creatWithId:data[@"is_sign"]];
+        if ([sign isEqualToString:@"1"]) {
+            btn.userInteractionEnabled = NO;
+            [btn setTitle:@"已签到" forState:UIControlStateNormal];
+        }
         self.days = [days integerValue];
         for (int i = 0; i < days.intValue; i++) {
             UIImageView *image1 = (UIImageView *)[self.view viewWithTag:300+i];
@@ -71,7 +79,7 @@
     
     scrollView.contentSize = CGSizeMake(SWIDTH, HeightScale(958));
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.backgroundColor = [UIColor whiteColor];
     [bgimage addSubview:btn];
     btn.layer.cornerRadius = HeightScale(95/2.0);
@@ -172,13 +180,13 @@
         NSDictionary *dic = (NSDictionary *)response;
         if (response) {
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            NSDictionary *dic = (NSDictionary *)response;
             
             // Set the text mode to show only text.
             hud.mode = MBProgressHUDModeText;
-            hud.label.text = @"签到成功";
+            hud.label.text = [NSString creatWithId:dic[@"message"]];
             hud.offset = CGPointMake(0.f, 0);
             [hud hideAnimated:YES afterDelay:2.f];
-            [btn setTitle:@"已签到" forState:UIControlStateNormal];
 
         }else {
             return ;
@@ -204,10 +212,7 @@
     
 
 }
-- (void)shareClick :(UIButton *)btn {
-    
-    
-}
+
 -(void)startAnimaition
 {
     AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -268,6 +273,49 @@
     
 }
 
+- (void)shareClick:(UIButton *)btn {
+    [UMSocialUIManager setPreDefinePlatforms:@[@(4),@(5)]];
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        
+        [self shareWebPageToPlatformType:platformType];
+    }];
+    
+}
+- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    
+    //创建网页内容对象
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    NSString* thumbURL =  @"http://s2.vbokai.com/logo.png";
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"和我一起来赚钱吧！" descr:@"欢迎使用开玩，这是一款利用用户闲暇时间赚钱的软件" thumImage:thumbURL];
+    //设置网页地址
+    shareObject.webpageUrl = [NSString stringWithFormat:@"http://s2.vbokai.com/share.html?code=%@",del.uid];
+    
+    //分享消息对象设置分享内容对象
+    messageObject.shareObject = shareObject;
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            UMSocialLogInfo(@"************Share fail with error %@*********",error);
+        }else{
+            if ([data isKindOfClass:[UMSocialShareResponse class]]) {
+                UMSocialShareResponse *resp = data;
+                //分享结果消息
+                UMSocialLogInfo(@"response message is %@",resp.message);
+                //第三方原始返回的数据
+                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
+                
+            }else{
+                UMSocialLogInfo(@"response data is %@",data);
+            }
+        }
+        
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

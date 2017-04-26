@@ -222,8 +222,8 @@
     glabel2.lineBreakMode = NSLineBreakByWordWrapping;
     glabel2.numberOfLines = 0;
     [mstr2 addAttribute:NSForegroundColorAttributeName value:SF_COLOR(231, 69, 69) range:NSMakeRange(18, 2)];
-    [mstr2 addAttribute:NSForegroundColorAttributeName value:SF_COLOR(231, 69, 69) range:NSMakeRange(41, 2)];
-    [mstr2 addAttribute:NSForegroundColorAttributeName value:SF_COLOR(231, 69, 69) range:NSMakeRange(48, 4)];
+    [mstr2 addAttribute:NSForegroundColorAttributeName value:SF_COLOR(231, 69, 69) range:NSMakeRange(42, 2)];
+    [mstr2 addAttribute:NSForegroundColorAttributeName value:SF_COLOR(231, 69, 69) range:NSMakeRange(49, 4)];
 
     glabel2.attributedText = mstr2;
     [self.view addSubview:glabel2];
