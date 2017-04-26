@@ -19,7 +19,9 @@
         UIImageView *step1ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(-2), HeightScale(15), WidthScale(67), HeightScale(30))];
         step1ImageView.image = [UIImage imageNamed:@"步骤一"];
         
-        self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.frame.size.width - WidthScale(70)) / 2, HeightScale(30), WidthScale(70), HeightScale(70))];
+        self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.frame.size.width - WidthScale(70)) / 2, HeightScale(30), WidthScale(70), WidthScale(70))];
+        self.iconImageView.layer.cornerRadius = WidthScale(35);
+        self.iconImageView.layer.masksToBounds = YES;
         
         self.rankLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.iconImageView.frame), self.frame.size.width, HeightScale(35))];
         self.rankLabel.textAlignment = NSTextAlignmentCenter;

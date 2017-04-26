@@ -23,7 +23,10 @@
         self.backgroundColor = [UIColor whiteColor];
         self.infoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SWIDTH, HeightScale(80))];
         
-        self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(10), HeightScale(10), WidthScale(60), HeightScale(60))];
+        self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(10), HeightScale(10), WidthScale(60), WidthScale(60))];
+        self.iconImageView.layer.cornerRadius = WidthScale(30);
+        self.iconImageView.layer.masksToBounds = YES;
+        
         [self addSubview:self.iconImageView];
         
         self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame) + WidthScale(10), self.iconImageView.frame.origin.y, WidthScale(200), HeightScale(30))];
@@ -90,9 +93,6 @@
     for (int i = 0; i < tempArr.count; i ++) {
         [str appendFormat:@"\n%d.%@", i + 2 ,tempArr[i]];
     }
-    
-    
-//    NSString *str = [NSString stringWithFormat:@"参与步骤:\n1.复制下方关键字，在App Store搜索下载，找到下面对应图标，约在第%@名下载;\n2.%@;\n3.返回本页提交任务，领取奖励。", dataDic[@"location"], dataDic[@"description"] ? : dataDic[@"content"]];
     
     
     // 创建 NSMutableAttributedString
