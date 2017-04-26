@@ -28,5 +28,6 @@
 @property (nonatomic, copy) NSString * img;
 @property (nonatomic, copy) NSString * time;
 @property (nonatomic, copy) NSString * timec;
+@property (nonatomic, copy) NSString * pro;
 
 @end
