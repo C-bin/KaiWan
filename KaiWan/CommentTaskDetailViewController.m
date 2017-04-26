@@ -77,6 +77,8 @@ printViewControllerDealloc
     [scrollView addSubview:self.stepCopy];
     
     self.stepComment = [[TaskStepComment alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepCopy.frame) + HeightScale(15), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) * 1.15)];
+    self.stepComment.commitButton.enabled = NO;
+    [self.stepComment.commitButton setBackgroundColor:[UIColor colorWithWhite:0.6 alpha:1]];
     [self.stepComment.tap addTarget:self action:@selector(tap:)];
     [self.stepComment.commitButton addTarget:self action:@selector(commitButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:self.stepComment];
@@ -217,6 +219,9 @@ printViewControllerDealloc
     self.uploadImageView = (UIImageView *)[self.stepComment viewWithTag:11];
     self.uploadImageView.image = info[@"UIImagePickerControllerOriginalImage"];
     
+    
+    [self.stepComment.commitButton setBackgroundColor:COLOR_RGB(24, 82, 222, 1)];
+    self.stepComment.commitButton.enabled = YES;
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 

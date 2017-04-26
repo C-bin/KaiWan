@@ -48,7 +48,12 @@
             NSArray *arr = data[@"list"];
             if (arr.count>0) {
                 [self.dataArray removeAllObjects];
+            } else {
+                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((SWIDTH - WidthScale(180)) / 2, (SHEIGHT - HeightScale(160)) / 2, WidthScale(180), HeightScale(160))];
+                imageView.image = [UIImage imageNamed:@"暂无记录"];
+                [self.view addSubview:imageView];
             }
+            
             for (NSDictionary *dic in arr) {
                 MakeModel *model = [[MakeModel alloc]initWithDictionary:dic error:nil];
                 [self.dataArray addObject:model];

@@ -300,9 +300,7 @@
     
 }
 - (void)litbtnClick:(UIButton *)btn {
-    
-    
-    
+
     switch (btn.tag-200) {
         case 0://快速任务，跳到“赚钱”
         {

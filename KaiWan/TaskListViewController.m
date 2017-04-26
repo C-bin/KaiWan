@@ -79,7 +79,7 @@
             return;
         case TaskTagDeep:
             url = KdeepTaskList;
-            return;
+            break;
         case TaskTagHigh:
             url = KhighTaskList;
             break;

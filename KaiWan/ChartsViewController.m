@@ -232,7 +232,6 @@
 
 - (void)btnclick {
     
-    
 }
 - (void)btnclick:(UIButton *)btn {
     if (btn.selected) {
