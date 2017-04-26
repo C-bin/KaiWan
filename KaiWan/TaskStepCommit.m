@@ -25,7 +25,7 @@ static CGFloat sampleImageViewWidth;
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         self.layer.cornerRadius = WidthScale(8);
-        UIImageView *step1ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(-2), HeightScale(15), WidthScale(67), HeightScale(30))];
+        UIImageView *step1ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(-2), HeightScale(20), WidthScale(67), HeightScale(30))];
         step1ImageView.image = [UIImage imageNamed:@"步骤二"];
         
         [self addSubview:step1ImageView];
@@ -78,7 +78,7 @@ static CGFloat sampleImageViewWidth;
         
     }
     
-    self.commitButton.frame = CGRectMake(WidthScale(10), HeightScale(50) + (sampleImageViewWidth * 1.5 + HeightScale(10)) * sampleImgArr.count, self.frame.size.width - WidthScale(20), HeightScale(36));
+    self.commitButton.frame = CGRectMake(WidthScale(10), HeightScale(50) + (sampleImageViewWidth * 1.5 + HeightScale(10)) * sampleImgArr.count, self.frame.size.width - WidthScale(20), HeightScale(37));
     
     self.noticeLabel.frame = CGRectMake(WidthScale(10), CGRectGetMaxY(self.commitButton.frame), self.frame.size.width - WidthScale(20), HeightScale(30));
 }

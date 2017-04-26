@@ -24,14 +24,14 @@
         self.backgroundColor = [UIColor whiteColor];
         self.layer.cornerRadius = WidthScale(8);
         
-        UIImageView *step2ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(-2), HeightScale(15), WidthScale(67), HeightScale(30))];
+        UIImageView *step2ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(-2), HeightScale(20), WidthScale(67), HeightScale(30))];
         step2ImageView.image = [UIImage imageNamed:@"步骤二"];
         
         
         self.advanceScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, HeightScale(70), self.frame.size.width, HeightScale(55))];
         
         
-        self.receiveButton = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width - WidthScale(150)) / 2, CGRectGetMaxY(self.advanceScrollView.frame) + HeightScale(10), WidthScale(150), HeightScale(36))];
+        self.receiveButton = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width - WidthScale(150)) / 2, CGRectGetMaxY(self.advanceScrollView.frame) + HeightScale(10), WidthScale(150), HeightScale(37))];
         [self.receiveButton setTitle:@"领取奖励" forState:UIControlStateNormal];
         [self.receiveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.receiveButton.titleLabel setFont:[UIFont systemFontOfSize:WidthScale(18)]];

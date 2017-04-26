@@ -15,11 +15,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        self.layer.cornerRadius = WidthScale(8);
-        UIImageView *step1ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(-2), HeightScale(15), WidthScale(67), HeightScale(30))];
+        self.layer.cornerRadius = WidthScale(5);
+        UIImageView *step1ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(-2), HeightScale(20), WidthScale(67), HeightScale(30))];
         step1ImageView.image = [UIImage imageNamed:@"步骤一"];
         
-        self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.frame.size.width - WidthScale(70)) / 2, HeightScale(30), WidthScale(70), WidthScale(70))];
+        self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.frame.size.width - WidthScale(60)) / 2, HeightScale(30), WidthScale(60), WidthScale(60))];
         self.iconImageView.layer.cornerRadius = WidthScale(8);
         self.iconImageView.layer.masksToBounds = YES;
         
@@ -57,7 +57,7 @@
     self.nameLabel.text = dataDic[@"keywords"] ? : dataDic[@"name"];
     NSDictionary *attrs = @{NSFontAttributeName : [UIFont systemFontOfSize:WidthScale(20)]};
     CGSize size=[self.nameLabel.text sizeWithAttributes:attrs];
-    self.nameLabel.frame = CGRectMake((self.frame.size.width - size.width - WidthScale(30)) / 2, CGRectGetMaxY(self.rankLabel.frame) + HeightScale(5), size.width + WidthScale(30), HeightScale(30));
+    self.nameLabel.frame = CGRectMake((self.frame.size.width - size.width - WidthScale(30)) / 2, CGRectGetMaxY(self.rankLabel.frame) + HeightScale(5), size.width + WidthScale(30), HeightScale(37));
     self.nameLabel.textAlignment = NSTextAlignmentCenter;
     self.nameLabel.font = [UIFont systemFontOfSize:WidthScale(18)];
     self.nameLabel.textColor = [UIColor redColor];
@@ -85,8 +85,8 @@
     
     UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.nameLabel.frame), self.frame.size.width, HeightScale(35))];
     tipLabel.text = @"长按复制关键词";
-    tipLabel.font = [UIFont systemFontOfSize:13];
-    tipLabel.textColor = [UIColor lightGrayColor];
+    tipLabel.font = [UIFont systemFontOfSize:WidthScale(12)];
+    tipLabel.textColor = COLOR_RGB(194, 194, 194, 1);
     tipLabel.textAlignment = NSTextAlignmentCenter;
     
     [self addSubview:tipLabel];

@@ -87,14 +87,14 @@ printViewControllerDealloc
     [scrollView addSubview:self.infoView];
     
     NSArray *tutorImgArr = [self.dataDic[@"tutorial_map"] componentsSeparatedByString:@","];
-    self.stepTutor = [[TaskStepTutor alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(15), SWIDTH - WidthScale(30), HeightScale(160) + (SWIDTH - WidthScale(60)) / 3 * tutorImgArr.count / 3)];
+    self.stepTutor = [[TaskStepTutor alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(18), SWIDTH - WidthScale(30), HeightScale(160) + (SWIDTH - WidthScale(60)) / 3 * tutorImgArr.count / 3)];
     self.stepTutor.tutorImgArr = tutorImgArr;
     [self.stepTutor.startButton addTarget:self action:@selector(startButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:self.stepTutor];
     
     
     NSArray *sampleImgArr = [self.dataDic[@"sample_diagram"] componentsSeparatedByString:@","];
-    self.stepCommit = [[TaskStepCommit alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepTutor.frame) + HeightScale(15), SWIDTH - WidthScale(30), HeightScale(120) + ((SWIDTH - HeightScale(50)) / 2 * 1.5 + HeightScale(10)) * sampleImgArr.count)];
+    self.stepCommit = [[TaskStepCommit alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepTutor.frame) + HeightScale(18), SWIDTH - WidthScale(30), HeightScale(120) + ((SWIDTH - HeightScale(50)) / 2 * 1.5 + HeightScale(10)) * sampleImgArr.count)];
     self.stepCommit.sampleImgArr = sampleImgArr;
     self.stepCommit.commitButton.enabled = NO;
     [self.stepCommit.commitButton setBackgroundColor:[UIColor grayColor]];
@@ -105,7 +105,7 @@ printViewControllerDealloc
         [tap addTarget:self action:@selector(tap:)];
     }
     
-    scrollView.contentSize = CGSizeMake(SWIDTH, CGRectGetMaxY(self.stepCommit.frame) + HeightScale(20));
+    scrollView.contentSize = CGSizeMake(SWIDTH, CGRectGetMaxY(self.stepCommit.frame) + HeightScale(32));
 
 }
 
@@ -182,11 +182,11 @@ printViewControllerDealloc
     _extraTime -= 1;
     if (_extraTime != 0) {
         
-        NSDictionary *firstDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName, [UIColor colorWithWhite:0.6 alpha:1], NSForegroundColorAttributeName, nil];
+        NSDictionary *firstDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:WidthScale(13)], NSFontAttributeName, COLOR_RGB(194, 194, 194, 1), NSForegroundColorAttributeName, nil];
         NSMutableAttributedString *firstStr = [[NSMutableAttributedString alloc] initWithString:@"任务剩余时间: " attributes:firstDic];
         NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:
                                    [UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName,
-                                   [UIColor blueColor],NSForegroundColorAttributeName,nil];
+                                   COLOR_RGB(138, 170, 239, 1),NSForegroundColorAttributeName,nil];
         NSMutableAttributedString *secondStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%ld", _extraTime] attributes:secondDic];
         [firstStr appendAttributedString:secondStr];
         self.infoView.timeLabel.attributedText = firstStr;

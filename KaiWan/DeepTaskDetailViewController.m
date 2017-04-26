@@ -90,20 +90,20 @@
     [self.infoView.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, self.taskDic[@"img"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
     [scrollView addSubview:self.infoView];
     
-    self.stepCopy = [[TaskStepCopy alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(15), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) / 1.7)];
+    self.stepCopy = [[TaskStepCopy alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(18), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) / 1.7)];
     self.stepCopy.dataDic = self.dataDic;
     [self.stepCopy.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, self.taskDic[@"img"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
     [self.stepCopy.longPress addTarget:self action:@selector(longPress:)];
     [scrollView addSubview:self.stepCopy];
     
-    self.stepDeep = [[TaskStepDeep alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepCopy.frame) + HeightScale(15), SWIDTH - WidthScale(30), self.stepCopy.frame.size.height)];
+    self.stepDeep = [[TaskStepDeep alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepCopy.frame) + HeightScale(18), SWIDTH - WidthScale(30), self.stepCopy.frame.size.height)];
     self.stepDeep.deepTaskModel = self.deepTaskModel;
     self.stepDeep.receiveButton.enabled = NO;
     self.stepDeep.receiveButton.backgroundColor = [UIColor grayColor];
     [self.stepDeep.receiveButton addTarget:self action:@selector(receiveButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:self.stepDeep];
     
-    scrollView.contentSize = CGSizeMake(SWIDTH, CGRectGetMaxY(self.stepDeep.frame) + HeightScale(20));
+    scrollView.contentSize = CGSizeMake(SWIDTH, CGRectGetMaxY(self.stepDeep.frame) + HeightScale(32));
     
 }
 
