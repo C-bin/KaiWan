@@ -24,7 +24,7 @@
 @property (nonatomic, strong) NSArray * dayRankArr;
 @property (nonatomic, strong) NSArray * allRankArr;
 @property (nonatomic, assign) BOOL isDayRank;
-@property (nonatomic, strong) NSDictionary * userDic;
+
 
 @end
 
@@ -39,8 +39,6 @@
     [self setNavigationBar];
     
     [self creatUI];
-    
-    [self requestUserData];
     
     [self requestRankData];
     
@@ -72,6 +70,7 @@
     self.headicon.layer.cornerRadius = [UIView setWidth:30];
     self.headicon.clipsToBounds = YES;
     self.headicon.layer.borderWidth = 0.5;
+    [self.headicon sd_setImageWithURL:[NSURL URLWithString:self.dataDic[@"user_info"][@"headimgurl"]]];
     [headview addSubview:self.headicon];
     
     
@@ -82,21 +81,21 @@
     self.numLabel.textColor = [UIColor whiteColor];
     self.numLabel.font = [UIFont systemFontOfSize:10];
     self.numLabel.textAlignment = NSTextAlignmentCenter;
-//    self.numLabel.text = @"味如蚌";
+//    self.numLabel.text = self.dataDic[@"user_info"][@"place"];
+    self.numLabel.hidden = YES;
     [headview addSubview:self.numLabel];
     
     
     self.idLabel = [UILabel creatLabelWithFont:18 andbgcolor:nil andtextColor:[UIColor whiteColor] andAligment:0];
-//    self.idLabel.text = @"其有此女";
+    self.idLabel.text = self.dataDic[@"user_info"][@"nickname"];
     [headview addSubview:self.idLabel];
     
     self.discipleNumLabel = [UILabel creatLabelWithFont:12 andbgcolor:nil andtextColor:SF_COLOR(215, 231, 255) andAligment:0];
-//    self.discipleNumLabel.text = @"徒弟：12";
+    
     [headview addSubview:self.discipleNumLabel];
     
     
     self.moneyLabel = [UILabel creatLabelWithFont:12 andbgcolor:nil andtextColor:SF_COLOR(215, 231, 255) andAligment:0];
-//    self.moneyLabel.text = @"收入：0";
     [headview addSubview:self.moneyLabel];
     
     UIButton *btn = [[UIButton alloc]init];
@@ -233,7 +232,6 @@
 
 - (void)btnclick {
     
-    
 }
 - (void)btnclick:(UIButton *)btn {
     if (btn.selected) {
@@ -276,30 +274,16 @@
 
 #pragma mark - 数据请求
 - (void)requestRankData{
-    [RequestData PostDataWithURL:KrankList parameters:nil sucsess:^(id response) {
+    [RequestData PostDataWithURL:KrankList parameters:@{@"uid": _delegate.uid} sucsess:^(id response) {
         DLog(@"%@", response);
         
         self.allRankArr = [NSArray arrayWithArray:response[@"data"][@"all"]];
         self.dayRankArr = [NSArray arrayWithArray:response[@"data"][@"day"]];
+        
+        self.discipleNumLabel.text = [NSString stringWithFormat:@"徒弟:%@", response[@"data"][@"invite_all_count"]];
+        self.moneyLabel.text = [NSString stringWithFormat:@"收入:%@", response[@"data"][@"invite_money_sum"]];
+        
         [self.table reloadData];
-    } fail:^(NSError *error) {
-        DLog(@"%@", error);
-    } andViewController:self];
-}
-
-- (void)requestUserData{
-    [RequestData PostDataWithURL:KUserInfo parameters:@{@"uid": _delegate.uid} sucsess:^(id response) {
-        DLog(@"%@", response);
-        
-        self.userDic = response[@"data"];
-        
-        self.idLabel.text = self.userDic[@"user_info"][@"nickname"];
-        self.discipleNumLabel.text = [NSString stringWithFormat:@"徒弟:%@", self.userDic[@"invite_all_count"]];
-        self.moneyLabel.text = [NSString stringWithFormat:@"收入:%@", self.userDic[@"task_sum"]];
-        
-        self.numLabel.text = self.userDic[@"user_info"][@"place"];
-        
-        [self.headicon sd_setImageWithURL:[NSURL URLWithString:self.userDic[@"user_info"][@"headimgurl"]]];
     } fail:^(NSError *error) {
         DLog(@"%@", error);
     } andViewController:self];

@@ -225,9 +225,7 @@
     pasteboard.string = nameLabel.text;
     
     NSString *str = [NSString stringWithFormat:
-                     @"https://itunes.apple.com/WebObjects/MZStore.woa/wa/search?mt=8&submit=edit&term=%@#software",
-                     [self.timeLimitedTaskModel.name
-                      stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ];
+                     @"https://itunes.apple.com/WebObjects/MZStore.woa/wa/search?mt=8&submit=edit&term=#software"];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
     

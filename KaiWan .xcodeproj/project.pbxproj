@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0DC0081EB030AE0046DCD1 /* 填写邀请码@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0DC0001EB030AE0046DCD1 /* 填写邀请码@2x.png */; };
+		4A0DC0091EB030AE0046DCD1 /* 填写邀请码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0DC0011EB030AE0046DCD1 /* 填写邀请码@3x.png */; };
+		4A0DC00A1EB030AE0046DCD1 /* 邀请码关闭@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0DC0021EB030AE0046DCD1 /* 邀请码关闭@2x.png */; };
+		4A0DC00B1EB030AE0046DCD1 /* 邀请码关闭@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0DC0031EB030AE0046DCD1 /* 邀请码关闭@3x.png */; };
+		4A0DC00C1EB030AE0046DCD1 /* 1背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0DC0041EB030AE0046DCD1 /* 1背景@2x.png */; };
+		4A0DC00D1EB030AE0046DCD1 /* 1背景@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0DC0051EB030AE0046DCD1 /* 1背景@3x.png */; };
+		4A0DC00E1EB030AE0046DCD1 /* 微信登录@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0DC0061EB030AE0046DCD1 /* 微信登录@2x.png */; };
+		4A0DC00F1EB030AE0046DCD1 /* 微信登录@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0DC0071EB030AE0046DCD1 /* 微信登录@3x.png */; };
 		4A14D1AF1EA07666000427A9 /* DeepTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A14D1AE1EA07666000427A9 /* DeepTaskModel.m */; };
 		4A14D1D61EA0940B000427A9 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A14D1D21EA0940B000427A9 /* NSObject+YYModel.m */; };
 		4A14D1D71EA0940B000427A9 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A14D1D41EA0940B000427A9 /* YYClassInfo.m */; };
@@ -300,14 +308,6 @@
 		52E13E561E6FE7A60047702B /* 列表-已抢完@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E13E421E6FE7A60047702B /* 列表-已抢完@2x.png */; };
 		52E13E571E6FE7A60047702B /* 列表-已抢完@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E13E431E6FE7A60047702B /* 列表-已抢完@3x.png */; };
 		52E13E7D1E6FEF380047702B /* SecondTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E13E7C1E6FEF380047702B /* SecondTableViewCell.m */; };
-		52E2ABA51EADD0BA0094D00F /* 填写邀请码@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABA31EADD0BA0094D00F /* 填写邀请码@2x.png */; };
-		52E2ABA61EADD0BA0094D00F /* 填写邀请码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABA41EADD0BA0094D00F /* 填写邀请码@3x.png */; };
-		52E2ABA91EADD5C50094D00F /* 邀请码关闭@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABA71EADD5C50094D00F /* 邀请码关闭@2x.png */; };
-		52E2ABAA1EADD5C50094D00F /* 邀请码关闭@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABA81EADD5C50094D00F /* 邀请码关闭@3x.png */; };
-		52E2ABB21EADEA100094D00F /* 微信登录@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABAE1EADEA100094D00F /* 微信登录@2x.png */; };
-		52E2ABB31EADEA100094D00F /* 微信登录@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABAF1EADEA100094D00F /* 微信登录@3x.png */; };
-		52E2ABB61EADEA7D0094D00F /* 1背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABB41EADEA7D0094D00F /* 1背景@2x.png */; };
-		52E2ABB71EADEA7D0094D00F /* 1背景@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2ABB51EADEA7D0094D00F /* 1背景@3x.png */; };
 		52E2ABB81EADEEB30094D00F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D685F31EA9D9DF00A7FB5F /* libsqlite3.tbd */; };
 		52E2ABB91EADEEC20094D00F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D685F51EA9D9EF00A7FB5F /* CoreGraphics.framework */; };
 		52F5E3081E9C71EA00E7E7D1 /* RequestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F5E3071E9C71EA00E7E7D1 /* RequestData.m */; };
@@ -341,6 +341,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A0DC0001EB030AE0046DCD1 /* 填写邀请码@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "填写邀请码@2x.png"; sourceTree = "<group>"; };
+		4A0DC0011EB030AE0046DCD1 /* 填写邀请码@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "填写邀请码@3x.png"; sourceTree = "<group>"; };
+		4A0DC0021EB030AE0046DCD1 /* 邀请码关闭@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "邀请码关闭@2x.png"; sourceTree = "<group>"; };
+		4A0DC0031EB030AE0046DCD1 /* 邀请码关闭@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "邀请码关闭@3x.png"; sourceTree = "<group>"; };
+		4A0DC0041EB030AE0046DCD1 /* 1背景@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1背景@2x.png"; sourceTree = "<group>"; };
+		4A0DC0051EB030AE0046DCD1 /* 1背景@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1背景@3x.png"; sourceTree = "<group>"; };
+		4A0DC0061EB030AE0046DCD1 /* 微信登录@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信登录@2x.png"; sourceTree = "<group>"; };
+		4A0DC0071EB030AE0046DCD1 /* 微信登录@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信登录@3x.png"; sourceTree = "<group>"; };
 		4A14D1AD1EA07666000427A9 /* DeepTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeepTaskModel.h; sourceTree = "<group>"; };
 		4A14D1AE1EA07666000427A9 /* DeepTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeepTaskModel.m; sourceTree = "<group>"; };
 		4A14D1D11EA0940B000427A9 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
@@ -778,14 +786,6 @@
 		52E13E431E6FE7A60047702B /* 列表-已抢完@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "列表-已抢完@3x.png"; sourceTree = "<group>"; };
 		52E13E7B1E6FEF380047702B /* SecondTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTableViewCell.h; sourceTree = "<group>"; };
 		52E13E7C1E6FEF380047702B /* SecondTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTableViewCell.m; sourceTree = "<group>"; };
-		52E2ABA31EADD0BA0094D00F /* 填写邀请码@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "填写邀请码@2x.png"; path = "../../../../Downloads/填写邀请码/填写邀请码@2x.png"; sourceTree = "<group>"; };
-		52E2ABA41EADD0BA0094D00F /* 填写邀请码@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "填写邀请码@3x.png"; path = "../../../../Downloads/填写邀请码/填写邀请码@3x.png"; sourceTree = "<group>"; };
-		52E2ABA71EADD5C50094D00F /* 邀请码关闭@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "邀请码关闭@2x.png"; path = "../../../../Downloads/邀请码关闭@2x.png"; sourceTree = "<group>"; };
-		52E2ABA81EADD5C50094D00F /* 邀请码关闭@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "邀请码关闭@3x.png"; path = "../../../../Downloads/邀请码关闭@3x.png"; sourceTree = "<group>"; };
-		52E2ABAE1EADEA100094D00F /* 微信登录@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "微信登录@2x.png"; path = "../../../../Downloads/微信登录/切图/微信登录@2x.png"; sourceTree = "<group>"; };
-		52E2ABAF1EADEA100094D00F /* 微信登录@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "微信登录@3x.png"; path = "../../../../Downloads/微信登录/切图/微信登录@3x.png"; sourceTree = "<group>"; };
-		52E2ABB41EADEA7D0094D00F /* 1背景@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1背景@2x.png"; path = "../../../../Downloads/微信登录/切图/1背景@2x.png"; sourceTree = "<group>"; };
-		52E2ABB51EADEA7D0094D00F /* 1背景@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1背景@3x.png"; path = "../../../../Downloads/微信登录/切图/1背景@3x.png"; sourceTree = "<group>"; };
 		52F5E3061E9C71EA00E7E7D1 /* RequestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestData.h; sourceTree = "<group>"; };
 		52F5E3071E9C71EA00E7E7D1 /* RequestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestData.m; sourceTree = "<group>"; };
 		52F5E3091E9C802800E7E7D1 /* 默认头像@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认头像@2x.png"; sourceTree = "<group>"; };
@@ -1135,14 +1135,14 @@
 		522144311E67FB2500C030CD /* 首页-图标 */ = {
 			isa = PBXGroup;
 			children = (
-				52E2ABB41EADEA7D0094D00F /* 1背景@2x.png */,
-				52E2ABB51EADEA7D0094D00F /* 1背景@3x.png */,
-				52E2ABAE1EADEA100094D00F /* 微信登录@2x.png */,
-				52E2ABAF1EADEA100094D00F /* 微信登录@3x.png */,
-				52E2ABA71EADD5C50094D00F /* 邀请码关闭@2x.png */,
-				52E2ABA81EADD5C50094D00F /* 邀请码关闭@3x.png */,
-				52E2ABA31EADD0BA0094D00F /* 填写邀请码@2x.png */,
-				52E2ABA41EADD0BA0094D00F /* 填写邀请码@3x.png */,
+				4A0DC0001EB030AE0046DCD1 /* 填写邀请码@2x.png */,
+				4A0DC0011EB030AE0046DCD1 /* 填写邀请码@3x.png */,
+				4A0DC0021EB030AE0046DCD1 /* 邀请码关闭@2x.png */,
+				4A0DC0031EB030AE0046DCD1 /* 邀请码关闭@3x.png */,
+				4A0DC0041EB030AE0046DCD1 /* 1背景@2x.png */,
+				4A0DC0051EB030AE0046DCD1 /* 1背景@3x.png */,
+				4A0DC0061EB030AE0046DCD1 /* 微信登录@2x.png */,
+				4A0DC0071EB030AE0046DCD1 /* 微信登录@3x.png */,
 				52B1A96B1EA75951009525F3 /* 解答-收起@2x.png */,
 				52B1A96C1EA75951009525F3 /* 解答-收起@3x.png */,
 				52B1A96D1EA75951009525F3 /* 解答-展开@2x.png */,
@@ -1983,12 +1983,14 @@
 				522144631E67FB2500C030CD /* 收徒@3x.png in Resources */,
 				521C93291E7FE0CA0093F1AB /* 关于我们@3x.png in Resources */,
 				52E13E521E6FE7A60047702B /* 列表-邀请好友@2x.png in Resources */,
+				4A0DC00E1EB030AE0046DCD1 /* 微信登录@2x.png in Resources */,
 				522144651E67FB2500C030CD /* 收徒点@3x.png in Resources */,
 				5221446B1E67FB2500C030CD /* 首页-一元夺宝@3x.png in Resources */,
 				52B1A9481EA5BFF9009525F3 /* 没签到状态@3x.png in Resources */,
 				52E13E4C1E6FE7A60047702B /* 列表-问号@2x.png in Resources */,
 				5204E3EE1EA06742006751CF /* 扫码背景@2x.png in Resources */,
 				52E13E4E1E6FE7A60047702B /* 列表-虚线框@2x.png in Resources */,
+				4A0DC00D1EB030AE0046DCD1 /* 1背景@3x.png in Resources */,
 				522143941E67BD4300C030CD /* LaunchScreen.storyboard in Resources */,
 				529815CB1E978A0D00451D01 /* 收徒-箭头@2x.png in Resources */,
 				521C932D1E7FE0CA0093F1AB /* 邀请好友@3x.png in Resources */,
@@ -2003,6 +2005,7 @@
 				5221445F1E67FB2500C030CD /* 我的@3x.png in Resources */,
 				5221447E1E67FB2500C030CD /* 首页-箭头@2x.png in Resources */,
 				5237E3F01EA0C4EA002F1D4B /* 提现方式-箭头@3x.png in Resources */,
+				4A0DC00C1EB030AE0046DCD1 /* 1背景@2x.png in Resources */,
 				52B1A9511EA5BFF9009525F3 /* 已签到状态@2x.png in Resources */,
 				522144741E67FB2500C030CD /* 首页-收徒任务@2x.png in Resources */,
 				522144881E67FB2500C030CD /* 首页点@2x.png in Resources */,
@@ -2031,6 +2034,7 @@
 				52B1A9461EA5BFF9009525F3 /* 礼物@3x.png in Resources */,
 				529815BB1E9766CE00451D01 /* NO.2@2x.png in Resources */,
 				522144791E67FB2500C030CD /* 首页-敬请期待@3x.png in Resources */,
+				4A0DC0091EB030AE0046DCD1 /* 填写邀请码@3x.png in Resources */,
 				52E13E491E6FE7A60047702B /* 列表-夺宝背景@3x.png in Resources */,
 				52B1A94C1EA5BFF9009525F3 /* 签到按钮@3x.png in Resources */,
 				52B1A94A1EA5BFF9009525F3 /* 内转盘@3x.png in Resources */,
@@ -2043,24 +2047,23 @@
 				529815B61E9766CE00451D01 /* 皇冠2@3x.png in Resources */,
 				5221447C1E67FB2500C030CD /* 首页-签到任务@2x.png in Resources */,
 				521C93221E7FE0CA0093F1AB /* 夺宝明细@2x.png in Resources */,
-				52E2ABB21EADEA100094D00F /* 微信登录@2x.png in Resources */,
 				522144721E67FB2500C030CD /* 首页-提现@2x.png in Resources */,
 				522144601E67FB2500C030CD /* 我的点@2x.png in Resources */,
 				5221446C1E67FB2500C030CD /* 首页-好评任务@2x.png in Resources */,
-				52E2ABAA1EADD5C50094D00F /* 邀请码关闭@3x.png in Resources */,
-				52E2ABB71EADEA7D0094D00F /* 1背景@3x.png in Resources */,
 				52B1A9551EA5BFF9009525F3 /* go@2x.png in Resources */,
 				5221446F1E67FB2500C030CD /* 首页-快速任务@3x.png in Resources */,
 				52D006051E9DBE0500794CAE /* 用户@3x.png in Resources */,
 				529815B31E9766CE00451D01 /* 皇冠1@2x.png in Resources */,
 				521C93271E7FE0CA0093F1AB /* 个人资料-箭头@3x.png in Resources */,
-				52E2ABA61EADD0BA0094D00F /* 填写邀请码@3x.png in Resources */,
+				4A0DC00B1EB030AE0046DCD1 /* 邀请码关闭@3x.png in Resources */,
 				5204E3EA1E9F837C006751CF /* 手指@2x.png in Resources */,
 				52B1A9521EA5BFF9009525F3 /* 已签到状态@3x.png in Resources */,
 				52B1A9471EA5BFF9009525F3 /* 没签到状态@2x.png in Resources */,
+				4A0DC00A1EB030AE0046DCD1 /* 邀请码关闭@2x.png in Resources */,
 				522144681E67FB2500C030CD /* 赚钱点@2x.png in Resources */,
 				52B1A9601EA5FE9D009525F3 /* 123@3x.png in Resources */,
 				5204E3D21E9F6B10006751CF /* 扫码收徒@2x.png in Resources */,
+				4A0DC0081EB030AE0046DCD1 /* 填写邀请码@2x.png in Resources */,
 				52B1A94D1EA5BFF9009525F3 /* 签到背景@2x.png in Resources */,
 				5204E3EB1E9F837C006751CF /* 手指@3x.png in Resources */,
 				5204E3DB1E9F70E0006751CF /* 成绩背景@3x.png in Resources */,
@@ -2085,7 +2088,6 @@
 				52E13E4F1E6FE7A60047702B /* 列表-虚线框@3x.png in Resources */,
 				522144621E67FB2500C030CD /* 收徒@2x.png in Resources */,
 				52F5E30F1E9C802800E7E7D1 /* Ikaiwan.com@2x.png in Resources */,
-				52E2ABB31EADEA100094D00F /* 微信登录@3x.png in Resources */,
 				52B1A94B1EA5BFF9009525F3 /* 签到按钮@2x.png in Resources */,
 				52E13E4D1E6FE7A60047702B /* 列表-问号@3x.png in Resources */,
 				5237E3EF1EA0C4EA002F1D4B /* 提现方式-箭头@2x.png in Resources */,
@@ -2097,7 +2099,6 @@
 				52B1A94F1EA5BFF9009525F3 /* 徒弟签到@2x.png in Resources */,
 				5221438F1E67BD4300C030CD /* Main.storyboard in Resources */,
 				52B1A9501EA5BFF9009525F3 /* 徒弟签到@3x.png in Resources */,
-				52E2ABA91EADD5C50094D00F /* 邀请码关闭@2x.png in Resources */,
 				522144701E67FB2500C030CD /* 首页-排行榜@2x.png in Resources */,
 				52E13E481E6FE7A60047702B /* 列表-夺宝背景@2x.png in Resources */,
 				52B1A9561EA5BFF9009525F3 /* go@3x.png in Resources */,
@@ -2110,13 +2111,12 @@
 				52D006121E9E3F4000794CAE /* 暂无记录-@2x.png in Resources */,
 				52F5E3101E9C802800E7E7D1 /* Ikaiwan.com@3x.png in Resources */,
 				52E13E461E6FE7A60047702B /* 列表-背景@2x.png in Resources */,
-				52E2ABA51EADD0BA0094D00F /* 填写邀请码@2x.png in Resources */,
+				4A0DC00F1EB030AE0046DCD1 /* 微信登录@3x.png in Resources */,
 				5204E3D31E9F6B10006751CF /* 扫码收徒@3x.png in Resources */,
 				522144711E67FB2500C030CD /* 首页-排行榜@3x.png in Resources */,
 				52E13E471E6FE7A60047702B /* 列表-背景@3x.png in Resources */,
 				52363D641E68223500442335 /* Info.plist in Resources */,
 				524AB7841EAEE78D00AB220A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
-				52E2ABB61EADEA7D0094D00F /* 1背景@2x.png in Resources */,
 				52D006511E9F0FDF00794CAE /* MJRefresh.bundle in Resources */,
 				529815BE1E9766CE00451D01 /* NO.3@3x.png in Resources */,
 				529815B71E9766CE00451D01 /* 皇冠3@2x.png in Resources */,
@@ -2462,7 +2462,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bovqi.kaiwan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8656cb55-9ab8-4b12-b4e6-1ed38e80b7cb";
+				PROVISIONING_PROFILE = "eb0a0ff2-00b8-42cd-8269-4385ffbde116";
 				PROVISIONING_PROFILE_SPECIFIER = kaiwanyuansheng;
 			};
 			name = Debug;
@@ -2496,7 +2496,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bovqi.kaiwan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8656cb55-9ab8-4b12-b4e6-1ed38e80b7cb";
+				PROVISIONING_PROFILE = "eb0a0ff2-00b8-42cd-8269-4385ffbde116";
 				PROVISIONING_PROFILE_SPECIFIER = kaiwanyuansheng;
 			};
 			name = Release;

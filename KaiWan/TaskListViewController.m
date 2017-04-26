@@ -32,7 +32,8 @@
     
     _delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
-    self.titlestring = @"任务列表";
+    [self setTitleWithTaskTag:_taskTag];
+    
     [self setNavigationBar];
     
     [self creatTB];
@@ -60,7 +61,7 @@
             return;
         case TaskTagDeep:
             url = KdeepTaskList;
-            return;
+            break;
         case TaskTagHigh:
             url = KhighTaskList;
             break;
