@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KaiWan/TimeLimitedTaskDetailViewController.m"
-            timestampString = "514878155.577706"
+            timestampString = "514883465.388784"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "-didBecameActive"
             landmarkType = "7">
          </BreakpointContent>
@@ -84,13 +84,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KaiWan/DeepTaskDetailViewController.m"
-            timestampString = "514879635.97241"
+            timestampString = "514883465.388784"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "-didBecameActive"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[DeepTaskDetailViewController didBecameActive]_block_invoke_2"
+                  moduleName = "KaiWan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/van7ish/%E5%B7%A5%E4%BD%9C/%E5%8D%9A%E5%A8%81%E5%A5%87/KaiWan/KaiWan/DeepTaskDetailViewController.m"
+                  timestampString = "514883465.76745"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.345"
+                  moduleName = "KaiWan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/van7ish/%E5%B7%A5%E4%BD%9C/%E5%8D%9A%E5%A8%81%E5%A5%87/KaiWan/KaiWan/DeepTaskDetailViewController.m"
+                  timestampString = "514883465.770065"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.346"
+                  moduleName = "KaiWan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/van7ish/%E5%B7%A5%E4%BD%9C/%E5%8D%9A%E5%A8%81%E5%A5%87/KaiWan/KaiWan/DeepTaskDetailViewController.m"
+                  timestampString = "514883465.773614"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
