@@ -8,8 +8,15 @@
 
 #import "MainCVViewController.h"
 
+typedef NS_ENUM(NSUInteger, TaskType) {
+    TaskTypeTimeLimited = 1, //限时任务
+    TaskTypeUnion, //联盟任务
+};
+
 @interface TimeLimitedTaskDetailViewController : MainCVViewController
 
 @property (nonatomic, strong) NSDictionary * taskDic;
+
+@property (nonatomic, assign) TaskType type;
 
 @end

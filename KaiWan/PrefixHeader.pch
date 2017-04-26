@@ -102,6 +102,15 @@
 //限时任务-放弃任务
 #define KtimeLimitedTaskCancel [NSString stringWithFormat:@"%@Task/cancel.html", HostUrl]
 
+//联盟任务列表
+#define KunionTaskList [NSString stringWithFormat:@"%@CallbackTask.html", HostUrl]
+
+//联盟任务详情
+#define KunionTaskDetail [NSString stringWithFormat:@"%@CallbackTask/click.html", HostUrl]
+
+//联盟任务-放弃任务
+#define KunionTaskCancel [NSString stringWithFormat:@"%@CallbackTask/cancel.html", HostUrl]
+
 //排行榜
 #define KrankList [NSString stringWithFormat:@"%@Api/r.html", HostUrl]
 

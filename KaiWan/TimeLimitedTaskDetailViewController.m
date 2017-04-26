@@ -45,7 +45,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.titlestring = @"任务详情";
     [self setNavigationBar];
-    [self requestData];
+    [self requestDataWithType:_type];
     
     
     //app从后台变为活跃状态，执行观察者方法
@@ -108,9 +108,20 @@
 }
 
 #pragma mark - 数据请求
-- (void)requestData{
+- (void)requestDataWithType:(TaskType)type{
+    NSString *url;
+    switch (type) {
+        case 1:
+            url = KtimeLimitedTaskDetail;
+            break;
+        case 2:
+            url = KunionTaskDetail;
+            break;
+        default:
+            break;
+    }
     NSDictionary *params = @{@"uid": _delegate.uid, @"appid": self.taskDic[@"appid"]};
-    [RequestData PostDataWithURL:KtimeLimitedTaskDetail parameters:params sucsess:^(id response) {
+    [RequestData PostDataWithURL:url parameters:params sucsess:^(id response) {
         DLog(@"%@", response);
         
         switch ([response[@"code"] intValue]) {
@@ -126,7 +137,7 @@
                 
                 if (extraTime == 0) {
                     //任务已过期
-                    [self cancelTask];
+                    [self cancelTaskWithType:type];
                 } else {
                     self.dataDic = tempDic;
                     self.extraTime = [self.dataDic[@"extraTime"] integerValue];
@@ -156,11 +167,23 @@
     
 }
 
-- (void)cancelTask{
+- (void)cancelTaskWithType:(TaskType)type{
+    NSString *url;
+    switch (type) {
+        case 1:
+            url = KtimeLimitedTaskCancel;
+            break;
+        case 2:
+            url = KunionTaskCancel;
+            break;
+        default:
+            break;
+    }
+    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"任务已过期" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        [RequestData PostDataWithURL:KtimeLimitedTaskCancel parameters:@{@"uid": _delegate.uid, @"appid": self.taskDic[@"appid"]} sucsess:^(id response) {
+        [RequestData PostDataWithURL:url parameters:@{@"uid": _delegate.uid, @"appid": self.taskDic[@"appid"]} sucsess:^(id response) {
             DLog(@"%@", response);
             
             [self.navigationController popViewControllerAnimated:YES];
@@ -191,7 +214,7 @@
         [_timer invalidate];
         _timer = nil;
         
-        [self cancelTask];
+        [self cancelTaskWithType:_type];
     }
 }
 
@@ -260,20 +283,44 @@
 
 - (void)receiveButtonClicked:(UIButton *)button{
     DLog(@"领取奖励");
-    NSDictionary *params = @{@"uid": _delegate.uid, @"appid": self.taskDic[@"appid"]};
-    [RequestData PostDataWithURL:KtimeLimitedTaskCommit parameters:params sucsess:^(id response) {
-        DLog(@"%@", response);
-        if ([response[@"code"] intValue] == 1) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                [self.navigationController popViewControllerAnimated:YES];
-            }];
-            [alert addAction:action];
-            [self presentViewController:alert animated:YES completion:nil];
+    
+    switch (_type) {
+        case 1:
+        {
+            NSDictionary *params = @{@"uid": _delegate.uid, @"appid": self.taskDic[@"appid"]};
+            [RequestData PostDataWithURL:KtimeLimitedTaskCommit parameters:params sucsess:^(id response) {
+                DLog(@"%@", response);
+                if ([response[@"code"] intValue] == 1) {
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }];
+                    [alert addAction:action];
+                    [self presentViewController:alert animated:YES completion:nil];
+                }
+            } fail:^(NSError *error) {
+                DLog(@"%@", error);
+            } andViewController:self];
         }
-    } fail:^(NSError *error) {
-        DLog(@"%@", error);
-    } andViewController:self];
+            
+            break;
+        case 2:
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.timeLimitedTaskModel.pro]] options:@{} completionHandler:^(BOOL success){
+                if (success) {
+//                    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
+//                    [_timer setFireDate:[NSDate distantPast]];
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            }];
+        }
+
+            break;
+        default:
+            break;
+    }
+
 }
 
 

@@ -147,6 +147,9 @@
             cateLabel.text = @" 限时 ";
 
             break;
+        case 58:
+            titlelabel.text = [NSString creatWithId:dic[@"keywords"]];
+            cateLabel.text = @"联盟";
 
         default:
             break;
