@@ -12,6 +12,7 @@
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic, assign)int isInvite;
+@property (nonatomic, strong) UIImageView * nullImageView;
 
 @end
 
@@ -170,9 +171,18 @@
 //        }
         NSMutableArray *arr = self.dataArray[self.isInvite];
         
+        if (_nullImageView) {
+            [_nullImageView removeFromSuperview];
+        }
+
         return arr.count;
+    } else {
+        _nullImageView = [[UIImageView alloc] initWithFrame:CGRectMake((SWIDTH - WidthScale(180)) / 2, (SHEIGHT - HeightScale(160)) / 2, WidthScale(180), HeightScale(160))];
+        _nullImageView.image = [UIImage imageNamed:@"暂无记录"];
+        [self.view addSubview:_nullImageView];
+        return 0;
     }
-    return 0;
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [UIView setHeight:45];
@@ -186,14 +196,5 @@
     UIView *view = [[UIView alloc]initWithFrame:[UIView setRectWithX:0 andY:0 andWidth:375 andHeight:16]];
     return view;
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
