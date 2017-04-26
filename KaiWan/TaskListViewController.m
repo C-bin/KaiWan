@@ -63,6 +63,11 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView.mj_header beginRefreshing];
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
@@ -111,8 +116,6 @@
             [self.tableView.mj_header endRefreshing];
         } andViewController:self];
     }];
-    
-    [self.tableView.mj_header beginRefreshing];
 }
 - (void)creatTB {
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT-64-49) style:UITableViewStyleGrouped];
@@ -234,10 +237,18 @@
             make.right.equalTo(reimage.left).offset([UIView setWidth:2]);
             make.centerY.equalTo(yimage.centerY);
         }];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(pushThirdVc:)];
+        view.userInteractionEnabled = YES;
+        [view addGestureRecognizer:tap];
         
+
         
     }
     return view;
+}
+- (void)pushThirdVc:(UITapGestureRecognizer *)tap {
+    NSNotification *notice = [NSNotification notificationWithName:@"pushtomain" object:nil userInfo:@{@"num":@"3"}];
+    [[NSNotificationCenter defaultCenter] postNotification:notice];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //-98=无状态,0=点击（已领取），1 = 已完成 ，4 = 等待审核

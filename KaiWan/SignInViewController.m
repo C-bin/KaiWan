@@ -81,9 +81,12 @@
         make.centerX.equalTo(0);
         make.width.height.equalTo(HeightScale(95));
     }];
+    [btn setTitle:@"签到" forState:UIControlStateNormal];
+    [btn setTitleColor:SF_COLOR(28, 108, 229) forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:27];
     self.qdLabel = [UILabel creatLabelWithFont:25.2 andbgcolor:nil andtextColor:SF_COLOR(28, 108, 229) andAligment:NSTextAlignmentCenter];
     [btn addSubview:self.qdLabel];
-    self.qdLabel.text = @"签到";
+//    self.qdLabel.text = @"签到";
     [btn addTarget:self action:@selector(signBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.qdLabel makeConstraints:^(MASConstraintMaker *make) {
@@ -91,15 +94,6 @@
         make.top.equalTo(HeightScale(24));
     }];
     
-    UILabel *linelabel = [UILabel creatLabelWithFont:1 andbgcolor:SF_COLOR(116, 171, 255) andtextColor:nil andAligment:0];
-    [btn addSubview:linelabel];
-    [linelabel makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(0);
-        make.width.equalTo(WidthScale(56));
-        make.top.equalTo(self.qdLabel.bottom).offset(HeightScale(5));
-        make.height.equalTo(1);
-        
-    }];
     
     self.moneyLabel = [UILabel creatLabelWithFont:14 andbgcolor:nil andtextColor:SF_COLOR(28, 108, 229) andAligment:NSTextAlignmentCenter];
 //    self.moneyLabel.text = @"+0.02元";
@@ -181,9 +175,10 @@
             
             // Set the text mode to show only text.
             hud.mode = MBProgressHUDModeText;
-            hud.label.text = [NSString creatWithId:dic[@"message"]];
+            hud.label.text = @"签到成功";
             hud.offset = CGPointMake(0.f, 0);
             [hud hideAnimated:YES afterDelay:2.f];
+            [btn setTitle:@"已签到" forState:UIControlStateNormal];
 
         }else {
             return ;

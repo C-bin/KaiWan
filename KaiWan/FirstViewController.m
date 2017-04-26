@@ -319,11 +319,19 @@
             break;
         case 5:
             //一元夺宝
-            break;
-        case 6:
-            //收徒任务
+        {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.label.text  = @"暂未开启，敬请期待";
+            [hud hideAnimated:YES afterDelay:2.0f];
+        }
             
             break;
+        case 6:
+        {//收徒任务
+            NSNotification *notice = [NSNotification notificationWithName:@"pushtomain" object:nil userInfo:@{@"num":@"3"}];
+            [[NSNotificationCenter defaultCenter] postNotification:notice];
+        }   break;
         case 7:
             //签到任务
             [self.navigationController pushViewController:[[SignInViewController alloc] init] animated:YES];

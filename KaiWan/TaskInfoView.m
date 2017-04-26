@@ -73,7 +73,7 @@
         self.moneyLabel.text = [NSString stringWithFormat:@"+%@元", dataDic[@"reward"]];
     }
     
-    NSMutableString *str = [NSMutableString stringWithFormat:@"参与步骤:\n1.复制下方关键字，在App Store搜索下载，找到下面对应图标，约在第%@名下载;", self.dataDic[@"location"]];
+    NSMutableString *str = [NSMutableString stringWithFormat:@"参与步骤:\n1.复制下方关键字，在App Store搜索下载，找到下面对应图标，约在第%@名下载", self.dataDic[@"location"]];
     NSMutableArray *tempArr = [NSMutableArray array];
     if ([dataDic[@"title"] length]) {
         [tempArr addObject:dataDic[@"title"]];
@@ -85,7 +85,7 @@
         [tempArr addObject:dataDic[@"content"]];
     }
     
-    [tempArr addObject:@"返回本页提交任务，领取奖励。"];
+    [tempArr addObject:@"返回本页提交任务，领取奖励"];
     
     for (int i = 0; i < tempArr.count; i ++) {
         [str appendFormat:@"\n%d.%@", i + 2 ,tempArr[i]];
