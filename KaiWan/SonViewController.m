@@ -29,6 +29,10 @@
     [self setNavigationBar];
     [self setUI];
     [self request];
+    
+    _nullImageView = [[UIImageView alloc] initWithFrame:CGRectMake((SWIDTH - WidthScale(180)) / 2, (SHEIGHT - HeightScale(160)) / 2, WidthScale(180), HeightScale(160))];
+    _nullImageView.image = [UIImage imageNamed:@"暂无记录"];
+    
 }
 - (void)request {
     page = 1;
@@ -171,18 +175,16 @@
 //        }
         NSMutableArray *arr = self.dataArray[self.isInvite];
         
-        if (_nullImageView) {
+
+        if (!arr.count) {
+            [self.view addSubview:_nullImageView];
+        } else {
             [_nullImageView removeFromSuperview];
         }
-
         return arr.count;
-    } else {
-        _nullImageView = [[UIImageView alloc] initWithFrame:CGRectMake((SWIDTH - WidthScale(180)) / 2, (SHEIGHT - HeightScale(160)) / 2, WidthScale(180), HeightScale(160))];
-        _nullImageView.image = [UIImage imageNamed:@"暂无记录"];
-        [self.view addSubview:_nullImageView];
-        return 0;
     }
     
+    return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [UIView setHeight:45];

@@ -88,7 +88,7 @@
     [self.view addSubview:scrollView];
     
     
-    [self.dataDic addEntriesFromDictionary:@{@"description": self.dataDic[@"guide"]}];
+//    [self.dataDic addEntriesFromDictionary:@{@"description": self.dataDic[@"guide"]}];
     self.infoView = [[TaskInfoView alloc] initWithFrame:CGRectMake(0, 0, SWIDTH, 0)];
     self.infoView.dataDic = self.dataDic;
     [scrollView addSubview:self.infoView];
@@ -99,7 +99,16 @@
     [scrollView addSubview:self.stepCopy];
     
     self.timeLimited = [[TaskStepTimeLimited alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepCopy.frame) + HeightScale(18), SWIDTH - WidthScale(30), HeightScale(120))];
-    self.timeLimited.receiveButton.enabled = NO;
+    
+    if (_type == 1) {
+        self.timeLimited.receiveButton.enabled = NO;
+        [self.timeLimited.receiveButton setBackgroundColor:[UIColor grayColor]];
+    } else {
+        self.timeLimited.receiveButton.enabled = YES;
+        [self.timeLimited.receiveButton setBackgroundColor:BGColorForButton];
+        self.timeLimited.leftTimeLabel.hidden = YES;
+    }
+    
     [self.timeLimited.receiveButton addTarget:self action:@selector(receiveButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:self.timeLimited];
     
@@ -124,40 +133,40 @@
     NSDictionary *params = @{@"uid": _delegate.uid, @"appid": self.taskDic[@"appid"]};
     [RequestData PostDataWithURL:url parameters:params sucsess:^(id response) {
         DLog(@"%@", response);
-        
-        if ([response[@"code"] intValue]) {
-            
-            //    time 服务器时间 - timec 用户点击时间 >  task_time 倒计时时间   ?  过期 : 倒计时
-            {
-                NSMutableDictionary *tempDic = [NSMutableDictionary dictionaryWithDictionary:response[@"data"]];
+//        if (type == 1) {
+            if ([response[@"code"] intValue] == 1) {
                 
-                NSInteger extraTime = [tempDic[@"task_time"] integerValue] - ([tempDic[@"time"] integerValue] - [tempDic[@"timec"] integerValue]);
-                extraTime = extraTime > 0 ? extraTime : 0;
-                [tempDic addEntriesFromDictionary:@{@"extraTime": @(extraTime)}];
-                
-                if (extraTime == 0) {
-                    //任务已过期
-                    [self cancelTaskWithType:type];
-                } else {
-                    self.dataDic = tempDic;
-                    self.extraTime = [self.dataDic[@"extraTime"] integerValue];
-                    _timer1 = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
+                //    time 服务器时间 - timec 用户点击时间 >  task_time 倒计时时间   ?  过期 : 倒计时
+                {
+                    NSMutableDictionary *tempDic = [NSMutableDictionary dictionaryWithDictionary:response[@"data"]];
                     
-                    self.timeLimitedTaskModel = [TimeLimitedTaskModel yy_modelWithDictionary:self.dataDic];
+                    NSInteger extraTime = [tempDic[@"task_time"] integerValue] - ([tempDic[@"time"] integerValue] - [tempDic[@"timec"] integerValue]);
+                    extraTime = extraTime > 0 ? extraTime : 0;
+                    [tempDic addEntriesFromDictionary:@{@"extraTime": @(extraTime)}];
                     
-                    [self createUI];
+                    if (extraTime == 0) {
+                        //任务已过期
+                        [self cancelTaskWithType:type];
+                    } else {
+                        self.dataDic = tempDic;
+                        self.extraTime = [self.dataDic[@"extraTime"] integerValue];
+                        _timer1 = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
+                        
+                        self.timeLimitedTaskModel = [TimeLimitedTaskModel yy_modelWithDictionary:self.dataDic];
+                        
+                        [self createUI];
+                    }
                 }
-            }
 
-        } else {
+            } else {
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     [self.navigationController popViewControllerAnimated:YES];
                 }];
                 [alert addAction:action];
                 [self presentViewController:alert animated:YES completion:nil];
-        }
-        
+            }
+
     } fail:^(NSError *error) {
         DLog(@"%@", error);
     } andViewController:self];
@@ -288,6 +297,9 @@
                     }];
                     [alert addAction:action];
                     [self presentViewController:alert animated:YES completion:nil];
+                } else {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:response[@"message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                    [alert show];
                 }
             } fail:^(NSError *error) {
                 DLog(@"%@", error);
@@ -299,8 +311,15 @@
         {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.timeLimitedTaskModel.pro]] options:@{} completionHandler:^(BOOL success){
                 if (success) {
-                    
-                    [self.navigationController popViewControllerAnimated:YES];
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"任务完成，确认返回" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }];
+                    [alert addAction:action];
+                    [self presentViewController:alert animated:YES completion:nil];
+                } else {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"此设备未安装任务app，请参照步骤一安装后返回本页继续操作" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alert show];
                 }
             }];
         }

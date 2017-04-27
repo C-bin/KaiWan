@@ -106,7 +106,7 @@
     
     NSMutableAttributedString *str1 = [[NSMutableAttributedString alloc] initWithString:@"试玩3分钟 " attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:WidthScale(13)], NSForegroundColorAttributeName:[UIColor colorWithWhite:0.7 alpha:1]}];
     
-    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:@"03:00" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:WidthScale(13)], NSForegroundColorAttributeName:[UIColor redColor]}];
+    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:@"3:00" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:WidthScale(13)], NSForegroundColorAttributeName:[UIColor redColor]}];
 
     
     

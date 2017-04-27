@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.titlestring = @"开始任务";
+//    self.titlestring = @"开始任务";
     [self setNavigationBar];
     
     [self.view addSubview:self.webView];
