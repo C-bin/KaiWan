@@ -25,6 +25,9 @@
     [self creatUI];
     [self request];
     
+    _nullImageView = [[UIImageView alloc] initWithFrame:CGRectMake((SWIDTH - WidthScale(180)) / 2, (SHEIGHT - HeightScale(160)) / 2, WidthScale(180), HeightScale(160))];
+    _nullImageView.image = [UIImage imageNamed:@"暂无记录"];
+    
 }
 - (void)request {
     self.dataArray = [NSMutableArray array];
@@ -38,12 +41,11 @@
             NSArray *arr = data[@"lst"];
             if (arr.count>0) {
                 [self.dataArray removeAllObjects];
-                if (_nullImageView) {
-                    [_nullImageView removeFromSuperview];
-                }
+                
+                [_nullImageView removeFromSuperview];
+                
             } else {
-                _nullImageView = [[UIImageView alloc] initWithFrame:CGRectMake((SWIDTH - WidthScale(180)) / 2, (SHEIGHT - HeightScale(160)) / 2, WidthScale(180), HeightScale(160))];
-                _nullImageView.image = [UIImage imageNamed:@"暂无记录"];
+                
                 [self.view addSubview:_nullImageView];
             }
             for (NSDictionary *dic in arr) {

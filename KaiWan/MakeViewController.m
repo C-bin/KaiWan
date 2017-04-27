@@ -26,6 +26,10 @@
     [self setNavigationBar];
     [self creatUI];
     [self reload];
+    
+    _nullImageView = [[UIImageView alloc] initWithFrame:CGRectMake((SWIDTH - WidthScale(180)) / 2, (SHEIGHT - HeightScale(160)) / 2, WidthScale(180), HeightScale(160))];
+    _nullImageView.image = [UIImage imageNamed:@"暂无记录"];
+    
 }
 - (void)creatUI {
     self.tabel = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT-64) style:UITableViewStylePlain];
@@ -49,13 +53,10 @@
             NSArray *arr = data[@"list"];
             if (arr.count>0) {
                 [self.dataArray removeAllObjects];
-                if (_nullImageView) {
-                    [_nullImageView removeFromSuperview];    
-                }
+                
+                [_nullImageView removeFromSuperview];
                 
             } else {
-                _nullImageView = [[UIImageView alloc] initWithFrame:CGRectMake((SWIDTH - WidthScale(180)) / 2, (SHEIGHT - HeightScale(160)) / 2, WidthScale(180), HeightScale(160))];
-                _nullImageView.image = [UIImage imageNamed:@"暂无记录"];
                 [self.view addSubview:_nullImageView];
             }
             
