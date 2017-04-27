@@ -35,14 +35,14 @@ static CGFloat tutorImageViewWidth;
         [self.startButton setTitle:@"开始任务" forState:UIControlStateNormal];
         self.startButton.titleLabel.font = [UIFont systemFontOfSize:WidthScale(18)];
         [self.startButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.startButton setBackgroundColor:COLOR_RGB(24, 82, 222, 1)];
+        [self.startButton setBackgroundColor:BGColorForButton];
         self.startButton.layer.cornerRadius = WidthScale(5);
     
         
         self.noticeLabel = [[UILabel alloc] init];
         self.noticeLabel.text = @"* 可点击图片查看任务教程。";
-        self.noticeLabel.textColor = [UIColor redColor];
-        self.noticeLabel.font = [UIFont systemFontOfSize:13];
+        self.noticeLabel.textColor = ColorForNotice;
+        self.noticeLabel.font = [UIFont systemFontOfSize:WidthScale(13)];
         
         [self addSubview:self.noticeLabel];
         [self addSubview:self.startButton];
@@ -56,7 +56,7 @@ static CGFloat tutorImageViewWidth;
     
     tutorImageViewWidth = (self.frame.size.width - WidthScale(30)) / 3;
     for (int i = 0; i < _tutorImgArr.count; i ++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(5) + i % 3 * (tutorImageViewWidth + WidthScale(10)), HeightScale(50) + i / 3 * (tutorImageViewWidth + WidthScale(10)), tutorImageViewWidth, tutorImageViewWidth)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(5) + i % 3 * (tutorImageViewWidth + WidthScale(10)), HeightScale(60) + i / 3 * (tutorImageViewWidth + WidthScale(10)), tutorImageViewWidth, tutorImageViewWidth)];
         [imageView sd_setImageWithURL:[NSURL URLWithString:_tutorImgArr[i]]];
         imageView.tag = 10 + i;
         imageView.userInteractionEnabled = YES;
@@ -68,7 +68,7 @@ static CGFloat tutorImageViewWidth;
         [self addSubview:imageView];
     }
     
-    self.startButton.frame = CGRectMake(WidthScale(10), HeightScale(50) + (tutorImageViewWidth + HeightScale(10))* _tutorImgArr.count / 2, self.frame.size.width - WidthScale(20), HeightScale(36));
+    self.startButton.frame = CGRectMake(WidthScale(10), HeightScale(70) + (tutorImageViewWidth + HeightScale(10)) * _tutorImgArr.count / 2, self.frame.size.width - WidthScale(20), HeightScale(36));
     
     self.noticeLabel.frame = CGRectMake(WidthScale(10), CGRectGetMaxY(self.startButton.frame), self.frame.size.width - WidthScale(20), HeightScale(30));
 

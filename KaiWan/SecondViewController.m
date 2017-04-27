@@ -286,6 +286,14 @@
                 [self.navigationController pushViewController:limitedTaskVC animated:YES];
             }
                 break;
+            case 58:
+            {
+                TimeLimitedTaskDetailViewController *timeLimitedVC = [[TimeLimitedTaskDetailViewController alloc] init];
+                timeLimitedVC.taskDic = self.dataArr[0][indexPath.row];
+                timeLimitedVC.type = 2;
+                [self.navigationController pushViewController:timeLimitedVC animated:YES];
+            }
+                
                 
             default:
                 break;

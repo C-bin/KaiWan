@@ -87,7 +87,7 @@ printViewControllerDealloc
     [scrollView addSubview:self.infoView];
     
     NSArray *tutorImgArr = [self.dataDic[@"tutorial_map"] componentsSeparatedByString:@","];
-    self.stepTutor = [[TaskStepTutor alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(18), SWIDTH - WidthScale(30), HeightScale(160) + (SWIDTH - WidthScale(60)) / 3 * tutorImgArr.count / 3)];
+    self.stepTutor = [[TaskStepTutor alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(18), SWIDTH - WidthScale(30), HeightScale(60) + ((SWIDTH - WidthScale(60)) / 3 + WidthScale(10)) * tutorImgArr.count / 3 + HeightScale(160))];
     self.stepTutor.tutorImgArr = tutorImgArr;
     [self.stepTutor.startButton addTarget:self action:@selector(startButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:self.stepTutor];
@@ -251,7 +251,7 @@ printViewControllerDealloc
         DLog(@"%@", response);
         if ([response[@"code"] intValue] == 1) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *action = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 [self.navigationController popViewControllerAnimated:YES];
             }];
             [alert addAction:action];
