@@ -25,7 +25,7 @@
         
         CGFloat imgW = (self.frame.size.width - WidthScale(30)) / 2;
         for (int i = 0; i < 2; i ++) {
-            UIImageView *commImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(10) + i * (imgW +WidthScale(10)) , HeightScale(50), imgW, imgW * 1.6)];
+            UIImageView *commImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(10) + i * (imgW +WidthScale(10)) , HeightScale(63), imgW, imgW * 1.6)];
             commImageView.tag = 10 + i;
             commImageView.userInteractionEnabled = YES;
             if (commImageView.tag == 10) {
@@ -43,7 +43,7 @@
             [self addSubview:commImageView];
         }
         
-        self.commitButton = [[UIButton alloc] initWithFrame:CGRectMake(WidthScale(10), HeightScale(50) + imgW * 1.6 + HeightScale(20), self.frame.size.width - WidthScale(20), HeightScale(36))];
+        self.commitButton = [[UIButton alloc] initWithFrame:CGRectMake(WidthScale(10), HeightScale(50) + imgW * 1.6 + HeightScale(24), self.frame.size.width - WidthScale(20), HeightScale(37))];
         [self.commitButton setTitle:@"提交审核" forState:UIControlStateNormal];
         [self.commitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.commitButton setBackgroundColor:COLOR_RGB(24, 82, 222, 1)];
@@ -51,8 +51,8 @@
         
         UILabel *noticeLabel = [[UILabel alloc] initWithFrame:CGRectMake(WidthScale(10), CGRectGetMaxY(self.commitButton.frame), self.frame.size.width - WidthScale(30), HeightScale(30))];
         noticeLabel.text = @"* 请严格按照规则提交截图，如有问题，请联系官方客服解决。";
-        noticeLabel.textColor = [UIColor redColor];
-        noticeLabel.font = [UIFont systemFontOfSize:WidthScale(13)];
+        noticeLabel.textColor = ColorForNotice;
+        noticeLabel.font = [UIFont systemFontOfSize:WidthScale(12)];
         noticeLabel.adjustsFontSizeToFitWidth = YES;
         
         [self addSubview:noticeLabel];

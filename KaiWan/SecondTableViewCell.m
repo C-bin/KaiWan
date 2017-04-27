@@ -200,23 +200,30 @@
 
             break;}
         case 0:
-        {priceLabel.font = [UIFont systemFontOfSize:24];
+        {priceLabel.font = [UIFont systemFontOfSize:WidthScale(24)];
             priceLabel.textColor = SF_COLOR(28, 108, 229);
             priceLabel.text = @"进行中";
             
             break;}
         case 1:
-        { priceLabel.font = [UIFont systemFontOfSize:24];
+        { priceLabel.font = [UIFont systemFontOfSize:WidthScale(24)];
             priceLabel.textColor = SF_COLOR(0,0,0);
             priceLabel.text = @"已完成";
             
             break;}
         case 4:
-        {priceLabel.font = [UIFont systemFontOfSize:24];
+        {priceLabel.font = [UIFont systemFontOfSize:WidthScale(20)];
             priceLabel.textColor = SF_COLOR(28, 108, 229);
             priceLabel.text = @"等待审核";
+        
+            break;}
+        case 5:
+        {priceLabel.font = [UIFont systemFontOfSize:WidthScale(16)];
+            priceLabel.textColor = SF_COLOR(0, 0, 0);
+            priceLabel.text = @"审核未通过";
             
             break;}
+            
             
         default:
             
