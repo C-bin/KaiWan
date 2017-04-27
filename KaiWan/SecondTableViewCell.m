@@ -149,7 +149,7 @@
             break;
         case 58:
             titlelabel.text = [NSString creatWithId:dic[@"keywords"]];
-            cateLabel.text = @"联盟";
+            cateLabel.text = @" 联盟 ";
 
         default:
             break;

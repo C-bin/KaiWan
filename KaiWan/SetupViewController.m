@@ -177,7 +177,14 @@
     return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType,
             [imageData base64EncodedStringWithOptions:0]];
 }
-
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    NSDictionary *dic = @{@"nickname":textField.text};
+    [RequestData PostDataWithURL:[NSString stringWithFormat:@"%@User/set.html?uid=%@",HostUrl,del.uid] parameters:dic sucsess:^(id response) {
+    } fail:^(NSError *error) {
+    } andViewController:self];
+}
 - (void)headtapClick {
     /**
      *  弹出提示框
@@ -219,7 +226,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.nicknameTx resignFirstResponder];
+}
 /*
 #pragma mark - Navigation
 

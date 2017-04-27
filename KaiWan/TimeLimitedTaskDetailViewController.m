@@ -80,7 +80,7 @@
 - (void)createUI{
     
 //    _leftTime = [self.dataDic[@"action_time"] integerValue];
-    _leftTime = 180;
+    _leftTime = 40;
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT - 64)];
     scrollView.showsVerticalScrollIndicator = NO;
@@ -100,14 +100,9 @@
     
     self.timeLimited = [[TaskStepTimeLimited alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepCopy.frame) + HeightScale(18), SWIDTH - WidthScale(30), HeightScale(120))];
     
-    if (_type == 1) {
-        self.timeLimited.receiveButton.enabled = NO;
-        [self.timeLimited.receiveButton setBackgroundColor:[UIColor grayColor]];
-    } else {
-        self.timeLimited.receiveButton.enabled = YES;
-        [self.timeLimited.receiveButton setBackgroundColor:BGColorForButton];
-        self.timeLimited.leftTimeLabel.hidden = YES;
-    }
+    [self.timeLimited.receiveButton setBackgroundColor:BGColorForButton];
+    
+    self.timeLimited.leftTimeLabel.hidden = YES;
     
     [self.timeLimited.receiveButton addTarget:self action:@selector(receiveButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:self.timeLimited];
@@ -240,23 +235,14 @@
 }
 
 - (void)didBecameActive{
-    if (![_timer isValid] && ![self.timeLimited.receiveButton isEnabled]) {
-        //计时器没有开始 并且 领取奖励按钮不能点击，则⬇️
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.timeLimitedTaskModel.pro]] options:@{} completionHandler:^(BOOL success){
-            if (success) {
-                _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
-                [_timer setFireDate:[NSDate distantPast]];
-            } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"此设备未安装任务app，请参照步骤一安装后返回本页继续操作" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                [alert show];
-            }
-        }];
+    if (![_timer isValid]) {
+        //计时器没有开始 则打开app
+        [self openApp];
     }
 }
 
 - (void)timerMethod{
     if (_leftTime == 0) { //倒计时到0
-        self.timeLimited.receiveButton.enabled = YES;
         self.timeLimited.receiveButton.backgroundColor = COLOR_RGB(24, 82, 222, 1);
         
         if ([_timer isValid]) {
@@ -282,53 +268,70 @@
 }
 
 - (void)receiveButtonClicked:(UIButton *)button{
+
     DLog(@"领取奖励");
     
-    switch (_type) {
-        case 1:
-        {
-            NSDictionary *params = @{@"uid": _delegate.uid, @"appid": self.taskDic[@"appid"]};
-            [RequestData PostDataWithURL:KtimeLimitedTaskCommit parameters:params sucsess:^(id response) {
-                DLog(@"%@", response);
-                if ([response[@"code"] intValue] == 1) {
-                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                        [self.navigationController popViewControllerAnimated:YES];
-                    }];
-                    [alert addAction:action];
-                    [self presentViewController:alert animated:YES completion:nil];
-                } else {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:response[@"message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-                    [alert show];
-                }
-            } fail:^(NSError *error) {
-                DLog(@"%@", error);
-            } andViewController:self];
+    if (_leftTime > 0) {
+        [self openApp];
+    } else {
+        switch (_type) {
+            case 1:
+            {
+                NSDictionary *params = @{@"uid": _delegate.uid, @"appid": self.taskDic[@"appid"]};
+                [RequestData PostDataWithURL:KtimeLimitedTaskCommit parameters:params sucsess:^(id response) {
+                    DLog(@"%@", response);
+                    if ([response[@"code"] intValue] == 1) {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                            [self.navigationController popViewControllerAnimated:YES];
+                        }];
+                        [alert addAction:action];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    } else {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:response[@"message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                        [alert show];
+                    }
+                } fail:^(NSError *error) {
+                    DLog(@"%@", error);
+                } andViewController:self];
+            }
+                
+                break;
+            case 2:
+            {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.timeLimitedTaskModel.pro]] options:@{} completionHandler:^(BOOL success){
+                    if (success) {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"任务完成，确认返回" preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            [self.navigationController popViewControllerAnimated:YES];
+                        }];
+                        [alert addAction:action];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    } else {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"此设备未安装任务app，请参照步骤一安装后返回本页继续操作" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                }];
+            }
+                
+                break;
+            default:
+                break;
         }
-            
-            break;
-        case 2:
-        {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.timeLimitedTaskModel.pro]] options:@{} completionHandler:^(BOOL success){
-                if (success) {
-                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"任务完成，确认返回" preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        [self.navigationController popViewControllerAnimated:YES];
-                    }];
-                    [alert addAction:action];
-                    [self presentViewController:alert animated:YES completion:nil];
-                } else {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"此设备未安装任务app，请参照步骤一安装后返回本页继续操作" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                    [alert show];
-                }
-            }];
-        }
-
-            break;
-        default:
-            break;
     }
 
+}
+
+- (void)openApp{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.timeLimitedTaskModel.pro]] options:@{} completionHandler:^(BOOL success){
+        if (success) {
+            _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
+            [_timer setFireDate:[NSDate distantPast]];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"此设备未安装任务app，请参照步骤一安装后返回本页继续操作" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
 }
 
 
