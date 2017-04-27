@@ -17,6 +17,7 @@
 @property (nonatomic, assign)BOOL is_mobile;
 @property (nonatomic, strong)NSString *wxUid;
 @property (nonatomic, strong)NSString *idfa;
+@property (nonatomic, assign)NSInteger tmpVCIndex;
 - (void)pushMainTabview;
 @end
 

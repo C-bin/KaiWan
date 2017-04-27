@@ -69,6 +69,8 @@
     [super viewDidAppear:animated];
     
     NSArray * arr = self.viewControllers;
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
     UIView *bview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, 49)];
     bview.backgroundColor = [UIColor whiteColor];
     [self.tabBar addSubview:bview];
@@ -94,7 +96,8 @@
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:12];
         [button addSubview:label];
-        if (i == 0) {
+        
+        if (i == del.tmpVCIndex) {
             _imageView.image = nav.tabBarItem.selectedImage;
             [label setTextColor:[RGBColor colorWithHexString:@"1c6ce5"]];
             _tmpImageView = _imageView;
@@ -120,7 +123,8 @@
     UIImageView * imageView = (UIImageView *)[button.subviews firstObject];
     
     UINavigationController * nav = [self.viewControllers objectAtIndex:imageView.tag-100];
-    
+    AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    del.tmpVCIndex = imageView.tag-100;
     imageView.image = nav.tabBarItem.selectedImage;
     UILabel * label = (UILabel *)[button.subviews lastObject];
     [label setTextColor:[RGBColor colorWithHexString:@"1c6ce5"]];
