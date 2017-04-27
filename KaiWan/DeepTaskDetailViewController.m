@@ -67,7 +67,8 @@
     
     self.infoView = [[TaskInfoView alloc] initWithFrame:CGRectMake(0, 0, SWIDTH, 0)];
     self.infoView.dataDic = self.dataDic;
-    self.infoView.timeLabel.hidden = YES;
+    self.infoView.timeLabel.text = @"每日领取任务奖励";
+    self.infoView.timeLabel.textColor = COLOR_RGB(194, 194, 194, 1);
     [self.infoView.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, self.taskDic[@"img"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
     [scrollView addSubview:self.infoView];
     

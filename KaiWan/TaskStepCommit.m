@@ -61,7 +61,8 @@ static CGFloat sampleImageViewWidth;
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(5) + i % 2 * (sampleImageViewWidth + WidthScale(10)), HeightScale(50) + i / 2 * (sampleImageViewWidth * 1.5 + HeightScale(10)), sampleImageViewWidth, sampleImageViewWidth * 1.5)];
         imageView.userInteractionEnabled = YES;
         imageView.tag = 10 + i;
-        
+        imageView.layer.cornerRadius = WidthScale(5);
+        imageView.layer.masksToBounds = YES;
         if (imageView.tag % 2) {
             imageView.image = [UIImage imageNamed:@"点此上传"];
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
