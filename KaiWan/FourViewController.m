@@ -137,11 +137,15 @@
     setLabel.font = [UIFont systemFontOfSize:12];
     [bgview addSubview:setLabel];
     setLabel.userInteractionEnabled = YES;
+    
     bgview.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(setBtnClick)];
     [setLabel addGestureRecognizer:tap];
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(setBtnClick)];
+
     [self.headIcon addGestureRecognizer:tap];
-   
+    [setLabel addGestureRecognizer:tap1];
+    setLabel.userInteractionEnabled = YES;
     UIButton *setBtn = [[UIButton alloc]init];
     [setBtn setBackgroundImage:[UIImage imageNamed:@"个人资料-箭头"] forState:UIControlStateNormal];
     [setBtn addTarget:self action:@selector(setBtnClick) forControlEvents:UIControlEventTouchUpInside];

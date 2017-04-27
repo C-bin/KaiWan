@@ -207,7 +207,7 @@
         [image addSubview:icon];
         
         self.priceLabel = [[UILabel alloc]initWithFrame:[UIView setRectWithX:46 andY:0 andWidth:300 andHeight:28]];
-        self.priceLabel.text = @"精彩预告,一大波任务即将开始，共8877元！";
+        self.priceLabel.text = @"精彩预告,一大波任务即将开始，共0元！";
         self.priceLabel.textColor = SF_COLOR(219, 3, 3);
         self.priceLabel.font = [UIFont systemFontOfSize:13];
         [image addSubview:self.priceLabel];
