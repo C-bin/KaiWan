@@ -35,6 +35,7 @@
 		4A385D461EA9B41D0019FB66 /* TimeLimitedTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D451EA9B41D0019FB66 /* TimeLimitedTaskModel.m */; };
 		4AD6B88C1EADD68500D28E1B /* TaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD6B88B1EADD68500D28E1B /* TaskListViewController.m */; };
 		4ADF02211EA5EA4A008172FE /* CommentTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */; };
+		4AF7E02F1EB1E8EA00DC9A0D /* OnePieceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7E02E1EB1E8EA00DC9A0D /* OnePieceViewController.m */; };
 		5204E3D01E9F6B10006751CF /* 链接收徒@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3CC1E9F6B10006751CF /* 链接收徒@2x.png */; };
 		5204E3D11E9F6B10006751CF /* 链接收徒@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3CD1E9F6B10006751CF /* 链接收徒@3x.png */; };
 		5204E3D21E9F6B10006751CF /* 扫码收徒@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5204E3CE1E9F6B10006751CF /* 扫码收徒@2x.png */; };
@@ -391,6 +392,8 @@
 		4AD6B88B1EADD68500D28E1B /* TaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
 		4ADF021F1EA5EA4A008172FE /* CommentTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTaskModel.h; sourceTree = "<group>"; };
 		4ADF02201EA5EA4A008172FE /* CommentTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTaskModel.m; sourceTree = "<group>"; };
+		4AF7E02D1EB1E8EA00DC9A0D /* OnePieceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePieceViewController.h; sourceTree = "<group>"; };
+		4AF7E02E1EB1E8EA00DC9A0D /* OnePieceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePieceViewController.m; sourceTree = "<group>"; };
 		5204E3CC1E9F6B10006751CF /* 链接收徒@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "链接收徒@2x.png"; sourceTree = "<group>"; };
 		5204E3CD1E9F6B10006751CF /* 链接收徒@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "链接收徒@3x.png"; sourceTree = "<group>"; };
 		5204E3CE1E9F6B10006751CF /* 扫码收徒@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "扫码收徒@2x.png"; sourceTree = "<group>"; };
@@ -1570,6 +1573,8 @@
 				522144241E67F80500C030CD /* FirstViewController.m */,
 				4AD6B88A1EADD68500D28E1B /* TaskListViewController.h */,
 				4AD6B88B1EADD68500D28E1B /* TaskListViewController.m */,
+				4AF7E02D1EB1E8EA00DC9A0D /* OnePieceViewController.h */,
+				4AF7E02E1EB1E8EA00DC9A0D /* OnePieceViewController.m */,
 			);
 			name = CV;
 			sourceTree = "<group>";
@@ -2243,6 +2248,7 @@
 				4A385D461EA9B41D0019FB66 /* TimeLimitedTaskModel.m in Sources */,
 				52AF3FB61E69083100A1EF29 /* UIView+WebCacheOperation.m in Sources */,
 				52363D6C1E68223500442335 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				4AF7E02F1EB1E8EA00DC9A0D /* OnePieceViewController.m in Sources */,
 				526AA0F01E94825400B3DCE3 /* JSONModelError.m in Sources */,
 				52D0064C1E9F0FDF00794CAE /* MJRefreshBackNormalFooter.m in Sources */,
 				522143C91E67C44100C030CD /* AFSecurityPolicy.m in Sources */,
