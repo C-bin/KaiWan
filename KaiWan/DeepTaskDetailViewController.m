@@ -17,10 +17,6 @@
 
 {
     AppDelegate *_delegate;
-    
-    NSTimer *_timer;
-    
-    NSInteger _leftTime;
 }
 
 @property (nonatomic, strong) TaskInfoView * infoView;
@@ -30,6 +26,7 @@
 @property (nonatomic, strong) NSDictionary * dataDic;
 
 @property (nonatomic, strong) DeepTaskModel * deepTaskModel;
+@property (nonatomic, assign, getter=isTaskAppOpen) BOOL taskAppOpen;
 
 @end
 
@@ -45,21 +42,10 @@
     self.titlestring = @"任务详情";
     [self setNavigationBar];
 
+    [self requestData];
     
     //app从后台变为活跃状态，执行观察者方法
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecameActive) name:UIApplicationDidBecomeActiveNotification object:nil];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self requestData];
-}
-
-- (void)viewDidDisappear:(BOOL)animated{
-    if ([_timer isValid]) {
-        [_timer invalidate];
-    }
-    _timer = nil;
 }
 
 - (void)dealloc{
@@ -76,9 +62,6 @@
 #pragma mark - 创建UI
 - (void)createUI{
     
-//    _leftTime = [self.dataDic[@"action_time"] integerValue];
-    _leftTime = 180;
-    
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT - 64)];
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.bounces = NO;
@@ -90,13 +73,13 @@
     [self.infoView.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, self.taskDic[@"img"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
     [scrollView addSubview:self.infoView];
     
-    self.stepCopy = [[TaskStepCopy alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(18), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) / 1.7)];
+    self.stepCopy = [[TaskStepCopy alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(18), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) / 1.65)];
     self.stepCopy.dataDic = self.dataDic;
     [self.stepCopy.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, self.taskDic[@"img"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
     [self.stepCopy.longPress addTarget:self action:@selector(longPress:)];
     [scrollView addSubview:self.stepCopy];
     
-    self.stepDeep = [[TaskStepDeep alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepCopy.frame) + HeightScale(18), SWIDTH - WidthScale(30), self.stepCopy.frame.size.height)];
+    self.stepDeep = [[TaskStepDeep alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepCopy.frame) + HeightScale(18), SWIDTH - WidthScale(30), self.stepCopy.frame.size.height - HeightScale(10))];
     self.stepDeep.deepTaskModel = self.deepTaskModel;
     self.stepDeep.receiveButton.enabled = NO;
     self.stepDeep.receiveButton.backgroundColor = [UIColor grayColor];
@@ -144,7 +127,7 @@
     NSDictionary *params = @{@"uid": _delegate.uid, @"id": self.taskDic[@"id"]};
     [RequestData PostDataWithURL:KdeepTaskCommit parameters:params sucsess:^(id response) {
         if ([response[@"code"] intValue] == 1) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:response[@"message"] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"今天任务已完成，请明天再来" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 [self.navigationController popViewControllerAnimated:YES];
             }];
@@ -186,44 +169,19 @@
 
 - (void)didBecameActive{
 
-    if (![_timer isValid] && ![self.stepDeep.receiveButton isEnabled]) {
+    if (![self.stepDeep.receiveButton isEnabled]) {
         //计时器没开始 并且 领取奖励按钮不能点击，则⬇️
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.deepTaskModel.pro]] options:@{} completionHandler:^(BOOL success){
             if (success) {
-                _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
-                [_timer setFireDate:[NSDate distantPast]];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"已经打开任务App，可以领取奖励啦" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alert show];
+                self.stepDeep.receiveButton.enabled = YES;
+                [self.stepDeep.receiveButton setBackgroundColor:BGColorForButton];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"此设备未安装任务app，请参照步骤一安装后返回本页继续操作" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                 [alert show];
             }
         }];
-    }
-}
-
-- (void)timerMethod{
-    if (_leftTime == 0) { //倒计时到0
-        self.stepDeep.receiveButton.enabled = YES;
-        self.stepDeep.receiveButton.backgroundColor = COLOR_RGB(24, 82, 222, 1);
-        
-        if ([_timer isValid]) {
-            [_timer invalidate];
-        }
-        _timer = nil;
-        
-    } else {
-        _leftTime -= 1;
-        
-        NSMutableAttributedString *str1 = [[NSMutableAttributedString alloc] initWithString:@"试玩3分钟 " attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:WidthScale(13)], NSForegroundColorAttributeName:[UIColor colorWithWhite:0.7 alpha:1]}];
-        
-        NSInteger minite, second;
-        minite = _leftTime / 60;
-        second = _leftTime % 60;
-        
-        NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld:%@", minite, second > 9 ? [NSString stringWithFormat:@"%ld", second] : [NSString stringWithFormat:@"0%ld", second]] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:WidthScale(13)], NSForegroundColorAttributeName:[UIColor redColor]}];
-        
-        [str1 appendAttributedString:str2];
-        
-        self.stepDeep.leftTimeLabel.attributedText = str1;
     }
 }
 

@@ -80,7 +80,7 @@ static CGFloat sampleImageViewWidth;
     
     self.commitButton.frame = CGRectMake(WidthScale(10), HeightScale(50) + (sampleImageViewWidth * 1.5 + HeightScale(10)) * sampleImgArr.count, self.frame.size.width - WidthScale(20), HeightScale(37));
     
-    self.noticeLabel.frame = CGRectMake(WidthScale(10), CGRectGetMaxY(self.commitButton.frame), self.frame.size.width - WidthScale(20), HeightScale(30));
+    self.noticeLabel.frame = CGRectMake(WidthScale(10), CGRectGetMaxY(self.commitButton.frame), self.frame.size.width - WidthScale(15), HeightScale(30));
 }
 
 - (void)tapGesture:(UITapGestureRecognizer *)tapGesture{

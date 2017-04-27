@@ -75,12 +75,12 @@ printViewControllerDealloc
     self.infoView.dataDic = self.dataDic;
     [scrollView addSubview:self.infoView];
     
-    self.stepCopy = [[TaskStepCopy alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(18), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) / 1.7)];
+    self.stepCopy = [[TaskStepCopy alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(18), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) / 1.65)];
     self.stepCopy.dataDic = self.dataDic;
     [self.stepCopy.longPress addTarget:self action:@selector(longPress:)];
     [scrollView addSubview:self.stepCopy];
     
-    self.stepComment = [[TaskStepComment alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepCopy.frame) + HeightScale(18), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) * 1.15)];
+    self.stepComment = [[TaskStepComment alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.stepCopy.frame) + HeightScale(18), SWIDTH - WidthScale(30), (SWIDTH - WidthScale(30)) * 1.18)];
     self.stepComment.commitButton.enabled = NO;
     [self.stepComment.commitButton setBackgroundColor:[UIColor colorWithWhite:0.6 alpha:1]];
     [self.stepComment.tap addTarget:self action:@selector(tap:)];

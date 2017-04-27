@@ -248,6 +248,11 @@
     if (status.intValue==4||status.intValue==1) {
         return;
     }
+    
+    //任务数量为0 并且 状态等于-98 ，则不能点击进入详情页
+    if (([self.dataArr[0][indexPath.row][@"amount"] intValue] <= 0) && [self.dataArr[0][indexPath.row][@"status"] intValue] == -98) {
+        return;
+    }
     //正在进行的任务可以跳转详情，任务预告不会
     if (indexPath.section==0) {
         switch (tid.intValue) {

@@ -29,7 +29,7 @@
         
         [self addSubview:self.iconImageView];
         
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame) + WidthScale(10), self.iconImageView.frame.origin.y + HeightScale(10), WidthScale(200), HeightScale(18))];
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame) + WidthScale(10), self.iconImageView.frame.origin.y + HeightScale(8), WidthScale(200), HeightScale(18))];
         self.titleLabel.font = [UIFont systemFontOfSize:WidthScale(16)];
         [self addSubview:self.titleLabel];
         

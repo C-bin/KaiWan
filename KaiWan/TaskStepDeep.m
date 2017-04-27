@@ -38,7 +38,7 @@
         self.receiveButton.layer.cornerRadius = WidthScale(5);
         
         
-        self.leftTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.receiveButton.frame), self.frame.size.width, HeightScale(30))];
+//        self.leftTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.receiveButton.frame) + HeightScale(10), self.frame.size.width, HeightScale(20))];
         
         self.advanceScrollView.showsHorizontalScrollIndicator = NO;
         self.advanceScrollView.bounces = NO;
