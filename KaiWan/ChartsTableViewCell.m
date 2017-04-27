@@ -32,7 +32,7 @@
 }
 - (void)setUI {
     headicon = [[UIImageView alloc]init];
-    headicon.layer.cornerRadius = [UIView setHeight:28];
+    headicon.layer.cornerRadius = [UIView setHeight:24];
     headicon.clipsToBounds = YES;
     [self.contentView addSubview:headicon];
     
@@ -60,7 +60,7 @@
     [headicon makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
         make.left.equalTo([UIView setWidth:12]);
-        make.width.height.equalTo([UIView setHeight:56]);
+        make.width.height.equalTo([UIView setHeight:48]);
     }];
     
     [namelabel makeConstraints:^(MASConstraintMaker *make) {
@@ -73,7 +73,7 @@
 
     }];
     [moneyLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(-[UIView setWidth:12]);
+        make.right.equalTo(-[UIView setWidth:17]);
         make.centerY.equalTo(self.contentView);
     }];
     

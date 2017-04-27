@@ -287,6 +287,8 @@
 		52D21BB31E97255D00A4418C /* ChartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D21BB21E97255D00A4418C /* ChartsViewController.m */; };
 		52D21BB71E972DF900A4418C /* UILabel+Creat.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D21BB61E972DF900A4418C /* UILabel+Creat.m */; };
 		52D685F91EA9F42000A7FB5F /* WIthDrawModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D685F81EA9F42000A7FB5F /* WIthDrawModel.m */; };
+		52E074301EB21B2A00CA97C8 /* 首页提现@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E0742E1EB21B2A00CA97C8 /* 首页提现@2x.png */; };
+		52E074311EB21B2A00CA97C8 /* 首页提现@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E0742F1EB21B2A00CA97C8 /* 首页提现@3x.png */; };
 		52E0D5F01E8DEAC0000DC7A8 /* PersonMesgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E0D5EF1E8DEAC0000DC7A8 /* PersonMesgViewController.m */; };
 		52E0D6081E8F92DB000DC7A8 /* LimitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E0D6071E8F92DB000DC7A8 /* LimitViewController.m */; };
 		52E13E441E6FE7A60047702B /* 导航-返回@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E13E301E6FE7A60047702B /* 导航-返回@2x.png */; };
@@ -765,6 +767,8 @@
 		52D685F51EA9D9EF00A7FB5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		52D685F71EA9F42000A7FB5F /* WIthDrawModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WIthDrawModel.h; sourceTree = "<group>"; };
 		52D685F81EA9F42000A7FB5F /* WIthDrawModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WIthDrawModel.m; sourceTree = "<group>"; };
+		52E0742E1EB21B2A00CA97C8 /* 首页提现@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页提现@2x.png"; sourceTree = "<group>"; };
+		52E0742F1EB21B2A00CA97C8 /* 首页提现@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页提现@3x.png"; sourceTree = "<group>"; };
 		52E0D5EE1E8DEAC0000DC7A8 /* PersonMesgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonMesgViewController.h; sourceTree = "<group>"; };
 		52E0D5EF1E8DEAC0000DC7A8 /* PersonMesgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonMesgViewController.m; sourceTree = "<group>"; };
 		52E0D6061E8F92DB000DC7A8 /* LimitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitViewController.h; sourceTree = "<group>"; };
@@ -1286,6 +1290,8 @@
 				5221444B1E67FB2500C030CD /* 首页-收益@3x.png */,
 				5221444C1E67FB2500C030CD /* 首页-敬请期待@2x.png */,
 				5221444D1E67FB2500C030CD /* 首页-敬请期待@3x.png */,
+				52E0742E1EB21B2A00CA97C8 /* 首页提现@2x.png */,
+				52E0742F1EB21B2A00CA97C8 /* 首页提现@3x.png */,
 				5221444E1E67FB2500C030CD /* 首页-深度任务@2x.png */,
 				5221444F1E67FB2500C030CD /* 首页-深度任务@3x.png */,
 				522144501E67FB2500C030CD /* 首页-签到任务@2x.png */,
@@ -2008,6 +2014,7 @@
 				529815CC1E978A0D00451D01 /* 收徒-箭头@3x.png in Resources */,
 				522144861E67FB2500C030CD /* 首页@2x.png in Resources */,
 				52E13E531E6FE7A60047702B /* 列表-邀请好友@3x.png in Resources */,
+				52E074311EB21B2A00CA97C8 /* 首页提现@3x.png in Resources */,
 				529815A31E97392A00451D01 /* 三角形@3x.png in Resources */,
 				521C93261E7FE0CA0093F1AB /* 个人资料-箭头@2x.png in Resources */,
 				5221445F1E67FB2500C030CD /* 我的@3x.png in Resources */,
@@ -2110,6 +2117,7 @@
 				522144701E67FB2500C030CD /* 首页-排行榜@2x.png in Resources */,
 				52E13E481E6FE7A60047702B /* 列表-夺宝背景@2x.png in Resources */,
 				52B1A9561EA5BFF9009525F3 /* go@3x.png in Resources */,
+				52E074301EB21B2A00CA97C8 /* 首页提现@2x.png in Resources */,
 				5204E3DA1E9F70E0006751CF /* 成绩背景@2x.png in Resources */,
 				5221447D1E67FB2500C030CD /* 首页-签到任务@3x.png in Resources */,
 				52A11DF01EB0B1240010354C /* Hot@2x.png in Resources */,

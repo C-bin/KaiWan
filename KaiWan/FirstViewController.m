@@ -65,7 +65,7 @@
         NSDictionary *dic=(NSDictionary *)response;
         NSDictionary *data = dic[@"data"];
         NSDictionary *dica = data[@"user"];
-        [self.iconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImageUrl,dica[@"avatar"]]]];
+        [self.iconImage sd_setImageWithURL:[NSURL URLWithString:del.headIcon]];
         del.headIcon = [NSString stringWithFormat:@"%@%@",ImageUrl,dica[@"avatar"]];
         NSString *systr = [NSString creatWithId:dica[@"money_day_sum"]];
         self.syLabel.text = [NSString stringWithFormat:@"今日收益：%@",systr];
@@ -171,10 +171,7 @@
     self.IDLabel.text = @"ID:12312312";
     [headImage addSubview:self.IDLabel];
     
-    [self.IDLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(btn);
-        make.right.equalTo(btn.left);
-    }];
+
     
     UILabel *linelabel = [[UILabel alloc]init];
     linelabel.backgroundColor = [RGBColor colorWithHexString:@"#387ceb"];
@@ -199,15 +196,22 @@
     }];
     
     UIButton *txBtn = [[UIButton alloc]init];
-    [txBtn setBackgroundImage:[UIImage imageNamed:@"首页-提现"] forState:UIControlStateNormal];
+    [txBtn setBackgroundImage:[UIImage imageNamed:@"首页提现"] forState:UIControlStateNormal];
     [txBtn addTarget:self action:@selector(makeMoney) forControlEvents:UIControlEventTouchUpInside];
     [headImage addSubview:txBtn];
     headImage.userInteractionEnabled = YES;
     [txBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(linelabel.bottom).offset([UIView setHeight:32]);
-        make.right.equalTo(headImage).offset(-[UIView setWidth:12]);
+        make.right.equalTo(headImage).offset(-[UIView setWidth:22]);
+        make.width.equalTo(WidthScale(80));
+        make.height.equalTo(HeightScale(40));
     }];
     
+    
+    [self.IDLabel makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(btn);
+        make.right.equalTo(txBtn.right).offset(-WidthScale(2));
+    }];
     UIImageView *moneyImage = [[UIImageView alloc]init];
     moneyImage.image = [UIImage imageNamed:@"首页-收益"];
     [headImage addSubview:moneyImage];
@@ -263,30 +267,30 @@
     
     
     //按钮;
-    NSArray *imageArr = @[@"首页-快速任务",@"首页-好评任务",@"首页-联盟任务",@"首页-深度任务",@"首页-高额任务",@"首页-一元夺宝",@"首页-收徒任务",@"首页-签到任务",@"首页-排行榜",@"首页-敬请期待"];
-    NSArray *titleArr = @[@"快速任务",@"好评任务",@"联盟任务",@"深度任务",@"高额任务",@"一元夺宝",@"收徒任务",@"签到任务",@"排行榜",@"敬请期待"];
+    NSArray *imageArr = @[@"首页-快速任务",@"首页-好评任务",@"首页-联盟任务",@"首页-深度任务",@"首页-收徒任务",@"首页-高额任务",@"首页-签到任务",@"首页-排行榜",@"首页-一元夺宝",@"首页-敬请期待"];
+    NSArray *titleArr = @[@"快速任务",@"好评任务",@"联盟任务",@"深度任务",@"收徒任务",@"高额任务",@"签到任务",@"排行榜",@"一元夺宝",@"敬请期待"];
     for (int i = 0; i < 12; i++) {
         
         UIButton *litBtn = [[UIButton alloc]init];
         if (i < 4) {
-            litBtn.frame = CGRectMake(0+i*SWIDTH/4, heght+[UIView setHeight:4], SWIDTH/4, [UIView setHeight:88]);
+            litBtn.frame = CGRectMake(1.5+i*SWIDTH/4-i, heght+[UIView setHeight:4], SWIDTH/4, [UIView setHeight:88]);
         }
         if (i<8&&i>3) {
-            litBtn.frame =CGRectMake(0+(i-4)*SWIDTH/4, heght + [UIView setHeight:92], SWIDTH/4, [UIView setHeight:88]);
+            litBtn.frame =CGRectMake(1.5+(i-4)*SWIDTH/4-i+4, heght + [UIView setHeight:92]-1, SWIDTH/4, [UIView setHeight:88]);
         }
         if (i>7) {
-            litBtn.frame =CGRectMake(0+(i-8)*SWIDTH/4, heght + [UIView setHeight:180], SWIDTH/4, [UIView setHeight:88]);
+            litBtn.frame =CGRectMake(1.5+(i-8)*SWIDTH/4-i+8, heght + [UIView setHeight:180]-2, SWIDTH/4, [UIView setHeight:88]);
         }
         litBtn.layer.borderColor = [RGBColor colorWithHexString:@"#d6d6d6"].CGColor;
         litBtn.layer.borderWidth = 1;
         
-        if(i==0||i==6) {
+        if(i==0||i==1||i==4||i==8) {
             UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Hot"]];
             image.frame = CGRectMake(0, 0, HeightScale(28), HeightScale(28));
             [litBtn addSubview:image];
         }
         
-        UIImageView *image = [[UIImageView alloc]initWithFrame:CGRectMake((SWIDTH/4-[UIView setWidth:35])/2, [UIView setHeight:16], [UIView setWidth:35], [UIView setHeight:35])];
+        UIImageView *image = [[UIImageView alloc]initWithFrame:CGRectMake((SWIDTH/4-[UIView setWidth:40])/2, [UIView setHeight:15], [UIView setWidth:40], [UIView setHeight:40])];
         if (i<10) {
             image.image = [UIImage imageNamed:imageArr[i]];
         }
@@ -294,9 +298,9 @@
         [litBtn addSubview:image];
         UILabel *titlelabel = [[UILabel alloc]initWithFrame:CGRectMake(0, [UIView setHeight:61], SWIDTH/4, [UIView setHeight:16])];
         
-        titlelabel.textColor = [UIColor blackColor];
+        titlelabel.textColor = SF_COLOR(50, 50, 50);
         titlelabel.textAlignment = NSTextAlignmentCenter;
-        titlelabel.font = [UIFont systemFontOfSize:14];
+        titlelabel.font = [UIFont systemFontOfSize:13];
         if (i<10) {
             titlelabel.text = titleArr[i];
         }
@@ -320,14 +324,19 @@
             
             break;
             
-        case 1: case 2: case 3: case 4://各种任务
+        case 1: case 2: case 3: case 5://各种任务
         {
             TaskListViewController *taskListVC = [[TaskListViewController alloc] init];
-            taskListVC.taskTag = btn.tag - 200;
+            if (btn.tag==205) {
+                taskListVC.taskTag = 4;
+            }else {
+                taskListVC.taskTag = btn.tag - 200;
+
+            }
             [self.navigationController pushViewController:taskListVC animated:YES];
         }
             break;
-        case 5:
+        case 8:
             //一元夺宝
         {
             OnePieceViewController *onePieceVC = [[OnePieceViewController alloc] init];
@@ -335,17 +344,17 @@
         }
             
             break;
-        case 6:
+        case 4:
         {//收徒任务
             NSNotification *notice = [NSNotification notificationWithName:@"pushtomain" object:nil userInfo:@{@"num":@"3"}];
             [[NSNotificationCenter defaultCenter] postNotification:notice];
         }   break;
-        case 7:
+        case 6:
             //签到任务
             [self.navigationController pushViewController:[[SignInViewController alloc] init] animated:YES];
             
             break;
-        case 8:
+        case 7:
             //排行榜
             
         {

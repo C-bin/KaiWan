@@ -145,8 +145,8 @@
     
     UIButton *btn1 = [[UIButton alloc]init];
     [btn1 setTitle:@"每日排行" forState:UIControlStateNormal];
-    [btn1 setTitleColor:SF_COLOR(225, 237, 255) forState:UIControlStateNormal];
-    [btn1 setTitleColor:SF_COLOR(225, 237, 255) forState:UIControlStateSelected];
+    [btn1 setTitleColor:SF_COLOR(195, 219, 255) forState:UIControlStateNormal];
+    [btn1 setTitleColor:SF_COLOR(255, 255, 255) forState:UIControlStateSelected];
     [btn1 addTarget:self action:@selector(btnclick:) forControlEvents:UIControlEventTouchUpInside];
     btn1.tag = 330;
     btn1.selected = 1;
@@ -173,12 +173,14 @@
     
     UIButton *btn2 = [[UIButton alloc]init];
     [btn2 setTitle:@"总计排行" forState:UIControlStateNormal];
-    [btn2 setTitleColor:SF_COLOR(225, 237, 255) forState:UIControlStateNormal];
-    [btn2 setTitleColor:SF_COLOR(225, 237, 255) forState:UIControlStateSelected];
+    [btn2 setTitleColor:SF_COLOR(195, 219, 255) forState:UIControlStateNormal];
+    [btn2 setTitleColor:SF_COLOR(255, 255, 255) forState:UIControlStateSelected];
     [btn2 addTarget:self action:@selector(btnclick:) forControlEvents:UIControlEventTouchUpInside];
     btn2.tag = 331;
     btn2.selected = 0;
     [self.view addSubview:btn2];
+    btn2.titleLabel.font = [UIFont systemFontOfSize:16];
+
     [btn2 makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(headview.bottom);
         make.left.equalTo(btn1.right);
