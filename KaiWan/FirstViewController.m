@@ -156,11 +156,12 @@
     UIButton *btn = [[UIButton alloc]init];
     [btn setBackgroundImage:[UIImage imageNamed:@"首页-箭头"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(clickBtn) forControlEvents:UIControlEventTouchUpInside];
-//    [headImage addSubview:btn];
+    [headImage addSubview:btn];
     
     [btn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(20+[UIView setHeight:34]);
         make.right.equalTo(-[UIView setWidth:6]);
+        make.width.equalTo(0);
     }];
     
     self.IDLabel = [[UILabel alloc]init];
