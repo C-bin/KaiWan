@@ -44,8 +44,6 @@
 
     [self requestData];
     
-    //app从后台变为活跃状态，执行观察者方法
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecameActive) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 - (void)dealloc{
@@ -103,6 +101,12 @@
                 self.deepTaskModel = [DeepTaskModel yy_modelWithDictionary:self.dataDic];
                 
                 [self createUI];
+                
+                if ([self.dataDic[@"is_click"] intValue] == 1) {
+                    //可以点击
+                    self.stepDeep.receiveButton.enabled = YES;
+                    [self.stepDeep.receiveButton setBackgroundColor:BGColorForButton];
+                }
                 break;
             default:
             {
@@ -152,7 +156,7 @@
 - (void)receiveButtonClicked:(UIButton *)button{
     DLog(@"领取奖励");
     
-    [self taskCommit];
+    [self openTaskApp];
 }
 
 - (void)longPress:(UILongPressGestureRecognizer *)longPress{
@@ -167,22 +171,18 @@
 
 }
 
-- (void)didBecameActive{
-
-    if (![self.stepDeep.receiveButton isEnabled]) {
-        //计时器没开始 并且 领取奖励按钮不能点击，则⬇️
+- (void)openTaskApp{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", self.deepTaskModel.pro]] options:@{} completionHandler:^(BOOL success){
             if (success) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"已经打开任务App，可以领取奖励啦" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-                [alert show];
-                self.stepDeep.receiveButton.enabled = YES;
-                [self.stepDeep.receiveButton setBackgroundColor:BGColorForButton];
+                
+                [self taskCommit];
+
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"此设备未安装任务app，请参照步骤一安装后返回本页继续操作" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                 [alert show];
             }
         }];
-    }
+
 }
 
 @end
