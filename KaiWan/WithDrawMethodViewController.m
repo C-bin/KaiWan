@@ -91,9 +91,9 @@
     [bview addSubview:wlabel];
     
     UILabel *wtlabel = [UILabel creatLabelWithFont:12 andbgcolor:nil andtextColor:SF_COLOR(153, 153, 153) andAligment:0];
-    NSString *str = @"仅支持十元以上金额";
+    NSString *str = @"仅支持10元以上金额";
     NSMutableAttributedString *mstr = [[NSMutableAttributedString alloc]initWithString:str];
-    [mstr addAttribute:NSForegroundColorAttributeName value:SF_COLOR(240, 35, 78) range:NSMakeRange(3, 2)];
+    [mstr addAttribute:NSForegroundColorAttributeName value:SF_COLOR(240, 35, 78) range:NSMakeRange(3, 3)];
     [bview addSubview:wtlabel];
     
     [wlabel makeConstraints:^(MASConstraintMaker *make) {
@@ -141,7 +141,7 @@
     [bview addSubview:zlabel];
     
     UILabel *ztlabel = [UILabel creatLabelWithFont:12 andbgcolor:nil andtextColor:SF_COLOR(153, 153, 153) andAligment:0];
-    NSString *str1 = @"仅支持二十元以上金额";
+    NSString *str1 = @"仅支持20元以上金额";
     NSMutableAttributedString *mstr1 = [[NSMutableAttributedString alloc]initWithString:str1];
     [mstr1 addAttribute:NSForegroundColorAttributeName value:SF_COLOR(240, 35, 78) range:NSMakeRange(3, 3)];
     ztlabel.attributedText = mstr1;
