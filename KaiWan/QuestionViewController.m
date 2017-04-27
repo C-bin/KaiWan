@@ -37,12 +37,12 @@
     self.table.delegate = self;
 //    self.table.backgroundColor  = [UIColor redColor];
     self.table.dataSource = self;
-    self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.table];
     self.table.backgroundColor = SF_COLOR(235, 235, 235);
     
-    
+    self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ([self.seletArr[section] isEqualToString:@"1"]) {
         return 1;
@@ -72,7 +72,8 @@
         [cell.contentView addSubview:label];
         
         label.tag = 789;
-
+        
+        
     }
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:789];
     label.text = self.titleArr[indexPath.section];
@@ -95,6 +96,10 @@
     view.tag = 660+section;
     view.backgroundColor = [UIColor whiteColor];
     view.userInteractionEnabled = YES;
+    UILabel *linelabel = [[UILabel alloc]initWithFrame:CGRectMake(0, HeightScale(50)-1, SWIDTH, 1)];
+    linelabel.backgroundColor = SF_COLOR(232, 232, 232);
+    [view addSubview:linelabel];
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapclick:)];
     
     [view addGestureRecognizer:tap];

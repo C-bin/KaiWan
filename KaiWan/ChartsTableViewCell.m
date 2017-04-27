@@ -99,7 +99,7 @@
         namelabel.font = [UIFont systemFontOfSize:18];
         disNumlabel.font = [UIFont systemFontOfSize:14];
     }else {
-        numLabel.text = [NSString stringWithFormat:@"%ld",index.row];
+        numLabel.text = [NSString stringWithFormat:@"%ld",index.row+1];
         [numLabel updateConstraints:^(MASConstraintMaker *make) {
             make.left.bottom.equalTo(headicon);
             make.width.height.equalTo([UIView setHeight:17]);
@@ -121,7 +121,7 @@
 
 - (void)setRankDic:(NSDictionary *)rankDic{
     _rankDic = rankDic;
-    [headicon sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, rankDic[@"avatar"]]] placeholderImage:[UIImage imageNamed:@"列表-问号"]];
+    [headicon sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ImageUrl, rankDic[@"avatar"]]] placeholderImage:[UIImage imageNamed:@"默认头像.png"]];
     disNumlabel.text = [NSString stringWithFormat:@"累计收徒:%@", rankDic[@"invite_count"]];
     moneyLabel.text = [NSString stringWithFormat:@"%@元", rankDic[@"money"]];
     namelabel.text = rankDic[@"name"];

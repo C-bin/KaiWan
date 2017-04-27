@@ -41,7 +41,7 @@
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
     self.scrlDataArray = [NSMutableArray array];
-
+    self.view.backgroundColor = SF_COLOR(242, 242, 242);
     [self creatUI];
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -56,7 +56,7 @@
 
     if (del.uid.length<=0) {
         self.syLabel.text = @"今日收益：0";
-        self.stLabel.text = @"今日收徒：0";
+        self.stLabel.text = @"总共收益：0";
         self.moneyLabel.text = @"0";
         return;
     }
@@ -68,7 +68,7 @@
         del.headIcon = [NSString stringWithFormat:@"%@%@",ImageUrl,dica[@"avatar"]];
         NSString *systr = [NSString creatWithId:dica[@"money_day_sum"]];
         self.syLabel.text = [NSString stringWithFormat:@"今日收益：%@",systr];
-        
+        self.moneyLabel.text = [NSString creatWithId:dica[@"money"]];
         NSString *mobile = [NSString creatWithId:dica[@"is_mobile"]];
         if (mobile.integerValue==1) {
             del.is_mobile = YES;
@@ -76,12 +76,13 @@
             del.is_mobile = NO;
         }
         
-        NSString *ststr = [NSString creatWithId:dica[@"day_count_e"]];
-        self.stLabel.text = [NSString stringWithFormat:@"今日收徒：%@",ststr];
+//        NSString *ststr = [NSString creatWithId:dica[@"day_count_e"]];
+//        self.stLabel.text = [NSString stringWithFormat:@"今日收徒：%@",ststr];
         
         self.IDLabel.text = [NSString stringWithFormat:@"ID：%@",del.uid];
         NSString *moneystr = [NSString creatWithId:dica[@"money_sum"]];
-        self.moneyLabel.text = [NSString stringWithFormat:@"%@",moneystr];
+        self.stLabel.text = [NSString stringWithFormat:@"总共收益：%@",moneystr];
+        
         NSArray *arr = data[@"banner"];
         [self.scrlDataArray removeAllObjects];
         for (NSDictionary *dic in arr) {
@@ -211,17 +212,17 @@
 
     [moneyImage makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(headImage).offset([UIView setWidth:15]);
-        make.bottom.equalTo(headImage.bottom).offset(-[UIView setHeight:7]);
+        make.bottom.equalTo(headImage.bottom).offset(-[UIView setHeight:15]);
     }];
     
     UILabel *zlabel = [[UILabel alloc]init];
     zlabel.textColor = [RGBColor colorWithHexString:@"#ecf1fc"];
     zlabel.font = [UIFont systemFontOfSize:14];
-    zlabel.text = @"总共收益(元)";
+    zlabel.text = @"当前余额(元)";
     [headImage addSubview:zlabel];
     [zlabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(moneyImage.right).offset([UIView setWidth:2]);
-        make.bottom.equalTo(headImage.bottom).offset(-[UIView setHeight:7]);
+        make.centerY.equalTo(moneyImage.centerY);
     }];
     
     
@@ -277,6 +278,12 @@
         litBtn.layer.borderColor = [RGBColor colorWithHexString:@"#d6d6d6"].CGColor;
         litBtn.layer.borderWidth = 1;
         
+        if(i==0||i==6) {
+            UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Hot"]];
+            image.frame = CGRectMake(0, 0, HeightScale(28), HeightScale(28));
+            [litBtn addSubview:image];
+        }
+        
         UIImageView *image = [[UIImageView alloc]initWithFrame:CGRectMake((SWIDTH/4-[UIView setWidth:35])/2, [UIView setHeight:16], [UIView setWidth:35], [UIView setHeight:35])];
         if (i<10) {
             image.image = [UIImage imageNamed:imageArr[i]];
@@ -292,6 +299,7 @@
             titlelabel.text = titleArr[i];
         }
         [litBtn addSubview:titlelabel];
+        litBtn.backgroundColor = [UIColor whiteColor];
         
         litBtn.tag = 200+i;
         [litBtn addTarget:self action:@selector(litbtnClick:) forControlEvents:UIControlEventTouchUpInside];

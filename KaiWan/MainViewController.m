@@ -33,7 +33,6 @@
     
     self.delegate = self;
     
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushto:) name:@"pushtomain" object:nil];
 
 }
@@ -49,8 +48,9 @@
         view.hidden = YES;
         
     }
-    self.view.backgroundColor = [UIColor whiteColor];
-//    self.view.alpha = 0;
+//        self.tabBar.translucent = NO;
+//        self.tabBar.backgroundColor = [UIColor whiteColor];
+
 }
 - (void)pushto :(NSNotification *)n {
     
@@ -69,6 +69,9 @@
     [super viewDidAppear:animated];
     
     NSArray * arr = self.viewControllers;
+    UIView *bview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, 49)];
+    bview.backgroundColor = [UIColor whiteColor];
+    [self.tabBar addSubview:bview];
     for (int i = 0; i < arr.count ; i++) {
         UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(i*SCREEN_W/arr.count, 0, SCREEN_W/arr.count, 49)];
         

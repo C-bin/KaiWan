@@ -122,8 +122,6 @@
 		522144811E67FB2500C030CD /* 首页-联盟任务@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 522144551E67FB2500C030CD /* 首页-联盟任务@3x.png */; };
 		522144821E67FB2500C030CD /* 首页-高额任务@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 522144561E67FB2500C030CD /* 首页-高额任务@2x.png */; };
 		522144831E67FB2500C030CD /* 首页-高额任务@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 522144571E67FB2500C030CD /* 首页-高额任务@3x.png */; };
-		522144841E67FB2500C030CD /* 首页-ＨＯＴ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 522144581E67FB2500C030CD /* 首页-ＨＯＴ@2x.png */; };
-		522144851E67FB2500C030CD /* 首页-ＨＯＴ@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 522144591E67FB2500C030CD /* 首页-ＨＯＴ@3x.png */; };
 		522144861E67FB2500C030CD /* 首页@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5221445A1E67FB2500C030CD /* 首页@2x.png */; };
 		522144871E67FB2500C030CD /* 首页@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5221445B1E67FB2500C030CD /* 首页@3x.png */; };
 		522144881E67FB2500C030CD /* 首页点@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5221445C1E67FB2500C030CD /* 首页点@2x.png */; };
@@ -205,6 +203,9 @@
 		529815CD1E978A0D00451D01 /* 收徒规则@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 529815C71E978A0D00451D01 /* 收徒规则@2x.png */; };
 		529815CE1E978A0D00451D01 /* 收徒规则@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 529815C81E978A0D00451D01 /* 收徒规则@3x.png */; };
 		529815D11E979AB700451D01 /* UIButton+Creat.m in Sources */ = {isa = PBXBuildFile; fileRef = 529815D01E979AB700451D01 /* UIButton+Creat.m */; };
+		52A11DED1EB0AF1E0010354C /* 默认头像.png in Resources */ = {isa = PBXBuildFile; fileRef = 52A11DEC1EB0AF1E0010354C /* 默认头像.png */; };
+		52A11DF01EB0B1240010354C /* Hot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52A11DEE1EB0B1240010354C /* Hot@2x.png */; };
+		52A11DF11EB0B1240010354C /* Hot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52A11DEF1EB0B1240010354C /* Hot@3x.png */; };
 		52A6DF341E94EAD600AA7243 /* GoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A6DF331E94EAD600AA7243 /* GoodViewController.m */; };
 		52AF3F841E6906C100A1EF29 /* YYCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF3F831E6906C100A1EF29 /* YYCollectionViewCell.m */; };
 		52AF3FA71E69083100A1EF29 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF3F871E69083100A1EF29 /* MKAnnotationView+WebCache.m */; };
@@ -502,8 +503,6 @@
 		522144551E67FB2500C030CD /* 首页-联盟任务@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页-联盟任务@3x.png"; sourceTree = "<group>"; };
 		522144561E67FB2500C030CD /* 首页-高额任务@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页-高额任务@2x.png"; sourceTree = "<group>"; };
 		522144571E67FB2500C030CD /* 首页-高额任务@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页-高额任务@3x.png"; sourceTree = "<group>"; };
-		522144581E67FB2500C030CD /* 首页-ＨＯＴ@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页-ＨＯＴ@2x.png"; sourceTree = "<group>"; };
-		522144591E67FB2500C030CD /* 首页-ＨＯＴ@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页-ＨＯＴ@3x.png"; sourceTree = "<group>"; };
 		5221445A1E67FB2500C030CD /* 首页@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页@2x.png"; sourceTree = "<group>"; };
 		5221445B1E67FB2500C030CD /* 首页@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页@3x.png"; sourceTree = "<group>"; };
 		5221445C1E67FB2500C030CD /* 首页点@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页点@2x.png"; sourceTree = "<group>"; };
@@ -628,6 +627,9 @@
 		529815C81E978A0D00451D01 /* 收徒规则@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "收徒规则@3x.png"; sourceTree = "<group>"; };
 		529815CF1E979AB700451D01 /* UIButton+Creat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Creat.h"; sourceTree = "<group>"; };
 		529815D01E979AB700451D01 /* UIButton+Creat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Creat.m"; sourceTree = "<group>"; };
+		52A11DEC1EB0AF1E0010354C /* 默认头像.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认头像.png"; sourceTree = "<group>"; };
+		52A11DEE1EB0B1240010354C /* Hot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hot@2x.png"; sourceTree = "<group>"; };
+		52A11DEF1EB0B1240010354C /* Hot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hot@3x.png"; sourceTree = "<group>"; };
 		52A6DF321E94EAD600AA7243 /* GoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodViewController.h; sourceTree = "<group>"; };
 		52A6DF331E94EAD600AA7243 /* GoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodViewController.m; sourceTree = "<group>"; };
 		52AF3F821E6906C100A1EF29 /* YYCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCollectionViewCell.h; sourceTree = "<group>"; };
@@ -1135,6 +1137,7 @@
 		522144311E67FB2500C030CD /* 首页-图标 */ = {
 			isa = PBXGroup;
 			children = (
+				52A11DEC1EB0AF1E0010354C /* 默认头像.png */,
 				4A0DC0001EB030AE0046DCD1 /* 填写邀请码@2x.png */,
 				4A0DC0011EB030AE0046DCD1 /* 填写邀请码@3x.png */,
 				4A0DC0021EB030AE0046DCD1 /* 邀请码关闭@2x.png */,
@@ -1290,8 +1293,8 @@
 				522144551E67FB2500C030CD /* 首页-联盟任务@3x.png */,
 				522144561E67FB2500C030CD /* 首页-高额任务@2x.png */,
 				522144571E67FB2500C030CD /* 首页-高额任务@3x.png */,
-				522144581E67FB2500C030CD /* 首页-ＨＯＴ@2x.png */,
-				522144591E67FB2500C030CD /* 首页-ＨＯＴ@3x.png */,
+				52A11DEE1EB0B1240010354C /* Hot@2x.png */,
+				52A11DEF1EB0B1240010354C /* Hot@3x.png */,
 				5221445A1E67FB2500C030CD /* 首页@2x.png */,
 				5221445B1E67FB2500C030CD /* 首页@3x.png */,
 				5221445C1E67FB2500C030CD /* 首页点@2x.png */,
@@ -2007,6 +2010,7 @@
 				5237E3F01EA0C4EA002F1D4B /* 提现方式-箭头@3x.png in Resources */,
 				4A0DC00C1EB030AE0046DCD1 /* 1背景@2x.png in Resources */,
 				52B1A9511EA5BFF9009525F3 /* 已签到状态@2x.png in Resources */,
+				52A11DF11EB0B1240010354C /* Hot@3x.png in Resources */,
 				522144741E67FB2500C030CD /* 首页-收徒任务@2x.png in Resources */,
 				522144881E67FB2500C030CD /* 首页点@2x.png in Resources */,
 				5204E3D01E9F6B10006751CF /* 链接收徒@2x.png in Resources */,
@@ -2014,7 +2018,6 @@
 				5237E3F21EA0C4EA002F1D4B /* 微信支付@3x.png in Resources */,
 				521C93241E7FE0CA0093F1AB /* 个人中心-箭头@2x.png in Resources */,
 				522144801E67FB2500C030CD /* 首页-联盟任务@2x.png in Resources */,
-				522144851E67FB2500C030CD /* 首页-ＨＯＴ@3x.png in Resources */,
 				529815C91E978A0D00451D01 /* 晒单收徒@2x.png in Resources */,
 				521C93231E7FE0CA0093F1AB /* 夺宝明细@3x.png in Resources */,
 				52F5E30E1E9C802800E7E7D1 /* 默认头像@3x.png in Resources */,
@@ -2030,6 +2033,7 @@
 				522144811E67FB2500C030CD /* 首页-联盟任务@3x.png in Resources */,
 				529815CE1E978A0D00451D01 /* 收徒规则@3x.png in Resources */,
 				52E13E4B1E6FE7A60047702B /* 列表-通知@3x.png in Resources */,
+				52A11DED1EB0AF1E0010354C /* 默认头像.png in Resources */,
 				522144911E68039F00C030CD /* 背景@3x.png in Resources */,
 				52B1A9461EA5BFF9009525F3 /* 礼物@3x.png in Resources */,
 				529815BB1E9766CE00451D01 /* NO.2@2x.png in Resources */,
@@ -2078,7 +2082,6 @@
 				522144611E67FB2500C030CD /* 我的点@3x.png in Resources */,
 				52D006041E9DBE0500794CAE /* 用户@2x.png in Resources */,
 				521C932F1E7FE0CA0093F1AB /* 疑难解答@3x.png in Resources */,
-				522144841E67FB2500C030CD /* 首页-ＨＯＴ@2x.png in Resources */,
 				5237E3F31EA0C4EA002F1D4B /* 支付宝支付@2x.png in Resources */,
 				522144831E67FB2500C030CD /* 首页-高额任务@3x.png in Resources */,
 				5204E3D11E9F6B10006751CF /* 链接收徒@3x.png in Resources */,
@@ -2104,6 +2107,7 @@
 				52B1A9561EA5BFF9009525F3 /* go@3x.png in Resources */,
 				5204E3DA1E9F70E0006751CF /* 成绩背景@2x.png in Resources */,
 				5221447D1E67FB2500C030CD /* 首页-签到任务@3x.png in Resources */,
+				52A11DF01EB0B1240010354C /* Hot@2x.png in Resources */,
 				5221447F1E67FB2500C030CD /* 首页-箭头@3x.png in Resources */,
 				524AB78B1EAEE78D00AB220A /* UMSocialSDKPromptResources.bundle in Resources */,
 				5221446E1E67FB2500C030CD /* 首页-快速任务@2x.png in Resources */,

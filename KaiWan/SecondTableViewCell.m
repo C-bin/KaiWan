@@ -172,7 +172,6 @@
 
     }
     
-    //-98=无状态,0=点击（已领取），1 = 已完成 ，4 = 等待审核
     NSString *status = [NSString creatWithId:dic[@"status"]];
 
 
