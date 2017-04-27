@@ -29,11 +29,11 @@
         
         [self addSubview:self.iconImageView];
         
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame) + WidthScale(10), self.iconImageView.frame.origin.y + HeightScale(8), WidthScale(200), HeightScale(18))];
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame) + WidthScale(10), self.iconImageView.frame.origin.y + HeightScale(6), WidthScale(200), HeightScale(18))];
         self.titleLabel.font = [UIFont systemFontOfSize:WidthScale(16)];
         [self addSubview:self.titleLabel];
         
-        self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLabel.frame.origin.x, CGRectGetMaxY(self.titleLabel.frame), WidthScale(200), HeightScale(16))];
+        self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLabel.frame.origin.x, CGRectGetMaxY(self.titleLabel.frame) + HeightScale(5), WidthScale(200), HeightScale(16))];
         self.timeLabel.font = [UIFont systemFontOfSize:WidthScale(13)];
         [self addSubview:self.timeLabel];
         

@@ -187,7 +187,11 @@ printViewControllerDealloc
         NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:
                                    [UIFont systemFontOfSize:WidthScale(15)], NSFontAttributeName,
                                    COLOR_RGB(138, 170, 239, 1),NSForegroundColorAttributeName,nil];
-        NSMutableAttributedString *secondStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%ld", _extraTime] attributes:secondDic];
+
+        
+        NSInteger minite = _extraTime / 60;
+        NSInteger second = _extraTime % 60;
+        NSMutableAttributedString *secondStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld:%@", minite, second > 9 ? [NSString stringWithFormat:@"%ld", second] : [NSString stringWithFormat:@"0%ld", second]] attributes:secondDic];
         [firstStr appendAttributedString:secondStr];
         self.infoView.timeLabel.attributedText = firstStr;
         

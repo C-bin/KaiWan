@@ -217,6 +217,20 @@ printViewControllerDealloc
 
 - (void)commitButtonClicked:(UIButton *)button{
     DLog(@"提交审核");
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"提交后不能修改，确定提交?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        DLog(@"确定提交");
+        [self requestCommit];
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:action1];
+    [alert addAction:action2];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+
+}
+
+- (void)requestCommit{
     NSDictionary *params = @{@"uid": _delegate.uid, @"appid": self.dataDic[@"appid"], @"img": [NSString stringWithFormat:@"data:image/png;base64,%@", [UIImageJPEGRepresentation(self.uploadImageView.image, 0.5) base64EncodedStringWithOptions:0]]};
     [RequestData PostDataWithURL:KcommentTaskCommit parameters:params sucsess:^(id response) {
         if ([response[@"code"] intValue] == 1) {
@@ -244,8 +258,13 @@ printViewControllerDealloc
         [self.stepComment.commitButton setBackgroundColor:COLOR_RGB(24, 82, 222, 1)];
         self.stepComment.commitButton.enabled = YES;
     }
+
     
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:^{
+        if (![_timer isValid]) {
+            [_timer setFireDate:[NSDate distantPast]];
+        }
+    }];
 }
 
 @end

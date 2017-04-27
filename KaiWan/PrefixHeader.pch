@@ -63,6 +63,9 @@
 //蓝色按钮
 #define BGColorForButton [UIColor colorWithRed:24 / 255. green:82 / 255. blue:222 / 255. alpha:1]
 
+//注意事项 浅红色
+#define ColorForNotice [UIColor colorWithRed:255 / 255. green:142 / 255. blue:142 / 255. alpha:1]
+
 //深度任务列表
 #define KdeepTaskList [NSString stringWithFormat:@"%@DepthTask.html", HostUrl]
 

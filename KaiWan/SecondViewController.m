@@ -220,7 +220,7 @@
     [[NSNotificationCenter defaultCenter] postNotification:notice];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //-98=无状态,0=点击（已领取），1 = 已完成 ，4 = 等待审核
+    //-98=无状态,0=点击（已领取），1 = 已完成 ，4 = 等待审核 5 = 审核未通过
     //好评任务50,高额任务51,深度任务55,限时任务 7
     
     /*  dic里包含的数据;
@@ -244,8 +244,8 @@
     NSDictionary *dic = self.dataArr[0][indexPath.row];
     NSString *tid = [NSString creatWithId:dic[@"tid"]];
     NSString *status = [NSString creatWithId:dic[@"status"]];
-    //1 = 已完成 ，4 = 等待审核 不会跳转详情页
-    if (status.intValue==4||status.intValue==1) {
+    //1 = 已完成 ，4 = 等待审核 5 = 审核未通过 不会跳转详情页
+    if (status.intValue==4||status.intValue==1||status.intValue==5) {
         return;
     }
     
@@ -296,15 +296,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

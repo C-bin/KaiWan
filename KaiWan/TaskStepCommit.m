@@ -41,7 +41,7 @@ static CGFloat sampleImageViewWidth;
         self.noticeLabel.text = @"* 请严格按照规则提交截图，如有问题，请联系官方客服解决。";
         self.noticeLabel.font = [UIFont systemFontOfSize:WidthScale(13)];
         self.noticeLabel.adjustsFontSizeToFitWidth = YES;
-        self.noticeLabel.textColor = [UIColor redColor];
+        self.noticeLabel.textColor = ColorForNotice;
         
         [self addSubview:self.noticeLabel];
         [self addSubview:self.commitButton];

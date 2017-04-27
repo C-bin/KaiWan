@@ -51,7 +51,7 @@
         
         UILabel *noticeLabel = [[UILabel alloc] initWithFrame:CGRectMake(WidthScale(10), CGRectGetMaxY(self.commitButton.frame), self.frame.size.width - WidthScale(30), HeightScale(30))];
         noticeLabel.text = @"* 请严格按照规则提交截图，如有问题，请联系官方客服解决。";
-        noticeLabel.textColor = COLOR_RGB(255, 142, 142, 1);
+        noticeLabel.textColor = ColorForNotice;
         noticeLabel.font = [UIFont systemFontOfSize:WidthScale(12)];
         noticeLabel.adjustsFontSizeToFitWidth = YES;
         
