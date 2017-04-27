@@ -89,7 +89,7 @@
         make.height.equalTo(HeightScale(108));
     }];
     
-    UIButton *btn = [UIButton creatButtonWithTitle:@"晒出成绩单" andBgColor:SF_COLOR(28, 108, 229) andTextColor:SF_COLOR(255, 255, 255) andtitleFont:23];
+    UIButton *btn = [UIButton creatButtonWithTitle:@"分享好友收徒" andBgColor:SF_COLOR(28, 108, 229) andTextColor:SF_COLOR(255, 255, 255) andtitleFont:23];
     [btn addTarget:self action:@selector(shareClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     btn.layer.cornerRadius = 10;

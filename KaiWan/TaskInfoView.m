@@ -26,6 +26,8 @@
         self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WidthScale(12), HeightScale(15), WidthScale(50), WidthScale(50))];
         self.iconImageView.layer.cornerRadius = WidthScale(8);
         self.iconImageView.layer.masksToBounds = YES;
+        self.iconImageView.layer.borderWidth = 0.5;
+        self.iconImageView.layer.borderColor = COLOR_RGB(229, 229, 229, 1).CGColor;
         
         [self addSubview:self.iconImageView];
         

@@ -26,6 +26,8 @@
     
     self.icon = [[UIImageView alloc]init];
     [self.contentView addSubview:self.icon];
+    self.icon.layer.cornerRadius = 5;
+    self.icon.clipsToBounds = YES;
     [self.icon makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
         make.left.equalTo([UIView setWidth:12]);
@@ -86,7 +88,11 @@
     
     [self.icon sd_setImageWithURL:[NSURL URLWithString:model.img]];
     self.typeLabel.text = model.type_name;
-    self.moneyLabel.text = [NSString stringWithFormat:@"+%@元",model.money];
+    
+    
+    NSMutableAttributedString *mstr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"+%@元",model.money]];
+    [mstr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:NSMakeRange(1, model.money.length)];
+    self.moneyLabel.attributedText = mstr;
     self.titlelabel.text = model.info;
     long long time=[[NSString creatWithId:model.timec ]longLongValue];
     NSDate *d = [[NSDate alloc]initWithTimeIntervalSince1970:time];
