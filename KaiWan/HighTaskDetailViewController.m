@@ -87,7 +87,7 @@ printViewControllerDealloc
     [scrollView addSubview:self.infoView];
     
     NSArray *tutorImgArr = [self.dataDic[@"tutorial_map"] componentsSeparatedByString:@","];
-    self.stepTutor = [[TaskStepTutor alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(18), SWIDTH - WidthScale(30), HeightScale(60) + ((SWIDTH - WidthScale(60)) / 3 + WidthScale(10)) * tutorImgArr.count / 3 + HeightScale(160))];
+    self.stepTutor = [[TaskStepTutor alloc] initWithFrame:CGRectMake(WidthScale(15), CGRectGetMaxY(self.infoView.frame) + HeightScale(18), SWIDTH - WidthScale(30), HeightScale(60)+ HeightScale(80) + ((SWIDTH - WidthScale(60)) / 3 + WidthScale(10)) * (tutorImgArr.count / 3 + ((tutorImgArr.count % 3) ? 1 : 0)))];
     self.stepTutor.tutorImgArr = tutorImgArr;
     [self.stepTutor.startButton addTarget:self action:@selector(startButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:self.stepTutor];
@@ -229,6 +229,7 @@ printViewControllerDealloc
             
         }]];
         [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        self.mobileNumber = @"";
         [self presentViewController:alert animated:YES completion:nil];
     } else {
         [self.navigationController pushViewController:self.highTaskWebVC animated:YES];

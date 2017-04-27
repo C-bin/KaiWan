@@ -21,6 +21,7 @@
 #import <AdSupport/ASIdentifierManager.h>
 #import "BangDViewController.h"
 #import "TaskListViewController.h"
+#import "OnePieceViewController.h"
 
 
 @interface FirstViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -328,10 +329,8 @@
         case 5:
             //一元夺宝
         {
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            hud.mode = MBProgressHUDModeText;
-            hud.label.text  = @"暂未开启，敬请期待";
-            [hud hideAnimated:YES afterDelay:2.0f];
+            OnePieceViewController *onePieceVC = [[OnePieceViewController alloc] init];
+            [self.navigationController pushViewController:onePieceVC animated:YES];
         }
             
             break;

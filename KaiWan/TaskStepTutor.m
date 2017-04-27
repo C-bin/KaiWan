@@ -68,7 +68,7 @@ static CGFloat tutorImageViewWidth;
         [self addSubview:imageView];
     }
     
-    self.startButton.frame = CGRectMake(WidthScale(10), HeightScale(70) + (tutorImageViewWidth + HeightScale(10)) * _tutorImgArr.count / 2, self.frame.size.width - WidthScale(20), HeightScale(36));
+    self.startButton.frame = CGRectMake(WidthScale(10), HeightScale(70) + (tutorImageViewWidth + HeightScale(10)) * (_tutorImgArr.count / 3 + ((_tutorImgArr.count % 3) ? 1 : 0)), self.frame.size.width - WidthScale(20), HeightScale(36));
     
     self.noticeLabel.frame = CGRectMake(WidthScale(10), CGRectGetMaxY(self.startButton.frame), self.frame.size.width - WidthScale(20), HeightScale(30));
 
