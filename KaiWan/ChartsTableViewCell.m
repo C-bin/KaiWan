@@ -76,6 +76,10 @@
         make.right.equalTo(-[UIView setWidth:12]);
         make.centerY.equalTo(self.contentView);
     }];
+    
+    UILabel *linelabel = [[UILabel alloc]initWithFrame:[UIView setRectWithX:0 andY:87 andWidth:375 andHeight:1]];
+    linelabel.backgroundColor = SF_COLOR(232, 232, 232);
+    [self.contentView addSubview:linelabel];
 }
 - (void)reloadWithIndex:(NSIndexPath *)index {
     if (index.row<3) {
