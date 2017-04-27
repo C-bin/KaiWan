@@ -46,11 +46,7 @@
     self.titlestring = @"任务详情";
     [self setNavigationBar];
     [self requestDataWithType:_type];
-    
-    
-    //app从后台变为活跃状态，执行观察者方法
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecameActive) name:UIApplicationDidBecomeActiveNotification object:nil];
-    
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -78,9 +74,8 @@
 
 #pragma mark - 创建UI
 - (void)createUI{
-    
-//    _leftTime = [self.dataDic[@"action_time"] integerValue];
-    _leftTime = 40;
+
+    _leftTime = 50;
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT - 64)];
     scrollView.showsVerticalScrollIndicator = NO;
@@ -88,7 +83,6 @@
     [self.view addSubview:scrollView];
     
     
-//    [self.dataDic addEntriesFromDictionary:@{@"description": self.dataDic[@"guide"]}];
     self.infoView = [[TaskInfoView alloc] initWithFrame:CGRectMake(0, 0, SWIDTH, 0)];
     self.infoView.dataDic = self.dataDic;
     [scrollView addSubview:self.infoView];
@@ -215,8 +209,8 @@
         self.infoView.timeLabel.attributedText = firstStr;
         
     } else {//倒计时结束
-        [_timer invalidate];
-        _timer = nil;
+        [_timer1 invalidate];
+        _timer1 = nil;
         
         [self cancelTaskWithType:_type];
     }
@@ -234,16 +228,9 @@
     
 }
 
-- (void)didBecameActive{
-    if (![_timer isValid]) {
-        //计时器没有开始 则打开app
-        [self openApp];
-    }
-}
-
 - (void)timerMethod{
     if (_leftTime == 0) { //倒计时到0
-        self.timeLimited.receiveButton.backgroundColor = COLOR_RGB(24, 82, 222, 1);
+        self.timeLimited.receiveButton.backgroundColor = BGColorForButton;
         
         if ([_timer isValid]) {
             [_timer invalidate];
