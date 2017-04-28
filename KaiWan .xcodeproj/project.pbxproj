@@ -1940,7 +1940,7 @@
 				TargetAttributes = {
 					522143801E67BD4300C030CD = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SN2FMX9PSB;
+						DevelopmentTeam = D48WHMC6QR;
 						ProvisioningStyle = Manual;
 					};
 					522143991E67BD4300C030CD = {
@@ -2456,8 +2456,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: shi weibo (MWQFSMUFD8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SN2FMX9PSB;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = D48WHMC6QR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2478,10 +2478,10 @@
 					"$(PROJECT_DIR)/KaiWan/UMSocial/UMSocialSDKPlugin",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bovqi.kaiwan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boveqi.kaiwan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "eb0a0ff2-00b8-42cd-8269-4385ffbde116";
-				PROVISIONING_PROFILE_SPECIFIER = kaiwanyuansheng;
+				PROVISIONING_PROFILE = "e45f0041-77b9-4327-976a-2e4401ec3a9e";
+				PROVISIONING_PROFILE_SPECIFIER = KaiwanDisProfile;
 			};
 			name = Debug;
 		};
@@ -2490,8 +2490,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: shi weibo (MWQFSMUFD8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SN2FMX9PSB;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = D48WHMC6QR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2512,10 +2512,10 @@
 					"$(PROJECT_DIR)/KaiWan/UMSocial/UMSocialSDKPlugin",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bovqi.kaiwan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boveqi.kaiwan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "eb0a0ff2-00b8-42cd-8269-4385ffbde116";
-				PROVISIONING_PROFILE_SPECIFIER = kaiwanyuansheng;
+				PROVISIONING_PROFILE = "e45f0041-77b9-4327-976a-2e4401ec3a9e";
+				PROVISIONING_PROFILE_SPECIFIER = KaiwanDisProfile;
 			};
 			name = Release;
 		};

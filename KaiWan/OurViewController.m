@@ -86,6 +86,7 @@
     }];
     
     label.numberOfLines = 0;
+
     label2.numberOfLines = 0;
     label3.numberOfLines = 0;
 }
