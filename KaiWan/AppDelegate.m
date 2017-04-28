@@ -200,6 +200,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 
+
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://api.ikaiwan.com/Config.html"]];
         
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -218,7 +219,6 @@
             }
             
         }
-    
 
 }
 

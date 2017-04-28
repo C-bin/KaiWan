@@ -60,7 +60,7 @@
     }];
     
     UILabel *label2 = [UILabel creatLabelWithFont:15 andbgcolor:nil andtextColor:SF_COLOR(102, 102, 102) andAligment:0];
-    label2.text = @"      1，APP试玩：每个试玩奖励1-3元不等。\n      2，邀请奖励：邀请一个好友，最多可得5元奖励。\n      3，活动收入：平台会定期举办各种各样的活动，活动期间不仅有丰厚的试玩收益，还有大量现金大奖等你来拿。\n      4，其他：一元夺宝、签到赚钱等让你在任务之余也能轻松赚钱";
+    label2.text = @"      1.APP试玩：每个试玩奖励1-3元不等。\n      2.邀请奖励：邀请一个好友，最多可得5元奖励。\n      3.活动收入：平台会定期举办各种各样的活动，活动期间不仅有丰厚的试玩收益，还有大量现金大奖等你来拿。\n      4.其他：一元夺宝、签到赚钱等让你在任务之余也能轻松赚钱";
     [self.view addSubview:label2];
     [label2 makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(title2.bottom).offset(HeightScale(3));

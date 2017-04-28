@@ -54,7 +54,7 @@
     disNumlabel = [UILabel creatLabelWithFont:13 andbgcolor:nil andtextColor:SF_COLOR(232, 132, 132) andAligment:0];
     [self.contentView addSubview:disNumlabel];
     disNumlabel.text = @"累计收徒:7";
-    moneyLabel = [UILabel creatLabelWithFont:24 andbgcolor:nil andtextColor:SF_COLOR(28, 108, 229) andAligment:NSTextAlignmentRight];
+    moneyLabel = [UILabel creatLabelWithFont:24 andbgcolor:nil andtextColor:SF_COLOR(28, 108, 229) andAligment:NSTextAlignmentCenter];
     [self.contentView addSubview:moneyLabel];
     
     [headicon makeConstraints:^(MASConstraintMaker *make) {
@@ -73,8 +73,9 @@
 
     }];
     [moneyLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(-[UIView setWidth:17]);
+        make.centerX.equalTo(self.contentView.right).offset(-WidthScale(93.75));
         make.centerY.equalTo(self.contentView);
+        make.width.equalTo(WidthScale(150));
     }];
     
     UILabel *linelabel = [[UILabel alloc]initWithFrame:[UIView setRectWithX:0 andY:87 andWidth:375 andHeight:1]];
