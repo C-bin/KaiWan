@@ -48,10 +48,10 @@
         NSDictionary *dic = (NSDictionary *)response;
         NSDictionary *dica = dic[@"data"];
         self.todayDisciplelabel.text = [NSString stringWithFormat:@"今日收徒：%@",[NSString creatWithId:dica[@"tsons"]]];
-        self.todayEffectiveDis.text = [NSString stringWithFormat:@"今日有效收徒：%@",[NSString creatWithId:dica[@"invite_day_count_e"]]];
-        self.totalDIsciplelabel.text = [NSString stringWithFormat:@"累计收徒：%@",[NSString creatWithId:dica[@"invite_all_count"]]];
+        self.todayEffectiveDis.text = [NSString stringWithFormat:@"今日收益：%@",[NSString creatWithId:dica[@"invite_day_count_e"]]];
+        self.totalDIsciplelabel.text = [NSString stringWithFormat:@"累计收徒：%@",[NSString creatWithId:dica[@"invite_money_day_sum"]]];
         self.totalMoney.text = [NSString stringWithFormat:@"累计奖励：%@",[NSString creatWithId:dica[@"invite_money_sum"]]];
-        self.moneyLabel.text = [NSString creatWithId:dica[@"invite_money_day_sum"]];
+        self.moneyLabel.text = [NSString creatWithId:dica[@"invite_money_sum"]];
         
     } fail:^(NSError *error) {
         NSLog(@"%@",error);
@@ -86,12 +86,12 @@
     [returnBtn1 addTarget:self action:@selector(showview) forControlEvents:UIControlEventTouchUpInside];
     
     self.moneyLabel = [UILabel creatLabelWithFont:48 andbgcolor:nil andtextColor:[UIColor whiteColor] andAligment:NSTextAlignmentCenter];
-    self.moneyLabel.text = @"21.00";
+//    self.moneyLabel.text = @"21.00";
     [headview addSubview:self.moneyLabel];
     
     UILabel *label = [UILabel creatLabelWithFont:12 andbgcolor:nil andtextColor:SF_COLOR(215, 231, 255) andAligment:1];
     [headview addSubview:label];
-    label.text = @"今日徒弟收益(元)";
+    label.text = @"收徒累积收益(元)";
     
     self.todayDisciplelabel = [UILabel creatLabelWithFont:14 andbgcolor:nil andtextColor:SF_COLOR(215, 231, 255) andAligment:0];
     [headview addSubview:self.todayDisciplelabel];

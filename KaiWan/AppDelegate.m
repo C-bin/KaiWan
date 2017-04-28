@@ -83,7 +83,7 @@
     /* 设置分享到QQ互联的appID
      */
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1105840863"/*设置QQ平台的appID*/  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
-
+    
 }
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
@@ -151,7 +151,13 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    
     if (![self.idfa isEqualToString:idfa]) {
+        MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.window.rootViewController.view animated:YES];
+        hub.label.text = @"您的IDFA发生改变，请重新登录，如有疑问请联系客服";
+        hub.mode = MBProgressHUDModeText;
+        [hub hideAnimated:YES afterDelay:1.5f];
+        
         self.idfa = idfa;
         self.window.rootViewController = [[BangDViewController alloc]init];
     }
