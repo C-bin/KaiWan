@@ -6,6 +6,25 @@
 //  Copyright © 2017年 chenguang. All rights reserved.
 //
 
+//
+//
+//#import <Availability.h>
+//
+//#ifndef __IPHONE_3_0
+//#warning "This project uses features only available in iOS SDK 3.0 and later."
+//#endif
+//
+//#ifdef __OBJC__
+//#import <UIKit/UIKit.h>
+//#import <Foundation/Foundation.h>
+//#import <SpriteKit/SpriteKit.h>
+//#import <AVFoundation/AVFoundation.h>
+//#import <GameKit/GameKit.h>
+//#import "EAUtils.h"
+//#endif
+
+
+
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 

@@ -203,9 +203,20 @@ printViewControllerDealloc
     UILabel *nameLabel = (UILabel *)longPress.view;
     pasteboard.string = nameLabel.text;
     
-    NSString *str = @"https://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?media=software";
-                     
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"已复制到剪贴板，是否打开App Store去下载?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSString *str = @"https://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?media=software";
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    }];
+    
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:action1];
+    [alert addAction:action2];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
 }
 
 - (void)tap:(UITapGestureRecognizer *)tap{
