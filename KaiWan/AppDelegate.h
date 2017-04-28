@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EAGameViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -18,6 +19,12 @@
 @property (nonatomic, strong)NSString *wxUid;
 @property (nonatomic, strong)NSString *idfa;
 @property (nonatomic, assign)NSInteger tmpVCIndex;
+
+
+@property (nonatomic, strong) EAGameViewController *gameViewController;
+
+
+
 - (void)pushMainTabview;
 @end
 
