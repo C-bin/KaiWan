@@ -37,13 +37,26 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+/**
+ 设置rootViewController为壳子
+ */
+- (void)setRootViewControllerWithShell{
     
+    self.gameViewController = [[EAGameViewController alloc] init];
+    self.window.rootViewController = self.gameViewController;
+    [self.window makeKeyAndVisible];
+}
 
+
+/**
+ 设置rootViewController为开玩
+ */
+- (void)setRootViewControllerWithKaiWan{
+    
+    //开玩
+    
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
     [self  initShare];
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     NSString *str1 = [user valueForKey:@"userid"];
@@ -54,8 +67,6 @@
         self.nickName = [user valueForKey:@"username"];
         self.idfa = [user valueForKey:@"idfa"];
         self.window.rootViewController = [self creatRootController];
-        
-        
     }else {
         
         self.window.rootViewController = [[BangDViewController alloc]init];
@@ -63,16 +74,54 @@
     }
     
     [self.window makeKeyAndVisible];
+    
+}
 
-    
-    
 
+/**
+ 设置rootViewController为一个等待视图
+ */
+- (void)setHoldOnViewController{
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
     
+    UIViewController *VC = [[UIViewController alloc] init];
     
+    UIActivityIndicatorView *testActivityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    testActivityIndicator.center = VC.view.center;//只能设置中心，不能设置大小
+    [testActivityIndicator startAnimating];
+    [testActivityIndicator setHidesWhenStopped:YES];
+    [VC.view addSubview:testActivityIndicator];
+    
+    self.window.rootViewController = VC;
+    [self.window makeKeyAndVisible];
+}
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [self setHoldOnViewController];
+    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"isKaiWan"] intValue] == 1) {
+        [self setRootViewControllerWithKaiWan];
+    } else {
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://api.ikaiwan.com/Config.html"]];
+        
+        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        DLog(@"%@", dataDic);
+        
+        if ([dataDic[@"code"] intValue] == 1) {
+            [self setRootViewControllerWithShell];
+            [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"isKaiWan"];
+        } else {
+            [self setRootViewControllerWithKaiWan];
+        }
+    }
+    
+   
     return YES;
 }
 - (void)pushMainTabview {
-        self.window.rootViewController = [self creatRootController];
+    self.window.rootViewController = [self creatRootController];
     [self.window makeKeyAndVisible];
 }
 - (void)initShare {
@@ -150,19 +199,28 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-    
-    if (![self.idfa isEqualToString:idfa]) {
-        MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.window.rootViewController.view animated:YES];
-        hub.label.text = @"您的IDFA发生改变，请重新登录，如有疑问请联系客服";
-        hub.mode = MBProgressHUDModeText;
-        [hub hideAnimated:YES afterDelay:1.5f];
+
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://api.ikaiwan.com/Config.html"]];
         
-        self.idfa = idfa;
-        self.window.rootViewController = [[BangDViewController alloc]init];
-    }
+        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        DLog(@"%@", dataDic);
+        
+        if ([dataDic[@"code"] intValue] != 1) {
+            
+            NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+            if (![self.idfa isEqualToString:idfa]) {
+                MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.window.rootViewController.view animated:YES];
+                hub.label.text = @"您的IDFA发生改变，请重新登录，如有疑问请联系客服";
+                hub.mode = MBProgressHUDModeText;
+                [hub hideAnimated:YES afterDelay:1.5f];
+                self.idfa = idfa;
+                self.window.rootViewController = [[BangDViewController alloc]init];
+            }
+            
+        }
     
-    }
+
+}
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];

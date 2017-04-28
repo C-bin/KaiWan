@@ -29,6 +29,40 @@
 		4A16A1FC1EA060D900A3F433 /* DeepTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1F61EA060D900A3F433 /* DeepTaskDetailViewController.m */; };
 		4A16A1FD1EA060D900A3F433 /* HighTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1F81EA060D900A3F433 /* HighTaskDetailViewController.m */; };
 		4A16A1FE1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16A1FA1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m */; };
+		4A26C7751EB2DCD500445CA1 /* EAGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C7491EB2DCD500445CA1 /* EAGameViewController.m */; };
+		4A26C7761EB2DCD500445CA1 /* EAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C74B1EB2DCD500445CA1 /* EAAppDelegate.m */; };
+		4A26C7771EB2DCD500445CA1 /* EAGameCenterProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C74E1EB2DCD500445CA1 /* EAGameCenterProvider.m */; };
+		4A26C7781EB2DCD500445CA1 /* EAScoresStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C7501EB2DCD500445CA1 /* EAScoresStoreManager.m */; };
+		4A26C7791EB2DCD500445CA1 /* EAUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C7521EB2DCD500445CA1 /* EAUtils.m */; };
+		4A26C77A1EB2DCD500445CA1 /* EKMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C7541EB2DCD500445CA1 /* EKMusicPlayer.m */; };
+		4A26C77B1EB2DCD500445CA1 /* EABaseGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C7571EB2DCD500445CA1 /* EABaseGameScene.m */; };
+		4A26C77C1EB2DCD500445CA1 /* EAMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C7591EB2DCD500445CA1 /* EAMenuScene.m */; };
+		4A26C77D1EB2DCD500445CA1 /* EARocketGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C75B1EB2DCD500445CA1 /* EARocketGameScene.m */; };
+		4A26C77E1EB2DCD500445CA1 /* EAUFOGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C75D1EB2DCD500445CA1 /* EAUFOGameScene.m */; };
+		4A26C77F1EB2DCD500445CA1 /* EAHero.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C7601EB2DCD500445CA1 /* EAHero.m */; };
+		4A26C7801EB2DCD500445CA1 /* EAObstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C7621EB2DCD500445CA1 /* EAObstacle.m */; };
+		4A26C7811EB2DCD500445CA1 /* EAScrollingSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26C7641EB2DCD500445CA1 /* EAScrollingSprite.m */; };
+		4A26C7821EB2DCD500445CA1 /* DEBUG_settings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C7661EB2DCD500445CA1 /* DEBUG_settings.xcconfig */; };
+		4A26C7831EB2DCD500445CA1 /* RELEASE_settings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C7671EB2DCD500445CA1 /* RELEASE_settings.xcconfig */; };
+		4A26C7841EB2DCD500445CA1 /* Bonus.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C7691EB2DCD500445CA1 /* Bonus.wav */; };
+		4A26C7851EB2DCD500445CA1 /* CityFlightSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C76A1EB2DCD500445CA1 /* CityFlightSound.mp3 */; };
+		4A26C7861EB2DCD500445CA1 /* crash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C76B1EB2DCD500445CA1 /* crash.wav */; };
+		4A26C7871EB2DCD500445CA1 /* Download_on_the_App_Store_Badge_US-UK_135x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C76C1EB2DCD500445CA1 /* Download_on_the_App_Store_Badge_US-UK_135x40.png */; };
+		4A26C7881EB2DCD500445CA1 /* Jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C76D1EB2DCD500445CA1 /* Jump.wav */; };
+		4A26C7891EB2DCD500445CA1 /* MenuSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C76E1EB2DCD500445CA1 /* MenuSound.mp3 */; };
+		4A26C78A1EB2DCD500445CA1 /* PressStart2P.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C76F1EB2DCD500445CA1 /* PressStart2P.ttf */; };
+		4A26C78B1EB2DCD500445CA1 /* Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C7701EB2DCD500445CA1 /* Screen.png */; };
+		4A26C78C1EB2DCD500445CA1 /* Screen2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C7711EB2DCD500445CA1 /* Screen2.png */; };
+		4A26C78D1EB2DCD500445CA1 /* SpaceFlightSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C7721EB2DCD500445CA1 /* SpaceFlightSound.mp3 */; };
+		4A26C78E1EB2DCD500445CA1 /* tick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C7731EB2DCD500445CA1 /* tick.mp3 */; };
+		4A26C7901EB2F3C100445CA1 /* ScaryFlight-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C78F1EB2F3C100445CA1 /* ScaryFlight-Info.plist */; };
+		4A26C7921EB2F68800445CA1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A26C7911EB2F68800445CA1 /* Security.framework */; };
+		4A26C7941EB2F69100445CA1 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A26C7931EB2F69100445CA1 /* GameKit.framework */; };
+		4A26C7961EB2F69B00445CA1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A26C7951EB2F69B00445CA1 /* AVFoundation.framework */; };
+		4A26C7981EB2F6A500445CA1 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A26C7971EB2F6A500445CA1 /* SpriteKit.framework */; };
+		4A26C79C1EB2F6B900445CA1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A26C79B1EB2F6B900445CA1 /* UIKit.framework */; };
+		4A26C79E1EB2F6CA00445CA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A26C79D1EB2F6CA00445CA1 /* Foundation.framework */; };
+		4A26C7A01EB3104300445CA1 /* 1242*2208.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A26C79F1EB3104300445CA1 /* 1242*2208.png */; };
 		4A385D3C1EA701670019FB66 /* HighTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D3B1EA701670019FB66 /* HighTaskModel.m */; };
 		4A385D3F1EA72E470019FB66 /* HighTaskWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D3E1EA72E470019FB66 /* HighTaskWebViewController.m */; };
 		4A385D431EA8B4720019FB66 /* XWScanImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A385D421EA8B4720019FB66 /* XWScanImage.m */; };
@@ -382,6 +416,56 @@
 		4A16A1F81EA060D900A3F433 /* HighTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighTaskDetailViewController.m; sourceTree = "<group>"; };
 		4A16A1F91EA060D900A3F433 /* TimeLimitedTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLimitedTaskDetailViewController.h; sourceTree = "<group>"; };
 		4A16A1FA1EA060D900A3F433 /* TimeLimitedTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLimitedTaskDetailViewController.m; sourceTree = "<group>"; };
+		4A26C7481EB2DCD500445CA1 /* EAGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGameViewController.h; sourceTree = "<group>"; };
+		4A26C7491EB2DCD500445CA1 /* EAGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGameViewController.m; sourceTree = "<group>"; };
+		4A26C74A1EB2DCD500445CA1 /* EAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAAppDelegate.h; sourceTree = "<group>"; };
+		4A26C74B1EB2DCD500445CA1 /* EAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAppDelegate.m; sourceTree = "<group>"; };
+		4A26C74D1EB2DCD500445CA1 /* EAGameCenterProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGameCenterProvider.h; sourceTree = "<group>"; };
+		4A26C74E1EB2DCD500445CA1 /* EAGameCenterProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGameCenterProvider.m; sourceTree = "<group>"; };
+		4A26C74F1EB2DCD500445CA1 /* EAScoresStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAScoresStoreManager.h; sourceTree = "<group>"; };
+		4A26C7501EB2DCD500445CA1 /* EAScoresStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAScoresStoreManager.m; sourceTree = "<group>"; };
+		4A26C7511EB2DCD500445CA1 /* EAUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUtils.h; sourceTree = "<group>"; };
+		4A26C7521EB2DCD500445CA1 /* EAUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUtils.m; sourceTree = "<group>"; };
+		4A26C7531EB2DCD500445CA1 /* EKMusicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKMusicPlayer.h; sourceTree = "<group>"; };
+		4A26C7541EB2DCD500445CA1 /* EKMusicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKMusicPlayer.m; sourceTree = "<group>"; };
+		4A26C7561EB2DCD500445CA1 /* EABaseGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EABaseGameScene.h; sourceTree = "<group>"; };
+		4A26C7571EB2DCD500445CA1 /* EABaseGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EABaseGameScene.m; sourceTree = "<group>"; };
+		4A26C7581EB2DCD500445CA1 /* EAMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMenuScene.h; sourceTree = "<group>"; };
+		4A26C7591EB2DCD500445CA1 /* EAMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMenuScene.m; sourceTree = "<group>"; };
+		4A26C75A1EB2DCD500445CA1 /* EARocketGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EARocketGameScene.h; sourceTree = "<group>"; };
+		4A26C75B1EB2DCD500445CA1 /* EARocketGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EARocketGameScene.m; sourceTree = "<group>"; };
+		4A26C75C1EB2DCD500445CA1 /* EAUFOGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUFOGameScene.h; sourceTree = "<group>"; };
+		4A26C75D1EB2DCD500445CA1 /* EAUFOGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUFOGameScene.m; sourceTree = "<group>"; };
+		4A26C75F1EB2DCD500445CA1 /* EAHero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAHero.h; sourceTree = "<group>"; };
+		4A26C7601EB2DCD500445CA1 /* EAHero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAHero.m; sourceTree = "<group>"; };
+		4A26C7611EB2DCD500445CA1 /* EAObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAObstacle.h; sourceTree = "<group>"; };
+		4A26C7621EB2DCD500445CA1 /* EAObstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAObstacle.m; sourceTree = "<group>"; };
+		4A26C7631EB2DCD500445CA1 /* EAScrollingSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAScrollingSprite.h; sourceTree = "<group>"; };
+		4A26C7641EB2DCD500445CA1 /* EAScrollingSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAScrollingSprite.m; sourceTree = "<group>"; };
+		4A26C7651EB2DCD500445CA1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4A26C7661EB2DCD500445CA1 /* DEBUG_settings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DEBUG_settings.xcconfig; sourceTree = "<group>"; };
+		4A26C7671EB2DCD500445CA1 /* RELEASE_settings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = RELEASE_settings.xcconfig; sourceTree = "<group>"; };
+		4A26C7691EB2DCD500445CA1 /* Bonus.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Bonus.wav; sourceTree = "<group>"; };
+		4A26C76A1EB2DCD500445CA1 /* CityFlightSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CityFlightSound.mp3; sourceTree = "<group>"; };
+		4A26C76B1EB2DCD500445CA1 /* crash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = crash.wav; sourceTree = "<group>"; };
+		4A26C76C1EB2DCD500445CA1 /* Download_on_the_App_Store_Badge_US-UK_135x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Download_on_the_App_Store_Badge_US-UK_135x40.png"; sourceTree = "<group>"; };
+		4A26C76D1EB2DCD500445CA1 /* Jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Jump.wav; sourceTree = "<group>"; };
+		4A26C76E1EB2DCD500445CA1 /* MenuSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MenuSound.mp3; sourceTree = "<group>"; };
+		4A26C76F1EB2DCD500445CA1 /* PressStart2P.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PressStart2P.ttf; sourceTree = "<group>"; };
+		4A26C7701EB2DCD500445CA1 /* Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screen.png; sourceTree = "<group>"; };
+		4A26C7711EB2DCD500445CA1 /* Screen2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screen2.png; sourceTree = "<group>"; };
+		4A26C7721EB2DCD500445CA1 /* SpaceFlightSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SpaceFlightSound.mp3; sourceTree = "<group>"; };
+		4A26C7731EB2DCD500445CA1 /* tick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tick.mp3; sourceTree = "<group>"; };
+		4A26C7741EB2DCD500445CA1 /* ScaryFlight-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ScaryFlight-Prefix.pch"; sourceTree = "<group>"; };
+		4A26C78F1EB2F3C100445CA1 /* ScaryFlight-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ScaryFlight-Info.plist"; sourceTree = "<group>"; };
+		4A26C7911EB2F68800445CA1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4A26C7931EB2F69100445CA1 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		4A26C7951EB2F69B00445CA1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4A26C7971EB2F6A500445CA1 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		4A26C7991EB2F6B000445CA1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4A26C79B1EB2F6B900445CA1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4A26C79D1EB2F6CA00445CA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4A26C79F1EB3104300445CA1 /* 1242*2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1242*2208.png"; sourceTree = "<group>"; };
 		4A385D3A1EA701670019FB66 /* HighTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighTaskModel.h; sourceTree = "<group>"; };
 		4A385D3B1EA701670019FB66 /* HighTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighTaskModel.m; sourceTree = "<group>"; };
 		4A385D3D1EA72E470019FB66 /* HighTaskWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighTaskWebViewController.h; sourceTree = "<group>"; };
@@ -820,6 +904,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A26C79E1EB2F6CA00445CA1 /* Foundation.framework in Frameworks */,
+				4A26C79C1EB2F6B900445CA1 /* UIKit.framework in Frameworks */,
+				4A26C7981EB2F6A500445CA1 /* SpriteKit.framework in Frameworks */,
+				4A26C7961EB2F69B00445CA1 /* AVFoundation.framework in Frameworks */,
+				4A26C7941EB2F69100445CA1 /* GameKit.framework in Frameworks */,
+				4A26C7921EB2F68800445CA1 /* Security.framework in Frameworks */,
 				524AB7301EAEE39500AB220A /* libz.tbd in Frameworks */,
 				524AB78A1EAEE78D00AB220A /* UMSocialNetwork.framework in Frameworks */,
 				524AB7851EAEE78D00AB220A /* libSocialUniqueId.a in Frameworks */,
@@ -920,6 +1010,103 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		4A26C7451EB2DCD500445CA1 /* 壳子 */ = {
+			isa = PBXGroup;
+			children = (
+				4A26C7461EB2DCD500445CA1 /* Classes */,
+				4A26C7651EB2DCD500445CA1 /* Constants.h */,
+				4A26C7661EB2DCD500445CA1 /* DEBUG_settings.xcconfig */,
+				4A26C7671EB2DCD500445CA1 /* RELEASE_settings.xcconfig */,
+				4A26C7681EB2DCD500445CA1 /* Resources */,
+				4A26C7741EB2DCD500445CA1 /* ScaryFlight-Prefix.pch */,
+				4A26C78F1EB2F3C100445CA1 /* ScaryFlight-Info.plist */,
+			);
+			path = "壳子";
+			sourceTree = "<group>";
+		};
+		4A26C7461EB2DCD500445CA1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4A26C7471EB2DCD500445CA1 /* Controllers */,
+				4A26C74A1EB2DCD500445CA1 /* EAAppDelegate.h */,
+				4A26C74B1EB2DCD500445CA1 /* EAAppDelegate.m */,
+				4A26C74C1EB2DCD500445CA1 /* Helpers */,
+				4A26C7551EB2DCD500445CA1 /* Scenes */,
+				4A26C75E1EB2DCD500445CA1 /* Sprites */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4A26C7471EB2DCD500445CA1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4A26C7481EB2DCD500445CA1 /* EAGameViewController.h */,
+				4A26C7491EB2DCD500445CA1 /* EAGameViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4A26C74C1EB2DCD500445CA1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4A26C74D1EB2DCD500445CA1 /* EAGameCenterProvider.h */,
+				4A26C74E1EB2DCD500445CA1 /* EAGameCenterProvider.m */,
+				4A26C74F1EB2DCD500445CA1 /* EAScoresStoreManager.h */,
+				4A26C7501EB2DCD500445CA1 /* EAScoresStoreManager.m */,
+				4A26C7511EB2DCD500445CA1 /* EAUtils.h */,
+				4A26C7521EB2DCD500445CA1 /* EAUtils.m */,
+				4A26C7531EB2DCD500445CA1 /* EKMusicPlayer.h */,
+				4A26C7541EB2DCD500445CA1 /* EKMusicPlayer.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4A26C7551EB2DCD500445CA1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				4A26C7561EB2DCD500445CA1 /* EABaseGameScene.h */,
+				4A26C7571EB2DCD500445CA1 /* EABaseGameScene.m */,
+				4A26C7581EB2DCD500445CA1 /* EAMenuScene.h */,
+				4A26C7591EB2DCD500445CA1 /* EAMenuScene.m */,
+				4A26C75A1EB2DCD500445CA1 /* EARocketGameScene.h */,
+				4A26C75B1EB2DCD500445CA1 /* EARocketGameScene.m */,
+				4A26C75C1EB2DCD500445CA1 /* EAUFOGameScene.h */,
+				4A26C75D1EB2DCD500445CA1 /* EAUFOGameScene.m */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4A26C75E1EB2DCD500445CA1 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				4A26C75F1EB2DCD500445CA1 /* EAHero.h */,
+				4A26C7601EB2DCD500445CA1 /* EAHero.m */,
+				4A26C7611EB2DCD500445CA1 /* EAObstacle.h */,
+				4A26C7621EB2DCD500445CA1 /* EAObstacle.m */,
+				4A26C7631EB2DCD500445CA1 /* EAScrollingSprite.h */,
+				4A26C7641EB2DCD500445CA1 /* EAScrollingSprite.m */,
+			);
+			path = Sprites;
+			sourceTree = "<group>";
+		};
+		4A26C7681EB2DCD500445CA1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A26C7691EB2DCD500445CA1 /* Bonus.wav */,
+				4A26C76A1EB2DCD500445CA1 /* CityFlightSound.mp3 */,
+				4A26C76B1EB2DCD500445CA1 /* crash.wav */,
+				4A26C76C1EB2DCD500445CA1 /* Download_on_the_App_Store_Badge_US-UK_135x40.png */,
+				4A26C76D1EB2DCD500445CA1 /* Jump.wav */,
+				4A26C76E1EB2DCD500445CA1 /* MenuSound.mp3 */,
+				4A26C76F1EB2DCD500445CA1 /* PressStart2P.ttf */,
+				4A26C7701EB2DCD500445CA1 /* Screen.png */,
+				4A26C7711EB2DCD500445CA1 /* Screen2.png */,
+				4A26C7721EB2DCD500445CA1 /* SpaceFlightSound.mp3 */,
+				4A26C7731EB2DCD500445CA1 /* tick.mp3 */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		4A385D401EA8B4720019FB66 /* XWScanImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -980,6 +1167,7 @@
 		522143831E67BD4300C030CD /* KaiWan */ = {
 			isa = PBXGroup;
 			children = (
+				4A26C7451EB2DCD500445CA1 /* 壳子 */,
 				522144311E67FB2500C030CD /* 首页-图标 */,
 				5221441A1E67F56D00C030CD /* ViewController */,
 				522143B71E67C38500C030CD /* Third */,
@@ -1144,6 +1332,7 @@
 		522144311E67FB2500C030CD /* 首页-图标 */ = {
 			isa = PBXGroup;
 			children = (
+				4A26C79F1EB3104300445CA1 /* 1242*2208.png */,
 				52A11DEC1EB0AF1E0010354C /* 默认头像.png */,
 				4A0DC0001EB030AE0046DCD1 /* 填写邀请码@2x.png */,
 				4A0DC0011EB030AE0046DCD1 /* 填写邀请码@3x.png */,
@@ -1795,6 +1984,13 @@
 		52D685F21EA9D9DF00A7FB5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A26C79D1EB2F6CA00445CA1 /* Foundation.framework */,
+				4A26C79B1EB2F6B900445CA1 /* UIKit.framework */,
+				4A26C7991EB2F6B000445CA1 /* XCTest.framework */,
+				4A26C7971EB2F6A500445CA1 /* SpriteKit.framework */,
+				4A26C7951EB2F69B00445CA1 /* AVFoundation.framework */,
+				4A26C7931EB2F69100445CA1 /* GameKit.framework */,
+				4A26C7911EB2F68800445CA1 /* Security.framework */,
 				524AB72F1EAEE39500AB220A /* libz.tbd */,
 				524AB72D1EAEE38800AB220A /* libc++.tbd */,
 				524AB72B1EAEE36E00AB220A /* CoreTelephony.framework */,
@@ -2045,15 +2241,19 @@
 				522144811E67FB2500C030CD /* 首页-联盟任务@3x.png in Resources */,
 				529815CE1E978A0D00451D01 /* 收徒规则@3x.png in Resources */,
 				52E13E4B1E6FE7A60047702B /* 列表-通知@3x.png in Resources */,
+				4A26C7A01EB3104300445CA1 /* 1242*2208.png in Resources */,
 				52A11DED1EB0AF1E0010354C /* 默认头像.png in Resources */,
 				522144911E68039F00C030CD /* 背景@3x.png in Resources */,
 				52B1A9461EA5BFF9009525F3 /* 礼物@3x.png in Resources */,
 				529815BB1E9766CE00451D01 /* NO.2@2x.png in Resources */,
 				522144791E67FB2500C030CD /* 首页-敬请期待@3x.png in Resources */,
 				4A0DC0091EB030AE0046DCD1 /* 填写邀请码@3x.png in Resources */,
+				4A26C7901EB2F3C100445CA1 /* ScaryFlight-Info.plist in Resources */,
+				4A26C7851EB2DCD500445CA1 /* CityFlightSound.mp3 in Resources */,
 				52E13E491E6FE7A60047702B /* 列表-夺宝背景@3x.png in Resources */,
 				52B1A94C1EA5BFF9009525F3 /* 签到按钮@3x.png in Resources */,
 				52B1A94A1EA5BFF9009525F3 /* 内转盘@3x.png in Resources */,
+				4A26C78C1EB2DCD500445CA1 /* Screen2.png in Resources */,
 				5237E3F41EA0C4EA002F1D4B /* 支付宝支付@3x.png in Resources */,
 				529815BC1E9766CE00451D01 /* NO.2@3x.png in Resources */,
 				5221445E1E67FB2500C030CD /* 我的@2x.png in Resources */,
@@ -2065,7 +2265,9 @@
 				521C93221E7FE0CA0093F1AB /* 夺宝明细@2x.png in Resources */,
 				522144721E67FB2500C030CD /* 首页-提现@2x.png in Resources */,
 				522144601E67FB2500C030CD /* 我的点@2x.png in Resources */,
+				4A26C7881EB2DCD500445CA1 /* Jump.wav in Resources */,
 				5221446C1E67FB2500C030CD /* 首页-好评任务@2x.png in Resources */,
+				4A26C78D1EB2DCD500445CA1 /* SpaceFlightSound.mp3 in Resources */,
 				52B1A9551EA5BFF9009525F3 /* go@2x.png in Resources */,
 				5221446F1E67FB2500C030CD /* 首页-快速任务@3x.png in Resources */,
 				52D006051E9DBE0500794CAE /* 用户@3x.png in Resources */,
@@ -2074,6 +2276,7 @@
 				4A0DC00B1EB030AE0046DCD1 /* 邀请码关闭@3x.png in Resources */,
 				5204E3EA1E9F837C006751CF /* 手指@2x.png in Resources */,
 				52B1A9521EA5BFF9009525F3 /* 已签到状态@3x.png in Resources */,
+				4A26C78E1EB2DCD500445CA1 /* tick.mp3 in Resources */,
 				52B1A9471EA5BFF9009525F3 /* 没签到状态@2x.png in Resources */,
 				4A0DC00A1EB030AE0046DCD1 /* 邀请码关闭@2x.png in Resources */,
 				522144681E67FB2500C030CD /* 赚钱点@2x.png in Resources */,
@@ -2083,13 +2286,16 @@
 				52B1A94D1EA5BFF9009525F3 /* 签到背景@2x.png in Resources */,
 				5204E3EB1E9F837C006751CF /* 手指@3x.png in Resources */,
 				5204E3DB1E9F70E0006751CF /* 成绩背景@3x.png in Resources */,
+				4A26C7891EB2DCD500445CA1 /* MenuSound.mp3 in Resources */,
 				5204E3E81E9F837C006751CF /* 链接背景@2x.png in Resources */,
 				522144641E67FB2500C030CD /* 收徒点@2x.png in Resources */,
 				529815CD1E978A0D00451D01 /* 收徒规则@2x.png in Resources */,
 				52B1A9711EA75951009525F3 /* 解答-展开@2x.png in Resources */,
+				4A26C78A1EB2DCD500445CA1 /* PressStart2P.ttf in Resources */,
 				52B1A9701EA75951009525F3 /* 解答-收起@3x.png in Resources */,
 				529815B41E9766CE00451D01 /* 皇冠1@3x.png in Resources */,
 				521C93251E7FE0CA0093F1AB /* 个人中心-箭头@3x.png in Resources */,
+				4A26C7871EB2DCD500445CA1 /* Download_on_the_App_Store_Badge_US-UK_135x40.png in Resources */,
 				52B1A9451EA5BFF9009525F3 /* 礼物@2x.png in Resources */,
 				522144611E67FB2500C030CD /* 我的点@3x.png in Resources */,
 				52D006041E9DBE0500794CAE /* 用户@2x.png in Resources */,
@@ -2105,6 +2311,7 @@
 				52F5E30F1E9C802800E7E7D1 /* Ikaiwan.com@2x.png in Resources */,
 				52B1A94B1EA5BFF9009525F3 /* 签到按钮@2x.png in Resources */,
 				52E13E4D1E6FE7A60047702B /* 列表-问号@3x.png in Resources */,
+				4A26C7861EB2DCD500445CA1 /* crash.wav in Resources */,
 				5237E3EF1EA0C4EA002F1D4B /* 提现方式-箭头@2x.png in Resources */,
 				524AB7881EAEE78D00AB220A /* README.txt in Resources */,
 				521C93281E7FE0CA0093F1AB /* 关于我们@2x.png in Resources */,
@@ -2117,6 +2324,7 @@
 				522144701E67FB2500C030CD /* 首页-排行榜@2x.png in Resources */,
 				52E13E481E6FE7A60047702B /* 列表-夺宝背景@2x.png in Resources */,
 				52B1A9561EA5BFF9009525F3 /* go@3x.png in Resources */,
+				4A26C78B1EB2DCD500445CA1 /* Screen.png in Resources */,
 				52E074301EB21B2A00CA97C8 /* 首页提现@2x.png in Resources */,
 				5204E3DA1E9F70E0006751CF /* 成绩背景@2x.png in Resources */,
 				5221447D1E67FB2500C030CD /* 首页-签到任务@3x.png in Resources */,
@@ -2135,16 +2343,19 @@
 				52363D641E68223500442335 /* Info.plist in Resources */,
 				524AB7841EAEE78D00AB220A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				52D006511E9F0FDF00794CAE /* MJRefresh.bundle in Resources */,
+				4A26C7831EB2DCD500445CA1 /* RELEASE_settings.xcconfig in Resources */,
 				529815BE1E9766CE00451D01 /* NO.3@3x.png in Resources */,
 				529815B71E9766CE00451D01 /* 皇冠3@2x.png in Resources */,
 				521C932B1E7FE0CA0093F1AB /* 商务合作@3x.png in Resources */,
 				522144751E67FB2500C030CD /* 首页-收徒任务@3x.png in Resources */,
+				4A26C7821EB2DCD500445CA1 /* DEBUG_settings.xcconfig in Resources */,
 				52E13E441E6FE7A60047702B /* 导航-返回@2x.png in Resources */,
 				52B1A95F1EA5FE9D009525F3 /* 123@2x.png in Resources */,
 				52E13E561E6FE7A60047702B /* 列表-已抢完@2x.png in Resources */,
 				521C932A1E7FE0CA0093F1AB /* 商务合作@2x.png in Resources */,
 				52E13E511E6FE7A60047702B /* 列表-邀请背景@3x.png in Resources */,
 				522144771E67FB2500C030CD /* 首页-收益@3x.png in Resources */,
+				4A26C7841EB2DCD500445CA1 /* Bonus.wav in Resources */,
 				526AA0ED1E94825400B3DCE3 /* Info.plist in Resources */,
 				52E13E541E6FE7A60047702B /* 列表-邀请箭头@2x.png in Resources */,
 				521C932E1E7FE0CA0093F1AB /* 疑难解答@2x.png in Resources */,
@@ -2187,6 +2398,7 @@
 				52363D6B1E68223500442335 /* NSArray+MASAdditions.m in Sources */,
 				526AA0F11E94825400B3DCE3 /* JSONAPI.m in Sources */,
 				4A16A1EF1EA060C300A3F433 /* TaskStepCopy.m in Sources */,
+				4A26C7791EB2DCD500445CA1 /* EAUtils.m in Sources */,
 				52D21BB71E972DF900A4418C /* UILabel+Creat.m in Sources */,
 				52D006481E9F0FDF00794CAE /* MJRefreshAutoGifFooter.m in Sources */,
 				52E0D6081E8F92DB000DC7A8 /* LimitViewController.m in Sources */,
@@ -2199,10 +2411,12 @@
 				4A16A1FC1EA060D900A3F433 /* DeepTaskDetailViewController.m in Sources */,
 				52D006441E9F0FDF00794CAE /* MJRefreshBackFooter.m in Sources */,
 				52AF3FB01E69083100A1EF29 /* UIButton+WebCache.m in Sources */,
+				4A26C77D1EB2DCD500445CA1 /* EARocketGameScene.m in Sources */,
 				52D006091E9DC18E00794CAE /* PostPhoneViewController.m in Sources */,
 				522143C81E67C44100C030CD /* AFNetworkReachabilityManager.m in Sources */,
 				52D006521E9F0FDF00794CAE /* MJRefreshConst.m in Sources */,
 				52E0D5F01E8DEAC0000DC7A8 /* PersonMesgViewController.m in Sources */,
+				4A26C77E1EB2DCD500445CA1 /* EAUFOGameScene.m in Sources */,
 				522144251E67F80500C030CD /* FirstViewController.m in Sources */,
 				4A16A1F21EA060C300A3F433 /* TaskStepTutor.m in Sources */,
 				4A16A1ED1EA060C300A3F433 /* TaskStepComment.m in Sources */,
@@ -2213,6 +2427,7 @@
 				52D21BB31E97255D00A4418C /* ChartsViewController.m in Sources */,
 				4A385D3C1EA701670019FB66 /* HighTaskModel.m in Sources */,
 				5221442E1E67F84C00C030CD /* FourViewController.m in Sources */,
+				4A26C7811EB2DCD500445CA1 /* EAScrollingSprite.m in Sources */,
 				529815A61E973F1F00451D01 /* ChartsTableViewCell.m in Sources */,
 				522C143E1E6804DD00F28F10 /* UIView+CGSet.m in Sources */,
 				52AF3FAB1E69083100A1EF29 /* SDWebImageDecoder.m in Sources */,
@@ -2223,6 +2438,7 @@
 				5221442B1E67F83600C030CD /* ThirdViewController.m in Sources */,
 				4A385D3F1EA72E470019FB66 /* HighTaskWebViewController.m in Sources */,
 				526AA0F21E94825400B3DCE3 /* JSONHTTPClient.m in Sources */,
+				4A26C77A1EB2DCD500445CA1 /* EKMusicPlayer.m in Sources */,
 				52363D661E68223500442335 /* MASConstraint.m in Sources */,
 				52D006501E9F0FDF00794CAE /* MJRefreshStateHeader.m in Sources */,
 				52AF3FB31E69083100A1EF29 /* UIImage+WebP.m in Sources */,
@@ -2233,10 +2449,12 @@
 				52AF3FA71E69083100A1EF29 /* MKAnnotationView+WebCache.m in Sources */,
 				52B1A9671EA74B20009525F3 /* HezuoViewController.m in Sources */,
 				4A16A1FB1EA060D900A3F433 /* CommentTaskDetailViewController.m in Sources */,
+				4A26C77B1EB2DCD500445CA1 /* EABaseGameScene.m in Sources */,
 				527EC43D1EA4937A00E62494 /* WeChatViewController.m in Sources */,
 				52363D6D1E68223500442335 /* View+MASAdditions.m in Sources */,
 				52D0060E1E9E3CD400794CAE /* NoneListView.m in Sources */,
 				52363D671E68223500442335 /* MASConstraintMaker.m in Sources */,
+				4A26C7771EB2DCD500445CA1 /* EAGameCenterProvider.m in Sources */,
 				52D006451E9F0FDF00794CAE /* MJRefreshComponent.m in Sources */,
 				52D006491E9F0FDF00794CAE /* MJRefreshAutoNormalFooter.m in Sources */,
 				52AF3FB41E69083100A1EF29 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -2289,13 +2507,18 @@
 				52D006541E9F0FDF00794CAE /* UIScrollView+MJExtension.m in Sources */,
 				52AF3FA81E69083100A1EF29 /* NSData+ImageContentType.m in Sources */,
 				522143CB1E67C44100C030CD /* AFURLResponseSerialization.m in Sources */,
+				4A26C7801EB2DCD500445CA1 /* EAObstacle.m in Sources */,
 				52AF3FAF1E69083100A1EF29 /* SDWebImagePrefetcher.m in Sources */,
 				4A16A1F01EA060C300A3F433 /* TaskStepDeep.m in Sources */,
 				4A14D1D61EA0940B000427A9 /* NSObject+YYModel.m in Sources */,
+				4A26C7761EB2DCD500445CA1 /* EAAppDelegate.m in Sources */,
+				4A26C7751EB2DCD500445CA1 /* EAGameViewController.m in Sources */,
+				4A26C77C1EB2DCD500445CA1 /* EAMenuScene.m in Sources */,
 				4A385D431EA8B4720019FB66 /* XWScanImage.m in Sources */,
 				52CCF2351E94957C00AB6EB7 /* SonViewController.m in Sources */,
 				4A16A1F11EA060C300A3F433 /* TaskStepTimeLimited.m in Sources */,
 				5204E3E31E9F8195006751CF /* LianJieViewController.m in Sources */,
+				4A26C77F1EB2DCD500445CA1 /* EAHero.m in Sources */,
 				4A16A1EE1EA060C300A3F433 /* TaskStepCommit.m in Sources */,
 				527EC4401EA4939100E62494 /* AliPayViewController.m in Sources */,
 				5237E3E81EA0C45D002F1D4B /* WithDrawMethodViewController.m in Sources */,
@@ -2303,6 +2526,7 @@
 				526AA0D51E947FEF00B3DCE3 /* MakeTableViewCell.m in Sources */,
 				52AF3FB21E69083100A1EF29 /* UIImage+MultiFormat.m in Sources */,
 				52D0064A1E9F0FDF00794CAE /* MJRefreshAutoStateFooter.m in Sources */,
+				4A26C7781EB2DCD500445CA1 /* EAScoresStoreManager.m in Sources */,
 				52A6DF341E94EAD600AA7243 /* GoodViewController.m in Sources */,
 				4A16A1EC1EA060C300A3F433 /* TaskInfoView.m in Sources */,
 				52363D6E1E68223500442335 /* ViewController+MASAdditions.m in Sources */,
