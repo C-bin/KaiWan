@@ -111,9 +111,10 @@
         
         if ([dataDic[@"code"] intValue] == 1) {
             [self setRootViewControllerWithShell];
-            [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"isKaiWan"];
+            
         } else {
             [self setRootViewControllerWithKaiWan];
+            [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"isKaiWan"];
         }
     }
     
