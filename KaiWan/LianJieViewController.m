@@ -126,7 +126,7 @@
     }];
 }
 - (void)shareClick:(UIButton *)btn {
-    [UMSocialUIManager setPreDefinePlatforms:@[@(4),@(5)]];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxa1a41b8da8ec5f1d" appSecret:@"41a4c78cefb9354572e1d39a55f5c3f6" redirectURL:@"http://mobile.umeng.com/social"];
     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
         
         [self shareWebPageToPlatformType:platformType];
@@ -145,7 +145,8 @@
     UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"和我一起来赚钱吧！" descr:@"欢迎使用开玩，这是一款利用用户闲暇时间赚钱的软件" thumImage:thumbURL];
     //设置网页地址
     shareObject.webpageUrl = [NSString stringWithFormat:@"http://s2.vbokai.com/share.html?code=%@",del.uid];
-    
+    shareObject.thumbImage = [UIImage imageNamed:@"123123.png"];
+
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
     

@@ -27,6 +27,14 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>wxa1a41b8da8ec5f1d</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
 				<string>wx92790f9f31a16759</string>
 			</array>
 		</dict>

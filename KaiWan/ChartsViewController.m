@@ -124,6 +124,7 @@
     [self.idLabel makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo([UIView setHeight:31]);
         make.left.equalTo(self.headicon.right).offset([UIView setWidth:12]);
+        make.right.equalTo(-WidthScale(120));
         
     }];
     [self.discipleNumLabel makeConstraints:^(MASConstraintMaker *make) {
@@ -284,7 +285,7 @@
         self.dayRankArr = [NSArray arrayWithArray:response[@"data"][@"day"]];
         
         self.discipleNumLabel.text = [NSString stringWithFormat:@"徒弟:%@", response[@"data"][@"invite_all_count"]];
-        self.moneyLabel.text = [NSString stringWithFormat:@"收入:%@", response[@"data"][@"invite_money_sum"]];
+        self.moneyLabel.text = @"";
         
         [self.table reloadData];
     } fail:^(NSError *error) {

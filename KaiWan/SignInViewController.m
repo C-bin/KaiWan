@@ -274,7 +274,7 @@
 }
 
 - (void)shareClick:(UIButton *)btn {
-    [UMSocialUIManager setPreDefinePlatforms:@[@(4),@(5)]];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxa1a41b8da8ec5f1d" appSecret:@"41a4c78cefb9354572e1d39a55f5c3f6" redirectURL:@"http://mobile.umeng.com/social"];
     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
         
         [self shareWebPageToPlatformType:platformType];
@@ -296,7 +296,8 @@
     
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
-    
+    shareObject.thumbImage = [UIImage imageNamed:@"123123.png"];
+
     //调用分享接口
     [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
         if (error) {

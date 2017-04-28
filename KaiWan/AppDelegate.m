@@ -157,7 +157,6 @@
         hub.label.text = @"您的IDFA发生改变，请重新登录，如有疑问请联系客服";
         hub.mode = MBProgressHUDModeText;
         [hub hideAnimated:YES afterDelay:1.5f];
-        
         self.idfa = idfa;
         self.window.rootViewController = [[BangDViewController alloc]init];
     }
