@@ -22,6 +22,9 @@
         self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.frame.size.width - WidthScale(60)) / 2, HeightScale(30), WidthScale(60), WidthScale(60))];
         self.iconImageView.layer.cornerRadius = WidthScale(8);
         self.iconImageView.layer.masksToBounds = YES;
+        self.iconImageView.layer.borderColor = COLOR_RGB(229, 229, 229, 1).CGColor;
+        self.iconImageView.layer.borderWidth = 0.5;
+        
         
         self.rankLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.iconImageView.frame), self.frame.size.width, HeightScale(35))];
         self.rankLabel.textAlignment = NSTextAlignmentCenter;

@@ -11,6 +11,10 @@
 #import "LianJieViewController.h"
 #import "SaoMaViewController.h"
 @interface MakeDiscipleViewController ()
+
+{
+    AppDelegate *_delegate;
+}
 @property (nonatomic,strong) UILabel *moneyLabel;
 @property (nonatomic,strong) UILabel *todayDisciplelabel;
 @property (nonatomic,strong) UILabel *todayEffectiveDis;
@@ -30,6 +34,8 @@
     self.titlestring = @"收徒";
     [self setNavigationBar];
     [self creatUI];
+    
+    _delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -274,6 +280,9 @@
     bview = [[UIView alloc]initWithFrame:self.view.bounds];
     bview.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
     [self.view addSubview:bview];
+    
+    UIWindow *window = _delegate.window;
+    [window addSubview:bview];
     bview.userInteractionEnabled = YES;
     UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"填写邀请码"]];
     [bview addSubview:image];

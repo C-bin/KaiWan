@@ -60,7 +60,8 @@ static CGFloat tutorImageViewWidth;
         [imageView sd_setImageWithURL:[NSURL URLWithString:_tutorImgArr[i]]];
         imageView.tag = 10 + i;
         imageView.userInteractionEnabled = YES;
-        
+        imageView.layer.cornerRadius = WidthScale(5);
+        imageView.layer.masksToBounds = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
         
         [imageView addGestureRecognizer:tap];

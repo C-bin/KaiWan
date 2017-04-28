@@ -115,7 +115,7 @@
     }];
 }
 - (void)creatTB {
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT-64-49) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SWIDTH, SHEIGHT-64) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = SF_COLOR(235, 235, 235);
@@ -273,7 +273,7 @@
     }
     
     //任务数量为0 并且 状态等于-98 ，则不能点击进入详情页
-    if (([self.dataArr[0][indexPath.row][@"amount"] intValue] <= 0) && [self.dataArr[0][indexPath.row][@"status"] intValue] == -98) {
+    if (([self.dataArr[indexPath.row][@"amount"] intValue] <= 0) && [self.dataArr[indexPath.row][@"status"] intValue] == -98) {
         return;
     }
     
