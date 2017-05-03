@@ -281,14 +281,14 @@
     bview.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
     [self.view addSubview:bview];
     
-    UIWindow *window = _delegate.window;
-    [window addSubview:bview];
+//    UIWindow *window = _delegate.window;
+//    [window addSubview:bview];
     bview.userInteractionEnabled = YES;
     UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"填写邀请码"]];
     [bview addSubview:image];
 //    image.backgroundColor = [UIColor whiteColor];
     [image makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
+        make.center.equalTo(bview);
         make.width.equalTo(WidthScale(233));
         make.height.equalTo(HeightScale(255));
     }];
@@ -352,6 +352,7 @@
     }
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
     [tf resignFirstResponder];
 }
 - (void)returnView {
