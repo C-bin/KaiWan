@@ -1,7 +1,7 @@
 //
 //  TaskStepTimeLimited.h
 //  KaiWan
-//
+//  限时任务详情页
 //  Created by van7ish on 2017/4/13.
 //  Copyright © 2017年 chenguang. All rights reserved.
 //

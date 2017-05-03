@@ -1,7 +1,7 @@
 //
 //  TaskInfoView.h
 //  KaiWan
-//
+//  任务详情页第一栏
 //  Created by van7ish on 2017/4/13.
 //  Copyright © 2017年 chenguang. All rights reserved.
 //
