@@ -104,7 +104,7 @@
     if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"isKaiWan"] intValue] == 1) {
         [self setRootViewControllerWithKaiWan];
     } else {
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://api.ikaiwan.com/Config.html"]];
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://api.ikaiwan.com/Config.html?t=1"]];
         
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         DLog(@"%@", dataDic);
@@ -202,7 +202,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 
 
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://api.ikaiwan.com/Config.html"]];
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://api.ikaiwan.com/Config.html?t=1"]];
         
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         DLog(@"%@", dataDic);
